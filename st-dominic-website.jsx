@@ -77,6 +77,64 @@ h1, h2, h3, h4 {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* accessibility */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  padding: 12px 24px;
+  background: ${T.burgundy};
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 4px 4px;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+:focus-visible {
+  outline: 2px solid ${T.gold};
+  outline-offset: 2px;
+}
+button:focus-visible {
+  outline: 2px solid ${T.gold};
+  outline-offset: 2px;
+}
+
+/* hover utilities (replaces inline JS handlers) */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+}
+.hover-lift-sm {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift-sm:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.btn-hover {
+  transition: all 0.3s ease;
+}
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* clickable contact links */
+a.contact-link {
+  color: inherit;
+  text-decoration: none;
+}
+a.contact-link:hover {
+  text-decoration: underline;
+}
 `;
 
 /* ─── reusable hooks ─── */
@@ -152,7 +210,7 @@ function Nav({ page, setPage }) {
         </div>
 
         {/* mobile toggle */}
-        <button onClick={() => setOpen(!open)} style={{ background: "none", border: "none", cursor: "pointer", padding: 8, fontSize: 24, color: T.burgundy, lineHeight: 1 }} className="nav-mobile-toggle">
+        <button onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} style={{ background: "none", border: "none", cursor: "pointer", padding: 8, fontSize: 24, color: T.burgundy, lineHeight: 1 }} className="nav-mobile-toggle">
           {open ? "✕" : "☰"}
         </button>
       </div>
@@ -195,10 +253,7 @@ function Btn({ children, onClick, variant = "primary", style: s = {} }) {
     gold: { background: T.gold, color: T.softBlack, ...base },
     light: { background: "rgba(255,255,255,0.15)", color: "#fff", border: "1px solid rgba(255,255,255,0.4)", ...base, backdropFilter: "blur(4px)" },
   };
-  return <button onClick={onClick} style={{ ...variants[variant], ...s }}
-    onMouseEnter={e => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 6px 20px rgba(0,0,0,0.12)"; }}
-    onMouseLeave={e => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "none"; }}
-  >{children}</button>;
+  return <button onClick={onClick} className="btn-hover" style={{ ...variants[variant], ...s }}>{children}</button>;
 }
 
 /* ─── section wrapper ─── */
@@ -224,7 +279,7 @@ function Footer({ setPage }) {
       <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: 40 }}>
         <div>
           <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 24, fontWeight: 700, color: T.gold, marginBottom: 12 }}>St. Dominic</div>
-          <div style={{ fontSize: 12, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16, color: "rgba(255,255,255,0.5)" }}>Catholic Parish · Youngstown, OH</div>
+          <div style={{ fontSize: 12, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16, color: "rgba(255,255,255,0.7)" }}>Catholic Parish · Youngstown, OH</div>
           <p style={{ fontSize: 14, lineHeight: 1.8 }}>Served by the Dominican Friars of the Province of St. Joseph. Bringing the riches of Christ to Youngstown since 1923.</p>
         </div>
         <div>
@@ -235,11 +290,11 @@ function Footer({ setPage }) {
         </div>
         <div>
           <h4 style={{ color: T.goldLight, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>Contact</h4>
-          <p style={{ fontSize: 14, lineHeight: 2 }}>77 East Lucius Avenue<br />Youngstown, OH 44507<br />(330) 783-1900<br />office@saintdominic.org</p>
-          <p style={{ fontSize: 13, marginTop: 8, color: "rgba(255,255,255,0.5)" }}>Office Hours: Mon–Fri, 8:30 AM – 1:30 PM</p>
+          <p style={{ fontSize: 14, lineHeight: 2 }}>77 East Lucius Avenue<br />Youngstown, OH 44507<br /><a href="tel:+13307831900" className="contact-link">(330) 783-1900</a><br /><a href="mailto:office@saintdominic.org" className="contact-link">office@saintdominic.org</a></p>
+          <p style={{ fontSize: 13, marginTop: 8, color: "rgba(255,255,255,0.7)" }}>Office Hours: Mon–Fri, 8:30 AM – 1:30 PM</p>
         </div>
       </div>
-      <div style={{ maxWidth: 1100, margin: "40px auto 0", paddingTop: 24, borderTop: "1px solid rgba(255,255,255,0.1)", textAlign: "center", fontSize: 12, color: "rgba(255,255,255,0.35)" }}>
+      <div style={{ maxWidth: 1100, margin: "40px auto 0", paddingTop: 24, borderTop: "1px solid rgba(255,255,255,0.1)", textAlign: "center", fontSize: 12, color: "rgba(255,255,255,0.55)" }}>
         © {new Date().getFullYear()} St. Dominic Catholic Parish · Youngstown, OH · All Rights Reserved
       </div>
     </footer>
@@ -261,8 +316,8 @@ function HomePage({ setPage }) {
         position: "relative", overflow: "hidden", padding: "120px 24px 80px",
       }}>
         {/* decorative elements */}
-        <div style={{ position: "absolute", top: -100, right: -100, width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(197,165,90,0.12) 0%, transparent 70%)" }} />
-        <div style={{ position: "absolute", bottom: -80, left: -80, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(197,165,90,0.08) 0%, transparent 70%)" }} />
+        <div aria-hidden="true" style={{ position: "absolute", top: -100, right: -100, width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle, rgba(197,165,90,0.12) 0%, transparent 70%)" }} />
+        <div aria-hidden="true" style={{ position: "absolute", bottom: -80, left: -80, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(197,165,90,0.08) 0%, transparent 70%)" }} />
         <div style={{ position: "absolute", inset: 0, background: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A55A' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
 
         <div style={{ textAlign: "center", position: "relative", zIndex: 1, maxWidth: 720, animation: "fadeUp 1s ease" }}>
@@ -368,20 +423,18 @@ function HomePage({ setPage }) {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 24 }}>
             {[
               { icon: "⛪", title: "Visit Us", desc: "77 East Lucius Ave\nYoungstown, OH 44507" },
-              { icon: "📞", title: "Call Us", desc: "(330) 783-1900\nFax: (330) 783-2396" },
+              { icon: "📞", title: "Call Us", desc: null, link: "tel:+13307831900", linkText: "(330) 783-1900", extra: "Fax: (330) 783-2396" },
               { icon: "🕐", title: "Office Hours", desc: "Monday – Friday\n8:30 AM – 1:30 PM" },
-              { icon: "✉️", title: "Email Us", desc: "office@saintdominic.org" },
+              { icon: "✉️", title: "Email Us", desc: null, link: "mailto:office@saintdominic.org", linkText: "office@saintdominic.org" },
             ].map((c, i) => (
-              <div key={i} style={{
+              <div key={i} className="hover-lift" style={{
                 background: T.warmWhite, padding: 32, borderRadius: 4, textAlign: "center",
-                border: `1px solid ${T.stone}`, transition: "transform 0.3s, box-shadow 0.3s",
-              }}
-                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 12px 32px rgba(0,0,0,0.08)"; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
-              >
-                <div style={{ fontSize: 32, marginBottom: 12 }}>{c.icon}</div>
+                border: `1px solid ${T.stone}`,
+              }}>
+                <div style={{ fontSize: 32, marginBottom: 12 }} aria-hidden="true">{c.icon}</div>
                 <h4 style={{ fontSize: 18, marginBottom: 8, color: T.burgundy }}>{c.title}</h4>
-                <p style={{ fontSize: 14, color: T.warmGray, whiteSpace: "pre-line", lineHeight: 1.7 }}>{c.desc}</p>
+                {c.desc && <p style={{ fontSize: 14, color: T.warmGray, whiteSpace: "pre-line", lineHeight: 1.7 }}>{c.desc}</p>}
+                {c.link && <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}><a href={c.link} className="contact-link" style={{ color: T.burgundy, fontWeight: 500 }}>{c.linkText}</a>{c.extra && <><br />{c.extra}</>}</p>}
               </div>
             ))}
           </div>
@@ -498,7 +551,7 @@ function AboutPage() {
               { icon: "🤝", title: "Service", desc: "We serve the poor and our neighbors through outreach, community events, and ministries that bring Christ's love to Youngstown." },
             ].map((c, i) => (
               <div key={i} style={{ background: T.warmWhite, padding: 36, borderRadius: 4, border: `1px solid ${T.stone}`, textAlign: "center" }}>
-                <div style={{ fontSize: 36, marginBottom: 16 }}>{c.icon}</div>
+                <div style={{ fontSize: 36, marginBottom: 16 }} aria-hidden="true">{c.icon}</div>
                 <h3 style={{ fontSize: 22, color: T.burgundy, marginBottom: 12, fontFamily: "'Cormorant Garamond', serif" }}>{c.title}</h3>
                 <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.8 }}>{c.desc}</p>
               </div>
@@ -598,7 +651,7 @@ function BulletinPage() {
       <Section bg={T.warmWhite}>
         <FadeSection>
           <div style={{ maxWidth: 680, margin: "0 auto", textAlign: "center" }}>
-            <div style={{ fontSize: 64, marginBottom: 24 }}>📰</div>
+            <div style={{ fontSize: 64, marginBottom: 24 }} aria-hidden="true">📰</div>
             <h2 style={{ fontSize: 28, color: T.softBlack, marginBottom: 16, fontFamily: "'Cormorant Garamond', serif" }}>Stay Up to Date</h2>
             <p style={{ fontSize: 16, color: T.warmGray, lineHeight: 1.8, marginBottom: 32 }}>
               Our weekly parish bulletin contains announcements, upcoming events, Mass intentions, ministry news, and the pastor's message. Bulletins are available at the church entrance each weekend and can also be accessed online.
@@ -667,8 +720,8 @@ function BecomingCatholicPage({ setPage }) {
             <p style={{ fontSize: 16, color: T.warmGray, lineHeight: 1.8, marginBottom: 32 }}>
               Contact the parish office and we'll connect you with one of our priests or staff who can answer your questions and help you take the next step.
             </p>
-            <div style={{ fontSize: 20, color: T.burgundy, fontWeight: 600, marginBottom: 8 }}>(330) 783-1900</div>
-            <div style={{ fontSize: 16, color: T.warmGray }}>office@saintdominic.org</div>
+            <div style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}><a href="tel:+13307831900" className="contact-link" style={{ color: T.burgundy }}>(330) 783-1900</a></div>
+            <div style={{ fontSize: 16 }}><a href="mailto:office@saintdominic.org" className="contact-link" style={{ color: T.warmGray }}>office@saintdominic.org</a></div>
           </div>
         </FadeSection>
       </Section>
@@ -709,14 +762,10 @@ function GetInvolvedPage() {
               { icon: "🎵", title: "Music Ministry", desc: "Share your musical gifts at Mass — choir, cantoring, and instrumentalists welcome." },
               { icon: "📚", title: "Religious Education", desc: "Help form the next generation of Catholics through our CCD and faith formation programs." },
             ].map((m, i) => (
-              <div key={i} style={{
+              <div key={i} className="hover-lift-sm" style={{
                 background: T.warmWhite, padding: 28, borderRadius: 4, border: `1px solid ${T.stone}`,
-                transition: "transform 0.3s, box-shadow 0.3s",
-              }}
-                onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-3px)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(0,0,0,0.08)"; }}
-                onMouseLeave={e => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "none"; }}
-              >
-                <div style={{ fontSize: 28, marginBottom: 12 }}>{m.icon}</div>
+              }}>
+                <div style={{ fontSize: 28, marginBottom: 12 }} aria-hidden="true">{m.icon}</div>
                 <h3 style={{ fontSize: 18, color: T.burgundy, marginBottom: 8, fontFamily: "'Cormorant Garamond', serif" }}>{m.title}</h3>
                 <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>{m.desc}</p>
               </div>
@@ -732,8 +781,8 @@ function GetInvolvedPage() {
             <p style={{ fontSize: 16, color: "rgba(255,255,255,0.8)", marginBottom: 24, maxWidth: 500, margin: "0 auto 24px", lineHeight: 1.8 }}>
               Contact the parish office to register as a new parishioner. We can't wait to welcome you to our family!
             </p>
-            <div style={{ fontSize: 20, color: T.goldLight, fontWeight: 600, marginBottom: 8 }}>(330) 783-1900</div>
-            <div style={{ fontSize: 14, color: "rgba(255,255,255,0.6)" }}>office@saintdominic.org</div>
+            <div style={{ fontSize: 20, fontWeight: 600, marginBottom: 8 }}><a href="tel:+13307831900" className="contact-link" style={{ color: T.goldLight }}>(330) 783-1900</a></div>
+            <div style={{ fontSize: 14 }}><a href="mailto:office@saintdominic.org" className="contact-link" style={{ color: "rgba(255,255,255,0.75)" }}>office@saintdominic.org</a></div>
           </div>
         </FadeSection>
       </Section>
@@ -744,8 +793,22 @@ function GetInvolvedPage() {
 /* ══════════════════════════════════════════════
    APP ROOT
    ══════════════════════════════════════════════ */
+const PAGE_TITLES = {
+  [PAGES.HOME]: "St. Dominic Catholic Parish — Youngstown, OH",
+  [PAGES.MASS_TIMES]: "Mass & Confession Times — St. Dominic Parish",
+  [PAGES.ABOUT]: "About Our Parish — St. Dominic Parish",
+  [PAGES.STAFF]: "Priests & Staff — St. Dominic Parish",
+  [PAGES.BULLETIN]: "Weekly Bulletin — St. Dominic Parish",
+  [PAGES.BECOMING_CATHOLIC]: "Becoming Catholic — St. Dominic Parish",
+  [PAGES.GET_INVOLVED]: "Get Involved — St. Dominic Parish",
+};
+
 export default function App() {
   const [page, setPage] = useState(PAGES.HOME);
+
+  useEffect(() => {
+    document.title = PAGE_TITLES[page] || PAGE_TITLES[PAGES.HOME];
+  }, [page]);
 
   const renderPage = () => {
     switch (page) {
@@ -763,8 +826,9 @@ export default function App() {
   return (
     <>
       <style>{globalCSS}</style>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Nav page={page} setPage={setPage} />
-      <main>{renderPage()}</main>
+      <main id="main-content">{renderPage()}</main>
       <Footer setPage={setPage} />
     </>
   );
