@@ -9,6 +9,40 @@
     <meta property="og:type" content="website" />
     <title>St. Dominic Catholic Parish — Youngstown, OH</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#6B1D2A" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
+    <!-- Font preloading (replaces render-blocking @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CatholicChurch",
+      "name": "St. Dominic Catholic Parish",
+      "alternateName": "Santo Domingo Parroquia Católica",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "77 East Lucius Avenue",
+        "addressLocality": "Youngstown",
+        "addressRegion": "OH",
+        "postalCode": "44507",
+        "addressCountry": "US"
+      },
+      "telephone": "+1-330-783-1900",
+      "email": "office@saintdominic.org",
+      "url": "https://saintdominic.org",
+      "foundingDate": "1923-02-23",
+      "description": "Catholic parish served by the Dominican Friars of the Province of St. Joseph since 1923.",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "13:30" }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

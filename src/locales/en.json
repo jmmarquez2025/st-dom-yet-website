@@ -1,0 +1,420 @@
+{
+  "nav": {
+    "subtitle": "Catholic Parish",
+    "home": "Home",
+    "massTimes": "Mass & Confession",
+    "sacraments": "Sacraments",
+    "about": "About",
+    "staff": "Priests & Staff",
+    "bulletin": "Bulletin",
+    "becomingCatholic": "Becoming Catholic",
+    "getInvolved": "Get Involved",
+    "contact": "Contact",
+    "give": "Give"
+  },
+  "footer": {
+    "subtitle": "Catholic Parish · Youngstown, OH",
+    "description": "Served by the Dominican Friars of the Province of St. Joseph. Bringing the riches of Christ to Youngstown since 1923.",
+    "quickLinks": "Quick Links",
+    "contactTitle": "Contact",
+    "officeHours": "Office Hours",
+    "rights": "All Rights Reserved"
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Served by the Dominican Friars",
+      "title": "St. Dominic\nCatholic Parish",
+      "location": "Youngstown, Ohio",
+      "ctaMass": "Mass & Confession Times",
+      "ctaBecoming": "Interested in Becoming Catholic?"
+    },
+    "welcome": {
+      "sub": "Welcome",
+      "title": "Encounter Jesus Christ with Us",
+      "p1": "St. Dominic Parish has been a center of faith, liturgy, and preaching in the heart of Youngstown's south side since 1923. Led by the Dominican Friars of the Province of St. Joseph, we are devoted to forming faithful disciples in the rich liturgical and intellectual tradition of the Catholic Church.",
+      "p2": "Our doors are open to everyone — lifelong Catholics, those returning to the faith, and anyone seeking truth. Join us in growing closer to Christ through Word, Sacrament, and Service.",
+      "cta": "About Us"
+    },
+    "massCta": {
+      "sub": "Worship",
+      "title": "Come Worship with Us",
+      "desc": "Join us! We'd love to welcome you to our beautiful Romanesque church. Whether you're visiting Youngstown or looking for a new parish home, find our Mass and Confession times below.",
+      "cta": "See Mass & Confession Times",
+      "sundayMass": "Sunday Mass",
+      "satVigil": "Saturday Vigil:",
+      "sun": "Sunday:",
+      "sunEspanol": "Sunday (Español):"
+    },
+    "priests": {
+      "sub": "Our Team",
+      "title": "Priests & Staff",
+      "quote": "\"To praise, to bless, and to preach.\"",
+      "quoteSrc": "— Motto of the Dominican Order",
+      "desc": "Our dedicated team of Dominican friars and parish staff are here to provide spiritual guidance, support, and resources to help you grow in your Catholic faith.",
+      "cta": "Meet Our Priests & Staff"
+    },
+    "involved": {
+      "sub": "Get Involved",
+      "title": "Become a Parishioner",
+      "desc": "Explore St. Dominic's! We have vibrant ministries, community events, a Hispanic ministry program, and many service opportunities. Come be a part of our family.",
+      "ctaRegister": "Register in the Parish",
+      "ctaBulletin": "Recent Bulletins"
+    },
+    "cards": {
+      "visitTitle": "Visit Us",
+      "visitDesc": "77 East Lucius Ave\nYoungstown, OH 44507",
+      "callTitle": "Call Us",
+      "fax": "Fax: (330) 783-2396",
+      "hoursTitle": "Office Hours",
+      "hoursDesc": "Monday – Friday\n8:30 AM – 1:30 PM",
+      "emailTitle": "Email Us"
+    }
+  },
+  "schedule": {
+    "saturdayVigil": "Saturday Vigil",
+    "sunday": "Sunday",
+    "sundayEspanol": "Sunday (Español)",
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "tuesdayEveningPrayer": "Tuesday Evening Prayer"
+  },
+  "massTimes": {
+    "title": "Mass & Confession Times",
+    "sundayMass": "Sunday Mass Schedule",
+    "dailyMass": "Daily Mass Schedule",
+    "confession": "Confession Schedule",
+    "adoration": "Adoration & Devotions",
+    "holyDays": "Holy Days of Obligation",
+    "holyDaysDesc": "Vigil: 5:00 PM · Holy Day: 8:00 AM, 12:00 PM, 7:00 PM (Español)"
+  },
+  "about": {
+    "title": "About Our Parish",
+    "history": {
+      "sub": "Our History",
+      "title": "A Legacy of Faith Since 1923",
+      "p1": "The Dominican Order of Preachers founded St. Dominic Parish on February 23, 1923, at the invitation of Cleveland Archbishop Joseph Schrembs. The first Mass was offered in a storeroom on Market Street — a humble beginning for what would become a vibrant center of faith on Youngstown's south side.",
+      "p2": "The current building, a stunning limestone-and-brick Romanesque structure, was dedicated on April 28, 1957. A life-size statue of Saint Dominic stands positioned over the entrance, welcoming all who come to worship.",
+      "p3": "Saint Dominic de Guzman founded the Dominican Order in the 13th century, devoted to rekindling the faith of Europe. In the centuries since, Dominicans have spread around the world with their motto: \"to praise, to bless, and to preach.\" Our parish carries forward this tradition in the Diocese of Youngstown.",
+      "p4": "Today, St. Dominic maintains many community-focused ministries, including a Lay Dominican program, Catholic Men's Fellowship, Parish and Family Life ministry, and a vibrant Hispanic Ministry program with weekly Spanish Masses."
+    },
+    "mission": {
+      "sub": "Our Mission",
+      "title": "What We Believe",
+      "word": {
+        "title": "Word",
+        "desc": "We preach the Gospel with clarity and depth, rooted in the Dominican intellectual tradition and the teachings of the Church."
+      },
+      "sacrament": {
+        "title": "Sacrament",
+        "desc": "We celebrate the liturgy with reverence and beauty, offering daily Mass, frequent Confession, and Eucharistic adoration."
+      },
+      "service": {
+        "title": "Service",
+        "desc": "We serve the poor and our neighbors through outreach, community events, and ministries that bring Christ's love to Youngstown."
+      }
+    },
+    "architecture": {
+      "title": "Our Church Architecture",
+      "desc": "The architectural style of St. Dominic Church is modernized Romanesque — featuring limestone and brick construction, a towering presence on Lucius Avenue, and sacred art that inspires prayer and contemplation."
+    }
+  },
+  "staff": {
+    "title": "Priests & Staff",
+    "friars": {
+      "sub": "Dominican Friars",
+      "title": "Our Priests"
+    },
+    "staff": {
+      "sub": "Parish Team",
+      "title": "Our Staff"
+    },
+    "roles": {
+      "pastor": "Pastor",
+      "associate": "Associate",
+      "parishSecretary": "Parish Secretary",
+      "musicDirector": "Music Director",
+      "religiousEdCoordinator": "Coordinator of Religious Education",
+      "parochialAssistant": "Parochial Assistant"
+    }
+  },
+  "bulletin": {
+    "title": "Weekly Bulletin",
+    "heading": "Stay Up to Date",
+    "desc": "Our weekly parish bulletin contains announcements, upcoming events, Mass intentions, ministry news, and the pastor's message. Bulletins are available at the church entrance each weekend and can also be accessed online.",
+    "currentTitle": "Current Bulletin",
+    "currentDesc": "Visit our parish website for the most recent bulletin:",
+    "linkText": "saintdominic.org → Parish Bulletin",
+    "deadline": "Bulletin submissions are due by Monday at noon each week. Contact the parish office."
+  },
+  "becomingCatholic": {
+    "title": "Interested in Becoming Catholic?",
+    "sub": "Your Journey",
+    "heading": "Begin Your Journey of Faith",
+    "desc": "Whether you've never been baptized, were baptized in another Christian tradition, or are a baptized Catholic who hasn't yet received Confirmation or the Eucharist — we're here to walk with you.",
+    "cards": {
+      "new": {
+        "title": "New to the Faith?",
+        "desc": "If you're curious about Catholicism and have questions, we'd love to talk. No pressure, no commitment — just an open conversation about Jesus Christ and His Church.",
+        "step": "Start exploring"
+      },
+      "returning": {
+        "title": "Returning to the Church?",
+        "desc": "Welcome back. Whether it's been months or decades, the doors are open and the Lord is waiting for you. We'll help you reconnect with the Sacraments and the community.",
+        "step": "Come home"
+      },
+      "ready": {
+        "title": "Ready to Begin?",
+        "desc": "Our parish offers a process of formation (sometimes called RCIA or the Order of Christian Initiation of Adults) where you can learn, ask questions, and prepare to receive the Sacraments.",
+        "step": "Take the next step"
+      }
+    },
+    "reachOut": "Reach Out to Us",
+    "reachOutDesc": "Contact the parish office and we'll connect you with one of our priests or staff who can answer your questions and help you take the next step."
+  },
+  "getInvolved": {
+    "title": "Get Involved",
+    "sub": "Join Our Family",
+    "heading": "There's a Place for You",
+    "desc": "St. Dominic Parish is a vibrant community with many ways to get involved. Whether you're looking to deepen your prayer life, serve those in need, or build friendships — there's a ministry for you.",
+    "ministries": {
+      "liturgical": {
+        "title": "Liturgical Ministries",
+        "desc": "Serve as a lector, extraordinary minister, altar server, sacristan, or choir member."
+      },
+      "hispanic": {
+        "title": "Hispanic Ministry",
+        "desc": "Join our vibrant Spanish-speaking community with weekly Masses and cultural events."
+      },
+      "layDominicans": {
+        "title": "Lay Dominicans",
+        "desc": "Explore the Dominican charism more deeply as a member of the Lay Dominican Chapter."
+      },
+      "familyLife": {
+        "title": "Parish & Family Life",
+        "desc": "Help organize community-building events, dinners, and parish celebrations."
+      },
+      "mensFellowship": {
+        "title": "Catholic Men's Fellowship",
+        "desc": "Join men of the parish for prayer, study, and fellowship."
+      },
+      "svdp": {
+        "title": "St. Vincent de Paul Society",
+        "desc": "Serve those in need in our community through direct outreach and assistance."
+      },
+      "music": {
+        "title": "Music Ministry",
+        "desc": "Share your musical gifts at Mass — choir, cantoring, and instrumentalists welcome."
+      },
+      "religiousEd": {
+        "title": "Religious Education",
+        "desc": "Help form the next generation of Catholics through our CCD and faith formation programs."
+      }
+    },
+    "register": {
+      "title": "Ready to Register?",
+      "desc": "Contact the parish office to register as a new parishioner. We can't wait to welcome you to our family!",
+      "cta": "Contact Us"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "formTitle": "Send Us a Message",
+    "formDesc": "Fill out the form below and we'll get back to you as soon as possible.",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "category": "Category",
+    "catGeneral": "General Inquiry",
+    "catSacraments": "Sacraments",
+    "catBecoming": "Becoming Catholic",
+    "catMinistries": "Ministries",
+    "catFacilities": "Facility Rental",
+    "message": "Message",
+    "submit": "Send Message",
+    "sending": "Sending…",
+    "success": "Thank you! Your message has been sent. We'll be in touch soon.",
+    "error": "Something went wrong. Please try calling us or sending an email directly.",
+    "infoTitle": "Parish Information",
+    "fax": "Fax",
+    "officeHours": "Office Hours",
+    "mapTitle": "Map to St. Dominic Catholic Parish"
+  },
+  "give": {
+    "title": "Online Giving",
+    "sub": "Support Our Parish",
+    "heading": "Your Generosity Makes a Difference",
+    "desc": "Your financial support helps St. Dominic Parish continue its mission of preaching, teaching, and serving. Every gift — large or small — helps sustain our liturgies, ministries, and outreach programs.",
+    "onlineTitle": "Give Online with WeShare",
+    "onlineDesc": "WeShare is a safe, convenient way to make one-time or recurring donations to St. Dominic Parish. You can give anytime from your computer or mobile device.",
+    "weShareBtn": "Give Now via WeShare",
+    "comingSoon": "Online giving is coming soon. In the meantime, please use one of the methods below or contact the parish office.",
+    "contactOffice": "Call us to arrange your gift today.",
+    "weShareNote": "Powered by WeShare. Your information is secure and encrypted.",
+    "otherSub": "Other Ways",
+    "otherTitle": "Other Ways to Give",
+    "methods": {
+      "offertory": {
+        "title": "Sunday Offertory",
+        "desc": "Place your gift in the collection basket during any weekend Mass. Envelopes are available at the church entrance."
+      },
+      "mail": {
+        "title": "Give by Mail",
+        "desc": "Mail your gift to: St. Dominic Parish, 77 East Lucius Avenue, Youngstown, OH 44507."
+      },
+      "stock": {
+        "title": "Stock & Securities",
+        "desc": "Transfer appreciated stock or securities for a tax-advantaged gift. Contact the parish office for details."
+      }
+    },
+    "taxNote": "St. Dominic Catholic Parish is a 501(c)(3) tax-exempt organization. All donations are tax-deductible to the extent allowed by law. You will receive an annual giving statement for your records.",
+    "questions": "Questions about giving?"
+  },
+  "sacraments": {
+    "title": "The Sacraments",
+    "sub": "Gifts of Grace",
+    "heading": "Encounter Christ Through the Sacraments",
+    "desc": "The seven sacraments are at the heart of Catholic life. They are efficacious signs of grace, instituted by Christ and entrusted to the Church, by which divine life is dispensed to us. At St. Dominic Parish, we joyfully celebrate each sacrament.",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us",
+    "baptism": {
+      "title": "Baptism",
+      "brief": "The gateway to life in the Spirit. Through Baptism we are freed from sin and reborn as children of God.",
+      "sub": "The Sacrament of",
+      "heading": "New Life in Christ",
+      "p1": "Baptism is the first and fundamental sacrament of Christian initiation. Through the waters of Baptism, we are cleansed of original sin, reborn as children of God, and welcomed into the Catholic Church. It is the doorway through which we enter into life with Christ.",
+      "p2": "At St. Dominic Parish, we celebrate Baptism for infants, children, and adults. Parents seeking Baptism for their child are invited to contact the parish office to schedule a Baptism preparation session.",
+      "reqSub": "What You Need",
+      "reqTitle": "Requirements for Baptism",
+      "req1": {
+        "title": "Baptism Preparation",
+        "desc": "Parents and godparents attend a preparation session covering the meaning and responsibilities of Baptism."
+      },
+      "req2": {
+        "title": "Godparents",
+        "desc": "At least one godparent must be a confirmed, practicing Catholic in good standing. A baptized non-Catholic Christian may serve as a Christian witness alongside a Catholic godparent."
+      },
+      "req3": {
+        "title": "Registration",
+        "desc": "Contact the parish office at least one month before the desired Baptism date to register and schedule your preparation."
+      },
+      "cta": "Schedule a Baptism",
+      "ctaDesc": "Contact us to begin the process. We're happy to answer any questions you may have."
+    },
+    "firstCommunion": {
+      "title": "First Holy Communion",
+      "brief": "Children receive the Body and Blood of Christ for the first time, deepening their union with Jesus.",
+      "sub": "The Sacrament of",
+      "heading": "Receiving the Body of Christ",
+      "p1": "First Holy Communion is a profound moment in a young Catholic's faith journey. It is the first time a child receives the Eucharist — the true Body and Blood of Jesus Christ — and enters into deeper communion with the Lord and the Church.",
+      "p2": "At St. Dominic Parish, children typically receive First Communion in second grade, after a two-year preparation through our religious education program. The celebration is a joyful occasion for the child, their family, and the entire parish community.",
+      "prepSub": "Preparation",
+      "prepTitle": "The Path to First Communion",
+      "prep1": {
+        "title": "Religious Education",
+        "desc": "Children participate in our parish CCD program beginning in first grade, learning the fundamentals of the Catholic faith."
+      },
+      "prep2": {
+        "title": "First Reconciliation",
+        "desc": "Before receiving First Communion, children celebrate the Sacrament of Reconciliation (Confession) for the first time."
+      },
+      "prep3": {
+        "title": "Family Preparation",
+        "desc": "Parents are partners in their child's faith formation. Families attend a preparation session together before the celebration."
+      },
+      "cta": "Enroll Your Child",
+      "ctaDesc": "Contact the parish office or our Coordinator of Religious Education to enroll your child in the program."
+    },
+    "confirmation": {
+      "title": "Confirmation",
+      "brief": "The fullness of the Holy Spirit strengthens the baptized to spread and defend the faith.",
+      "sub": "The Sacrament of",
+      "heading": "Sealed with the Holy Spirit",
+      "p1": "Confirmation completes the grace of Baptism and endows the recipient with the special strength of the Holy Spirit. Through Confirmation, Catholics are more perfectly bound to the Church and enriched with the power to witness to Christ in word and deed.",
+      "p2": "At St. Dominic Parish, Confirmation preparation typically takes place during high school years. Adults who have not been confirmed are welcome to contact the parish to arrange preparation at any time.",
+      "prepSub": "Preparation",
+      "prepTitle": "Preparing for Confirmation",
+      "prep1": {
+        "title": "Formation Program",
+        "desc": "Candidates participate in a multi-month preparation program of catechesis, prayer, and service to deepen their understanding of the faith."
+      },
+      "prep2": {
+        "title": "Sponsor",
+        "desc": "Each candidate chooses a sponsor — a confirmed, practicing Catholic who serves as a spiritual mentor and guide."
+      },
+      "prep3": {
+        "title": "Service & Witness",
+        "desc": "Candidates complete service hours and reflect on how they are called to live out their faith in the world."
+      },
+      "cta": "Learn About Confirmation",
+      "ctaDesc": "Contact us for information about our Confirmation preparation program for teens and adults."
+    },
+    "marriage": {
+      "title": "Marriage",
+      "brief": "A man and a woman establish a lifelong partnership ordered to the good of the spouses and the procreation of children.",
+      "sub": "The Sacrament of",
+      "heading": "A Covenant of Love",
+      "p1": "The Sacrament of Marriage is a sacred covenant between a man and a woman, witnessed before God and the Church. Through this sacrament, the couple receives the grace to love each other with the selfless, faithful love that mirrors Christ's love for the Church.",
+      "p2": "At St. Dominic Parish, we are honored to walk with couples as they prepare for the Sacrament of Marriage. Couples should contact the parish at least six months before their desired wedding date to begin the preparation process.",
+      "stepsSub": "Getting Started",
+      "stepsTitle": "Steps to Getting Married at St. Dominic",
+      "step1": {
+        "title": "Initial Meeting",
+        "desc": "Meet with one of our priests to discuss your plans, wedding date availability, and the preparation process. Contact us at least six months in advance."
+      },
+      "step2": {
+        "title": "Marriage Preparation",
+        "desc": "Complete the diocesan marriage preparation program, which includes Pre-Cana sessions covering communication, faith, finances, and family life."
+      },
+      "step3": {
+        "title": "Wedding Liturgy",
+        "desc": "Work with the celebrant to plan your wedding liturgy, including readings, music, and vows. A rehearsal is held before the ceremony."
+      },
+      "cta": "Begin Marriage Preparation",
+      "ctaDesc": "Contact the parish office to schedule your initial meeting with one of our priests."
+    },
+    "anointing": {
+      "title": "Anointing of the Sick",
+      "brief": "Comfort and strength from God for those who are seriously ill, facing surgery, or nearing the end of life.",
+      "sub": "The Sacrament of",
+      "heading": "Healing and Comfort",
+      "p1": "The Anointing of the Sick gives the grace of the Holy Spirit to those who are seriously ill or suffering. Through this sacrament, the sick person is united more closely to Christ's redemptive Passion, receives strength and peace, and — if it is God's will — bodily healing.",
+      "p2": "This sacrament may be received more than once, and it is not only for those at the point of death. Anyone facing serious illness, surgery, or the challenges of old age is encouraged to receive this sacrament.",
+      "whenTitle": "When to Request Anointing",
+      "when1": "Before a serious surgery or medical procedure",
+      "when2": "During a serious illness or hospitalization",
+      "when3": "When dealing with the frailty of old age",
+      "when4": "In danger of death from illness or injury",
+      "emergencyTitle": "Emergency? Call Us Anytime",
+      "emergencyDesc": "If someone is in danger of death and needs a priest, please call the parish at any hour.",
+      "ctaDesc": "To arrange Anointing of the Sick for yourself or a loved one, contact the parish office."
+    },
+    "funerals": {
+      "title": "Catholic Funerals",
+      "brief": "The Church accompanies the deceased and their loved ones with prayer, commending the soul to God's mercy.",
+      "sub": "Christian Burial",
+      "heading": "Hope in the Resurrection",
+      "p1": "The Catholic funeral rites are a celebration of the Christian's journey from this life to eternal life. The Church accompanies the deceased and their loved ones with prayer, offering the Holy Sacrifice of the Mass for the repose of the soul and commending the departed to God's loving mercy.",
+      "p2": "At St. Dominic Parish, our priests and staff walk with families during their time of loss, helping to arrange a funeral liturgy that honors their loved one and offers the comfort of faith. We are here to help in any way we can.",
+      "ritesSub": "The Funeral Rites",
+      "ritesTitle": "The Order of Christian Funerals",
+      "rite1": {
+        "title": "Vigil & Visitation",
+        "desc": "A time of prayer and remembrance, typically held the evening before the funeral Mass at the funeral home or church."
+      },
+      "rite2": {
+        "title": "Funeral Mass",
+        "desc": "The central celebration, where the Holy Sacrifice of the Mass is offered for the repose of the soul of the deceased."
+      },
+      "rite3": {
+        "title": "Rite of Committal",
+        "desc": "The final prayers at the cemetery, commending the body of the deceased to the earth and the soul to God."
+      },
+      "cta": "Arranging a Funeral",
+      "ctaDesc": "Contact the parish office as soon as possible after the death of a loved one. We will guide you through every step."
+    }
+  }
+}

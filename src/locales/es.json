@@ -1,0 +1,421 @@
+{
+  "nav": {
+    "subtitle": "Parroquia Católica",
+    "home": "Inicio",
+    "massTimes": "Misa y Confesión",
+    "sacraments": "Sacramentos",
+    "about": "Nosotros",
+    "staff": "Sacerdotes y Personal",
+    "bulletin": "Boletín",
+    "becomingCatholic": "Hacerse Católico",
+    "getInvolved": "Participe",
+    "contact": "Contacto",
+    "give": "Donar"
+  },
+  "footer": {
+    "subtitle": "Parroquia Católica · Youngstown, OH",
+    "description": "Servida por los Frailes Dominicos de la Provincia de San José. Llevando las riquezas de Cristo a Youngstown desde 1923.",
+    "quickLinks": "Enlaces Rápidos",
+    "contactTitle": "Contacto",
+    "officeHours": "Horario de Oficina",
+    "rights": "Todos los Derechos Reservados"
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Servida por los Frailes Dominicos",
+      "title": "Santo Domingo\nParroquia Católica",
+      "location": "Youngstown, Ohio",
+      "ctaMass": "Horarios de Misa y Confesión",
+      "ctaBecoming": "¿Interesado en Hacerse Católico?"
+    },
+    "welcome": {
+      "sub": "Bienvenidos",
+      "title": "Encuentre a Jesucristo con Nosotros",
+      "p1": "La Parroquia Santo Domingo ha sido un centro de fe, liturgia y predicación en el corazón del lado sur de Youngstown desde 1923. Dirigida por los Frailes Dominicos de la Provincia de San José, estamos dedicados a formar discípulos fieles en la rica tradición litúrgica e intelectual de la Iglesia Católica.",
+      "p2": "Nuestras puertas están abiertas a todos — católicos de toda la vida, aquellos que regresan a la fe y cualquiera que busque la verdad. Únase a nosotros para crecer más cerca de Cristo a través de la Palabra, el Sacramento y el Servicio.",
+      "cta": "Sobre Nosotros"
+    },
+    "massCta": {
+      "sub": "Culto",
+      "title": "Venga a Adorar con Nosotros",
+      "desc": "¡Acompáñenos! Nos encantaría darle la bienvenida a nuestra hermosa iglesia románica. Ya sea que esté visitando Youngstown o buscando un nuevo hogar parroquial, encuentre nuestros horarios de Misa y Confesión a continuación.",
+      "cta": "Ver Horarios de Misa y Confesión",
+      "sundayMass": "Misa Dominical",
+      "satVigil": "Vigilia del Sábado:",
+      "sun": "Domingo:",
+      "sunEspanol": "Domingo (Español):"
+    },
+    "priests": {
+      "sub": "Nuestro Equipo",
+      "title": "Sacerdotes y Personal",
+      "quote": "\"Alabar, bendecir y predicar.\"",
+      "quoteSrc": "— Lema de la Orden Dominicana",
+      "desc": "Nuestro dedicado equipo de frailes dominicos y personal parroquial está aquí para brindar guía espiritual, apoyo y recursos para ayudarle a crecer en su fe católica.",
+      "cta": "Conozca a Nuestros Sacerdotes y Personal"
+    },
+    "involved": {
+      "sub": "Participe",
+      "title": "Hágase Feligrés",
+      "desc": "¡Explore Santo Domingo! Tenemos ministerios vibrantes, eventos comunitarios, un programa de ministerio hispano y muchas oportunidades de servicio. Venga a ser parte de nuestra familia.",
+      "ctaRegister": "Regístrese en la Parroquia",
+      "ctaBulletin": "Boletines Recientes"
+    },
+    "cards": {
+      "visitTitle": "Visítenos",
+      "visitDesc": "77 East Lucius Ave\nYoungstown, OH 44507",
+      "callTitle": "Llámenos",
+      "fax": "Fax: (330) 783-2396",
+      "hoursTitle": "Horario de Oficina",
+      "hoursDesc": "Lunes – Viernes\n8:30 AM – 1:30 PM",
+      "emailTitle": "Envíenos un Correo"
+    }
+  },
+  "schedule": {
+    "saturdayVigil": "Vigilia del Sábado",
+    "sunday": "Domingo",
+    "sundayEspanol": "Domingo (Español)",
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miércoles",
+    "thursday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sábado",
+    "tuesdayEveningPrayer": "Oración Vespertina del Martes"
+  },
+  "massTimes": {
+    "title": "Horarios de Misa y Confesión",
+    "sundayMass": "Horario de Misas Dominicales",
+    "dailyMass": "Horario de Misas Diarias",
+    "confession": "Horario de Confesiones",
+    "adoration": "Adoración y Devociones",
+    "holyDays": "Días de Precepto",
+    "holyDaysDesc": "Vigilia: 5:00 PM · Día de Precepto: 8:00 AM, 12:00 PM, 7:00 PM (Español)"
+  },
+  "about": {
+    "title": "Sobre Nuestra Parroquia",
+    "history": {
+      "sub": "Nuestra Historia",
+      "title": "Un Legado de Fe Desde 1923",
+      "p1": "La Orden Dominicana de Predicadores fundó la Parroquia Santo Domingo el 23 de febrero de 1923, a invitación del Arzobispo de Cleveland Joseph Schrembs. La primera Misa se ofreció en un almacén en Market Street — un humilde comienzo para lo que se convertiría en un vibrante centro de fe en el lado sur de Youngstown.",
+      "p2": "El edificio actual, una impresionante estructura románica de piedra caliza y ladrillo, fue dedicado el 28 de abril de 1957. Una estatua de tamaño natural de Santo Domingo se encuentra sobre la entrada, dando la bienvenida a todos los que vienen a adorar.",
+      "p3": "Santo Domingo de Guzmán fundó la Orden Dominicana en el siglo XIII, dedicada a reavivar la fe de Europa. En los siglos siguientes, los dominicos se han extendido por todo el mundo con su lema: \"alabar, bendecir y predicar.\" Nuestra parroquia continúa esta tradición en la Diócesis de Youngstown.",
+      "p4": "Hoy, Santo Domingo mantiene muchos ministerios enfocados en la comunidad, incluyendo un programa de Laicos Dominicos, Fraternidad de Hombres Católicos, ministerio de Vida Parroquial y Familiar, y un vibrante programa de Ministerio Hispano con Misas semanales en español."
+    },
+    "mission": {
+      "sub": "Nuestra Misión",
+      "title": "Lo Que Creemos",
+      "word": {
+        "title": "Palabra",
+        "desc": "Predicamos el Evangelio con claridad y profundidad, arraigados en la tradición intelectual dominicana y las enseñanzas de la Iglesia."
+      },
+      "sacrament": {
+        "title": "Sacramento",
+        "desc": "Celebramos la liturgia con reverencia y belleza, ofreciendo Misa diaria, Confesión frecuente y adoración eucarística."
+      },
+      "service": {
+        "title": "Servicio",
+        "desc": "Servimos a los pobres y a nuestros vecinos a través de alcance comunitario, eventos y ministerios que llevan el amor de Cristo a Youngstown."
+      }
+    },
+    "architecture": {
+      "title": "Arquitectura de Nuestra Iglesia",
+      "desc": "El estilo arquitectónico de la Iglesia Santo Domingo es románico modernizado — con construcción de piedra caliza y ladrillo, una presencia imponente en Lucius Avenue, y arte sacro que inspira la oración y la contemplación."
+    }
+  },
+  "staff": {
+    "title": "Sacerdotes y Personal",
+    "friars": {
+      "sub": "Frailes Dominicos",
+      "title": "Nuestros Sacerdotes"
+    },
+    "staff": {
+      "sub": "Equipo Parroquial",
+      "title": "Nuestro Personal"
+    },
+    "roles": {
+      "pastor": "Párroco",
+      "associate": "Asociado",
+      "parishSecretary": "Secretaria Parroquial",
+      "musicDirector": "Directora de Música",
+      "religiousEdCoordinator": "Coordinadora de Educación Religiosa",
+      "parochialAssistant": "Asistente Parroquial"
+    }
+  },
+  "bulletin": {
+    "title": "Boletín Semanal",
+    "heading": "Manténgase al Día",
+    "desc": "Nuestro boletín parroquial semanal contiene anuncios, próximos eventos, intenciones de Misa, noticias de ministerios y el mensaje del párroco. Los boletines están disponibles en la entrada de la iglesia cada fin de semana y también se pueden acceder en línea.",
+    "currentTitle": "Boletín Actual",
+    "currentDesc": "Visite nuestro sitio web parroquial para el boletín más reciente:",
+    "linkText": "saintdominic.org → Boletín Parroquial",
+    "deadline": "Las presentaciones para el boletín deben enviarse antes del lunes al mediodía cada semana. Contacte la oficina parroquial."
+  },
+  "becomingCatholic": {
+    "title": "¿Interesado en Hacerse Católico?",
+    "sub": "Su Camino",
+    "heading": "Comience Su Camino de Fe",
+    "desc": "Ya sea que nunca haya sido bautizado, fue bautizado en otra tradición cristiana, o es un católico bautizado que aún no ha recibido la Confirmación o la Eucaristía — estamos aquí para caminar con usted.",
+    "cards": {
+      "new": {
+        "title": "¿Nuevo en la Fe?",
+        "desc": "Si tiene curiosidad sobre el catolicismo y tiene preguntas, nos encantaría conversar. Sin presión, sin compromiso — solo una conversación abierta sobre Jesucristo y Su Iglesia.",
+        "step": "Empiece a explorar"
+      },
+      "returning": {
+        "title": "¿Regresando a la Iglesia?",
+        "desc": "Bienvenido de vuelta. Ya sea que hayan pasado meses o décadas, las puertas están abiertas y el Señor le está esperando. Le ayudaremos a reconectarse con los Sacramentos y la comunidad.",
+        "step": "Regrese a casa"
+      },
+      "ready": {
+        "title": "¿Listo para Comenzar?",
+        "desc": "Nuestra parroquia ofrece un proceso de formación (a veces llamado RICA o el Orden de Iniciación Cristiana de Adultos) donde puede aprender, hacer preguntas y prepararse para recibir los Sacramentos.",
+        "step": "Dé el siguiente paso"
+      }
+    },
+    "reachOut": "Comuníquese con Nosotros",
+    "reachOutDesc": "Contacte la oficina parroquial y le conectaremos con uno de nuestros sacerdotes o personal que puede responder sus preguntas y ayudarle a dar el siguiente paso."
+  },
+  "getInvolved": {
+    "title": "Participe",
+    "sub": "Únase a Nuestra Familia",
+    "heading": "Hay un Lugar para Usted",
+    "desc": "La Parroquia Santo Domingo es una comunidad vibrante con muchas formas de participar. Ya sea que busque profundizar su vida de oración, servir a los necesitados o construir amistades — hay un ministerio para usted.",
+    "ministries": {
+      "liturgical": {
+        "title": "Ministerios Litúrgicos",
+        "desc": "Sirva como lector, ministro extraordinario, monaguillo, sacristán o miembro del coro."
+      },
+      "hispanic": {
+        "title": "Ministerio Hispano",
+        "desc": "Únase a nuestra vibrante comunidad hispanohablante con Misas semanales y eventos culturales."
+      },
+      "layDominicans": {
+        "title": "Laicos Dominicos",
+        "desc": "Explore el carisma dominicano más profundamente como miembro del Capítulo de Laicos Dominicos."
+      },
+      "familyLife": {
+        "title": "Vida Parroquial y Familiar",
+        "desc": "Ayude a organizar eventos comunitarios, cenas y celebraciones parroquiales."
+      },
+      "mensFellowship": {
+        "title": "Fraternidad de Hombres Católicos",
+        "desc": "Únase a los hombres de la parroquia para la oración, el estudio y la fraternidad."
+      },
+      "svdp": {
+        "title": "Sociedad de San Vicente de Paúl",
+        "desc": "Sirva a los necesitados en nuestra comunidad a través de alcance directo y asistencia."
+      },
+      "music": {
+        "title": "Ministerio de Música",
+        "desc": "Comparta sus dones musicales en la Misa — coro, cantores e instrumentistas son bienvenidos."
+      },
+      "religiousEd": {
+        "title": "Educación Religiosa",
+        "desc": "Ayude a formar la próxima generación de católicos a través de nuestros programas de catecismo y formación en la fe."
+      }
+    },
+    "register": {
+      "title": "¿Listo para Registrarse?",
+      "desc": "Contacte la oficina parroquial para registrarse como nuevo feligrés. ¡Estamos ansiosos por darle la bienvenida a nuestra familia!",
+      "cta": "Contáctenos"
+    }
+  },
+  "contact": {
+    "title": "Contáctenos",
+    "formTitle": "Envíenos un Mensaje",
+    "formDesc": "Complete el formulario a continuación y nos comunicaremos con usted lo antes posible.",
+    "name": "Nombre Completo",
+    "email": "Correo Electrónico",
+    "phone": "Número de Teléfono",
+    "category": "Categoría",
+    "catGeneral": "Consulta General",
+    "catSacraments": "Sacramentos",
+    "catBecoming": "Hacerse Católico",
+    "catMinistries": "Ministerios",
+    "catFacilities": "Alquiler de Instalaciones",
+    "message": "Mensaje",
+    "submit": "Enviar Mensaje",
+    "sending": "Enviando…",
+    "success": "¡Gracias! Su mensaje ha sido enviado. Nos pondremos en contacto pronto.",
+    "error": "Algo salió mal. Por favor intente llamarnos o enviar un correo electrónico directamente.",
+    "infoTitle": "Información Parroquial",
+    "fax": "Fax",
+    "officeHours": "Horario de Oficina",
+    "mapTitle": "Mapa de la Parroquia Católica Santo Domingo",
+    "contactOffice": "Llámenos para organizar su donación hoy."
+  },
+  "give": {
+    "title": "Donaciones en Línea",
+    "sub": "Apoye a Nuestra Parroquia",
+    "heading": "Su Generosidad Hace la Diferencia",
+    "desc": "Su apoyo financiero ayuda a la Parroquia Santo Domingo a continuar su misión de predicar, enseñar y servir. Cada donación — grande o pequeña — ayuda a sostener nuestras liturgias, ministerios y programas de alcance.",
+    "onlineTitle": "Done en Línea con WeShare",
+    "onlineDesc": "WeShare es una forma segura y conveniente de hacer donaciones únicas o recurrentes a la Parroquia Santo Domingo. Puede donar en cualquier momento desde su computadora o dispositivo móvil.",
+    "weShareBtn": "Done Ahora por WeShare",
+    "comingSoon": "Las donaciones en línea estarán disponibles pronto. Mientras tanto, por favor use uno de los métodos a continuación o contacte la oficina parroquial.",
+    "contactOffice": "Llámenos para organizar su donación hoy.",
+    "weShareNote": "Powered by WeShare. Su información está segura y encriptada.",
+    "otherSub": "Otras Formas",
+    "otherTitle": "Otras Formas de Donar",
+    "methods": {
+      "offertory": {
+        "title": "Ofrenda Dominical",
+        "desc": "Coloque su donación en la canasta de colecta durante cualquier Misa de fin de semana. Los sobres están disponibles en la entrada de la iglesia."
+      },
+      "mail": {
+        "title": "Donar por Correo",
+        "desc": "Envíe su donación por correo a: Parroquia Santo Domingo, 77 East Lucius Avenue, Youngstown, OH 44507."
+      },
+      "stock": {
+        "title": "Acciones y Valores",
+        "desc": "Transfiera acciones o valores apreciados para una donación con ventajas fiscales. Contacte la oficina parroquial para más detalles."
+      }
+    },
+    "taxNote": "La Parroquia Católica Santo Domingo es una organización exenta de impuestos 501(c)(3). Todas las donaciones son deducibles de impuestos en la medida permitida por la ley. Recibirá un estado de cuenta anual de donaciones para sus registros.",
+    "questions": "¿Preguntas sobre donaciones?"
+  },
+  "sacraments": {
+    "title": "Los Sacramentos",
+    "sub": "Dones de Gracia",
+    "heading": "Encuentre a Cristo a Través de los Sacramentos",
+    "desc": "Los siete sacramentos están en el corazón de la vida católica. Son signos eficaces de gracia, instituidos por Cristo y confiados a la Iglesia, por los cuales la vida divina se nos dispensa. En la Parroquia Santo Domingo, celebramos con alegría cada sacramento.",
+    "learnMore": "Más Información",
+    "contactUs": "Contáctenos",
+    "baptism": {
+      "title": "Bautismo",
+      "brief": "La puerta a la vida en el Espíritu. A través del Bautismo somos liberados del pecado y renacemos como hijos de Dios.",
+      "sub": "El Sacramento del",
+      "heading": "Nueva Vida en Cristo",
+      "p1": "El Bautismo es el primer y fundamental sacramento de la iniciación cristiana. A través de las aguas del Bautismo, somos purificados del pecado original, renacidos como hijos de Dios y acogidos en la Iglesia Católica. Es la puerta a través de la cual entramos a la vida con Cristo.",
+      "p2": "En la Parroquia Santo Domingo, celebramos el Bautismo para infantes, niños y adultos. Los padres que buscan el Bautismo para su hijo están invitados a contactar la oficina parroquial para programar una sesión de preparación bautismal.",
+      "reqSub": "Lo Que Necesita",
+      "reqTitle": "Requisitos para el Bautismo",
+      "req1": {
+        "title": "Preparación para el Bautismo",
+        "desc": "Los padres y padrinos asisten a una sesión de preparación que cubre el significado y las responsabilidades del Bautismo."
+      },
+      "req2": {
+        "title": "Padrinos",
+        "desc": "Al menos un padrino debe ser un católico confirmado y practicante en buen estado. Un cristiano bautizado no católico puede servir como testigo cristiano junto a un padrino católico."
+      },
+      "req3": {
+        "title": "Inscripción",
+        "desc": "Contacte la oficina parroquial al menos un mes antes de la fecha deseada de Bautismo para registrarse y programar su preparación."
+      },
+      "cta": "Programar un Bautismo",
+      "ctaDesc": "Contáctenos para comenzar el proceso. Estaremos encantados de responder cualquier pregunta que pueda tener."
+    },
+    "firstCommunion": {
+      "title": "Primera Comunión",
+      "brief": "Los niños reciben el Cuerpo y la Sangre de Cristo por primera vez, profundizando su unión con Jesús.",
+      "sub": "El Sacramento del",
+      "heading": "Recibiendo el Cuerpo de Cristo",
+      "p1": "La Primera Comunión es un momento profundo en el camino de fe de un joven católico. Es la primera vez que un niño recibe la Eucaristía — el verdadero Cuerpo y Sangre de Jesucristo — y entra en una comunión más profunda con el Señor y la Iglesia.",
+      "p2": "En la Parroquia Santo Domingo, los niños típicamente reciben la Primera Comunión en segundo grado, después de una preparación de dos años a través de nuestro programa de educación religiosa. La celebración es una ocasión gozosa para el niño, su familia y toda la comunidad parroquial.",
+      "prepSub": "Preparación",
+      "prepTitle": "El Camino a la Primera Comunión",
+      "prep1": {
+        "title": "Educación Religiosa",
+        "desc": "Los niños participan en nuestro programa parroquial de catecismo comenzando en primer grado, aprendiendo los fundamentos de la fe católica."
+      },
+      "prep2": {
+        "title": "Primera Reconciliación",
+        "desc": "Antes de recibir la Primera Comunión, los niños celebran el Sacramento de la Reconciliación (Confesión) por primera vez."
+      },
+      "prep3": {
+        "title": "Preparación Familiar",
+        "desc": "Los padres son socios en la formación de fe de su hijo. Las familias asisten juntas a una sesión de preparación antes de la celebración."
+      },
+      "cta": "Inscriba a Su Hijo",
+      "ctaDesc": "Contacte la oficina parroquial o nuestra Coordinadora de Educación Religiosa para inscribir a su hijo en el programa."
+    },
+    "confirmation": {
+      "title": "Confirmación",
+      "brief": "La plenitud del Espíritu Santo fortalece a los bautizados para difundir y defender la fe.",
+      "sub": "El Sacramento del",
+      "heading": "Sellado con el Espíritu Santo",
+      "p1": "La Confirmación completa la gracia del Bautismo y dota al receptor con la fuerza especial del Espíritu Santo. A través de la Confirmación, los católicos están más perfectamente unidos a la Iglesia y enriquecidos con el poder de testimoniar a Cristo en palabra y obra.",
+      "p2": "En la Parroquia Santo Domingo, la preparación para la Confirmación típicamente tiene lugar durante los años de secundaria. Los adultos que no han sido confirmados pueden contactar la parroquia para organizar la preparación en cualquier momento.",
+      "prepSub": "Preparación",
+      "prepTitle": "Preparándose para la Confirmación",
+      "prep1": {
+        "title": "Programa de Formación",
+        "desc": "Los candidatos participan en un programa de preparación de varios meses de catequesis, oración y servicio para profundizar su comprensión de la fe."
+      },
+      "prep2": {
+        "title": "Padrino",
+        "desc": "Cada candidato elige un padrino — un católico confirmado y practicante que sirve como mentor y guía espiritual."
+      },
+      "prep3": {
+        "title": "Servicio y Testimonio",
+        "desc": "Los candidatos completan horas de servicio y reflexionan sobre cómo están llamados a vivir su fe en el mundo."
+      },
+      "cta": "Conozca Sobre la Confirmación",
+      "ctaDesc": "Contáctenos para obtener información sobre nuestro programa de preparación para la Confirmación para adolescentes y adultos."
+    },
+    "marriage": {
+      "title": "Matrimonio",
+      "brief": "Un hombre y una mujer establecen una asociación de por vida ordenada al bien de los esposos y la procreación de los hijos.",
+      "sub": "El Sacramento del",
+      "heading": "Un Pacto de Amor",
+      "p1": "El Sacramento del Matrimonio es un pacto sagrado entre un hombre y una mujer, presenciado ante Dios y la Iglesia. A través de este sacramento, la pareja recibe la gracia de amarse mutuamente con el amor desinteresado y fiel que refleja el amor de Cristo por la Iglesia.",
+      "p2": "En la Parroquia Santo Domingo, nos honra acompañar a las parejas mientras se preparan para el Sacramento del Matrimonio. Las parejas deben contactar la parroquia al menos seis meses antes de la fecha deseada de la boda para comenzar el proceso de preparación.",
+      "stepsSub": "Para Comenzar",
+      "stepsTitle": "Pasos para Casarse en Santo Domingo",
+      "step1": {
+        "title": "Reunión Inicial",
+        "desc": "Reúnase con uno de nuestros sacerdotes para discutir sus planes, disponibilidad de fecha de boda y el proceso de preparación. Contáctenos con al menos seis meses de anticipación."
+      },
+      "step2": {
+        "title": "Preparación Matrimonial",
+        "desc": "Complete el programa diocesano de preparación matrimonial, que incluye sesiones de Pre-Cana sobre comunicación, fe, finanzas y vida familiar."
+      },
+      "step3": {
+        "title": "Liturgia de la Boda",
+        "desc": "Trabaje con el celebrante para planificar su liturgia de boda, incluyendo lecturas, música y votos. Se realiza un ensayo antes de la ceremonia."
+      },
+      "cta": "Comience la Preparación Matrimonial",
+      "ctaDesc": "Contacte la oficina parroquial para programar su reunión inicial con uno de nuestros sacerdotes."
+    },
+    "anointing": {
+      "title": "Unción de los Enfermos",
+      "brief": "Consuelo y fortaleza de Dios para quienes están gravemente enfermos, enfrentan cirugía o se acercan al final de la vida.",
+      "sub": "El Sacramento del",
+      "heading": "Sanación y Consuelo",
+      "p1": "La Unción de los Enfermos da la gracia del Espíritu Santo a aquellos que están gravemente enfermos o sufriendo. A través de este sacramento, el enfermo se une más estrechamente a la Pasión redentora de Cristo, recibe fortaleza y paz, y — si es la voluntad de Dios — sanación corporal.",
+      "p2": "Este sacramento puede recibirse más de una vez, y no es solo para aquellos en punto de muerte. Cualquier persona que enfrente una enfermedad grave, cirugía o los desafíos de la vejez es animada a recibir este sacramento.",
+      "whenTitle": "Cuándo Solicitar la Unción",
+      "when1": "Antes de una cirugía o procedimiento médico grave",
+      "when2": "Durante una enfermedad grave u hospitalización",
+      "when3": "Cuando se enfrenta la fragilidad de la vejez",
+      "when4": "En peligro de muerte por enfermedad o lesión",
+      "emergencyTitle": "¿Emergencia? Llámenos en Cualquier Momento",
+      "emergencyDesc": "Si alguien está en peligro de muerte y necesita un sacerdote, por favor llame a la parroquia a cualquier hora.",
+      "ctaDesc": "Para organizar la Unción de los Enfermos para usted o un ser querido, contacte la oficina parroquial."
+    },
+    "funerals": {
+      "title": "Funerales Católicos",
+      "brief": "La Iglesia acompaña al difunto y a sus seres queridos con oración, encomendando el alma a la misericordia de Dios.",
+      "sub": "Sepultura Cristiana",
+      "heading": "Esperanza en la Resurrección",
+      "p1": "Los ritos funerarios católicos son una celebración del camino del cristiano de esta vida a la vida eterna. La Iglesia acompaña al difunto y a sus seres queridos con oración, ofreciendo el Santo Sacrificio de la Misa por el descanso del alma y encomendando al difunto a la misericordia amorosa de Dios.",
+      "p2": "En la Parroquia Santo Domingo, nuestros sacerdotes y personal acompañan a las familias durante su tiempo de pérdida, ayudando a organizar una liturgia funeral que honre a su ser querido y ofrezca el consuelo de la fe. Estamos aquí para ayudar en todo lo que podamos.",
+      "ritesSub": "Los Ritos Funerarios",
+      "ritesTitle": "El Orden de los Funerales Cristianos",
+      "rite1": {
+        "title": "Vigilia y Velorio",
+        "desc": "Un tiempo de oración y recuerdo, típicamente celebrado la noche anterior a la Misa de funeral en la funeraria o la iglesia."
+      },
+      "rite2": {
+        "title": "Misa de Funeral",
+        "desc": "La celebración central, donde el Santo Sacrificio de la Misa se ofrece por el descanso del alma del difunto."
+      },
+      "rite3": {
+        "title": "Rito de Sepultura",
+        "desc": "Las oraciones finales en el cementerio, encomendando el cuerpo del difunto a la tierra y el alma a Dios."
+      },
+      "cta": "Organizar un Funeral",
+      "ctaDesc": "Contacte la oficina parroquial lo antes posible después del fallecimiento de un ser querido. Le guiaremos en cada paso."
+    }
+  }
+}
