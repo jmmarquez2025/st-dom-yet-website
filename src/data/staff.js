@@ -1,8 +1,7 @@
 export const friars = [
-  { id: "vincent-de-lucia", name: "Rev. Vincent De Lucia, O.P.", role: "pastor" },
+  { id: "frassati-davis", name: "Rev. Frassati Davis, O.P.", role: "pastor" },
   { id: "bernard-confer", name: "Rev. Bernard Confer, O.P.", role: "associate" },
-  { id: "frassati-davis", name: "Rev. Frassati Davis, O.P.", role: "associate" },
-  { id: "jonah-pollock", name: "Rev. Jonah Pollock, O.P.", role: "associate" },
+  { id: "charles-rooney", name: "Rev. Charles Rooney, O.P.", role: "associate" },
 ];
 
 export const staff = [
