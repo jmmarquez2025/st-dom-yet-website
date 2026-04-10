@@ -1,0 +1,48 @@
+/**
+ * Site-wide configuration. Update these values to connect services.
+ *
+ * ── Contact Form (Google Sheets) ──
+ * 1. Create a Google Sheet.
+ * 2. Go to Extensions → Apps Script.
+ * 3. Paste the following script:
+ *
+ *    function doPost(e) {
+ *      var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+ *      var data = JSON.parse(e.postData.contents);
+ *      sheet.appendRow([
+ *        data.timestamp, data.name, data.email,
+ *        data.phone, data.category, data.message
+ *      ]);
+ *      return ContentService
+ *        .createTextOutput(JSON.stringify({ result: "success" }))
+ *        .setMimeType(ContentService.MimeType.JSON);
+ *    }
+ *
+ * 4. Click Deploy → New deployment → Web app.
+ *    Execute as: Me | Who has access: Anyone
+ * 5. Copy the URL below.
+ *
+ * ── WeShare Online Giving ──
+ * When you have a WeShare account, paste the giving-page URL below.
+ */
+
+export const CONFIG = {
+  // Google Apps Script web-app URL (leave empty to fall back to mailto)
+  contactFormUrl: "",
+
+  // WeShare online giving page
+  weShareUrl: "",
+
+  // Parish info
+  phone: "(330) 783-1900",
+  phoneLink: "tel:+13307831900",
+  fax: "(330) 783-2396",
+  email: "office@saintdominic.org",
+  address: "77 East Lucius Avenue",
+  city: "Youngstown",
+  state: "OH",
+  zip: "44507",
+  fullAddress: "77 East Lucius Avenue, Youngstown, OH 44507",
+  officeHours: "Mon–Fri, 8:30 AM – 1:30 PM",
+  mapsQuery: "77+East+Lucius+Ave,+Youngstown,+OH+44507",
+};
