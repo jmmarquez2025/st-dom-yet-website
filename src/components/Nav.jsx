@@ -6,11 +6,11 @@ import LanguageToggle from "./LanguageToggle";
 
 const NAV_LINKS = [
   { to: "/", key: "home" },
+  { to: "/visit", key: "visit" },
   { to: "/mass-times", key: "massTimes" },
   { to: "/sacraments", key: "sacraments" },
   { to: "/about", key: "about" },
   { to: "/staff", key: "staff" },
-  { to: "/becoming-catholic", key: "becomingCatholic" },
   { to: "/get-involved", key: "getInvolved" },
 ];
 

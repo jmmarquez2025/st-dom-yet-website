@@ -10,7 +10,8 @@
     "becomingCatholic": "Becoming Catholic",
     "getInvolved": "Get Involved",
     "contact": "Contact",
-    "give": "Give"
+    "give": "Give",
+    "visit": "Plan Your Visit"
   },
   "footer": {
     "subtitle": "Catholic Parish · Youngstown, OH",
@@ -25,6 +26,7 @@
       "subtitle": "Served by the Dominican Friars",
       "title": "St. Dominic\nCatholic Parish",
       "location": "Youngstown, Ohio",
+      "ctaVisit": "Plan Your Visit",
       "ctaMass": "Mass & Confession Times",
       "ctaBecoming": "Interested in Becoming Catholic?"
     },
@@ -415,6 +417,74 @@
       },
       "cta": "Arranging a Funeral",
       "ctaDesc": "Contact the parish office as soon as possible after the death of a loved one. We will guide you through every step."
+    }
+  },
+  "visit": {
+    "hero": {
+      "sub": "Your First Visit",
+      "title": "Plan Your Visit",
+      "desc": "Whether you're new to the area, exploring the Catholic faith, or just curious — you are welcome here. Here's everything you need to know for your first time at St. Dominic."
+    },
+    "steps": {
+      "sub": "What to Expect",
+      "title": "Your First Sunday at St. Dominic",
+      "arrive": {
+        "title": "Arrive & Park",
+        "desc": "Our church is at 77 East Lucius Avenue, on Youngstown's south side. Parking is available in the lot next to the church on Lucius Avenue. Aim to arrive about 10 minutes early so you can find a seat and settle in."
+      },
+      "enter": {
+        "title": "Enter Through the Main Doors",
+        "desc": "Walk through the front entrance on Lucius Avenue — you'll see the life-size statue of Saint Dominic above the doors. Greeters are often at the entrance and happy to help. Bulletins are available as you walk in."
+      },
+      "seat": {
+        "title": "Find a Seat Anywhere",
+        "desc": "Sit wherever you're comfortable — there are no reserved seats. Our Romanesque church is beautiful and designed for prayer. Take a moment to look around and take it all in."
+      },
+      "mass": {
+        "title": "Follow Along at Mass",
+        "desc": "Missals (prayer books) are in each pew to help you follow the readings and prayers. Don't worry if you're unfamiliar with the responses — just participate at your own comfort level. You are welcome to receive a blessing during Communion by crossing your arms over your chest."
+      },
+      "community": {
+        "title": "Stay & Say Hello",
+        "desc": "After Mass, feel free to introduce yourself to one of the friars or fellow parishioners. We'd love to learn your name and help you feel at home. If you'd like to learn more, the parish office is happy to help."
+      }
+    },
+    "know": {
+      "sub": "Good to Know",
+      "title": "Before You Come",
+      "dress": {
+        "title": "What Should I Wear?",
+        "desc": "There's no dress code. Most people dress casually or in Sunday best. Come as you are — what matters is that you're here."
+      },
+      "children": {
+        "title": "Can I Bring My Kids?",
+        "desc": "Absolutely! Children are always welcome at Mass. Don't worry if they get a little noisy — we're a family parish and we love having young ones here."
+      },
+      "language": {
+        "title": "Spanish Mass Available",
+        "desc": "We celebrate a Spanish-language Mass every Sunday at 12:30 PM. Our Hispanic Ministry community is vibrant and welcoming — ¡todos son bienvenidos!"
+      },
+      "parking": {
+        "title": "Parking & Accessibility",
+        "desc": "Free parking is available in the lot adjacent to the church. The church is accessible with a ramp entrance on the side of the building."
+      }
+    },
+    "schedule": {
+      "sub": "Mass Times",
+      "title": "Join Us This Weekend",
+      "desc": "We celebrate Mass every day and multiple times on Sundays. Our Dominican friars are known for their preaching — come hear the Word proclaimed.",
+      "cta": "Full Mass & Confession Schedule",
+      "sundayTitle": "Weekend Mass Schedule",
+      "satVigil": "Saturday Vigil:",
+      "sun": "Sunday:",
+      "sunEs": "Domingo (Español):",
+      "confessionNote": "Confessions: Saturday 4:00 – 4:45 PM"
+    },
+    "cta": {
+      "title": "We Can't Wait to Meet You",
+      "desc": "Whether you've been Catholic your whole life or have never stepped foot in a church, our doors are open. The Dominican Friars and the people of St. Dominic Parish are here to welcome you home.",
+      "contact": "Contact Us",
+      "becoming": "Becoming Catholic?"
     }
   }
 }

@@ -6,6 +6,7 @@ import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
+import TextReveal from "../components/TextReveal";
 
 /* ── cross SVG for pattern overlays ── */
 const CrossPattern = ({ opacity = 0.04 }) => (
@@ -65,7 +66,7 @@ export default function Home() {
 
         <CrossPattern />
 
-        <div style={{ position: "relative", zIndex: 1, animation: "fadeUp 1s ease" }}>
+        <div style={{ position: "relative", zIndex: 1 }}>
           <div
             style={{
               fontSize: 12,
@@ -74,22 +75,27 @@ export default function Home() {
               color: T.goldLight,
               marginBottom: 16,
               fontWeight: 600,
+              animation: "fadeUp 0.8s ease",
             }}
           >
             {t("home.hero.subtitle")}
           </div>
 
-          <h1
+          <TextReveal
+            as="h1"
+            stagger={0.09}
+            duration={0.7}
             style={{
               fontSize: "clamp(40px, 7vw, 72px)",
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 700,
               lineHeight: 1.1,
               marginBottom: 12,
+              color: "#fff",
             }}
           >
             {t("home.hero.title")}
-          </h1>
+          </TextReveal>
 
           <div
             style={{
@@ -98,17 +104,18 @@ export default function Home() {
               textTransform: "uppercase",
               color: T.goldLight,
               marginBottom: 40,
+              animation: "fadeUp 1s ease 0.4s both",
             }}
           >
             {t("home.hero.location")}
           </div>
 
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <Btn variant="gold" onClick={() => navigate("/mass-times")}>
-              {t("home.hero.ctaMass")}
+          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", animation: "fadeUp 1s ease 0.6s both" }}>
+            <Btn variant="gold" onClick={() => navigate("/visit")}>
+              {t("home.hero.ctaVisit")}
             </Btn>
-            <Btn variant="light" onClick={() => navigate("/becoming-catholic")}>
-              {t("home.hero.ctaBecoming")}
+            <Btn variant="light" onClick={() => navigate("/mass-times")}>
+              {t("home.hero.ctaMass")}
             </Btn>
           </div>
         </div>

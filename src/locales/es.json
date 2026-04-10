@@ -10,7 +10,8 @@
     "becomingCatholic": "Hacerse Católico",
     "getInvolved": "Participe",
     "contact": "Contacto",
-    "give": "Donar"
+    "give": "Donar",
+    "visit": "Planifique Su Visita"
   },
   "footer": {
     "subtitle": "Parroquia Católica · Youngstown, OH",
@@ -25,6 +26,7 @@
       "subtitle": "Servida por los Frailes Dominicos",
       "title": "Santo Domingo\nParroquia Católica",
       "location": "Youngstown, Ohio",
+      "ctaVisit": "Planifique Su Visita",
       "ctaMass": "Horarios de Misa y Confesión",
       "ctaBecoming": "¿Interesado en Hacerse Católico?"
     },
@@ -416,6 +418,74 @@
       },
       "cta": "Organizar un Funeral",
       "ctaDesc": "Contacte la oficina parroquial lo antes posible después del fallecimiento de un ser querido. Le guiaremos en cada paso."
+    }
+  },
+  "visit": {
+    "hero": {
+      "sub": "Su Primera Visita",
+      "title": "Planifique Su Visita",
+      "desc": "Ya sea que sea nuevo en el área, esté explorando la fe católica, o simplemente tenga curiosidad — es bienvenido aquí. Aquí tiene todo lo que necesita saber para su primera vez en Santo Domingo."
+    },
+    "steps": {
+      "sub": "Qué Esperar",
+      "title": "Su Primer Domingo en Santo Domingo",
+      "arrive": {
+        "title": "Llegue y Estacione",
+        "desc": "Nuestra iglesia está en 77 East Lucius Avenue, en el lado sur de Youngstown. Hay estacionamiento disponible en el lote junto a la iglesia. Intente llegar unos 10 minutos antes para encontrar un asiento."
+      },
+      "enter": {
+        "title": "Entre por la Puerta Principal",
+        "desc": "Entre por la entrada principal en Lucius Avenue — verá la estatua de Santo Domingo sobre las puertas. Los recepcionistas están disponibles para ayudarle. Los boletines están disponibles al entrar."
+      },
+      "seat": {
+        "title": "Siéntese Donde Guste",
+        "desc": "Siéntese donde se sienta cómodo — no hay asientos reservados. Nuestra iglesia románica es hermosa y diseñada para la oración. Tómese un momento para observar."
+      },
+      "mass": {
+        "title": "Siga la Misa",
+        "desc": "Los misales están en cada banca para ayudarle a seguir las lecturas y oraciones. No se preocupe si no conoce las respuestas — participe a su propio ritmo. Puede recibir una bendición durante la Comunión cruzando los brazos sobre su pecho."
+      },
+      "community": {
+        "title": "Quédese y Salúdenos",
+        "desc": "Después de la Misa, preséntese a uno de los frailes o feligreses. Nos encantaría conocerle y ayudarle a sentirse en casa."
+      }
+    },
+    "know": {
+      "sub": "Bueno Saberlo",
+      "title": "Antes de Venir",
+      "dress": {
+        "title": "¿Qué Debo Usar?",
+        "desc": "No hay código de vestimenta. La mayoría se viste de manera casual o con ropa de domingo. Venga como está — lo importante es que esté aquí."
+      },
+      "children": {
+        "title": "¿Puedo Traer a Mis Hijos?",
+        "desc": "¡Por supuesto! Los niños siempre son bienvenidos en la Misa. No se preocupe si hacen un poco de ruido — somos una parroquia familiar."
+      },
+      "language": {
+        "title": "Misa en Español",
+        "desc": "Celebramos Misa en español cada domingo a las 12:30 PM. Nuestra comunidad del Ministerio Hispano es vibrante y acogedora — ¡todos son bienvenidos!"
+      },
+      "parking": {
+        "title": "Estacionamiento y Accesibilidad",
+        "desc": "Estacionamiento gratuito disponible en el lote junto a la iglesia. La iglesia es accesible con una rampa de entrada en el costado del edificio."
+      }
+    },
+    "schedule": {
+      "sub": "Horario de Misas",
+      "title": "Acompáñenos Este Fin de Semana",
+      "desc": "Celebramos Misa todos los días y varias veces los domingos. Nuestros frailes dominicos son conocidos por su predicación — venga a escuchar la Palabra proclamada.",
+      "cta": "Horario Completo de Misas y Confesiones",
+      "sundayTitle": "Horario de Misas del Fin de Semana",
+      "satVigil": "Vigilia del Sábado:",
+      "sun": "Domingo:",
+      "sunEs": "Domingo (Español):",
+      "confessionNote": "Confesiones: Sábado 4:00 – 4:45 PM"
+    },
+    "cta": {
+      "title": "Estamos Deseosos de Conocerle",
+      "desc": "Ya sea que haya sido católico toda su vida o nunca haya entrado a una iglesia, nuestras puertas están abiertas. Los Frailes Dominicos y el pueblo de Santo Domingo le dan la bienvenida.",
+      "contact": "Contáctenos",
+      "becoming": "¿Ser Católico?"
     }
   }
 }

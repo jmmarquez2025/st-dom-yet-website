@@ -22,6 +22,7 @@ const Confirmation = lazy(() => import("./pages/sacraments/Confirmation"));
 const Marriage = lazy(() => import("./pages/sacraments/Marriage"));
 const Anointing = lazy(() => import("./pages/sacraments/Anointing"));
 const Funerals = lazy(() => import("./pages/sacraments/Funerals"));
+const Visit = lazy(() => import("./pages/Visit"));
 
 const PAGE_TITLES = {
   "/": "St. Dominic Catholic Parish — Youngstown, OH",
@@ -40,6 +41,7 @@ const PAGE_TITLES = {
   "/sacraments/marriage": "Marriage — St. Dominic Parish",
   "/sacraments/anointing": "Anointing of the Sick — St. Dominic Parish",
   "/sacraments/funerals": "Catholic Funerals — St. Dominic Parish",
+  "/visit": "Plan Your Visit — St. Dominic Parish",
 };
 
 function ScrollToTop() {
@@ -85,6 +87,7 @@ function AppRoutes() {
             <Route path="/sacraments/marriage" element={<Marriage />} />
             <Route path="/sacraments/anointing" element={<Anointing />} />
             <Route path="/sacraments/funerals" element={<Funerals />} />
+            <Route path="/visit" element={<Visit />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </Suspense>
