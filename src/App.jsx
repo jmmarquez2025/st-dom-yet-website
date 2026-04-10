@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import ScrollProgress from "./components/ScrollProgress";
 import { T } from "./constants/theme";
 
 /* ── Code-split every page (separate chunks) ── */
@@ -66,6 +67,7 @@ function AppRoutes() {
   return (
     <>
       <ScrollToTop />
+      <ScrollProgress />
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Nav />
       <main id="main-content">

@@ -163,12 +163,11 @@ export default function Home() {
               </Btn>
             </div>
 
-            {/* right card */}
+            {/* right card — glassmorphic dark */}
             <div
+              className="glass-card--dark"
               style={{
-                background: T.burgundy,
                 color: "#fff",
-                borderRadius: 8,
                 padding: 36,
               }}
             >
@@ -207,67 +206,118 @@ export default function Home() {
         </FadeSection>
       </Section>
 
-      {/* ════ Priests CTA ════ */}
-      <Section>
-        <FadeSection>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: 48,
-              alignItems: "center",
-            }}
-          >
-            {/* left quote card */}
+      {/* ════ Dominican Charism — Editorial Cinematic Band ════ */}
+      <section
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          background: T.softBlack,
+          color: "#fff",
+          padding: "clamp(60px, 12vw, 120px) 24px",
+        }}
+      >
+        {/* Decorative Dominican star watermark */}
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 200 200"
+          style={{
+            position: "absolute",
+            right: "-5%",
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: "clamp(300px, 40vw, 500px)",
+            height: "auto",
+            opacity: 0.04,
+          }}
+        >
+          <polygon points="100,10 120,80 195,80 135,120 155,190 100,150 45,190 65,120 5,80 80,80" fill="#fff" />
+        </svg>
+
+        <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <FadeSection>
             <div
               style={{
-                background: T.stoneLight,
-                borderRadius: 8,
-                padding: 40,
-                textAlign: "center",
+                display: "grid",
+                gridTemplateColumns: "1fr",
+                gap: 48,
+                alignItems: "center",
               }}
+              className="editorial-grid"
             >
-              <div style={{ fontSize: 48, color: T.burgundy, marginBottom: 16 }}>&#9769;</div>
-              <blockquote
-                style={{
-                  fontSize: 22,
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontStyle: "italic",
-                  color: T.softBlack,
-                  lineHeight: 1.5,
-                  marginBottom: 12,
-                }}
-              >
-                {t("home.priests.quote")}
-              </blockquote>
-              <cite
-                style={{
-                  fontSize: 13,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  color: T.warmGray,
-                  fontStyle: "normal",
-                }}
-              >
-                {t("home.priests.quoteSrc")}
-              </cite>
-            </div>
+              <style>{`
+                @media (min-width: 768px) {
+                  .editorial-grid { grid-template-columns: 1.2fr 1fr !important; }
+                }
+              `}</style>
 
-            {/* right text */}
-            <div>
-              <SectionTitle sub={t("home.priests.sub")} center={false}>
-                {t("home.priests.title")}
-              </SectionTitle>
-              <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 28 }}>
-                {t("home.priests.desc")}
-              </p>
-              <Btn variant="primary" onClick={() => navigate("/staff")}>
-                {t("home.priests.cta")}
-              </Btn>
+              {/* Left — large editorial quote */}
+              <div>
+                <div
+                  style={{
+                    fontSize: 12,
+                    letterSpacing: 4,
+                    textTransform: "uppercase",
+                    color: T.gold,
+                    marginBottom: 20,
+                    fontWeight: 600,
+                  }}
+                >
+                  {t("home.priests.sub")}
+                </div>
+                <blockquote
+                  style={{
+                    fontSize: "clamp(28px, 4vw, 44px)",
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontStyle: "italic",
+                    color: "#fff",
+                    lineHeight: 1.3,
+                    marginBottom: 16,
+                    borderLeft: `3px solid ${T.gold}`,
+                    paddingLeft: 24,
+                  }}
+                >
+                  <TextReveal as="span" stagger={0.06} duration={0.6}>
+                    {t("home.priests.quote")}
+                  </TextReveal>
+                </blockquote>
+                <cite
+                  style={{
+                    fontSize: 13,
+                    letterSpacing: 2,
+                    textTransform: "uppercase",
+                    color: T.gold,
+                    fontStyle: "normal",
+                    paddingLeft: 28,
+                  }}
+                >
+                  {t("home.priests.quoteSrc")}
+                </cite>
+              </div>
+
+              {/* Right — text + CTA */}
+              <div>
+                <h2
+                  style={{
+                    fontSize: "clamp(26px, 4vw, 36px)",
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontWeight: 600,
+                    marginBottom: 20,
+                    color: "#fff",
+                  }}
+                >
+                  {t("home.priests.title")}
+                </h2>
+                <p style={{ fontSize: 16, lineHeight: 1.8, color: "rgba(255,255,255,0.7)", marginBottom: 28 }}>
+                  {t("home.priests.desc")}
+                </p>
+                <Btn variant="gold" onClick={() => navigate("/staff")}>
+                  {t("home.priests.cta")}
+                </Btn>
+              </div>
             </div>
-          </div>
-        </FadeSection>
-      </Section>
+          </FadeSection>
+        </div>
+      </section>
 
       {/* ════ Get Involved CTA ════ */}
       <section
@@ -317,120 +367,32 @@ export default function Home() {
               gap: 24,
             }}
           >
-            {/* Visit Us */}
-            <div
-              className="hover-lift"
-              style={{
-                background: "#fff",
-                borderRadius: 8,
-                padding: 32,
-                textAlign: "center",
-              }}
-            >
-              <div aria-hidden="true" style={{ fontSize: 32, marginBottom: 12 }}>
-                🏛️
-              </div>
-              <h3
-                style={{
-                  fontSize: 18,
-                  fontFamily: "'Cormorant Garamond', serif",
-                  marginBottom: 8,
-                }}
+            {[
+              { key: "visit", icon: "🏛️", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>{t("home.cards.visitDesc")}</p> },
+              { key: "call", icon: "📞", content: <><p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}><a href={CONFIG.phoneLink} className="contact-link">{CONFIG.phone}</a></p><p style={{ fontSize: 14, color: T.warmGray }}>{t("home.cards.fax")}: {CONFIG.fax}</p></> },
+              { key: "hours", icon: "🕐", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>{t("home.cards.hoursDesc")}</p> },
+              { key: "email", icon: "✉️", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}><a href={`mailto:${CONFIG.email}`} className="contact-link">{CONFIG.email}</a></p> },
+            ].map((card) => (
+              <div
+                key={card.key}
+                className="glass-card"
+                style={{ padding: 32, textAlign: "center" }}
               >
-                {t("home.cards.visitTitle")}
-              </h3>
-              <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>
-                {t("home.cards.visitDesc")}
-              </p>
-            </div>
-
-            {/* Call Us */}
-            <div
-              className="hover-lift"
-              style={{
-                background: "#fff",
-                borderRadius: 8,
-                padding: 32,
-                textAlign: "center",
-              }}
-            >
-              <div aria-hidden="true" style={{ fontSize: 32, marginBottom: 12 }}>
-                📞
+                <div aria-hidden="true" style={{ fontSize: 32, marginBottom: 12 }}>
+                  {card.icon}
+                </div>
+                <h3
+                  style={{
+                    fontSize: 18,
+                    fontFamily: "'Cormorant Garamond', serif",
+                    marginBottom: 8,
+                  }}
+                >
+                  {t(`home.cards.${card.key}Title`)}
+                </h3>
+                {card.content}
               </div>
-              <h3
-                style={{
-                  fontSize: 18,
-                  fontFamily: "'Cormorant Garamond', serif",
-                  marginBottom: 8,
-                }}
-              >
-                {t("home.cards.callTitle")}
-              </h3>
-              <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>
-                <a href={CONFIG.phoneLink} className="contact-link">
-                  {CONFIG.phone}
-                </a>
-              </p>
-              <p style={{ fontSize: 14, color: T.warmGray }}>
-                {t("home.cards.fax")}: {CONFIG.fax}
-              </p>
-            </div>
-
-            {/* Office Hours */}
-            <div
-              className="hover-lift"
-              style={{
-                background: "#fff",
-                borderRadius: 8,
-                padding: 32,
-                textAlign: "center",
-              }}
-            >
-              <div aria-hidden="true" style={{ fontSize: 32, marginBottom: 12 }}>
-                🕐
-              </div>
-              <h3
-                style={{
-                  fontSize: 18,
-                  fontFamily: "'Cormorant Garamond', serif",
-                  marginBottom: 8,
-                }}
-              >
-                {t("home.cards.hoursTitle")}
-              </h3>
-              <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>
-                {t("home.cards.hoursDesc")}
-              </p>
-            </div>
-
-            {/* Email Us */}
-            <div
-              className="hover-lift"
-              style={{
-                background: "#fff",
-                borderRadius: 8,
-                padding: 32,
-                textAlign: "center",
-              }}
-            >
-              <div aria-hidden="true" style={{ fontSize: 32, marginBottom: 12 }}>
-                ✉️
-              </div>
-              <h3
-                style={{
-                  fontSize: 18,
-                  fontFamily: "'Cormorant Garamond', serif",
-                  marginBottom: 8,
-                }}
-              >
-                {t("home.cards.emailTitle")}
-              </h3>
-              <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>
-                <a href={`mailto:${CONFIG.email}`} className="contact-link">
-                  {CONFIG.email}
-                </a>
-              </p>
-            </div>
+            ))}
           </div>
         </FadeSection>
       </Section>

@@ -92,25 +92,120 @@ h1, h2, h3, h4 {
 
 /* ── hover utilities ── */
 .hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .hover-lift:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-gold);
 }
 .hover-lift-sm {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .hover-lift-sm:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-gold);
 }
+
+/* ── button micro-interactions ── */
 .btn-hover {
+  position: relative;
+  overflow: hidden;
   transition: all 0.3s ease;
 }
 .btn-hover:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+.btn-hover::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.btn-hover:hover::after {
+  left: 125%;
+}
+
+/* ── glassmorphic card ── */
+.glass-card {
+  background: rgba(255, 253, 249, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(232, 226, 216, 0.6);
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  border-color: var(--color-gold);
+}
+.glass-card--dark {
+  background: rgba(107, 29, 42, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+/* ── scroll progress bar ── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-burgundy), var(--color-gold));
+  z-index: 1001;
+  transform-origin: left;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* ── CSS scroll-driven animations (progressive enhancement) ── */
+@supports (animation-timeline: view()) {
+  .fade-section {
+    animation: scrollFadeUp linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+    opacity: 0;
+    transform: translateY(28px);
+    /* Override JS-based transition when native is available */
+    transition: none;
+  }
+  .fade-section.visible {
+    /* Let CSS animation handle it instead */
+  }
+  @keyframes scrollFadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ── editorial offset utility ── */
+.editorial-offset {
+  position: relative;
+}
+@media (min-width: 768px) {
+  .editorial-offset--up {
+    margin-top: -40px;
+  }
+  .editorial-offset--overlap {
+    margin-left: -32px;
+    z-index: 1;
+  }
 }
 
 /* ── contact links ── */
