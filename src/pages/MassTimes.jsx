@@ -6,7 +6,7 @@ import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
-import { sundayMass, dailyMass, confession, adoration } from "../data/schedule";
+import { useSchedule } from "../cms/hooks";
 
 /* ── schedule card ── */
 function ScheduleBlock({ title, rows, accent = T.burgundy, t }) {
@@ -55,6 +55,8 @@ function ScheduleBlock({ title, rows, accent = T.burgundy, t }) {
 export default function MassTimes() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { data: schedule } = useSchedule();
+  const { sundayMass, dailyMass, confession, adoration } = schedule;
 
   return (
     <div style={{ paddingTop: 76 }}>

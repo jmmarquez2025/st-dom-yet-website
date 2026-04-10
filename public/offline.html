@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline — St. Dominic Catholic Parish</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; background: #FFFDF9; color: #2C2C2C; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 24px; text-align: center; }
+    .card { max-width: 480px; }
+    .icon { width: 80px; height: 80px; border-radius: 50%; background: #6B1D2A; display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: #C5A55A; font-family: serif; font-size: 28px; font-weight: 700; }
+    h1 { font-family: Georgia, serif; font-size: 28px; color: #1A1714; margin-bottom: 12px; }
+    p { font-size: 16px; color: #6B6560; line-height: 1.7; margin-bottom: 20px; }
+    .info { background: #FAF6F0; border: 1px solid #E8E2D8; border-radius: 4px; padding: 24px; text-align: left; }
+    .info h2 { font-family: Georgia, serif; font-size: 18px; color: #6B1D2A; margin-bottom: 12px; }
+    .info p { font-size: 14px; margin-bottom: 8px; }
+    a { color: #6B1D2A; }
+    .retry { display: inline-block; margin-top: 24px; padding: 12px 32px; background: #6B1D2A; color: #FAF6F0; border: none; border-radius: 2px; font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon">SD</div>
+    <h1>You're Offline</h1>
+    <p>It looks like you've lost your internet connection. Here's our key information:</p>
+    <div class="info">
+      <h2>St. Dominic Catholic Parish</h2>
+      <p><strong>Address:</strong> 77 East Lucius Ave, Youngstown, OH 44507</p>
+      <p><strong>Phone:</strong> <a href="tel:+13307831900">(330) 783-1900</a></p>
+      <p><strong>Email:</strong> <a href="mailto:office@saintdominic.org">office@saintdominic.org</a></p>
+      <p><strong>Sunday Mass:</strong> Sat 5:00 PM · Sun 8:00 AM, 10:30 AM, 12:30 PM (Español)</p>
+      <p><strong>Daily Mass:</strong> Mon–Fri 8:00 AM & 12:00 PM · Sat 8:00 AM</p>
+      <p><strong>Office Hours:</strong> Mon–Fri 8:30 AM – 1:30 PM</p>
+    </div>
+    <a href="/" class="retry" onclick="location.reload(); return false;">Try Again</a>
+  </div>
+</body>
+</html>

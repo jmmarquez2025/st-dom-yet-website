@@ -1,4 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap");
+/* Fonts loaded via <link rel="preload"> in index.html — no @import */
+
+:root {
+  --color-burgundy: #6B1D2A;
+  --color-burgundy-dark: #4A1019;
+  --color-gold: #C5A55A;
+  --color-gold-light: #E8D5A3;
+  --color-cream: #FAF6F0;
+  --color-warm-white: #FFFDF9;
+  --color-stone: #E8E2D8;
+  --color-stone-light: #F2EDE5;
+  --color-charcoal: #2C2C2C;
+  --color-warm-gray: #6B6560;
+  --color-soft-black: #1A1714;
+
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Source Sans 3", sans-serif;
+}
 
 *,
 *::before,
@@ -13,18 +30,18 @@ html {
 }
 
 body {
-  font-family: "Source Sans 3", sans-serif;
-  color: #2c2c2c;
-  background: #fffdf9;
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  background: var(--color-warm-white);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-display);
   font-weight: 600;
   line-height: 1.2;
-  color: #1a1714;
+  color: var(--color-soft-black);
 }
 
 /* ── animations ── */

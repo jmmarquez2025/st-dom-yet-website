@@ -6,11 +6,12 @@ import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
-import { ministries } from "../data/ministries";
+import { useMinistries } from "../cms/hooks";
 
 export default function GetInvolved() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { data: ministries } = useMinistries();
 
   return (
     <div style={{ paddingTop: 76 }}>

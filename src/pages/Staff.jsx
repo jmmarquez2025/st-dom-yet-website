@@ -6,11 +6,14 @@ import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
-import { friars, staff, initials } from "../data/staff";
+import { initials } from "../data/staff";
+import { useStaff } from "../cms/hooks";
 
 export default function Staff() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { data: staffData } = useStaff();
+  const { friars, staff } = staffData;
 
   return (
     <div style={{ paddingTop: 76 }}>

@@ -1,24 +1,27 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import Home from "./pages/Home";
-import MassTimes from "./pages/MassTimes";
-import About from "./pages/About";
-import Staff from "./pages/Staff";
-import Bulletin from "./pages/Bulletin";
-import BecomingCatholic from "./pages/BecomingCatholic";
-import GetInvolved from "./pages/GetInvolved";
-import Contact from "./pages/Contact";
-import Give from "./pages/Give";
-import Sacraments from "./pages/Sacraments";
-import Baptism from "./pages/sacraments/Baptism";
-import FirstCommunion from "./pages/sacraments/FirstCommunion";
-import Confirmation from "./pages/sacraments/Confirmation";
-import Marriage from "./pages/sacraments/Marriage";
-import Anointing from "./pages/sacraments/Anointing";
-import Funerals from "./pages/sacraments/Funerals";
+import { T } from "./constants/theme";
+
+/* ── Code-split every page (separate chunks) ── */
+const Home = lazy(() => import("./pages/Home"));
+const MassTimes = lazy(() => import("./pages/MassTimes"));
+const About = lazy(() => import("./pages/About"));
+const Staff = lazy(() => import("./pages/Staff"));
+const Bulletin = lazy(() => import("./pages/Bulletin"));
+const BecomingCatholic = lazy(() => import("./pages/BecomingCatholic"));
+const GetInvolved = lazy(() => import("./pages/GetInvolved"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Give = lazy(() => import("./pages/Give"));
+const Sacraments = lazy(() => import("./pages/Sacraments"));
+const Baptism = lazy(() => import("./pages/sacraments/Baptism"));
+const FirstCommunion = lazy(() => import("./pages/sacraments/FirstCommunion"));
+const Confirmation = lazy(() => import("./pages/sacraments/Confirmation"));
+const Marriage = lazy(() => import("./pages/sacraments/Marriage"));
+const Anointing = lazy(() => import("./pages/sacraments/Anointing"));
+const Funerals = lazy(() => import("./pages/sacraments/Funerals"));
 
 const PAGE_TITLES = {
   "/": "St. Dominic Catholic Parish — Youngstown, OH",
@@ -48,6 +51,15 @@ function ScrollToTop() {
   return null;
 }
 
+function PageSpinner() {
+  return (
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh" }}>
+      <div style={{ width: 40, height: 40, border: `3px solid ${T.stone}`, borderTopColor: T.burgundy, borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
+      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+    </div>
+  );
+}
+
 function AppRoutes() {
   return (
     <>
@@ -55,25 +67,27 @@ function AppRoutes() {
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Nav />
       <main id="main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/mass-times" element={<MassTimes />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/staff" element={<Staff />} />
-          <Route path="/bulletin" element={<Bulletin />} />
-          <Route path="/becoming-catholic" element={<BecomingCatholic />} />
-          <Route path="/get-involved" element={<GetInvolved />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/give" element={<Give />} />
-          <Route path="/sacraments" element={<Sacraments />} />
-          <Route path="/sacraments/baptism" element={<Baptism />} />
-          <Route path="/sacraments/first-communion" element={<FirstCommunion />} />
-          <Route path="/sacraments/confirmation" element={<Confirmation />} />
-          <Route path="/sacraments/marriage" element={<Marriage />} />
-          <Route path="/sacraments/anointing" element={<Anointing />} />
-          <Route path="/sacraments/funerals" element={<Funerals />} />
-          <Route path="*" element={<Home />} />
-        </Routes>
+        <Suspense fallback={<PageSpinner />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/mass-times" element={<MassTimes />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/staff" element={<Staff />} />
+            <Route path="/bulletin" element={<Bulletin />} />
+            <Route path="/becoming-catholic" element={<BecomingCatholic />} />
+            <Route path="/get-involved" element={<GetInvolved />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/give" element={<Give />} />
+            <Route path="/sacraments" element={<Sacraments />} />
+            <Route path="/sacraments/baptism" element={<Baptism />} />
+            <Route path="/sacraments/first-communion" element={<FirstCommunion />} />
+            <Route path="/sacraments/confirmation" element={<Confirmation />} />
+            <Route path="/sacraments/marriage" element={<Marriage />} />
+            <Route path="/sacraments/anointing" element={<Anointing />} />
+            <Route path="/sacraments/funerals" element={<Funerals />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </Suspense>
       </main>
       <Footer />
     </>

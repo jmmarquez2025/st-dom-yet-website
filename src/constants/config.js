@@ -24,6 +24,15 @@
  *
  * ── WeShare Online Giving ──
  * When you have a WeShare account, paste the giving-page URL below.
+ *
+ * ── Google Sheets CMS ──
+ * 1. Create a Google Sheet with tabs: Staff, Schedule, Ministries, Announcements
+ *    (see src/cms/client.js for column definitions)
+ * 2. File → Share → Publish to web → Entire Document → Publish
+ * 3. Copy the Sheet ID from the URL:
+ *    https://docs.google.com/spreadsheets/d/SHEET_ID_HERE/edit
+ * 4. Paste it below. The site will fetch live data from the sheet.
+ *    If the sheet is unavailable, bundled static data is used as fallback.
  */
 
 export const CONFIG = {
@@ -32,6 +41,9 @@ export const CONFIG = {
 
   // WeShare online giving page
   weShareUrl: "",
+
+  // Google Sheets CMS — paste your published Sheet ID here
+  cmsSheetId: "",
 
   // Parish info
   phone: "(330) 783-1900",
