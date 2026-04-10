@@ -1,9 +1,10 @@
 const CACHE_NAME = "st-dominic-v1";
+const BASE = self.registration?.scope || "/";
 const STATIC_ASSETS = [
-  "/",
-  "/manifest.json",
-  "/favicon.svg",
-  "/offline.html",
+  BASE,
+  BASE + "manifest.json",
+  BASE + "favicon.svg",
+  BASE + "offline.html",
 ];
 
 // Install: pre-cache essential assets
@@ -47,7 +48,7 @@ self.addEventListener("fetch", (e) => {
           return res;
         })
         .catch(() =>
-          caches.match(request).then((cached) => cached || caches.match("/offline.html"))
+          caches.match(request).then((cached) => cached || caches.match(BASE + "offline.html"))
         )
     );
     return;

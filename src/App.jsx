@@ -97,7 +97,7 @@ function AppRoutes() {
 export default function App() {
   const { i18n } = useTranslation();
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div lang={i18n.language}>
         <AppRoutes />
       </div>
