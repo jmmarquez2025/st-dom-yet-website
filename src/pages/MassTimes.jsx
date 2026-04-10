@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
@@ -54,7 +53,6 @@ function ScheduleBlock({ title, rows, accent = T.burgundy, t }) {
 
 export default function MassTimes() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   const { data: schedule } = useSchedule();
   const { sundayMass, dailyMass, confession, adoration } = schedule;
 

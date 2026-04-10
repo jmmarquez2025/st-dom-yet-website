@@ -1,11 +1,10 @@
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
-import PageHeader from "../components/PageHeader";
 import TextReveal from "../components/TextReveal";
 
 /* ── cross SVG for pattern overlays ── */
@@ -369,7 +368,7 @@ export default function Home() {
           >
             {[
               { key: "visit", icon: "🏛️", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>{t("home.cards.visitDesc")}</p> },
-              { key: "call", icon: "📞", content: <><p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}><a href={CONFIG.phoneLink} className="contact-link">{CONFIG.phone}</a></p><p style={{ fontSize: 14, color: T.warmGray }}>{t("home.cards.fax")}: {CONFIG.fax}</p></> },
+              { key: "call", icon: "📞", content: <><p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}><a href={CONFIG.phoneLink} className="contact-link">{CONFIG.phone}</a></p><p style={{ fontSize: 14, color: T.warmGray }}>{t("home.cards.fax")}</p></> },
               { key: "hours", icon: "🕐", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>{t("home.cards.hoursDesc")}</p> },
               { key: "email", icon: "✉️", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}><a href={`mailto:${CONFIG.email}`} className="contact-link">{CONFIG.email}</a></p> },
             ].map((card) => (

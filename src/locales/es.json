@@ -101,7 +101,9 @@
       "p1": "La Orden Dominicana de Predicadores fundó la Parroquia Santo Domingo el 23 de febrero de 1923, a invitación del Arzobispo de Cleveland Joseph Schrembs. La primera Misa se ofreció en un almacén en Market Street — un humilde comienzo para lo que se convertiría en un vibrante centro de fe en el lado sur de Youngstown.",
       "p2": "El edificio actual, una impresionante estructura románica de piedra caliza y ladrillo, fue dedicado el 28 de abril de 1957. Una estatua de tamaño natural de Santo Domingo se encuentra sobre la entrada, dando la bienvenida a todos los que vienen a adorar.",
       "p3": "Santo Domingo de Guzmán fundó la Orden Dominicana en el siglo XIII, dedicada a reavivar la fe de Europa. En los siglos siguientes, los dominicos se han extendido por todo el mundo con su lema: \"alabar, bendecir y predicar.\" Nuestra parroquia continúa esta tradición en la Diócesis de Youngstown.",
-      "p4": "Hoy, Santo Domingo mantiene muchos ministerios enfocados en la comunidad, incluyendo un programa de Laicos Dominicos, Fraternidad de Hombres Católicos, ministerio de Vida Parroquial y Familiar, y un vibrante programa de Ministerio Hispano con Misas semanales en español."
+      "p4": "Hoy, Santo Domingo mantiene muchos ministerios enfocados en la comunidad, incluyendo un programa de Laicos Dominicos, Fraternidad de Hombres Católicos, ministerio de Vida Parroquial y Familiar, y un vibrante programa de Ministerio Hispano con Misas semanales en español.",
+      "motto": "\"Alabar, bendecir y predicar.\"",
+      "mottoSrc": "— Lema de la Orden Dominicana"
     },
     "mission": {
       "sub": "Nuestra Misión",
@@ -120,6 +122,7 @@
       }
     },
     "architecture": {
+      "style": "Románico",
       "title": "Arquitectura de Nuestra Iglesia",
       "desc": "El estilo arquitectónico de la Iglesia Santo Domingo es románico modernizado — con construcción de piedra caliza y ladrillo, una presencia imponente en Lucius Avenue, y arte sacro que inspira la oración y la contemplación."
     }

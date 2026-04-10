@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
@@ -11,7 +10,6 @@ import { useStaff } from "../cms/hooks";
 
 export default function Staff() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   const { data: staffData } = useStaff();
   const { friars, staff } = staffData;
 

@@ -101,7 +101,9 @@
       "p1": "The Dominican Order of Preachers founded St. Dominic Parish on February 23, 1923, at the invitation of Cleveland Archbishop Joseph Schrembs. The first Mass was offered in a storeroom on Market Street — a humble beginning for what would become a vibrant center of faith on Youngstown's south side.",
       "p2": "The current building, a stunning limestone-and-brick Romanesque structure, was dedicated on April 28, 1957. A life-size statue of Saint Dominic stands positioned over the entrance, welcoming all who come to worship.",
       "p3": "Saint Dominic de Guzman founded the Dominican Order in the 13th century, devoted to rekindling the faith of Europe. In the centuries since, Dominicans have spread around the world with their motto: \"to praise, to bless, and to preach.\" Our parish carries forward this tradition in the Diocese of Youngstown.",
-      "p4": "Today, St. Dominic maintains many community-focused ministries, including a Lay Dominican program, Catholic Men's Fellowship, Parish and Family Life ministry, and a vibrant Hispanic Ministry program with weekly Spanish Masses."
+      "p4": "Today, St. Dominic maintains many community-focused ministries, including a Lay Dominican program, Catholic Men's Fellowship, Parish and Family Life ministry, and a vibrant Hispanic Ministry program with weekly Spanish Masses.",
+      "motto": "\"To praise, to bless, and to preach.\"",
+      "mottoSrc": "— Dominican Order Motto"
     },
     "mission": {
       "sub": "Our Mission",
@@ -120,6 +122,7 @@
       }
     },
     "architecture": {
+      "style": "Romanesque",
       "title": "Our Church Architecture",
       "desc": "The architectural style of St. Dominic Church is modernized Romanesque — featuring limestone and brick construction, a towering presence on Lucius Avenue, and sacred art that inspires prayer and contemplation."
     }

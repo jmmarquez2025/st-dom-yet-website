@@ -40,7 +40,20 @@ export default function TextReveal({
   }, [threshold]);
 
   const text = typeof children === "string" ? children : String(children);
-  const parts = mode === "line" ? text.split("\n") : text.split(/\s+/);
+
+  // Split into parts: for "word" mode, split on newlines first to preserve
+  // line breaks, then split each line on spaces. Newlines become null markers.
+  let parts;
+  if (mode === "line") {
+    parts = text.split("\n");
+  } else {
+    const lines = text.split("\n");
+    parts = [];
+    lines.forEach((line, li) => {
+      if (li > 0) parts.push(null); // null = line break marker
+      line.split(/\s+/).filter(Boolean).forEach((w) => parts.push(w));
+    });
+  }
 
   return (
     <Tag
@@ -49,24 +62,30 @@ export default function TextReveal({
       style={{ ...style, overflow: "hidden" }}
       aria-label={text}
     >
-      {parts.map((part, i) => (
-        <span
-          key={i}
-          aria-hidden="true"
-          style={{
-            display: "inline-block",
-            opacity: visible ? 1 : 0,
-            transform: visible ? "translateY(0)" : "translateY(100%)",
-            filter: visible ? "blur(0px)" : "blur(4px)",
-            transition: `opacity ${duration}s ease ${i * stagger}s, transform ${duration}s cubic-bezier(0.22, 1, 0.36, 1) ${i * stagger}s, filter ${duration}s ease ${i * stagger}s`,
-            willChange: "transform, opacity, filter",
-          }}
-        >
-          {part}
-          {mode === "word" && i < parts.length - 1 ? "\u00A0" : ""}
-          {mode === "line" && i < parts.length - 1 ? <br /> : ""}
-        </span>
-      ))}
+      {parts.map((part, i) =>
+        part === null ? (
+          <br key={`br-${i}`} aria-hidden="true" />
+        ) : (
+          <span
+            key={i}
+            aria-hidden="true"
+            style={{
+              display: "inline-block",
+              opacity: visible ? 1 : 0,
+              transform: visible ? "translateY(0)" : "translateY(100%)",
+              filter: visible ? "blur(0px)" : "blur(4px)",
+              transition: `opacity ${duration}s ease ${i * stagger}s, transform ${duration}s cubic-bezier(0.22, 1, 0.36, 1) ${i * stagger}s, filter ${duration}s ease ${i * stagger}s`,
+              willChange: "transform, opacity, filter",
+            }}
+          >
+            {part}
+            {mode === "word" && i < parts.length - 1 && parts[i + 1] !== null
+              ? "\u00A0"
+              : ""}
+            {mode === "line" && i < parts.length - 1 ? <br /> : ""}
+          </span>
+        )
+      )}
     </Tag>
   );
 }

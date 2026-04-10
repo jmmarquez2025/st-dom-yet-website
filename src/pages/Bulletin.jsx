@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
@@ -9,7 +8,6 @@ import PageHeader from "../components/PageHeader";
 
 export default function Bulletin() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   return (
     <div style={{ paddingTop: 76 }}>
