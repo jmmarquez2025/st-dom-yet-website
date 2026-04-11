@@ -6,7 +6,249 @@ import { Section } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
 import Seo from "../components/Seo";
-import Icon from "../components/Icon";
+import { CheckCircle, AlertCircle, UserPlus, ChevronDown, ChevronUp, Loader2, Heart, Users, Home as HomeIcon, Church } from "lucide-react";
+
+/* ── Floating-label input ── */
+function FloatingInput({ label, required, type = "text", value, onChange, ...rest }) {
+  const [focused, setFocused] = useState(false);
+  const active = focused || value;
+  return (
+    <div style={{ position: "relative" }}>
+      <input
+        type={type} required={required} value={value} onChange={onChange}
+        onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
+        style={{
+          width: "100%", padding: "22px 16px 8px", fontSize: 15,
+          border: `1.5px solid ${focused ? T.burgundy : T.stone}`,
+          borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif",
+          background: "#fff", minHeight: 56, outline: "none",
+          transition: "border-color 0.25s, box-shadow 0.25s",
+          boxShadow: focused ? `0 0 0 3px rgba(107,29,42,0.08)` : "none",
+        }}
+        {...rest}
+      />
+      <label style={{
+        position: "absolute", left: 16,
+        top: active ? 8 : 18, fontSize: active ? 11 : 15,
+        fontWeight: active ? 600 : 400,
+        color: focused ? T.burgundy : T.warmGray,
+        pointerEvents: "none",
+        transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+        letterSpacing: active ? 0.5 : 0,
+        fontFamily: "'Source Sans 3', sans-serif",
+      }}>
+        {label}{required && " *"}
+      </label>
+    </div>
+  );
+}
+
+/* ── Floating-label textarea ── */
+function FloatingTextarea({ label, value, onChange, rows = 4, placeholder }) {
+  const [focused, setFocused] = useState(false);
+  const active = focused || value;
+  return (
+    <div style={{ position: "relative" }}>
+      <textarea
+        value={value} onChange={onChange} rows={rows}
+        onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
+        placeholder={active ? placeholder : ""}
+        style={{
+          width: "100%", padding: "22px 16px 8px", fontSize: 15,
+          border: `1.5px solid ${focused ? T.burgundy : T.stone}`,
+          borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif",
+          background: "#fff", resize: "vertical", outline: "none",
+          transition: "border-color 0.25s, box-shadow 0.25s",
+          boxShadow: focused ? `0 0 0 3px rgba(107,29,42,0.08)` : "none",
+        }}
+      />
+      <label style={{
+        position: "absolute", left: 16,
+        top: active ? 8 : 18, fontSize: active ? 11 : 15,
+        fontWeight: active ? 600 : 400,
+        color: focused ? T.burgundy : T.warmGray,
+        pointerEvents: "none",
+        transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+        letterSpacing: active ? 0.5 : 0,
+        fontFamily: "'Source Sans 3', sans-serif",
+      }}>
+        {label}
+      </label>
+    </div>
+  );
+}
+
+/* ── Styled select ── */
+function StyledSelect({ label, value, onChange, children }) {
+  const [focused, setFocused] = useState(false);
+  return (
+    <div style={{ position: "relative" }}>
+      <select
+        value={value} onChange={onChange}
+        onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
+        style={{
+          width: "100%", padding: "22px 16px 8px", fontSize: 15,
+          border: `1.5px solid ${focused ? T.burgundy : T.stone}`,
+          borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif",
+          background: "#fff", minHeight: 56, outline: "none", cursor: "pointer",
+          appearance: "none", WebkitAppearance: "none",
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236B6560' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "no-repeat", backgroundPosition: "right 16px center",
+          transition: "border-color 0.25s, box-shadow 0.25s",
+          boxShadow: focused ? `0 0 0 3px rgba(107,29,42,0.08)` : "none",
+        }}
+      >
+        {children}
+      </select>
+      <label style={{
+        position: "absolute", left: 16, top: 8, fontSize: 11, fontWeight: 600,
+        color: focused ? T.burgundy : T.warmGray, pointerEvents: "none",
+        transition: "color 0.2s", letterSpacing: 0.5,
+        fontFamily: "'Source Sans 3', sans-serif",
+      }}>
+        {label}
+      </label>
+    </div>
+  );
+}
+
+/* ── Collapsible section with icon ── */
+function FormSection({ icon: IconComp, title, children, defaultOpen = true }) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div
+      style={{
+        background: "#fff", borderRadius: 14,
+        border: `1px solid ${open ? "rgba(107,29,42,0.12)" : T.stone}`,
+        overflow: "hidden",
+        transition: "border-color 0.3s, box-shadow 0.3s",
+        boxShadow: open ? "0 2px 12px rgba(107,29,42,0.06)" : "none",
+      }}
+    >
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        style={{
+          width: "100%", display: "flex", alignItems: "center", gap: 12,
+          padding: "18px 24px", background: open ? "rgba(107,29,42,0.03)" : "transparent",
+          border: "none", cursor: "pointer", textAlign: "left",
+          transition: "background 0.3s",
+        }}
+      >
+        <div style={{
+          width: 36, height: 36, borderRadius: 10,
+          background: open
+            ? `linear-gradient(135deg, ${T.burgundy}, ${T.burgundyDark})`
+            : `linear-gradient(135deg, rgba(107,29,42,0.08), rgba(197,165,90,0.12))`,
+          display: "flex", alignItems: "center", justifyContent: "center",
+          transition: "all 0.3s",
+        }}>
+          <IconComp size={18} color={open ? "#fff" : T.burgundy} />
+        </div>
+        <span style={{
+          flex: 1, fontSize: 18, fontWeight: 600, color: T.burgundy,
+          fontFamily: "'Cormorant Garamond', serif",
+        }}>
+          {title}
+        </span>
+        {open ? <ChevronUp size={18} color={T.warmGray} /> : <ChevronDown size={18} color={T.warmGray} />}
+      </button>
+      <div
+        style={{
+          maxHeight: open ? 600 : 0,
+          overflow: "hidden",
+          transition: "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+        }}
+      >
+        <div style={{ padding: "4px 24px 24px", display: "grid", gap: 16 }}>
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Pill-style sacrament checkbox ── */
+function SacramentPill({ label, checked, onChange }) {
+  return (
+    <label
+      style={{
+        display: "inline-flex", alignItems: "center", gap: 8,
+        padding: "10px 18px", borderRadius: 50, cursor: "pointer",
+        border: `1.5px solid ${checked ? T.burgundy : T.stone}`,
+        background: checked ? `linear-gradient(135deg, rgba(107,29,42,0.08), rgba(197,165,90,0.06))` : "#fff",
+        transition: "all 0.25s ease",
+        fontSize: 14, fontWeight: checked ? 600 : 400,
+        color: checked ? T.burgundy : T.charcoal,
+        fontFamily: "'Source Sans 3', sans-serif",
+        boxShadow: checked ? "0 2px 8px rgba(107,29,42,0.1)" : "none",
+        transform: checked ? "scale(1.02)" : "scale(1)",
+      }}
+    >
+      <div
+        style={{
+          width: 20, height: 20, borderRadius: 6,
+          border: `2px solid ${checked ? T.burgundy : T.stone}`,
+          background: checked ? T.burgundy : "transparent",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          transition: "all 0.2s",
+        }}
+      >
+        {checked && (
+          <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+            <path d="M1 5L4.5 8.5L11 1.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        )}
+      </div>
+      <input type="checkbox" checked={checked} onChange={onChange} style={{ display: "none" }} />
+      {label}
+    </label>
+  );
+}
+
+/* ── Step indicator ── */
+function StepIndicator({ currentStep }) {
+  const steps = [
+    { num: 1, label: "Personal" },
+    { num: 2, label: "Contact" },
+    { num: 3, label: "Parish" },
+  ];
+  return (
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 0, marginBottom: 36 }}>
+      {steps.map((s, i) => (
+        <div key={s.num} style={{ display: "flex", alignItems: "center" }}>
+          <div style={{
+            width: 32, height: 32, borderRadius: "50%",
+            background: currentStep >= s.num
+              ? `linear-gradient(135deg, ${T.burgundy}, ${T.burgundyDark})`
+              : T.stone,
+            color: currentStep >= s.num ? "#fff" : T.warmGray,
+            display: "flex", alignItems: "center", justifyContent: "center",
+            fontSize: 13, fontWeight: 700, fontFamily: "'Source Sans 3', sans-serif",
+            transition: "all 0.3s",
+          }}>
+            {currentStep > s.num ? <CheckCircle size={16} /> : s.num}
+          </div>
+          <span style={{
+            fontSize: 12, fontWeight: 600, letterSpacing: 0.5,
+            color: currentStep >= s.num ? T.burgundy : T.warmGray,
+            marginLeft: 6, fontFamily: "'Source Sans 3', sans-serif",
+            transition: "color 0.3s",
+          }}>
+            {s.label}
+          </span>
+          {i < steps.length - 1 && (
+            <div style={{
+              width: 48, height: 2, margin: "0 12px",
+              background: currentStep > s.num ? T.burgundy : T.stone,
+              borderRadius: 1, transition: "background 0.3s",
+            }} />
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
 
 const INITIAL = {
   firstName: "", lastName: "",
@@ -80,16 +322,8 @@ export default function Register() {
     }
   };
 
-  const inputStyle = {
-    width: "100%", padding: "12px 16px", fontSize: 15,
-    border: `1px solid ${T.stone}`, borderRadius: 2,
-    fontFamily: "'Source Sans 3', sans-serif", background: T.warmWhite,
-    minHeight: 44,
-  };
-  const labelStyle = {
-    display: "block", fontSize: 13, fontWeight: 600,
-    color: T.softBlack, marginBottom: 6, letterSpacing: 0.5,
-  };
+  /* rough step tracker based on which fields are filled */
+  const step = form.address ? 3 : form.firstName ? 2 : 1;
 
   const SACRAMENT_OPTIONS = ["baptism", "firstCommunion", "confirmation", "marriage"];
 
@@ -103,183 +337,195 @@ export default function Register() {
 
       <Section bg={T.cream}>
         <FadeSection>
-          <div style={{ maxWidth: 720, margin: "0 auto" }}>
-            <p style={{ fontSize: 16, lineHeight: 1.8, color: T.warmGray, textAlign: "center", marginBottom: 36 }}>
+          <div style={{ maxWidth: 680, margin: "0 auto" }}>
+            <p style={{
+              fontSize: 16, lineHeight: 1.8, color: T.warmGray,
+              textAlign: "center", marginBottom: 12,
+            }}>
               {t("register.desc")}
             </p>
 
             {status === "success" ? (
               <div
                 style={{
-                  background: "#e8f5e9", border: "1px solid #a5d6a7",
-                  borderRadius: 4, padding: 40, textAlign: "center",
+                  background: "linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%)",
+                  border: "1px solid #c8e6c9",
+                  borderRadius: 16, padding: "56px 40px", textAlign: "center",
+                  animation: "fadeInScale 0.4s ease",
                 }}
               >
-                <Icon name="CheckCircle" size={48} color="#2e7d32" />
-                <h3 style={{ fontSize: 22, color: "#2e7d32", fontWeight: 600, marginTop: 16, fontFamily: "'Cormorant Garamond', serif" }}>
+                <div style={{
+                  width: 80, height: 80, borderRadius: "50%",
+                  background: "rgba(46,125,50,0.1)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  margin: "0 auto 24px",
+                }}>
+                  <CheckCircle size={40} color="#2e7d32" />
+                </div>
+                <h3 style={{
+                  fontSize: 28, color: "#2e7d32", fontWeight: 600,
+                  fontFamily: "'Cormorant Garamond', serif", marginBottom: 12,
+                }}>
                   {t("register.successTitle")}
                 </h3>
-                <p style={{ fontSize: 15, color: "#2e7d32", marginTop: 8 }}>
+                <p style={{ fontSize: 16, color: "#388e3c", lineHeight: 1.7, maxWidth: 400, margin: "0 auto" }}>
                   {t("register.successDesc")}
                 </p>
+                <button
+                  onClick={() => setStatus("idle")}
+                  style={{
+                    marginTop: 28, background: "none", border: `1.5px solid #66bb6a`,
+                    borderRadius: 10, padding: "12px 28px", fontSize: 14,
+                    color: "#2e7d32", cursor: "pointer", fontWeight: 600,
+                    fontFamily: "'Source Sans 3', sans-serif",
+                  }}
+                >
+                  {t("register.registerAnother") || "Register Another Family"}
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit}>
-                <div style={{ display: "grid", gap: 24 }}>
+                <StepIndicator currentStep={step} />
 
+                <div style={{ display: "grid", gap: 20 }}>
                   {/* ── Head of Household ── */}
-                  <fieldset style={{ border: "none", padding: 0, margin: 0 }}>
-                    <legend style={{ fontSize: 18, fontWeight: 600, color: T.burgundy, marginBottom: 16, fontFamily: "'Cormorant Garamond', serif" }}>
-                      {t("register.headOfHousehold")}
-                    </legend>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                      <div>
-                        <label style={labelStyle}>{t("register.firstName")} *</label>
-                        <input required value={form.firstName} onChange={set("firstName")} style={inputStyle} />
-                      </div>
-                      <div>
-                        <label style={labelStyle}>{t("register.lastName")} *</label>
-                        <input required value={form.lastName} onChange={set("lastName")} style={inputStyle} />
-                      </div>
+                  <FormSection icon={Users} title={t("register.headOfHousehold")} defaultOpen={true}>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}
+                         className="reg-two-col">
+                      <FloatingInput
+                        label={t("register.firstName")}
+                        required value={form.firstName} onChange={set("firstName")}
+                      />
+                      <FloatingInput
+                        label={t("register.lastName")}
+                        required value={form.lastName} onChange={set("lastName")}
+                      />
                     </div>
-                  </fieldset>
 
-                  {/* ── Spouse Toggle ── */}
-                  <div>
+                    {/* Spouse toggle */}
                     <button
                       type="button"
                       onClick={() => setShowSpouse(!showSpouse)}
                       style={{
-                        background: "none", border: `1px solid ${T.stone}`, borderRadius: 2,
-                        padding: "10px 20px", fontSize: 14, color: T.burgundy,
-                        cursor: "pointer", fontFamily: "'Source Sans 3', sans-serif",
-                        fontWeight: 600, letterSpacing: 0.5,
+                        display: "inline-flex", alignItems: "center", gap: 8,
+                        background: showSpouse ? "rgba(107,29,42,0.04)" : "transparent",
+                        border: `1.5px dashed ${showSpouse ? T.burgundy : T.stone}`,
+                        borderRadius: 10, padding: "12px 20px", fontSize: 14,
+                        color: T.burgundy, cursor: "pointer",
+                        fontFamily: "'Source Sans 3', sans-serif", fontWeight: 600,
+                        transition: "all 0.25s",
                       }}
                     >
-                      {showSpouse ? `− ${t("register.removeSpouse")}` : `+ ${t("register.addSpouse")}`}
+                      <Heart size={16} fill={showSpouse ? T.burgundy : "none"} />
+                      {showSpouse ? t("register.removeSpouse") : t("register.addSpouse")}
                     </button>
-                  </div>
 
-                  {showSpouse && (
-                    <fieldset style={{ border: "none", padding: 0, margin: 0 }}>
-                      <legend style={{ fontSize: 18, fontWeight: 600, color: T.burgundy, marginBottom: 16, fontFamily: "'Cormorant Garamond', serif" }}>
-                        {t("register.spouse")}
-                      </legend>
-                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                        <div>
-                          <label style={labelStyle}>{t("register.firstName")}</label>
-                          <input value={form.spouseFirst} onChange={set("spouseFirst")} style={inputStyle} />
-                        </div>
-                        <div>
-                          <label style={labelStyle}>{t("register.lastName")}</label>
-                          <input value={form.spouseLast} onChange={set("spouseLast")} style={inputStyle} />
-                        </div>
+                    {showSpouse && (
+                      <div
+                        style={{
+                          display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16,
+                          padding: "16px 20px", background: "rgba(197,165,90,0.04)",
+                          borderRadius: 10, border: `1px solid rgba(197,165,90,0.15)`,
+                          animation: "fadeInScale 0.3s ease",
+                        }}
+                        className="reg-two-col"
+                      >
+                        <FloatingInput
+                          label={`${t("register.spouse")} ${t("register.firstName")}`}
+                          value={form.spouseFirst} onChange={set("spouseFirst")}
+                        />
+                        <FloatingInput
+                          label={`${t("register.spouse")} ${t("register.lastName")}`}
+                          value={form.spouseLast} onChange={set("spouseLast")}
+                        />
                       </div>
-                    </fieldset>
-                  )}
+                    )}
+                  </FormSection>
 
                   {/* ── Contact Information ── */}
-                  <fieldset style={{ border: "none", padding: 0, margin: 0 }}>
-                    <legend style={{ fontSize: 18, fontWeight: 600, color: T.burgundy, marginBottom: 16, fontFamily: "'Cormorant Garamond', serif" }}>
-                      {t("register.contactInfo")}
-                    </legend>
-                    <div style={{ display: "grid", gap: 16 }}>
-                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
-                        <div>
-                          <label style={labelStyle}>{t("register.email")} *</label>
-                          <input required type="email" value={form.email} onChange={set("email")} style={inputStyle} />
-                        </div>
-                        <div>
-                          <label style={labelStyle}>{t("register.phone")} *</label>
-                          <input required type="tel" value={form.phone} onChange={set("phone")} style={inputStyle} />
-                        </div>
-                      </div>
-                      <div>
-                        <label style={labelStyle}>{t("register.address")} *</label>
-                        <input required value={form.address} onChange={set("address")} style={inputStyle} />
-                      </div>
-                      <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 16 }}>
-                        <div>
-                          <label style={labelStyle}>{t("register.city")} *</label>
-                          <input required value={form.city} onChange={set("city")} style={inputStyle} />
-                        </div>
-                        <div>
-                          <label style={labelStyle}>{t("register.state")} *</label>
-                          <input required value={form.state} onChange={set("state")} style={inputStyle} maxLength={2} />
-                        </div>
-                        <div>
-                          <label style={labelStyle}>{t("register.zip")} *</label>
-                          <input required value={form.zip} onChange={set("zip")} style={inputStyle} maxLength={10} />
-                        </div>
-                      </div>
+                  <FormSection icon={HomeIcon} title={t("register.contactInfo")} defaultOpen={true}>
+                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}
+                         className="reg-two-col">
+                      <FloatingInput
+                        label={t("register.email")}
+                        required type="email" value={form.email} onChange={set("email")}
+                      />
+                      <FloatingInput
+                        label={t("register.phone")}
+                        required type="tel" value={form.phone} onChange={set("phone")}
+                      />
                     </div>
-                  </fieldset>
+                    <FloatingInput
+                      label={t("register.address")}
+                      required value={form.address} onChange={set("address")}
+                    />
+                    <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 16 }}
+                         className="reg-three-col">
+                      <FloatingInput
+                        label={t("register.city")}
+                        required value={form.city} onChange={set("city")}
+                      />
+                      <FloatingInput
+                        label={t("register.state")}
+                        required value={form.state} onChange={set("state")} maxLength={2}
+                      />
+                      <FloatingInput
+                        label={t("register.zip")}
+                        required value={form.zip} onChange={set("zip")} maxLength={10}
+                      />
+                    </div>
+                  </FormSection>
 
                   {/* ── Parish Details ── */}
-                  <fieldset style={{ border: "none", padding: 0, margin: 0 }}>
-                    <legend style={{ fontSize: 18, fontWeight: 600, color: T.burgundy, marginBottom: 16, fontFamily: "'Cormorant Garamond', serif" }}>
-                      {t("register.parishDetails")}
-                    </legend>
-                    <div style={{ display: "grid", gap: 16 }}>
-                      <div>
-                        <label style={labelStyle}>{t("register.previousParish")}</label>
-                        <input value={form.previousParish} onChange={set("previousParish")} style={inputStyle} placeholder={t("register.previousParishHint")} />
-                      </div>
-                      <div>
-                        <label style={labelStyle}>{t("register.children")}</label>
-                        <input type="number" min="0" value={form.children} onChange={set("children")} style={{ ...inputStyle, maxWidth: 120 }} />
-                      </div>
-                    </div>
-                  </fieldset>
+                  <FormSection icon={Church} title={t("register.parishDetails")} defaultOpen={false}>
+                    <FloatingInput
+                      label={t("register.previousParish")}
+                      value={form.previousParish} onChange={set("previousParish")}
+                    />
+                    <FloatingInput
+                      label={t("register.children")}
+                      type="number" value={form.children} onChange={set("children")}
+                    />
 
-                  {/* ── Sacraments Received ── */}
-                  <fieldset style={{ border: "none", padding: 0, margin: 0 }}>
-                    <legend style={{ fontSize: 18, fontWeight: 600, color: T.burgundy, marginBottom: 16, fontFamily: "'Cormorant Garamond', serif" }}>
-                      {t("register.sacramentsReceived")}
-                    </legend>
-                    <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
-                      {SACRAMENT_OPTIONS.map((sac) => (
-                        <label
-                          key={sac}
-                          style={{
-                            display: "flex", alignItems: "center", gap: 8,
-                            padding: "10px 16px", borderRadius: 2, cursor: "pointer",
-                            border: `1px solid ${form.sacraments.includes(sac) ? T.burgundy : T.stone}`,
-                            background: form.sacraments.includes(sac) ? "rgba(107,29,42,0.06)" : T.warmWhite,
-                            transition: "all 0.2s",
-                            fontSize: 14, fontFamily: "'Source Sans 3', sans-serif",
-                          }}
-                        >
-                          <input
-                            type="checkbox"
+                    {/* Sacraments */}
+                    <div>
+                      <div style={{
+                        fontSize: 12, fontWeight: 600, letterSpacing: 1,
+                        textTransform: "uppercase", color: T.warmGray, marginBottom: 12,
+                        fontFamily: "'Source Sans 3', sans-serif",
+                      }}>
+                        {t("register.sacramentsReceived")}
+                      </div>
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
+                        {SACRAMENT_OPTIONS.map((sac) => (
+                          <SacramentPill
+                            key={sac}
+                            label={t(`register.sac_${sac}`)}
                             checked={form.sacraments.includes(sac)}
                             onChange={() => toggleSacrament(sac)}
-                            style={{ accentColor: T.burgundy }}
                           />
-                          {t(`register.sac_${sac}`)}
-                        </label>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </fieldset>
 
-                  {/* ── How did you hear about us ── */}
-                  <div>
-                    <label style={labelStyle}>{t("register.heardAbout")}</label>
-                    <select value={form.heardAbout} onChange={set("heardAbout")} style={{ ...inputStyle, cursor: "pointer" }}>
+                    <StyledSelect
+                      label={t("register.heardAbout")}
+                      value={form.heardAbout} onChange={set("heardAbout")}
+                    >
                       <option value="">{t("register.selectOne")}</option>
                       <option value="word-of-mouth">{t("register.heard_word")}</option>
                       <option value="website">{t("register.heard_website")}</option>
                       <option value="social-media">{t("register.heard_social")}</option>
                       <option value="drove-by">{t("register.heard_drove")}</option>
                       <option value="other">{t("register.heard_other")}</option>
-                    </select>
-                  </div>
+                    </StyledSelect>
 
-                  {/* ── Additional Notes ── */}
-                  <div>
-                    <label style={labelStyle}>{t("register.notes")}</label>
-                    <textarea value={form.notes} onChange={set("notes")} rows={4} style={{ ...inputStyle, resize: "vertical" }} placeholder={t("register.notesHint")} />
-                  </div>
+                    <FloatingTextarea
+                      label={t("register.notes")}
+                      value={form.notes} onChange={set("notes")}
+                      placeholder={t("register.notesHint")}
+                    />
+                  </FormSection>
 
                   {/* ── Submit ── */}
                   <button
@@ -287,18 +533,43 @@ export default function Register() {
                     disabled={status === "sending"}
                     className="btn-hover"
                     style={{
-                      background: T.burgundy, color: T.cream, border: "none",
-                      padding: "16px 40px", fontSize: 15, fontWeight: 600,
+                      background: status === "sending"
+                        ? T.warmGray
+                        : `linear-gradient(135deg, ${T.burgundy}, ${T.burgundyDark})`,
+                      color: T.cream, border: "none",
+                      padding: "18px 40px", fontSize: 15, fontWeight: 600,
                       letterSpacing: 1.2, textTransform: "uppercase",
-                      borderRadius: 2, cursor: "pointer",
+                      borderRadius: 12, cursor: status === "sending" ? "wait" : "pointer",
                       fontFamily: "'Source Sans 3', sans-serif",
-                      opacity: status === "sending" ? 0.7 : 1, minHeight: 48,
+                      minHeight: 56, width: "100%",
+                      display: "flex", alignItems: "center", justifyContent: "center", gap: 10,
+                      transition: "all 0.3s ease",
+                      boxShadow: status === "sending" ? "none" : "0 4px 20px rgba(107,29,42,0.25)",
                     }}
                   >
-                    {status === "sending" ? t("register.sending") : t("register.submit")}
+                    {status === "sending" ? (
+                      <>
+                        <Loader2 size={20} style={{ animation: "spin 1s linear infinite" }} />
+                        {t("register.sending")}
+                      </>
+                    ) : (
+                      <>
+                        <UserPlus size={18} />
+                        {t("register.submit")}
+                      </>
+                    )}
                   </button>
                   {status === "error" && (
-                    <p style={{ color: "#c62828", fontSize: 14 }}>{t("register.error")}</p>
+                    <div style={{
+                      display: "flex", alignItems: "center", gap: 10,
+                      background: "#fef2f2", border: "1px solid #fecaca",
+                      borderRadius: 8, padding: "12px 16px",
+                    }}>
+                      <AlertCircle size={18} color="#dc2626" />
+                      <p style={{ color: "#dc2626", fontSize: 14, fontWeight: 500, margin: 0 }}>
+                        {t("register.error")}
+                      </p>
+                    </div>
                   )}
                 </div>
               </form>
@@ -306,6 +577,21 @@ export default function Register() {
           </div>
         </FadeSection>
       </Section>
+
+      <style>{`
+        @keyframes fadeInScale {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        @media (max-width: 560px) {
+          .reg-two-col { grid-template-columns: 1fr !important; }
+          .reg-three-col { grid-template-columns: 1fr 1fr !important; }
+        }
+      `}</style>
     </div>
   );
 }

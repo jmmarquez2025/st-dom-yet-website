@@ -535,8 +535,11 @@
     "success": "¡Gracias! Su mensaje ha sido enviado. Nos pondremos en contacto pronto.",
     "error": "Algo salió mal. Por favor intente llamarnos o enviar un correo electrónico directamente.",
     "infoTitle": "Información Parroquial",
+    "addressLabel": "Dirección",
+    "phoneLabel": "Teléfono",
     "fax": "Fax",
     "officeHours": "Horario de Oficina",
+    "sendAnother": "Enviar Otro Mensaje",
     "mapTitle": "Mapa de la Parroquia Católica Santo Domingo",
     "contactOffice": "Llámenos para organizar su donación hoy."
   },
@@ -936,7 +939,8 @@
     "sending": "Enviando...",
     "error": "Algo salió mal. Por favor intente de nuevo o llame a la oficina parroquial.",
     "successTitle": "¡Registro Recibido!",
-    "successDesc": "Gracias por registrarse en la parroquia de Santo Domingo. Nos comunicaremos pronto para darle la bienvenida personalmente."
+    "successDesc": "Gracias por registrarse en la parroquia de Santo Domingo. Nos comunicaremos pronto para darle la bienvenida personalmente.",
+    "registerAnother": "Registrar Otra Familia"
   },
   "events": {
     "title": "Eventos Parroquiales",

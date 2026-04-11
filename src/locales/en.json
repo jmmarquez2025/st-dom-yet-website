@@ -535,8 +535,11 @@
     "success": "Thank you! Your message has been sent. We'll be in touch soon.",
     "error": "Something went wrong. Please try calling us or sending an email directly.",
     "infoTitle": "Parish Information",
+    "addressLabel": "Address",
+    "phoneLabel": "Phone",
     "fax": "Fax",
     "officeHours": "Office Hours",
+    "sendAnother": "Send Another Message",
     "mapTitle": "Map to St. Dominic Catholic Parish"
   },
   "give": {
@@ -935,7 +938,8 @@
     "sending": "Submitting...",
     "error": "Something went wrong. Please try again or call the parish office.",
     "successTitle": "Registration Received!",
-    "successDesc": "Thank you for registering at St. Dominic Parish. We will be in touch soon to welcome you personally."
+    "successDesc": "Thank you for registering at St. Dominic Parish. We will be in touch soon to welcome you personally.",
+    "registerAnother": "Register Another Family"
   },
   "events": {
     "title": "Parish Events",
