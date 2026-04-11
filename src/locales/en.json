@@ -97,7 +97,7 @@
     "confession": "Confession Schedule",
     "adoration": "Adoration & Devotions",
     "holyDays": "Holy Days of Obligation",
-    "holyDaysDesc": "Vigil: 5:00 PM · Holy Day: 8:00 AM, 12:00 PM, 7:00 PM (Español)"
+    "holyDaysDesc": "Vigil: 5:00 PM · Holy Day: 8:00 AM, 12:00 PM, 5:00 PM"
   },
   "about": {
     "title": "About Our Parish",
@@ -146,6 +146,7 @@
     "roles": {
       "pastor": "Pastor",
       "associate": "Parochial Vicar",
+      "inResidence": "In Residence",
       "parishSecretary": "Parish Secretary",
       "musicDirector": "Music Director",
       "religiousEdCoordinator": "Coordinator of Religious Education",
@@ -166,6 +167,11 @@
     "sub": "Your Journey",
     "heading": "Begin Your Journey of Faith",
     "desc": "Whether you've never been baptized, were baptized in another Christian tradition, or are a baptized Catholic who hasn't yet received Confirmation or the Eucharist — we're here to walk with you.",
+    "intro": {
+      "sub": "Your Journey",
+      "title": "Begin Your Journey of Faith",
+      "desc": "Whether you've never been baptized, were baptized in another Christian tradition, or are a baptized Catholic who hasn't yet received Confirmation or the Eucharist — we're here to walk with you."
+    },
     "cards": {
       "new": {
         "title": "New to the Faith?",
@@ -178,13 +184,17 @@
         "step": "Come home"
       },
       "ready": {
-        "title": "Ready to Begin?",
-        "desc": "Our parish offers a process of formation (sometimes called RCIA or the Order of Christian Initiation of Adults) where you can learn, ask questions, and prepare to receive the Sacraments.",
+        "title": "Ready to Begin RCIA?",
+        "desc": "Our parish offers RCIA (Order of Christian Initiation of Adults) — an 8-to-9-month journey of faith running September through May. Classes meet weekly, culminating at the Easter Vigil. Available in English and in Spanish (Wednesday evenings at 7:00 PM).",
         "step": "Take the next step"
       }
     },
     "reachOut": "Reach Out to Us",
-    "reachOutDesc": "Contact the parish office and we'll connect you with one of our priests or staff who can answer your questions and help you take the next step."
+    "reachOutDesc": "Contact the parish office and we'll connect you with one of our priests or staff who can answer your questions and help you take the next step.",
+    "contact": {
+      "title": "Reach Out to Us",
+      "desc": "Contact the parish office and we'll connect you with one of our priests or staff who can answer your questions and help you take the next step toward Baptism or full reception into the Church."
+    }
   },
   "getInvolved": {
     "title": "Get Involved",
@@ -221,8 +231,24 @@
         "desc": "Share your musical gifts at Mass — choir, cantoring, and instrumentalists welcome."
       },
       "religiousEd": {
-        "title": "Religious Education",
-        "desc": "Help form the next generation of Catholics through our CCD and faith formation programs."
+        "title": "Religious Education (CCD)",
+        "desc": "CCD classes serve grades K–8, meeting Sundays 9:00–10:15 AM from September through May. Help form the next generation of Catholics."
+      },
+      "youth": {
+        "title": "Youth Ministry",
+        "desc": "High School and Junior High youth groups, plus a Young Families group. Mission trips offered each year for teens and medical volunteers."
+      },
+      "bibleStudy": {
+        "title": "Bible Study",
+        "desc": "Weekly Bible study open to all parishioners. Deepen your knowledge of Sacred Scripture in the Dominican tradition of study and contemplation."
+      },
+      "caring": {
+        "title": "Caring Ministries",
+        "desc": "Reaching out to the sick, homebound, and grieving members of our parish family with visits, prayer, and practical support."
+      },
+      "missions": {
+        "title": "Mission Trips",
+        "desc": "Annual medical mission trip (April) and teen mission trip (June) give parishioners the opportunity to serve those in need beyond our community."
       }
     },
     "register": {
@@ -297,7 +323,7 @@
       "sub": "The Sacrament of",
       "heading": "New Life in Christ",
       "p1": "Baptism is the first and fundamental sacrament of Christian initiation. Through the waters of Baptism, we are cleansed of original sin, reborn as children of God, and welcomed into the Catholic Church. It is the doorway through which we enter into life with Christ.",
-      "p2": "At St. Dominic Parish, we celebrate Baptism for infants, children, and adults. Parents seeking Baptism for their child are invited to contact the parish office to schedule a Baptism preparation session.",
+      "p2": "At St. Dominic Parish, Baptism is celebrated at 12:30 PM on the 2nd and 4th Sundays of each month. Baptism preparation classes are held on the 2nd Wednesday of odd-numbered months at 7:00 PM in the church. Contact the parish office to register.",
       "reqSub": "What You Need",
       "reqTitle": "Requirements for Baptism",
       "req1": {
@@ -345,7 +371,7 @@
       "sub": "The Sacrament of",
       "heading": "Sealed with the Holy Spirit",
       "p1": "Confirmation completes the grace of Baptism and endows the recipient with the special strength of the Holy Spirit. Through Confirmation, Catholics are more perfectly bound to the Church and enriched with the power to witness to Christ in word and deed.",
-      "p2": "At St. Dominic Parish, Confirmation preparation typically takes place during high school years. Adults who have not been confirmed are welcome to contact the parish to arrange preparation at any time.",
+      "p2": "At St. Dominic Parish, Confirmation is usually conferred upon students in grade 8, prepared through our CCD program. Adults who have not been confirmed are welcome to contact the parish to arrange preparation at any time.",
       "prepSub": "Preparation",
       "prepTitle": "Preparing for Confirmation",
       "prep1": {
@@ -377,8 +403,8 @@
         "desc": "Meet with one of our priests to discuss your plans, wedding date availability, and the preparation process. Contact us at least six months in advance."
       },
       "step2": {
-        "title": "Marriage Preparation",
-        "desc": "Complete the diocesan marriage preparation program, which includes Pre-Cana sessions covering communication, faith, finances, and family life."
+        "title": "Pre-Cana Marriage Preparation",
+        "desc": "Complete Pre-Cana — three consecutive Sunday evening sessions (offered in winter, spring, or fall) covering communication, decision-making, faith, and family life. Open to parishioners and alumni."
       },
       "step3": {
         "title": "Wedding Liturgy",
@@ -471,7 +497,7 @@
       },
       "language": {
         "title": "Spanish Mass Available",
-        "desc": "We celebrate a Spanish-language Mass every Sunday at 12:30 PM. Our Hispanic Ministry community is vibrant and welcoming — ¡todos son bienvenidos!"
+        "desc": "We celebrate a Spanish-language Mass every Sunday at 1:00 PM. Our Hispanic Ministry community is vibrant and welcoming — ¡todos son bienvenidos!"
       },
       "parking": {
         "title": "Parking & Accessibility",
@@ -487,7 +513,7 @@
       "satVigil": "Saturday Vigil:",
       "sun": "Sunday:",
       "sunEs": "Domingo (Español):",
-      "confessionNote": "Confessions: Saturday 4:00 – 4:45 PM"
+      "confessionNote": "Confessions: Wed & Fri 11:15 AM–12:00 PM · Sat 11:15 AM–12:00 PM & 4:00–5:00 PM"
     },
     "cta": {
       "title": "We Can't Wait to Meet You",
