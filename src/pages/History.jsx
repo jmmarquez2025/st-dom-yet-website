@@ -124,7 +124,7 @@ export default function History() {
           textAlign: "center",
         }}
       >
-        <HeroImage src={PHOTOS.historyHero} overlay={0.6} />
+        <HeroImage src={PHOTOS.pageHeader} overlay={0.5} tint="rgba(30,20,15,0.6)" />
         <div style={{ position: "relative", zIndex: 1 }}>
           <div
             style={{
@@ -368,9 +368,9 @@ export default function History() {
             <P>{t("history.today.p2")}</P>
 
             <HistoryPhoto
-              src={PHOTOS.historyExteriorOld}
-              alt={t("history.today.entranceAlt")}
-              caption={t("history.today.entranceCap")}
+              src={PHOTOS.historyHero}
+              alt={t("history.today.aerialAlt")}
+              caption={t("history.today.aerialCap")}
             />
 
             <P>{t("history.today.p3")}</P>
