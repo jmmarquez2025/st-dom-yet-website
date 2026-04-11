@@ -122,6 +122,10 @@
       "easter": "Tiempo de Pascua",
       "ordinary": "Tiempo Ordinario"
     },
+    "vatican": {
+      "sub": "La Iglesia Universal",
+      "title": "Noticias del Vaticano"
+    },
     "cards": {
       "visitTitle": "Visítenos",
       "callTitle": "Llámenos",

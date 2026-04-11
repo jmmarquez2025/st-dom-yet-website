@@ -122,6 +122,10 @@
       "easter": "Easter Season",
       "ordinary": "Ordinary Time"
     },
+    "vatican": {
+      "sub": "The Universal Church",
+      "title": "News from the Vatican"
+    },
     "cards": {
       "visitTitle": "Visit Us",
       "callTitle": "Call Us",

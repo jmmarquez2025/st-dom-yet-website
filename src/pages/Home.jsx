@@ -12,6 +12,7 @@ import NextMass from "../components/NextMass";
 import CountUp from "../components/CountUp";
 import DailyQuote from "../components/DailyQuote";
 import LiturgicalBanner from "../components/LiturgicalBanner";
+import VaticanNews from "../components/VaticanNews";
 
 /* ── cross SVG for pattern overlays ── */
 const CrossPattern = ({ opacity = 0.04 }) => (
@@ -598,6 +599,14 @@ export default function Home() {
           </FadeSection>
         </Section>
       )}
+
+      {/* ════ Vatican News ════ */}
+      <Section>
+        <FadeSection>
+          <SectionTitle sub={t("home.vatican.sub")}>{t("home.vatican.title")}</SectionTitle>
+          <VaticanNews />
+        </FadeSection>
+      </Section>
 
       {/* ════ Quick Info Cards ════ */}
       <Section bg={T.cream}>
