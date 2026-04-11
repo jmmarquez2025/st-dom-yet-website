@@ -323,7 +323,7 @@ export default function Home() {
                 <p style={{ fontSize: 16, lineHeight: 1.8, color: "rgba(255,255,255,0.7)", marginBottom: 28 }}>
                   {t("home.priests.desc")}
                 </p>
-                <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+                <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
                   <Btn variant="gold" onClick={() => navigate("/staff")}>
                     {t("home.priests.cta")}
                   </Btn>
@@ -333,6 +333,16 @@ export default function Home() {
                   >
                     {t("home.priests.province")}
                   </Btn>
+                </div>
+                <div style={{ marginTop: 28, display: "flex", alignItems: "center", gap: 14, opacity: 0.75 }}>
+                  <img
+                    src={PHOTOS.psjShield}
+                    alt="Province of St. Joseph Shield"
+                    style={{ width: 40, height: 40, objectFit: "contain" }}
+                  />
+                  <span style={{ fontSize: 12, letterSpacing: 1.5, textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }}>
+                    Dominican Province of St. Joseph
+                  </span>
                 </div>
               </div>
             </div>

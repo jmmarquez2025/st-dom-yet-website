@@ -62,6 +62,12 @@ export const PHOTOS = {
   stockCandles: `${B}photos/stock/candles.jpg`,                 // Votive candles (Unsplash)
   stockGiving: `${B}photos/stock/giving.jpg`,                   // Charity / generosity (Unsplash)
 
+  // ── Provincial branding (Dominican Province of St. Joseph) ──
+  psjShield: `${B}photos/branding/psj-shield.png`,             // Official PSJ shield with VERITAS
+  psjShieldBw: `${B}photos/branding/psj-shield-bw.png`,        // B&W shield (watermark use)
+  psjLogoBlue: `${B}photos/branding/psj-logo-blue.png`,        // Full logo — shield + "Dominican Friars"
+  psjWordmarkWhite: `${B}photos/branding/psj-wordmark-white.png`, // White wordmark for dark backgrounds
+
   // ── Mass Times page ──
   monstrance: `${B}photos/gallery/F69A5507.jpg`,               // Monstrance with Blessed Sacrament exposed
 

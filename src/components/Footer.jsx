@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
+import { PHOTOS } from "../constants/photos";
 
 function FooterLink({ to, children, style }) {
   const navigate = useNavigate();
@@ -100,10 +101,43 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* ── Provincial affiliation ── */}
       <div
         style={{
-          maxWidth: 1100, margin: "40px auto 0", paddingTop: 24,
+          maxWidth: 1100, margin: "40px auto 0", paddingTop: 32,
           borderTop: "1px solid rgba(255,255,255,0.1)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          gap: 20, flexWrap: "wrap",
+        }}
+      >
+        <a
+          href={CONFIG.provinceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "flex", alignItems: "center", gap: 16,
+            textDecoration: "none", color: "rgba(255,255,255,0.7)",
+            transition: "opacity 0.3s",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.85")}
+        >
+          <img
+            src={PHOTOS.psjShield}
+            alt="Dominican Province of St. Joseph Shield"
+            style={{ width: 48, height: 48, objectFit: "contain" }}
+          />
+          <img
+            src={PHOTOS.psjWordmarkWhite}
+            alt="Dominican Friars — Province of Saint Joseph"
+            style={{ height: 32, objectFit: "contain", opacity: 0.85 }}
+          />
+        </a>
+      </div>
+
+      <div
+        style={{
+          maxWidth: 1100, margin: "20px auto 0", paddingTop: 16,
           textAlign: "center", fontSize: 12, color: "rgba(255,255,255,0.55)",
         }}
       >
