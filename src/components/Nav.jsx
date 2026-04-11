@@ -12,6 +12,7 @@ const NAV_ITEMS = [
     children: [
       { key: "about", to: "/about" },
       { key: "history", to: "/history" },
+      { key: "architecture", to: "/architecture" },
       { key: "staff", to: "/staff" },
     ],
   },

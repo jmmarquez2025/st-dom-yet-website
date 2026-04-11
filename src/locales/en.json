@@ -20,7 +20,8 @@
     "anointing": "Anointing of the Sick",
     "funerals": "Funerals",
     "register": "Register",
-    "events": "Events"
+    "events": "Events",
+    "architecture": "Architecture & Art"
   },
   "footer": {
     "subtitle": "Catholic Parish · Youngstown, OH",
@@ -201,7 +202,8 @@
     "architecture": {
       "style": "Romanesque",
       "title": "Our Church Architecture",
-      "desc": "The architectural style of St. Dominic Church is modernized Romanesque — featuring limestone and brick construction, a towering presence on Lucius Avenue, and sacred art that inspires prayer and contemplation."
+      "desc": "The architectural style of St. Dominic Church is modernized Romanesque — featuring limestone and brick construction, a towering presence on Lucius Avenue, and sacred art that inspires prayer and contemplation.",
+      "cta": "Take the Walking Tour"
     }
   },
   "staff": {
@@ -844,5 +846,80 @@
   },
   "saintOfDay": {
     "label": "Saint of the Day"
+  },
+  "arch": {
+    "title": "Architecture & Sacred Art",
+    "hero": {
+      "sub": "A Walking Tour",
+      "desc": "Explore the Romanesque beauty, sacred art, and Dominican symbolism of St. Dominic Church — a masterpiece of faith built by a community."
+    },
+    "exterior": {
+      "title": "The Exterior & Facade",
+      "p1": "St. Dominic Church presents a striking example of Modernized Romanesque architecture with Gothic elements, built of warm brick and Indiana limestone. The facade rises to a peaked gable crowned by a Cross of Thorns — a symbol of Christ's Passion — above the great rose window.",
+      "p2": "The main entrance features twin arched doorways flanked by carved stone. The papal coat of arms is carved above the left door and the diocesan coat of arms above the right. Between them, in a recessed niche, stands a statue of St. Dominic holding a lily and the Book of the Gospels.",
+      "p3": "At street level, the parish sign features a marble relief depicting the Blessed Virgin Mary presenting the Rosary to St. Dominic — the foundational scene of Dominican spirituality.",
+      "facadeAlt": "St. Dominic Church exterior facade with rose window and limestone entrance",
+      "facadeCap": "The limestone facade of St. Dominic Church, completed in 1954",
+      "doorsAlt": "Main entrance doors with papal and diocesan coats of arms",
+      "doorsCap": "Twin arched doorways with papal and diocesan coats of arms",
+      "signAlt": "Parish sign with marble relief of the Rosary scene",
+      "signCap": "Marble relief: the Blessed Virgin presenting the Rosary to St. Dominic",
+      "styleLabel": "Style",
+      "styleValue": "Modernized Romanesque",
+      "materialLabel": "Material",
+      "materialValue": "Brick & Indiana Limestone",
+      "builtLabel": "Completed",
+      "builtValue": "1954"
+    },
+    "entrance": {
+      "title": "The Main Entrance",
+      "p1": "Approaching the church, visitors are drawn upward by the magnificent rose window — a circular masterpiece of stained glass depicting the four Evangelists with their traditional symbols surrounding Christ at the center. The window's tracery forms a Dominican cross pattern.",
+      "p2": "The cornerstone, set into the limestone at the base of the church, reads \"St. Dominic's Church 1954,\" marking the year of completion after two years of construction. The parish itself was founded in 1923 by the Dominican Friars.",
+      "photoAlt": "Close-up of entrance showing rose window, St. Dominic statue, and carved coats of arms",
+      "photoCap": "The entrance in detail: rose window, St. Dominic statue, and carved coats of arms",
+      "cornerstoneAlt": "Cornerstone reading St. Dominic's Church 1954",
+      "cornerstoneCap": "The cornerstone — St. Dominic's Church, 1954"
+    },
+    "roseQuote": "I am the light of the world. Whoever follows me will not walk in darkness, but will have the light of life.",
+    "roseQuoteSrc": "John 8:12 (NABRE)",
+    "nave": {
+      "title": "The Nave",
+      "p1": "Stepping inside, the eye is immediately drawn upward by the soaring height of the nave. Eighteen Romanesque arches march down both sides of the church, resting on solid brick pillars. Interspersed among the arches are twelve symbols from the Litany of Loreto — ancient titles of the Blessed Virgin Mary — alternating with Dominican crosses.",
+      "p2": "The carved Stations of the Cross are set between the arches along both walls, inviting the faithful to walk the Way of the Cross. Above, the beamed oak ceiling displays the coats of arms of each Dominican province, along with the three pillars of the Order's mission: Laudare, Benedicere, Praedicare — To Praise, To Bless, To Preach.",
+      "p3": "The side aisles feature a series of Romanesque arched openings that create a beautiful rhythm of light and shadow, leading to the various shrines and devotional spaces along the perimeter of the church. Votive candles flicker before statues of the saints.",
+      "dimLabel": "Dimensions",
+      "dimValue": "216 ft × 98 ft",
+      "heightLabel": "Nave Height",
+      "heightValue": "51 feet",
+      "seatingLabel": "Seating",
+      "seatingValue": "~1,100",
+      "aisleAlt": "Side aisle with Romanesque arches, shrines, and votive candles",
+      "aisleCap": "The side aisle — Romanesque arches frame shrines and votive candles"
+    },
+    "sanctuary": {
+      "title": "The Sanctuary",
+      "p1": "The sanctuary is the spiritual heart of the church. The marble high altar stands on a floor of black and white marble — the traditional colors of the Dominican Order. Six bronze candlesticks flank the tabernacle.",
+      "p2": "Dominating the sanctuary is the great mural depicting the Blessed Virgin Mary and St. Dominic receiving the Rosary, surrounded by seven Dominican saints. This monumental painting fills the entire apse and draws the eye of every visitor who enters the church.",
+      "p3": "The free-standing marble pulpit, carved by the Italian sculptor Gherardi in 1979, bears the image of St. Thomas Aquinas — the great Dominican theologian and Doctor of the Church. Above the pulpit hangs a large oak crucifix. The sanctuary walls feature Trinity symbolism: the Hand of God, the Pelican (a symbol of Christ's sacrifice), and the Dove of the Holy Spirit on one side, with Faith, Hope, and Charity on the other.",
+      "photoAlt": "View of the sanctuary from the choir loft showing the great mural, marble altar, and arches",
+      "photoCap": "The sanctuary from the choir loft — the great Rosary mural, marble altar, and soaring arches"
+    },
+    "sanctuaryQuote": "Laudare, Benedicere, Praedicare — To Praise, To Bless, To Preach.",
+    "sanctuaryQuoteSrc": "Motto of the Order of Preachers",
+    "choirLoft": {
+      "title": "The Choir Loft & Rose Window",
+      "p1": "The choir loft occupies the rear gallery of the church, offering a commanding view of the nave and sanctuary below. From here, the full grandeur of the architecture reveals itself — the rhythm of the arches, the painted ceiling panels, and the distant glow of the sanctuary mural.",
+      "p2": "The great rose window, seen from within, transforms sunlight into a kaleidoscope of color. Its stained glass panels depict the four Evangelists — Matthew, Mark, Luke, and John — with their traditional symbols: the angel, the lion, the ox, and the eagle. At the center sits Christ in Majesty.",
+      "p3": "Flanking the rose window are two murals by the sculptor Gherardi, depicting the great Church Fathers alongside the Blessed Virgin Mary and St. Joseph. Below, the Wurlitzer organ fills the loft, its pipes reaching toward the painted ceiling.",
+      "loftAlt": "Choir loft interior showing rose window, painted ceiling panels, and organ",
+      "loftCap": "The choir loft — rose window, painted oak ceiling with Dominican coats of arms, and organ pipes",
+      "roseAlt": "Rose window interior with stained glass depicting the four Evangelists",
+      "roseCap": "The rose window from within — the four Evangelists surround Christ in Majesty"
+    },
+    "campus": {
+      "sub": "The Dominican Campus",
+      "title": "A Place of Prayer, Study, & Community",
+      "desc": "The church is connected to the Dominican priory by a cloister walk featuring Eric Gill's Stations of the Cross etchings. Together with the parish hall and school buildings, the campus forms a complete center for Dominican life — prayer, study, community, and preaching."
+    }
   }
 }

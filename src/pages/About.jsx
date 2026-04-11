@@ -274,9 +274,10 @@ export default function About() {
             >
               {t("about.architecture.title")}
             </h3>
-            <p style={{ fontSize: 16, lineHeight: 1.8, color: "rgba(255,255,255,0.7)", maxWidth: 640, margin: "0 auto" }}>
+            <p style={{ fontSize: 16, lineHeight: 1.8, color: "rgba(255,255,255,0.7)", maxWidth: 640, margin: "0 auto 28px" }}>
               {t("about.architecture.desc")}
             </p>
+            <Btn onClick={() => navigate("/architecture")}>{t("about.architecture.cta")}</Btn>
           </FadeSection>
         </div>
       </section>

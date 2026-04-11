@@ -8,6 +8,7 @@ const FOOTER_LINKS = [
   { to: "/sacraments", key: "sacraments" },
   { to: "/about", key: "about" },
   { to: "/history", key: "history" },
+  { to: "/architecture", key: "architecture" },
   { to: "/staff", key: "staff" },
   { to: "/bulletin", key: "bulletin" },
   { to: "/becoming-catholic", key: "becomingCatholic" },

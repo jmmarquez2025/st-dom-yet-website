@@ -5,6 +5,7 @@ import {
   Gem, Bird, Church, DoorOpen, Armchair, BookOpenText, Handshake,
   Newspaper, Gift, TrendingUp, Search, CircleDot,
   Car, Baby, Languages, ParkingCircle,
+  Ruler, Building, Calendar, Maximize, ArrowUp,
 } from "lucide-react";
 
 /**
@@ -18,6 +19,7 @@ const ICONS = {
   Gem, Bird, Church, DoorOpen, Armchair, BookOpenText, Handshake,
   Newspaper, Gift, TrendingUp, Search, CircleDot,
   Car, Baby, Languages, ParkingCircle,
+  Ruler, Building, Calendar, Maximize, ArrowUp,
 };
 
 /**

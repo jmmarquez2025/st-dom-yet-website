@@ -33,6 +33,22 @@ export const PHOTOS = {
   historyInteriorVintage: `${B}photos/history/interior-vintage.jpg`,   // Interior showing Loreto symbols
   historyCommunity: `${B}photos/history/community.jpg`,                // Old parish community gathering
 
+  // ── Architecture walking tour ──
+  archHero: `${B}photos/architecture/DJI_0666-opt.jpg`,         // Aerial campus overview
+  archFacade: `${B}photos/architecture/DSC_0399-opt.jpg`,       // Full exterior facade with sign
+  archEntrance: `${B}photos/architecture/DSC_0401-opt.jpg`,     // Close-up entrance: rose window, statue, coats of arms
+  archDoors: `${B}photos/architecture/DSC_0410-opt.jpg`,        // Main entrance doors with coats of arms
+  archRoseExt: `${B}photos/architecture/DSC_0407-opt.jpg`,      // Rose window exterior close-up
+  archCornerstone: `${B}photos/architecture/DSC_0414-opt.jpg`,  // Cornerstone "St. Dominic's Church 1954"
+  archSign: `${B}photos/architecture/DSC_0418-opt.jpg`,         // Front sign with relief sculpture
+  archSanctuary: `${B}photos/architecture/DSC_0397-opt.jpg`,    // Sanctuary from choir loft — mural, altar
+  archSideAisle: `${B}photos/architecture/DSC_0422-opt.jpg`,    // Side aisle arches with shrines & votive candles
+  archChoirLoft: `${B}photos/architecture/DSC_0426-opt.jpg`,    // Choir loft, rose window interior, ceiling
+  archRoseInt: `${B}photos/architecture/DSC_0429-opt.jpg`,      // Rose window interior — Evangelists stained glass
+  archDrone: `${B}photos/architecture/DJI_0672-opt.jpg`,        // Drone close-up of main entrance
+  archSide: `${B}photos/architecture/DSC_0420-opt.jpg`,         // Side entrance angle
+  archFullExterior: `${B}photos/architecture/DSC_0404-opt.jpg`, // Full exterior portrait
+
   // ── Gallery (About page) ──
   gallery: [
     { src: `${B}photos/gallery/aerial-overview.jpg`, alt: "gallery.aerial" },

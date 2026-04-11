@@ -20,7 +20,8 @@
     "anointing": "Unción de los Enfermos",
     "funerals": "Funerales",
     "register": "Registrarse",
-    "events": "Eventos"
+    "events": "Eventos",
+    "architecture": "Arquitectura y Arte"
   },
   "footer": {
     "subtitle": "Parroquia Católica · Youngstown, OH",
@@ -201,7 +202,8 @@
     "architecture": {
       "style": "Románico",
       "title": "Arquitectura de Nuestra Iglesia",
-      "desc": "El estilo arquitectónico de la Iglesia Santo Domingo es románico modernizado — con construcción de piedra caliza y ladrillo, una presencia imponente en Lucius Avenue, y arte sacro que inspira la oración y la contemplación."
+      "desc": "El estilo arquitectónico de la Iglesia Santo Domingo es románico modernizado — con construcción de piedra caliza y ladrillo, una presencia imponente en Lucius Avenue, y arte sacro que inspira la oración y la contemplación.",
+      "cta": "Haga el Recorrido"
     }
   },
   "staff": {
@@ -845,5 +847,80 @@
   },
   "saintOfDay": {
     "label": "Santo del Día"
+  },
+  "arch": {
+    "title": "Arquitectura y Arte Sacro",
+    "hero": {
+      "sub": "Un Recorrido",
+      "desc": "Explore la belleza románica, el arte sacro y el simbolismo dominicano de la Iglesia de Santo Domingo — una obra maestra de fe construida por una comunidad."
+    },
+    "exterior": {
+      "title": "El Exterior y la Fachada",
+      "p1": "La Iglesia de Santo Domingo presenta un ejemplo notable de arquitectura románica modernizada con elementos góticos, construida con ladrillo y piedra caliza de Indiana. La fachada se eleva hasta un frontón coronado por una Cruz de Espinas sobre el gran rosetón.",
+      "p2": "La entrada principal presenta dos puertas arqueadas flanqueadas por piedra tallada. El escudo papal está tallado sobre la puerta izquierda y el escudo diocesano sobre la derecha. Entre ellos, en un nicho, se encuentra una estatua de Santo Domingo sosteniendo un lirio y el Libro de los Evangelios.",
+      "p3": "A nivel de la calle, el letrero parroquial presenta un relieve de mármol que representa a la Santísima Virgen María presentando el Rosario a Santo Domingo.",
+      "facadeAlt": "Fachada exterior de la Iglesia de Santo Domingo con rosetón y entrada de piedra caliza",
+      "facadeCap": "La fachada de piedra caliza de la Iglesia de Santo Domingo, completada en 1954",
+      "doorsAlt": "Puertas de entrada principal con escudos papal y diocesano",
+      "doorsCap": "Puertas arqueadas gemelas con escudos papal y diocesano",
+      "signAlt": "Letrero parroquial con relieve de mármol de la escena del Rosario",
+      "signCap": "Relieve de mármol: la Santísima Virgen presentando el Rosario a Santo Domingo",
+      "styleLabel": "Estilo",
+      "styleValue": "Románico Modernizado",
+      "materialLabel": "Material",
+      "materialValue": "Ladrillo y Piedra Caliza",
+      "builtLabel": "Completada",
+      "builtValue": "1954"
+    },
+    "entrance": {
+      "title": "La Entrada Principal",
+      "p1": "Al acercarse a la iglesia, los visitantes son atraídos hacia arriba por el magnífico rosetón — una obra maestra circular de vitral que representa a los cuatro Evangelistas con sus símbolos tradicionales rodeando a Cristo en el centro.",
+      "p2": "La piedra angular, fijada en la piedra caliza en la base de la iglesia, dice \"St. Dominic's Church 1954\", marcando el año de finalización después de dos años de construcción.",
+      "photoAlt": "Primer plano de la entrada mostrando el rosetón, la estatua de Santo Domingo y los escudos tallados",
+      "photoCap": "La entrada en detalle: rosetón, estatua de Santo Domingo y escudos tallados",
+      "cornerstoneAlt": "Piedra angular que dice St. Dominic's Church 1954",
+      "cornerstoneCap": "La piedra angular — St. Dominic's Church, 1954"
+    },
+    "roseQuote": "Yo soy la luz del mundo. El que me sigue no caminará en tinieblas, sino que tendrá la luz de la vida.",
+    "roseQuoteSrc": "Juan 8:12",
+    "nave": {
+      "title": "La Nave",
+      "p1": "Al entrar, la mirada se dirige inmediatamente hacia arriba por la altura imponente de la nave. Dieciocho arcos románicos marchan a ambos lados de la iglesia. Intercalados entre los arcos hay doce símbolos de la Letanía de Loreto — títulos antiguos de la Santísima Virgen María — alternando con cruces dominicanas.",
+      "p2": "Las Estaciones de la Cruz talladas están situadas entre los arcos a lo largo de ambas paredes. Arriba, el techo de roble con vigas muestra los escudos de cada provincia dominicana, junto con los tres pilares de la misión de la Orden: Laudare, Benedicere, Praedicare.",
+      "p3": "Las naves laterales presentan una serie de aberturas arqueadas románicas que crean un hermoso ritmo de luz y sombra, conduciendo a los diversos santuarios y espacios devocionales.",
+      "dimLabel": "Dimensiones",
+      "dimValue": "66 m × 30 m",
+      "heightLabel": "Altura de la Nave",
+      "heightValue": "15,5 metros",
+      "seatingLabel": "Asientos",
+      "seatingValue": "~1.100",
+      "aisleAlt": "Nave lateral con arcos románicos, santuarios y velas votivas",
+      "aisleCap": "La nave lateral — arcos románicos enmarcan santuarios y velas votivas"
+    },
+    "sanctuary": {
+      "title": "El Santuario",
+      "p1": "El santuario es el corazón espiritual de la iglesia. El altar mayor de mármol se levanta sobre un piso de mármol blanco y negro — los colores tradicionales de la Orden Dominicana.",
+      "p2": "Dominando el santuario se encuentra el gran mural que representa a la Santísima Virgen María y Santo Domingo recibiendo el Rosario, rodeados de siete santos dominicanos.",
+      "p3": "El púlpito de mármol, tallado por el escultor italiano Gherardi en 1979, lleva la imagen de Santo Tomás de Aquino. Sobre el púlpito cuelga un gran crucifijo de roble. Las paredes del santuario presentan simbolismo trinitario.",
+      "photoAlt": "Vista del santuario desde el coro mostrando el gran mural, el altar de mármol y los arcos",
+      "photoCap": "El santuario desde el coro — el gran mural del Rosario, el altar de mármol y los arcos imponentes"
+    },
+    "sanctuaryQuote": "Laudare, Benedicere, Praedicare — Alabar, Bendecir, Predicar.",
+    "sanctuaryQuoteSrc": "Lema de la Orden de Predicadores",
+    "choirLoft": {
+      "title": "El Coro y el Rosetón",
+      "p1": "El coro ocupa la galería posterior de la iglesia, ofreciendo una vista imponente de la nave y el santuario. Desde aquí, toda la grandeza de la arquitectura se revela.",
+      "p2": "El gran rosetón, visto desde dentro, transforma la luz solar en un caleidoscopio de color. Sus paneles de vitral representan a los cuatro Evangelistas — Mateo, Marcos, Lucas y Juan — con sus símbolos tradicionales.",
+      "p3": "Flanqueando el rosetón hay dos murales de Gherardi que representan a los grandes Padres de la Iglesia junto a la Santísima Virgen María y San José. Debajo, el órgano Wurlitzer llena el coro.",
+      "loftAlt": "Interior del coro mostrando el rosetón, paneles del techo pintado y órgano",
+      "loftCap": "El coro — rosetón, techo de roble pintado con escudos dominicanos y tubos de órgano",
+      "roseAlt": "Rosetón interior con vitrales que representan a los cuatro Evangelistas",
+      "roseCap": "El rosetón desde dentro — los cuatro Evangelistas rodean a Cristo en Majestad"
+    },
+    "campus": {
+      "sub": "El Campus Dominicano",
+      "title": "Un Lugar de Oración, Estudio y Comunidad",
+      "desc": "La iglesia está conectada al priorato dominicano por un claustro con grabados de las Estaciones de la Cruz de Eric Gill. Junto con el salón parroquial y los edificios escolares, el campus forma un centro completo para la vida dominicana."
+    }
   }
 }
