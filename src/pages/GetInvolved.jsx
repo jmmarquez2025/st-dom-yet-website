@@ -5,10 +5,11 @@ import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
-import PageHeader from "../components/PageHeader";
 import TextReveal from "../components/TextReveal";
 import { useMinistries } from "../cms/hooks";
 import Seo from "../components/Seo";
+import ScrollColorNum from "../components/ScrollColorNum";
+import CountUp from "../components/CountUp";
 
 /* ── Bento card sizes: featured ministries get span-2 ── */
 const FEATURED = new Set(["hispanic", "liturgical"]);
@@ -23,6 +24,10 @@ const ACCENTS = {
   svdp: "#6A1B9A",
   music: T.gold,
   religiousEd: "#E65100",
+  youth: "#00838F",
+  bibleStudy: "#4E342E",
+  caring: "#AD1457",
+  missions: "#2E7D32",
 };
 
 export default function GetInvolved() {
@@ -32,7 +37,11 @@ export default function GetInvolved() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Get Involved" description="Explore ministries and volunteer opportunities at St. Dominic Parish — Hispanic Ministry, music, religious education, and more." />
+      <Seo
+        title="Get Involved"
+        description="Explore ministries and volunteer opportunities at St. Dominic Parish — Hispanic Ministry, music, religious education, and more."
+      />
+
       {/* ════ Hero ════ */}
       <section
         style={{
@@ -95,6 +104,49 @@ export default function GetInvolved() {
         </div>
       </section>
 
+      {/* ════ Ministry Stats Strip ════ */}
+      <section style={{ background: T.softBlack, color: "#fff" }}>
+        <div
+          style={{
+            maxWidth: 900,
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+          }}
+        >
+          {[
+            { end: ministries.length, suffix: "", labelKey: "getInvolved.stats.ministries" },
+            { end: 100, suffix: "+", labelKey: "getInvolved.stats.volunteers" },
+            { end: 2, suffix: "", labelKey: "getInvolved.stats.languages" },
+          ].map((stat, i) => (
+            <div key={i} className="stat-card">
+              <div
+                style={{
+                  fontSize: "clamp(32px, 5vw, 44px)",
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontWeight: 700,
+                  color: T.gold,
+                  lineHeight: 1,
+                  marginBottom: 6,
+                }}
+              >
+                <CountUp end={stat.end} suffix={stat.suffix} duration={1800 + i * 300} />
+              </div>
+              <div
+                style={{
+                  fontSize: 11,
+                  letterSpacing: 2,
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.6)",
+                }}
+              >
+                {t(stat.labelKey)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ════ Bento Grid Ministries ════ */}
       <Section bg={T.cream}>
         <FadeSection>
@@ -119,8 +171,8 @@ export default function GetInvolved() {
               cursor: default;
             }
             .bento-card:hover {
-              transform: translateY(-4px);
-              box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+              transform: perspective(800px) rotateY(-1deg) rotateX(1deg) translateY(-4px);
+              box-shadow: 0 20px 48px rgba(0, 0, 0, 0.10);
               border-color: ${T.gold};
             }
             .bento-card--featured {
@@ -131,8 +183,19 @@ export default function GetInvolved() {
               position: absolute;
               top: 0;
               left: 0;
-              right: 0;
+              width: 0;
               height: 3px;
+              transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+            .bento-card:hover .bento-accent,
+            .bento-card.accent-visible .bento-accent {
+              width: 100%;
+            }
+            .bento-icon {
+              transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+            .bento-card:hover .bento-icon {
+              transform: scale(1.15) rotate(-3deg);
             }
             @media (max-width: 768px) {
               .bento-grid {
@@ -140,6 +203,9 @@ export default function GetInvolved() {
               }
               .bento-card--featured {
                 grid-column: span 1;
+              }
+              .bento-accent {
+                width: 100% !important;
               }
             }
             @media (min-width: 769px) and (max-width: 1024px) {
@@ -160,7 +226,7 @@ export default function GetInvolved() {
               return (
                 <div
                   key={m.id}
-                  className={`bento-card${isFeatured ? " bento-card--featured" : ""}`}
+                  className={`bento-card accent-visible${isFeatured ? " bento-card--featured" : ""}`}
                 >
                   <div className="bento-accent" style={{ background: accent }} />
                   <div
@@ -172,6 +238,7 @@ export default function GetInvolved() {
                     }}
                   >
                     <span
+                      className="bento-icon"
                       style={{
                         fontSize: isFeatured ? 36 : 28,
                         lineHeight: 1,
@@ -180,16 +247,18 @@ export default function GetInvolved() {
                     >
                       {m.icon}
                     </span>
-                    <h3
+                    <ScrollColorNum
+                      as="h3"
+                      colorFrom={T.warmGray}
+                      colorTo={accent}
                       style={{
                         fontSize: isFeatured ? 22 : 18,
                         fontFamily: "'Cormorant Garamond', serif",
                         fontWeight: 600,
-                        color: T.softBlack,
                       }}
                     >
                       {t(`getInvolved.ministries.${m.key}.title`)}
-                    </h3>
+                    </ScrollColorNum>
                   </div>
                   <p
                     style={{
@@ -203,6 +272,66 @@ export default function GetInvolved() {
                 </div>
               );
             })}
+          </div>
+        </FadeSection>
+      </Section>
+
+      {/* ════ How to Get Started ════ */}
+      <Section>
+        <FadeSection>
+          <SectionTitle sub={t("getInvolved.howTo.sub")}>{t("getInvolved.howTo.title")}</SectionTitle>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gap: 24,
+              maxWidth: 800,
+              margin: "0 auto",
+            }}
+          >
+            {[
+              { num: "1", key: "explore", icon: "🔍" },
+              { num: "2", key: "connect", icon: "📞" },
+              { num: "3", key: "serve", icon: "🙏" },
+            ].map((step) => (
+              <div
+                key={step.key}
+                className="glass-card tilt-card"
+                style={{ padding: 28, textAlign: "center" }}
+              >
+                <ScrollColorNum
+                  as="div"
+                  colorFrom={T.stone}
+                  colorTo={T.gold}
+                  style={{
+                    fontSize: "clamp(36px, 5vw, 48px)",
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontWeight: 700,
+                    lineHeight: 1,
+                    marginBottom: 12,
+                  }}
+                >
+                  {step.num}
+                </ScrollColorNum>
+                <div style={{ fontSize: 24, marginBottom: 8 }} aria-hidden="true">
+                  {step.icon}
+                </div>
+                <h3
+                  style={{
+                    fontSize: 18,
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontWeight: 600,
+                    marginBottom: 8,
+                    color: T.softBlack,
+                  }}
+                >
+                  {t(`getInvolved.howTo.${step.key}.title`)}
+                </h3>
+                <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.6 }}>
+                  {t(`getInvolved.howTo.${step.key}.desc`)}
+                </p>
+              </div>
+            ))}
           </div>
         </FadeSection>
       </Section>

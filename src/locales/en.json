@@ -68,13 +68,70 @@
       "ctaBulletin": "View Full Bulletin",
       "upcoming": "Upcoming"
     },
+    "nextMass": {
+      "label": "Next Mass",
+      "days": "Days",
+      "hours": "Hrs",
+      "min": "Min",
+      "sec": "Sec"
+    },
+    "stats": {
+      "years": "Years of Faith",
+      "masses": "Masses Every Sunday",
+      "ministries": "Active Ministries",
+      "languages": "Languages"
+    },
+    "quotes": {
+      "label": "Daily Reflection",
+      "q1": "The truth does not change according to our ability to stomach it.",
+      "s1": "Flannery O'Connor",
+      "q2": "A man who governs his passions is master of the world. We must either command them, or be enslaved by them.",
+      "s2": "St. Dominic de Guzman",
+      "q3": "The soul that walks in love neither tires others nor grows tired.",
+      "s3": "St. John of the Cross",
+      "q4": "To one who has faith, no explanation is necessary. To one without faith, no explanation is possible.",
+      "s4": "St. Thomas Aquinas",
+      "q5": "Do not be afraid. Do not be satisfied with mediocrity. Put out into the deep and let down your nets for a catch.",
+      "s5": "Pope St. John Paul II",
+      "q6": "We are not the sum of our weaknesses and failures; we are the sum of the Father's love for us.",
+      "s6": "Pope St. John Paul II",
+      "q7": "Prayer is the place of refuge for every worry, a foundation for cheerfulness, a source of constant happiness, a protection against sadness.",
+      "s7": "St. John Chrysostom"
+    },
+    "pillars": {
+      "sub": "Our Mission",
+      "title": "Word, Sacrament & Service",
+      "word": {
+        "title": "Word",
+        "desc": "Rooted in the Dominican intellectual tradition, we preach the Gospel with clarity and depth through homilies, Bible study, and faith formation."
+      },
+      "sacrament": {
+        "title": "Sacrament",
+        "desc": "We celebrate the liturgy with reverence and beauty — daily Mass, frequent Confession, Eucharistic adoration, and all seven sacraments."
+      },
+      "service": {
+        "title": "Service",
+        "desc": "From St. Vincent de Paul outreach to mission trips, we serve our neighbors and bring Christ's love to those in need across Youngstown."
+      }
+    },
+    "liturgical": {
+      "advent": "Advent Season",
+      "christmas": "Christmas Season",
+      "lent": "Lenten Season",
+      "triduum": "Sacred Triduum",
+      "easter": "Easter Season",
+      "ordinary": "Ordinary Time"
+    },
+    "vatican": {
+      "sub": "The Universal Church",
+      "title": "News from the Vatican"
+    },
     "cards": {
       "visitTitle": "Visit Us",
-      "visitDesc": "77 East Lucius Ave\nYoungstown, OH 44507",
       "callTitle": "Call Us",
-      "fax": "Fax",
       "hoursTitle": "Office Hours",
-      "hoursDesc": "Monday – Friday\n8:30 AM – 1:30 PM",
+      "hoursDays": "Monday – Friday",
+      "hoursTime": "8:30 AM – 1:30 PM",
       "emailTitle": "Email Us"
     }
   },
@@ -249,6 +306,27 @@
       "missions": {
         "title": "Mission Trips",
         "desc": "Annual medical mission trip (April) and teen mission trip (June) give parishioners the opportunity to serve those in need beyond our community."
+      }
+    },
+    "stats": {
+      "ministries": "Active Ministries",
+      "volunteers": "Volunteers",
+      "languages": "Languages"
+    },
+    "howTo": {
+      "sub": "Getting Started",
+      "title": "How to Get Involved",
+      "explore": {
+        "title": "Explore",
+        "desc": "Browse our ministries above and find one that matches your interests and gifts."
+      },
+      "connect": {
+        "title": "Connect",
+        "desc": "Call the parish office or talk to a priest after Mass to learn more about the ministry."
+      },
+      "serve": {
+        "title": "Serve",
+        "desc": "Show up, get involved, and become part of our parish family. There's a place for everyone."
       }
     },
     "register": {
@@ -514,6 +592,17 @@
       "sun": "Sunday:",
       "sunEs": "Domingo (Español):",
       "confessionNote": "Confessions: Wed & Fri 11:15 AM–12:00 PM · Sat 11:15 AM–12:00 PM & 4:00–5:00 PM"
+    },
+    "glance": {
+      "masses": "Sunday Masses",
+      "languages": "Languages",
+      "priests": "Dominican Friars"
+    },
+    "directions": {
+      "sub": "Find Us",
+      "title": "Getting to St. Dominic",
+      "cta": "Open in Google Maps",
+      "parking": "Free parking is available in the lot adjacent to the church on Lucius Avenue. The church is accessible with a ramp entrance on the side of the building."
     },
     "cta": {
       "title": "We Can't Wait to Meet You",

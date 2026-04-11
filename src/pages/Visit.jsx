@@ -5,36 +5,18 @@ import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
-import PageHeader from "../components/PageHeader";
-import TextReveal, { AnimatedDivider } from "../components/TextReveal";
+import TextReveal from "../components/TextReveal";
 import Seo from "../components/Seo";
+import ScrollColorNum from "../components/ScrollColorNum";
+import ScrollTimeline from "../components/ScrollTimeline";
+import CountUp from "../components/CountUp";
 
 const STEPS = [
-  {
-    num: "01",
-    key: "arrive",
-    icon: "🏛️",
-  },
-  {
-    num: "02",
-    key: "enter",
-    icon: "🚪",
-  },
-  {
-    num: "03",
-    key: "seat",
-    icon: "⛪",
-  },
-  {
-    num: "04",
-    key: "mass",
-    icon: "✝️",
-  },
-  {
-    num: "05",
-    key: "community",
-    icon: "🤝",
-  },
+  { num: "01", key: "arrive", icon: "🏛️" },
+  { num: "02", key: "enter", icon: "🚪" },
+  { num: "03", key: "seat", icon: "⛪" },
+  { num: "04", key: "mass", icon: "✝️" },
+  { num: "05", key: "community", icon: "🤝" },
 ];
 
 export default function Visit() {
@@ -43,7 +25,11 @@ export default function Visit() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Plan Your Visit" description="Planning to visit St. Dominic Parish? Everything you need to know — what to expect, Mass times, parking, and a warm welcome." />
+      <Seo
+        title="Plan Your Visit"
+        description="Planning to visit St. Dominic Parish? Everything you need to know — what to expect, Mass times, parking, and a warm welcome."
+      />
+
       {/* ════ Hero Banner ════ */}
       <section
         style={{
@@ -55,16 +41,9 @@ export default function Visit() {
           textAlign: "center",
         }}
       >
-        {/* Decorative cross pattern */}
         <svg
           aria-hidden="true"
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            opacity: 0.03,
-          }}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}
         >
           <defs>
             <pattern id="visitCross" width="80" height="80" patternUnits="userSpaceOnUse">
@@ -114,95 +93,141 @@ export default function Visit() {
         </div>
       </section>
 
-      {/* ════ What to Expect — Steps ════ */}
+      {/* ════ At a Glance — stat strip ════ */}
+      <section style={{ background: T.softBlack, color: "#fff" }}>
+        <div
+          style={{
+            maxWidth: 900,
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
+          }}
+        >
+          {[
+            { end: 5, suffix: "", labelKey: "visit.glance.masses" },
+            { end: 2, suffix: "", labelKey: "visit.glance.languages" },
+            { end: 5, suffix: "", labelKey: "visit.glance.priests" },
+          ].map((stat, i) => (
+            <div key={i} className="stat-card">
+              <div
+                style={{
+                  fontSize: "clamp(32px, 5vw, 44px)",
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontWeight: 700,
+                  color: T.gold,
+                  lineHeight: 1,
+                  marginBottom: 6,
+                }}
+              >
+                <CountUp end={stat.end} suffix={stat.suffix} duration={1800 + i * 300} />
+              </div>
+              <div
+                style={{
+                  fontSize: 11,
+                  letterSpacing: 2,
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.6)",
+                }}
+              >
+                {t(stat.labelKey)}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ════ What to Expect — Steps with Scroll Timeline ════ */}
       <Section>
         <FadeSection>
           <SectionTitle sub={t("visit.steps.sub")}>{t("visit.steps.title")}</SectionTitle>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 0,
-              maxWidth: 720,
-              margin: "0 auto",
-              position: "relative",
-            }}
-          >
-            {/* Vertical timeline line */}
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                left: 28,
-                top: 40,
-                bottom: 40,
-                width: 2,
-                background: `linear-gradient(to bottom, ${T.gold}, ${T.stone})`,
-              }}
-            />
+        </FadeSection>
 
-            {STEPS.map((step, i) => (
-              <FadeSection key={step.key}>
-                <div
+        <ScrollTimeline>
+          {STEPS.map((step, i) => (
+            <FadeSection key={step.key}>
+              <div
+                style={{
+                  display: "flex",
+                  gap: 24,
+                  padding: "28px 0",
+                  position: "relative",
+                }}
+              >
+                {/* Step number circle — color changes on scroll */}
+                <ScrollColorNum
+                  as="div"
+                  colorFrom={T.stone}
+                  colorTo={T.burgundy}
+                  scaleFrom={0.9}
+                  scaleTo={1.0}
                   style={{
+                    width: 56,
+                    height: 56,
+                    minWidth: 56,
+                    borderRadius: "50%",
                     display: "flex",
-                    gap: 24,
-                    padding: "28px 0",
-                    position: "relative",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: 14,
+                    fontWeight: 700,
+                    fontFamily: "'Source Sans 3', sans-serif",
+                    zIndex: 1,
+                    background: T.warmWhite,
+                    border: `2px solid ${T.gold}`,
+                    boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
                   }}
                 >
-                  {/* Step number circle */}
-                  <div
+                  <ScrollColorNum
+                    colorFrom={T.warmGray}
+                    colorTo={T.burgundy}
                     style={{
-                      width: 56,
-                      height: 56,
-                      minWidth: 56,
-                      borderRadius: "50%",
-                      background: i === 0 ? T.burgundy : T.warmWhite,
-                      border: `2px solid ${i === 0 ? T.burgundy : T.gold}`,
-                      color: i === 0 ? "#fff" : T.burgundy,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
                       fontSize: 14,
                       fontWeight: 700,
                       fontFamily: "'Source Sans 3', sans-serif",
-                      zIndex: 1,
-                      boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
                     }}
                   >
                     {step.num}
-                  </div>
+                  </ScrollColorNum>
+                </ScrollColorNum>
 
-                  {/* Content */}
-                  <div style={{ paddingTop: 4 }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 8 }}>
-                      <span style={{ fontSize: 22 }} aria-hidden="true">
-                        {step.icon}
-                      </span>
-                      <h3
-                        style={{
-                          fontSize: 20,
-                          fontFamily: "'Cormorant Garamond', serif",
-                          fontWeight: 600,
-                          color: T.softBlack,
-                        }}
-                      >
-                        {t(`visit.steps.${step.key}.title`)}
-                      </h3>
-                    </div>
-                    <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.7 }}>
-                      {t(`visit.steps.${step.key}.desc`)}
-                    </p>
+                {/* Content */}
+                <div style={{ paddingTop: 4, flex: 1 }}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      marginBottom: 8,
+                    }}
+                  >
+                    <span style={{ fontSize: 22 }} aria-hidden="true">
+                      {step.icon}
+                    </span>
+                    <ScrollColorNum
+                      as="h3"
+                      colorFrom={T.warmGray}
+                      colorTo={T.softBlack}
+                      style={{
+                        fontSize: 20,
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontWeight: 600,
+                      }}
+                    >
+                      {t(`visit.steps.${step.key}.title`)}
+                    </ScrollColorNum>
                   </div>
+                  <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.7 }}>
+                    {t(`visit.steps.${step.key}.desc`)}
+                  </p>
                 </div>
-              </FadeSection>
-            ))}
-          </div>
-        </FadeSection>
+              </div>
+            </FadeSection>
+          ))}
+        </ScrollTimeline>
       </Section>
 
-      {/* ════ What to Know ════ */}
+      {/* ════ What to Know — interactive cards ════ */}
       <Section bg={T.cream}>
         <FadeSection>
           <SectionTitle sub={t("visit.know.sub")}>{t("visit.know.title")}</SectionTitle>
@@ -213,31 +238,56 @@ export default function Visit() {
               gap: 24,
             }}
           >
-            {["dress", "children", "language", "parking"].map((key) => (
+            {[
+              { key: "dress", icon: "👔", accent: T.burgundy },
+              { key: "children", icon: "👶", accent: "#2E7D32" },
+              { key: "language", icon: "🌎", accent: "#C0392B" },
+              { key: "parking", icon: "🅿️", accent: "#1565C0" },
+            ].map((item) => (
               <div
-                key={key}
-                className="hover-lift-sm"
+                key={item.key}
+                className="glass-card tilt-card"
                 style={{
-                  background: T.warmWhite,
-                  borderRadius: 8,
                   padding: 32,
-                  border: `1px solid ${T.stone}`,
-                  transition: "border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease",
+                  position: "relative",
+                  overflow: "hidden",
                 }}
               >
-                <h3
+                {/* colored accent top bar */}
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 3,
+                    background: item.accent,
+                  }}
+                />
+                <div
+                  style={{
+                    fontSize: 28,
+                    marginBottom: 12,
+                  }}
+                  aria-hidden="true"
+                >
+                  {item.icon}
+                </div>
+                <ScrollColorNum
+                  as="h3"
+                  colorFrom={T.warmGray}
+                  colorTo={item.accent}
                   style={{
                     fontSize: 18,
                     fontFamily: "'Cormorant Garamond', serif",
                     fontWeight: 600,
-                    color: T.burgundy,
                     marginBottom: 10,
                   }}
                 >
-                  {t(`visit.know.${key}.title`)}
-                </h3>
+                  {t(`visit.know.${item.key}.title`)}
+                </ScrollColorNum>
                 <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>
-                  {t(`visit.know.${key}.desc`)}
+                  {t(`visit.know.${item.key}.desc`)}
                 </p>
               </div>
             ))}
@@ -276,10 +326,9 @@ export default function Visit() {
             </div>
 
             <div
+              className="glass-card--dark pulse-glow"
               style={{
-                background: T.burgundy,
                 color: "#fff",
-                borderRadius: 8,
                 padding: 32,
               }}
             >
@@ -297,7 +346,7 @@ export default function Visit() {
                 [t("visit.schedule.satVigil"), "5:00 PM"],
                 [t("visit.schedule.sun"), "8:00 AM"],
                 [t("visit.schedule.sun"), "10:30 AM"],
-                [t("visit.schedule.sunEs"), "12:30 PM"],
+                [t("visit.schedule.sunEs"), "1:00 PM"],
               ].map(([label, time], i) => (
                 <div
                   key={i}
@@ -310,7 +359,14 @@ export default function Visit() {
                   }}
                 >
                   <span>{label}</span>
-                  <span style={{ fontWeight: 600 }}>{time}</span>
+                  <ScrollColorNum
+                    as="span"
+                    colorFrom="#FFFFFF"
+                    colorTo="#E8D5A3"
+                    style={{ fontWeight: 600 }}
+                  >
+                    {time}
+                  </ScrollColorNum>
                 </div>
               ))}
               <p
@@ -328,6 +384,86 @@ export default function Visit() {
         </FadeSection>
       </Section>
 
+      {/* ════ Directions Card ════ */}
+      <Section bg={T.cream}>
+        <FadeSection>
+          <div
+            style={{
+              maxWidth: 600,
+              margin: "0 auto",
+              textAlign: "center",
+            }}
+          >
+            <div
+              style={{
+                fontSize: 11,
+                letterSpacing: 3,
+                textTransform: "uppercase",
+                color: T.gold,
+                fontWeight: 600,
+                marginBottom: 12,
+              }}
+            >
+              {t("visit.directions.sub")}
+            </div>
+            <h2
+              style={{
+                fontSize: "clamp(24px, 4vw, 34px)",
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 600,
+                color: T.softBlack,
+                marginBottom: 16,
+              }}
+            >
+              {t("visit.directions.title")}
+            </h2>
+
+            <div
+              className="glass-card"
+              style={{
+                padding: 32,
+                marginBottom: 24,
+              }}
+            >
+              <p
+                style={{
+                  fontSize: 18,
+                  fontWeight: 600,
+                  color: T.softBlack,
+                  marginBottom: 4,
+                }}
+              >
+                {CONFIG.address}
+              </p>
+              <p
+                style={{
+                  fontSize: 16,
+                  color: T.warmGray,
+                  marginBottom: 20,
+                }}
+              >
+                {CONFIG.city}, {CONFIG.state} {CONFIG.zip}
+              </p>
+              <Btn
+                variant="primary"
+                onClick={() =>
+                  window.open(
+                    `https://www.google.com/maps/search/?api=1&query=${CONFIG.mapsQuery}`,
+                    "_blank"
+                  )
+                }
+              >
+                {t("visit.directions.cta")}
+              </Btn>
+            </div>
+
+            <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>
+              {t("visit.directions.parking")}
+            </p>
+          </div>
+        </FadeSection>
+      </Section>
+
       {/* ════ Pastor Welcome CTA ════ */}
       <section
         style={{
@@ -340,13 +476,7 @@ export default function Visit() {
       >
         <svg
           aria-hidden="true"
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            opacity: 0.03,
-          }}
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}
         >
           <defs>
             <pattern id="visitCtaCross" width="60" height="60" patternUnits="userSpaceOnUse">
@@ -357,15 +487,7 @@ export default function Visit() {
         </svg>
         <div style={{ position: "relative", zIndex: 1, maxWidth: 650, margin: "0 auto" }}>
           <FadeSection>
-            <div
-              style={{
-                fontSize: 48,
-                marginBottom: 20,
-                lineHeight: 1,
-              }}
-            >
-              ☩
-            </div>
+            <div style={{ fontSize: 48, marginBottom: 20, lineHeight: 1 }}>☩</div>
             <TextReveal
               as="h2"
               style={{

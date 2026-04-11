@@ -68,13 +68,70 @@
       "ctaBulletin": "Ver Boletín Completo",
       "upcoming": "Próximamente"
     },
+    "nextMass": {
+      "label": "Próxima Misa",
+      "days": "Días",
+      "hours": "Hrs",
+      "min": "Min",
+      "sec": "Seg"
+    },
+    "stats": {
+      "years": "Años de Fe",
+      "masses": "Misas Cada Domingo",
+      "ministries": "Ministerios Activos",
+      "languages": "Idiomas"
+    },
+    "quotes": {
+      "label": "Reflexión del Día",
+      "q1": "La verdad no cambia según nuestra capacidad para digerirla.",
+      "s1": "Flannery O'Connor",
+      "q2": "El hombre que gobierna sus pasiones es dueño del mundo. Debemos mandarlas o ser esclavizados por ellas.",
+      "s2": "Santo Domingo de Guzmán",
+      "q3": "El alma que camina en amor ni cansa a otros ni se cansa.",
+      "s3": "San Juan de la Cruz",
+      "q4": "Para quien tiene fe, ninguna explicación es necesaria. Para quien no tiene fe, ninguna explicación es posible.",
+      "s4": "Santo Tomás de Aquino",
+      "q5": "No tengan miedo. No se conformen con la mediocridad. Remen mar adentro y echen las redes para pescar.",
+      "s5": "Papa San Juan Pablo II",
+      "q6": "No somos la suma de nuestras debilidades y fracasos; somos la suma del amor del Padre por nosotros.",
+      "s6": "Papa San Juan Pablo II",
+      "q7": "La oración es el lugar de refugio para toda preocupación, un fundamento de alegría, una fuente de felicidad constante, una protección contra la tristeza.",
+      "s7": "San Juan Crisóstomo"
+    },
+    "pillars": {
+      "sub": "Nuestra Misión",
+      "title": "Palabra, Sacramento y Servicio",
+      "word": {
+        "title": "Palabra",
+        "desc": "Arraigados en la tradición intelectual dominicana, predicamos el Evangelio con claridad y profundidad a través de homilías, estudio bíblico y formación en la fe."
+      },
+      "sacrament": {
+        "title": "Sacramento",
+        "desc": "Celebramos la liturgia con reverencia y belleza — Misa diaria, Confesión frecuente, adoración eucarística y los siete sacramentos."
+      },
+      "service": {
+        "title": "Servicio",
+        "desc": "Desde la ayuda de San Vicente de Paúl hasta viajes misioneros, servimos a nuestros vecinos y llevamos el amor de Cristo a los necesitados de Youngstown."
+      }
+    },
+    "liturgical": {
+      "advent": "Tiempo de Adviento",
+      "christmas": "Tiempo de Navidad",
+      "lent": "Tiempo de Cuaresma",
+      "triduum": "Triduo Sacro",
+      "easter": "Tiempo de Pascua",
+      "ordinary": "Tiempo Ordinario"
+    },
+    "vatican": {
+      "sub": "La Iglesia Universal",
+      "title": "Noticias del Vaticano"
+    },
     "cards": {
       "visitTitle": "Visítenos",
-      "visitDesc": "77 East Lucius Ave\nYoungstown, OH 44507",
       "callTitle": "Llámenos",
-      "fax": "Fax",
       "hoursTitle": "Horario de Oficina",
-      "hoursDesc": "Lunes – Viernes\n8:30 AM – 1:30 PM",
+      "hoursDays": "Lunes – Viernes",
+      "hoursTime": "8:30 AM – 1:30 PM",
       "emailTitle": "Envíenos un Correo"
     }
   },
@@ -249,6 +306,27 @@
       "missions": {
         "title": "Viajes Misioneros",
         "desc": "Viaje misionero médico anual (abril) y viaje misionero juvenil (junio) que dan a los feligreses la oportunidad de servir a los necesitados más allá de nuestra comunidad."
+      }
+    },
+    "stats": {
+      "ministries": "Ministerios Activos",
+      "volunteers": "Voluntarios",
+      "languages": "Idiomas"
+    },
+    "howTo": {
+      "sub": "Primeros Pasos",
+      "title": "Cómo Participar",
+      "explore": {
+        "title": "Explore",
+        "desc": "Explore nuestros ministerios arriba y encuentre uno que coincida con sus intereses y dones."
+      },
+      "connect": {
+        "title": "Conéctese",
+        "desc": "Llame a la oficina parroquial o hable con un sacerdote después de la Misa para saber más sobre el ministerio."
+      },
+      "serve": {
+        "title": "Sirva",
+        "desc": "Preséntese, involúcrese y sea parte de nuestra familia parroquial. Hay un lugar para todos."
       }
     },
     "register": {
@@ -515,6 +593,17 @@
       "sun": "Domingo:",
       "sunEs": "Domingo (Español):",
       "confessionNote": "Confesiones: Mié y Vie 11:15 AM–12:00 PM · Sáb 11:15 AM–12:00 PM y 4:00–5:00 PM"
+    },
+    "glance": {
+      "masses": "Misas Dominicales",
+      "languages": "Idiomas",
+      "priests": "Frailes Dominicos"
+    },
+    "directions": {
+      "sub": "Encuéntrenos",
+      "title": "Cómo Llegar a Santo Domingo",
+      "cta": "Abrir en Google Maps",
+      "parking": "Estacionamiento gratuito disponible en el lote junto a la iglesia en Lucius Avenue. La iglesia es accesible con una rampa de entrada en el costado del edificio."
     },
     "cta": {
       "title": "Estamos Deseosos de Conocerle",

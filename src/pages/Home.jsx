@@ -8,6 +8,11 @@ import Btn from "../components/Btn";
 import TextReveal from "../components/TextReveal";
 import { useAnnouncements } from "../cms/hooks";
 import Seo from "../components/Seo";
+import NextMass from "../components/NextMass";
+import CountUp from "../components/CountUp";
+import DailyQuote from "../components/DailyQuote";
+import LiturgicalBanner from "../components/LiturgicalBanner";
+import VaticanNews from "../components/VaticanNews";
 
 /* ── cross SVG for pattern overlays ── */
 const CrossPattern = ({ opacity = 0.04 }) => (
@@ -32,6 +37,10 @@ export default function Home() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo description="St. Dominic Catholic Parish in Youngstown, Ohio. Served by the Dominican Friars since 1923. Mass times, sacraments, and community life." />
+
+      {/* ═══ Liturgical Season Strip ═══ */}
+      <LiturgicalBanner />
+
       {/* ════ Hero ════ */}
       <section
         style={{
@@ -40,7 +49,7 @@ export default function Home() {
           background: `linear-gradient(135deg, ${T.burgundyDark} 0%, ${T.burgundy} 50%, ${T.burgundyDark} 100%)`,
           color: "#fff",
           textAlign: "center",
-          padding: "clamp(80px, 14vw, 160px) 24px",
+          padding: "clamp(80px, 14vw, 160px) 24px clamp(60px, 10vw, 100px)",
         }}
       >
         {/* decorative radial gradients */}
@@ -66,6 +75,31 @@ export default function Home() {
             background: `radial-gradient(ellipse, ${T.gold}15 0%, transparent 70%)`,
           }}
         />
+
+        {/* animated floating particles */}
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
+          {[...Array(5)].map((_, i) => (
+            <div
+              key={i}
+              style={{
+                position: "absolute",
+                width: 4 + i * 2,
+                height: 4 + i * 2,
+                borderRadius: "50%",
+                background: `${T.goldLight}${20 + i * 8}`,
+                top: `${15 + i * 18}%`,
+                left: `${10 + i * 20}%`,
+                animation: `floatParticle ${6 + i * 2}s ease-in-out infinite alternate`,
+              }}
+            />
+          ))}
+          <style>{`
+            @keyframes floatParticle {
+              0% { transform: translateY(0) translateX(0); }
+              100% { transform: translateY(-30px) translateX(20px); }
+            }
+          `}</style>
+        </div>
 
         <CrossPattern />
 
@@ -121,6 +155,61 @@ export default function Home() {
               {t("home.hero.ctaMass")}
             </Btn>
           </div>
+
+          {/* ── Next Mass Countdown ── */}
+          <div style={{ marginTop: 48, animation: "fadeUp 1s ease 0.8s both" }}>
+            <NextMass />
+          </div>
+        </div>
+      </section>
+
+      {/* ════ Parish Stats Band ════ */}
+      <section
+        style={{
+          background: T.softBlack,
+          color: "#fff",
+          padding: "0",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 1100,
+            margin: "0 auto",
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+          }}
+        >
+          {[
+            { end: 100, suffix: "+", labelKey: "home.stats.years" },
+            { end: 5, suffix: "", labelKey: "home.stats.masses" },
+            { end: 12, suffix: "", labelKey: "home.stats.ministries" },
+            { end: 2, suffix: "", labelKey: "home.stats.languages" },
+          ].map((stat, i) => (
+            <div key={i} className="stat-card">
+              <div
+                style={{
+                  fontSize: "clamp(32px, 5vw, 48px)",
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontWeight: 700,
+                  color: T.gold,
+                  lineHeight: 1,
+                  marginBottom: 8,
+                }}
+              >
+                <CountUp end={stat.end} suffix={stat.suffix} duration={2000 + i * 300} />
+              </div>
+              <div
+                style={{
+                  fontSize: 11,
+                  letterSpacing: 2,
+                  textTransform: "uppercase",
+                  color: "rgba(255,255,255,0.6)",
+                }}
+              >
+                {t(stat.labelKey)}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -142,8 +231,15 @@ export default function Home() {
         </FadeSection>
       </Section>
 
-      {/* ════ Mass CTA ════ */}
+      {/* ════ Daily Quote ════ */}
       <Section bg={T.cream}>
+        <FadeSection>
+          <DailyQuote />
+        </FadeSection>
+      </Section>
+
+      {/* ════ Mass CTA ════ */}
+      <Section>
         <FadeSection>
           <div
             style={{
@@ -168,7 +264,7 @@ export default function Home() {
 
             {/* right card — glassmorphic dark */}
             <div
-              className="glass-card--dark"
+              className="glass-card--dark pulse-glow"
               style={{
                 color: "#fff",
                 padding: 36,
@@ -322,6 +418,85 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ════ Pillars of Faith — 3-column feature cards ════ */}
+      <Section bg={T.cream}>
+        <FadeSection>
+          <SectionTitle sub={t("home.pillars.sub")}>{t("home.pillars.title")}</SectionTitle>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: 24,
+            }}
+          >
+            {[
+              {
+                icon: (
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M20 4v32M12 12h16M8 20h24" stroke={T.gold} strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                ),
+                titleKey: "home.pillars.word.title",
+                descKey: "home.pillars.word.desc",
+                link: "/about",
+              },
+              {
+                icon: (
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="16" r="8" stroke={T.gold} strokeWidth="2" />
+                    <path d="M12 36c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke={T.gold} strokeWidth="2" strokeLinecap="round" />
+                  </svg>
+                ),
+                titleKey: "home.pillars.sacrament.title",
+                descKey: "home.pillars.sacrament.desc",
+                link: "/sacraments",
+              },
+              {
+                icon: (
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M20 8c-6 0-12 6-12 12s6 12 12 12 12-6 12-12" stroke={T.gold} strokeWidth="2" strokeLinecap="round" />
+                    <path d="M16 20l4 4 8-8" stroke={T.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                ),
+                titleKey: "home.pillars.service.title",
+                descKey: "home.pillars.service.desc",
+                link: "/get-involved",
+              },
+            ].map((pillar, i) => (
+              <div
+                key={i}
+                className="glass-card tilt-card"
+                style={{
+                  padding: 36,
+                  textAlign: "center",
+                  cursor: "pointer",
+                }}
+                onClick={() => navigate(pillar.link)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === "Enter" && navigate(pillar.link)}
+              >
+                <div style={{ marginBottom: 16 }}>{pillar.icon}</div>
+                <h3
+                  style={{
+                    fontSize: 22,
+                    fontFamily: "'Cormorant Garamond', serif",
+                    fontWeight: 600,
+                    marginBottom: 12,
+                    color: T.softBlack,
+                  }}
+                >
+                  {t(pillar.titleKey)}
+                </h3>
+                <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.7 }}>
+                  {t(pillar.descKey)}
+                </p>
+              </div>
+            ))}
+          </div>
+        </FadeSection>
+      </Section>
+
       {/* ════ Get Involved CTA ════ */}
       <section
         style={{
@@ -378,7 +553,7 @@ export default function Home() {
               {announcements.slice(0, 3).map((a, i) => (
                 <div
                   key={a.title || i}
-                  className="glass-card"
+                  className="glass-card tilt-card"
                   style={{ padding: 28 }}
                 >
                   {a.date && (
@@ -425,6 +600,14 @@ export default function Home() {
         </Section>
       )}
 
+      {/* ════ Vatican News ════ */}
+      <Section>
+        <FadeSection>
+          <SectionTitle sub={t("home.vatican.sub")}>{t("home.vatican.title")}</SectionTitle>
+          <VaticanNews />
+        </FadeSection>
+      </Section>
+
       {/* ════ Quick Info Cards ════ */}
       <Section bg={T.cream}>
         <FadeSection>
@@ -436,14 +619,56 @@ export default function Home() {
             }}
           >
             {[
-              { key: "visit", icon: "🏛️", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>{t("home.cards.visitDesc")}</p> },
-              { key: "call", icon: "📞", content: <><p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}><a href={CONFIG.phoneLink} className="contact-link">{CONFIG.phone}</a></p></> },
-              { key: "hours", icon: "🕐", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>{t("home.cards.hoursDesc")}</p> },
-              { key: "email", icon: "✉️", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}><a href={`mailto:${CONFIG.email}`} className="contact-link">{CONFIG.email}</a></p> },
+              {
+                key: "visit",
+                icon: "🏛️",
+                content: (
+                  <>
+                    <p style={{ fontSize: 15, fontWeight: 600, color: T.softBlack, marginBottom: 2 }}>
+                      {CONFIG.address}
+                    </p>
+                    <p style={{ fontSize: 14, color: T.warmGray }}>
+                      {CONFIG.city}, {CONFIG.state} {CONFIG.zip}
+                    </p>
+                  </>
+                ),
+              },
+              {
+                key: "call",
+                icon: "📞",
+                content: (
+                  <a href={CONFIG.phoneLink} className="contact-link" style={{ fontSize: 16, fontWeight: 600, color: T.burgundy }}>
+                    {CONFIG.phone}
+                  </a>
+                ),
+              },
+              {
+                key: "hours",
+                icon: "🕐",
+                content: (
+                  <>
+                    <p style={{ fontSize: 15, fontWeight: 600, color: T.softBlack, marginBottom: 2 }}>
+                      {t("home.cards.hoursDays")}
+                    </p>
+                    <p style={{ fontSize: 14, color: T.warmGray }}>
+                      {t("home.cards.hoursTime")}
+                    </p>
+                  </>
+                ),
+              },
+              {
+                key: "email",
+                icon: "✉️",
+                content: (
+                  <a href={`mailto:${CONFIG.email}`} className="contact-link" style={{ fontSize: 14, color: T.burgundy, wordBreak: "break-all" }}>
+                    {CONFIG.email}
+                  </a>
+                ),
+              },
             ].map((card) => (
               <div
                 key={card.key}
-                className="glass-card"
+                className="glass-card tilt-card"
                 style={{ padding: 32, textAlign: "center" }}
               >
                 <div aria-hidden="true" style={{ fontSize: 32, marginBottom: 12 }}>
@@ -453,7 +678,8 @@ export default function Home() {
                   style={{
                     fontSize: 18,
                     fontFamily: "'Cormorant Garamond', serif",
-                    marginBottom: 8,
+                    marginBottom: 10,
+                    color: T.softBlack,
                   }}
                 >
                   {t(`home.cards.${card.key}Title`)}
