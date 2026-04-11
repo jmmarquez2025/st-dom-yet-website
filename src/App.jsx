@@ -5,7 +5,8 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import ScrollProgress from "./components/ScrollProgress";
 import ErrorBoundary from "./components/ErrorBoundary";
-import { T } from "./constants/theme";
+import PageSkeleton from "./components/PageSkeleton";
+import useLenis from "./hooks/useLenis";
 
 /* ── Code-split every page (separate chunks) ── */
 const Home = lazy(() => import("./pages/Home"));
@@ -39,25 +40,20 @@ function ScrollToTop() {
   return null;
 }
 
-function PageSpinner() {
-  return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "60vh" }}>
-      <div style={{ width: 40, height: 40, border: `3px solid ${T.stone}`, borderTopColor: T.burgundy, borderRadius: "50%", animation: "spin 0.8s linear infinite" }} />
-      <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-    </div>
-  );
-}
-
 function AppRoutes() {
   const location = useLocation();
+
+  // Lenis smooth scroll (respects prefers-reduced-motion)
+  useLenis();
+
   return (
     <>
       <ScrollToTop />
       <ScrollProgress />
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Nav />
-      <main id="main-content" key={location.pathname} style={{ animation: "pageFadeIn 0.35s ease" }}>
-        <Suspense fallback={<PageSpinner />}>
+      <main id="main-content" key={location.pathname}>
+        <Suspense fallback={<PageSkeleton />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/mass-times" element={<MassTimes />} />
@@ -85,12 +81,6 @@ function AppRoutes() {
         </Suspense>
       </main>
       <Footer />
-      <style>{`
-        @keyframes pageFadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </>
   );
 }

@@ -2,7 +2,11 @@ import { T } from "../constants/theme";
 
 export function Section({ children, bg = T.warmWhite, style: s = {}, id }) {
   return (
-    <section id={id} style={{ padding: "clamp(48px, 10vw, 80px) 24px", background: bg, ...s }}>
+    <section
+      id={id}
+      className="cv-section"
+      style={{ padding: "clamp(48px, 10vw, 80px) 24px", background: bg, ...s }}
+    >
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>{children}</div>
     </section>
   );
@@ -30,6 +34,7 @@ export function SectionTitle({ children, sub, light, center = true, divider = tr
       </h2>
       {divider && (
         <div
+          className="gold-divider"
           style={{
             width: 48,
             height: 2,

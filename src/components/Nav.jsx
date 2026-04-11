@@ -1,9 +1,27 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { Menu, X, ChevronDown } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
+
+/** Navigate with View Transition when supported */
+function NavLink({ to, children, style, ...props }) {
+  const navigate = useNavigate();
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (document.startViewTransition) {
+      document.startViewTransition(() => navigate(to));
+    } else {
+      navigate(to);
+    }
+  };
+  return (
+    <a href={to} onClick={handleClick} style={style} {...props}>
+      {children}
+    </a>
+  );
+}
 
 const NAV_ITEMS = [
   { key: "home", to: "/" },
@@ -182,7 +200,7 @@ export default function Nav() {
         }}
       >
         {/* Logo */}
-        <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 12 }}>
+        <NavLink to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 12 }}>
           <div
             style={{
               width: 40, height: 40, borderRadius: "50%", background: T.burgundy,
@@ -200,7 +218,7 @@ export default function Nav() {
               {t("nav.subtitle")}
             </div>
           </div>
-        </Link>
+        </NavLink>
 
         {/* Desktop links */}
         <div style={{ display: "flex", gap: 2, alignItems: "center" }} className="nav-desktop">
@@ -212,7 +230,7 @@ export default function Nav() {
                 onMouseEnter={() => handleMouseEnter(item.key)}
                 onMouseLeave={handleMouseLeave}
               >
-                <Link
+                <NavLink
                   to={item.children[0].to}
                   style={linkStyle(isGroupActive(item))}
                   aria-haspopup="true"
@@ -227,7 +245,7 @@ export default function Nav() {
                       opacity: 0.5,
                     }}
                   />
-                </Link>
+                </NavLink>
 
                 {/* Dropdown panel */}
                 {openDropdown === item.key && (
@@ -249,7 +267,7 @@ export default function Nav() {
                     }}
                   >
                     {item.children.map((child) => (
-                      <Link
+                      <NavLink
                         key={child.to}
                         to={child.to}
                         role="menuitem"
@@ -268,18 +286,18 @@ export default function Nav() {
                         onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                       >
                         {t(`nav.${child.key}`)}
-                      </Link>
+                      </NavLink>
                     ))}
                   </div>
                 )}
               </div>
             ) : (
-              <Link key={item.key} to={item.to} style={linkStyle(isActive(item.to))}>
+              <NavLink key={item.key} to={item.to} style={linkStyle(isActive(item.to))}>
                 {t(`nav.${item.key}`)}
-              </Link>
+              </NavLink>
             )
           )}
-          <Link
+          <NavLink
             to="/give"
             style={{
               textDecoration: "none", padding: "8px 16px", fontSize: 13, fontWeight: 600,
@@ -288,7 +306,7 @@ export default function Nav() {
             }}
           >
             {t("nav.give")}
-          </Link>
+          </NavLink>
           <div style={{ marginLeft: 6 }}>
             <LanguageToggle />
           </div>
@@ -362,7 +380,7 @@ export default function Nav() {
                 {mobileAccordion === item.key && (
                   <div style={{ paddingLeft: 16, background: T.cream, marginBottom: 2 }}>
                     {item.children.map((child) => (
-                      <Link
+                      <NavLink
                         key={child.to}
                         to={child.to}
                         style={{
@@ -377,13 +395,13 @@ export default function Nav() {
                         }}
                       >
                         {t(`nav.${child.key}`)}
-                      </Link>
+                      </NavLink>
                     ))}
                   </div>
                 )}
               </div>
             ) : (
-              <Link
+              <NavLink
                 key={item.key}
                 to={item.to}
                 style={{
@@ -398,10 +416,10 @@ export default function Nav() {
                 }}
               >
                 {t(`nav.${item.key}`)}
-              </Link>
+              </NavLink>
             )
           )}
-          <Link
+          <NavLink
             to="/give"
             style={{
               display: "block",
@@ -415,7 +433,7 @@ export default function Nav() {
             }}
           >
             {t("nav.give")}
-          </Link>
+          </NavLink>
           <div style={{ paddingTop: 16 }}>
             <LanguageToggle />
           </div>

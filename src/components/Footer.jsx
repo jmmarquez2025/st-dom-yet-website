@@ -1,7 +1,24 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
+
+function FooterLink({ to, children, style }) {
+  const navigate = useNavigate();
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (document.startViewTransition) {
+      document.startViewTransition(() => navigate(to));
+    } else {
+      navigate(to);
+    }
+  };
+  return (
+    <a href={to} onClick={handleClick} style={style}>
+      {children}
+    </a>
+  );
+}
 
 const FOOTER_LINKS = [
   { to: "/mass-times", key: "massTimes" },
@@ -48,7 +65,7 @@ export default function Footer() {
           </h4>
           {FOOTER_LINKS.map((l) => (
             <div key={l.to}>
-              <Link
+              <FooterLink
                 to={l.to}
                 style={{
                   display: "inline-block",
@@ -58,7 +75,7 @@ export default function Footer() {
                 }}
               >
                 {t(`nav.${l.key}`)}
-              </Link>
+              </FooterLink>
             </div>
           ))}
         </div>
