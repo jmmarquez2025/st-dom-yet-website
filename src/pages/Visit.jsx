@@ -5,7 +5,7 @@ import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
-import TextReveal from "../components/TextReveal";
+
 import Seo from "../components/Seo";
 import ScrollColorNum from "../components/ScrollColorNum";
 import ScrollTimeline from "../components/ScrollTimeline";
@@ -45,17 +45,6 @@ export default function Visit() {
         }}
       >
         <HeroImage src={PHOTOS.visitHero} overlay={0.5} tint="rgba(107,29,42,0.5)" />
-        <svg
-          aria-hidden="true"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}
-        >
-          <defs>
-            <pattern id="visitCross" width="80" height="80" patternUnits="userSpaceOnUse">
-              <path d="M40 10 v60 M10 40 h60" stroke="#fff" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#visitCross)" />
-        </svg>
 
         <div style={{ position: "relative", zIndex: 1 }}>
           <div
@@ -70,8 +59,7 @@ export default function Visit() {
           >
             {t("visit.hero.sub")}
           </div>
-          <TextReveal
-            as="h1"
+          <h1
             style={{
               fontSize: "clamp(36px, 7vw, 64px)",
               fontFamily: "'Cormorant Garamond', serif",
@@ -82,7 +70,7 @@ export default function Visit() {
             }}
           >
             {t("visit.hero.title")}
-          </TextReveal>
+          </h1>
           <p
             style={{
               fontSize: 18,
@@ -475,24 +463,9 @@ export default function Visit() {
           textAlign: "center",
         }}
       >
-        <svg
-          aria-hidden="true"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}
-        >
-          <defs>
-            <pattern id="visitCtaCross" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M30 15 v30 M15 30 h30" stroke="#fff" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#visitCtaCross)" />
-        </svg>
         <div style={{ position: "relative", zIndex: 1, maxWidth: 650, margin: "0 auto" }}>
           <FadeSection>
-            <div style={{ marginBottom: 20, lineHeight: 1 }}>
-              <Icon name="Cross" size={48} color={T.goldLight} />
-            </div>
-            <TextReveal
-              as="h2"
+            <h2
               style={{
                 fontSize: "clamp(26px, 5vw, 38px)",
                 fontFamily: "'Cormorant Garamond', serif",
@@ -503,7 +476,7 @@ export default function Visit() {
               }}
             >
               {t("visit.cta.title")}
-            </TextReveal>
+            </h2>
             <p
               style={{
                 fontSize: 17,

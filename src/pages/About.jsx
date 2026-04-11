@@ -4,7 +4,7 @@ import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
-import TextReveal from "../components/TextReveal";
+
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
@@ -29,18 +29,6 @@ export default function About() {
         }}
       >
         <HeroImage src={PHOTOS.aboutHero} overlay={0.55} tint="rgba(26,23,20,0.5)" />
-        {/* Subtle Romanesque arch pattern */}
-        <svg
-          aria-hidden="true"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}
-        >
-          <defs>
-            <pattern id="archPat" width="100" height="80" patternUnits="userSpaceOnUse">
-              <path d="M0 80 Q50 0 100 80" stroke="#fff" strokeWidth="0.5" fill="none" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#archPat)" />
-        </svg>
         <div style={{ position: "relative", zIndex: 1 }}>
           <div
             style={{
@@ -54,9 +42,7 @@ export default function About() {
           >
             {t("about.history.sub")}
           </div>
-          <TextReveal
-            as="h1"
-            stagger={0.08}
+          <h1
             style={{
               fontSize: "clamp(36px, 7vw, 60px)",
               fontFamily: "'Cormorant Garamond', serif",
@@ -66,7 +52,7 @@ export default function About() {
             }}
           >
             {t("about.title")}
-          </TextReveal>
+          </h1>
         </div>
       </section>
 
@@ -243,18 +229,6 @@ export default function About() {
         }}
       >
         <HeroImage src={PHOTOS.aboutArchitecture} overlay={0.6} position="center top" />
-        {/* Decorative arch pattern */}
-        <svg
-          aria-hidden="true"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}
-        >
-          <defs>
-            <pattern id="archPat2" width="120" height="90" patternUnits="userSpaceOnUse">
-              <path d="M0 90 Q60 0 120 90" stroke="#fff" strokeWidth="0.5" fill="none" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#archPat2)" />
-        </svg>
         <div style={{ maxWidth: 800, margin: "0 auto", position: "relative", zIndex: 1, textAlign: "center" }}>
           <FadeSection>
             <div
@@ -269,9 +243,7 @@ export default function About() {
             >
               {t("about.architecture.style")}
             </div>
-            <TextReveal
-              as="h3"
-              stagger={0.07}
+            <h3
               style={{
                 fontSize: "clamp(26px, 5vw, 40px)",
                 fontFamily: "'Cormorant Garamond', serif",
@@ -282,7 +254,7 @@ export default function About() {
               }}
             >
               {t("about.architecture.title")}
-            </TextReveal>
+            </h3>
             <p style={{ fontSize: 16, lineHeight: 1.8, color: "rgba(255,255,255,0.7)", maxWidth: 640, margin: "0 auto" }}>
               {t("about.architecture.desc")}
             </p>

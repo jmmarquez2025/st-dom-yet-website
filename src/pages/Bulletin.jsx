@@ -4,7 +4,7 @@ import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
-import TextReveal from "../components/TextReveal";
+
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
@@ -35,32 +35,6 @@ export default function Bulletin() {
         }}
       >
         <HeroImage src={PHOTOS.bulletinHero} overlay={0.5} tint="rgba(107,29,42,0.5)" />
-        <svg
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            opacity: 0.03,
-          }}
-        >
-          <defs>
-            <pattern
-              id="bulletinCross"
-              width="60"
-              height="60"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M30 15 v30 M15 30 h30"
-                stroke="#fff"
-                strokeWidth="1"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#bulletinCross)" />
-        </svg>
         <div style={{ position: "relative", zIndex: 1, maxWidth: 640, margin: "0 auto" }}>
           <div
             style={{
@@ -74,8 +48,7 @@ export default function Bulletin() {
           >
             {t("bulletin.hero.sub")}
           </div>
-          <TextReveal
-            as="h1"
+          <h1
             style={{
               fontSize: "clamp(36px, 7vw, 58px)",
               fontFamily: "'Cormorant Garamond', serif",
@@ -86,7 +59,7 @@ export default function Bulletin() {
             }}
           >
             {t("bulletin.title")}
-          </TextReveal>
+          </h1>
           <p
             style={{
               fontSize: 17,
@@ -123,9 +96,9 @@ export default function Bulletin() {
                 {/* Flipbook container */}
                 <div
                   style={{
-                    borderRadius: 12,
+                    borderRadius: 6,
                     overflow: "hidden",
-                    boxShadow: "0 8px 40px rgba(0,0,0,0.12)",
+                    boxShadow: "0 4px 24px rgba(0,0,0,0.08)",
                     border: `1px solid ${T.stone}`,
                     background: T.cream,
                   }}
@@ -224,7 +197,7 @@ export default function Bulletin() {
                   textAlign: "center",
                   padding: "clamp(48px, 8vw, 80px) 24px",
                   background: T.cream,
-                  borderRadius: 12,
+                  borderRadius: 6,
                   border: `1px solid ${T.stone}`,
                 }}
               >

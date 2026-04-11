@@ -6,7 +6,7 @@ import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
-import TextReveal from "../components/TextReveal";
+
 import { useMinistries } from "../cms/hooks";
 import Seo from "../components/Seo";
 import ScrollColorNum from "../components/ScrollColorNum";
@@ -72,17 +72,6 @@ export default function GetInvolved() {
         }}
       >
         <HeroImage src={PHOTOS.getInvolvedHero} overlay={0.5} tint="rgba(107,29,42,0.5)" />
-        <svg
-          aria-hidden="true"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}
-        >
-          <defs>
-            <pattern id="involvedCross" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M30 15 v30 M15 30 h30" stroke="#fff" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#involvedCross)" />
-        </svg>
         <div style={{ position: "relative", zIndex: 1, maxWidth: 680, margin: "0 auto" }}>
           <div
             style={{
@@ -96,8 +85,7 @@ export default function GetInvolved() {
           >
             {t("getInvolved.sub")}
           </div>
-          <TextReveal
-            as="h1"
+          <h1
             style={{
               fontSize: "clamp(36px, 7vw, 58px)",
               fontFamily: "'Cormorant Garamond', serif",
@@ -108,7 +96,7 @@ export default function GetInvolved() {
             }}
           >
             {t("getInvolved.heading")}
-          </TextReveal>
+          </h1>
           <p
             style={{
               fontSize: 17,
@@ -180,7 +168,7 @@ export default function GetInvolved() {
             .ministry-card {
               position: relative;
               overflow: hidden;
-              border-radius: 12px;
+              border-radius: 6px;
               padding: 28px 28px 28px 32px;
               background: ${T.warmWhite};
               border: 1px solid ${T.stone};
@@ -190,9 +178,8 @@ export default function GetInvolved() {
                           border-color 0.35s ease;
             }
             .ministry-card:hover {
-              transform: translateY(-4px);
-              box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
-              border-color: ${T.gold};
+              transform: translateY(-2px);
+              box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
             }
             .ministry-card:focus-visible {
               outline: 2px solid ${T.burgundy};
@@ -207,10 +194,7 @@ export default function GetInvolved() {
               border-radius: 4px 0 0 4px;
             }
             .ministry-icon {
-              transition: transform 0.3s ease;
-            }
-            .ministry-card:hover .ministry-icon {
-              transform: scale(1.12);
+              /* static — no scale animation */
             }
             .ministry-hint {
               font-size: 12px;
@@ -239,7 +223,7 @@ export default function GetInvolved() {
             }
             .ministry-modal {
               background: #fff;
-              border-radius: 16px;
+              border-radius: 8px;
               max-width: 520px;
               width: 100%;
               max-height: 90vh;
@@ -430,21 +414,9 @@ export default function GetInvolved() {
           textAlign: "center",
         }}
       >
-        <svg
-          aria-hidden="true"
-          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}
-        >
-          <defs>
-            <pattern id="regCross" width="60" height="60" patternUnits="userSpaceOnUse">
-              <path d="M30 15 v30 M15 30 h30" stroke="#fff" strokeWidth="1" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#regCross)" />
-        </svg>
         <div style={{ position: "relative", zIndex: 1, maxWidth: 600, margin: "0 auto" }}>
           <FadeSection>
-            <TextReveal
-              as="h2"
+            <h2
               style={{
                 fontSize: "clamp(26px, 5vw, 38px)",
                 fontFamily: "'Cormorant Garamond', serif",
@@ -455,7 +427,7 @@ export default function GetInvolved() {
               }}
             >
               {t("getInvolved.register.title")}
-            </TextReveal>
+            </h2>
             <p
               style={{
                 fontSize: 16,
@@ -525,7 +497,7 @@ export default function GetInvolved() {
                 background: selected.accent,
                 padding: "44px 32px 32px",
                 textAlign: "center",
-                borderRadius: "16px 16px 0 0",
+                borderRadius: "8px 8px 0 0",
               }}
             >
               <div

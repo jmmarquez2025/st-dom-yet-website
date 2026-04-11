@@ -5,7 +5,7 @@ import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
-import TextReveal from "../components/TextReveal";
+
 import { useAnnouncements } from "../cms/hooks";
 import Seo from "../components/Seo";
 import NextMass from "../components/NextMass";
@@ -17,21 +17,6 @@ import YouTubeChannel from "../components/YouTubeChannel";
 import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
 import { PHOTOS } from "../constants/photos";
-
-/* ── cross SVG for pattern overlays ── */
-const CrossPattern = ({ opacity = 0.04 }) => (
-  <svg
-    aria-hidden="true"
-    style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity }}
-  >
-    <defs>
-      <pattern id="crossPattern" width="60" height="60" patternUnits="userSpaceOnUse">
-        <path d="M30 15 v30 M15 30 h30" stroke="#fff" strokeWidth="1" />
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#crossPattern)" />
-  </svg>
-);
 
 export default function Home() {
   const { t } = useTranslation();
@@ -57,56 +42,6 @@ export default function Home() {
         }}
       >
         <HeroImage src={PHOTOS.homeHero} overlay={0.5} tint="rgba(107,29,42,0.6)" />
-        {/* decorative radial gradients */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            top: "-30%",
-            left: "-10%",
-            width: "60%",
-            height: "120%",
-            background: `radial-gradient(ellipse, ${T.burgundy}55 0%, transparent 70%)`,
-          }}
-        />
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            bottom: "-20%",
-            right: "-10%",
-            width: "50%",
-            height: "100%",
-            background: `radial-gradient(ellipse, ${T.gold}15 0%, transparent 70%)`,
-          }}
-        />
-
-        {/* animated floating particles */}
-        <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
-          {[...Array(5)].map((_, i) => (
-            <div
-              key={i}
-              style={{
-                position: "absolute",
-                width: 4 + i * 2,
-                height: 4 + i * 2,
-                borderRadius: "50%",
-                background: `${T.goldLight}${20 + i * 8}`,
-                top: `${15 + i * 18}%`,
-                left: `${10 + i * 20}%`,
-                animation: `floatParticle ${6 + i * 2}s ease-in-out infinite alternate`,
-              }}
-            />
-          ))}
-          <style>{`
-            @keyframes floatParticle {
-              0% { transform: translateY(0) translateX(0); }
-              100% { transform: translateY(-30px) translateX(20px); }
-            }
-          `}</style>
-        </div>
-
-        <CrossPattern />
 
         <div style={{ position: "relative", zIndex: 1 }}>
           <div
@@ -117,16 +52,12 @@ export default function Home() {
               color: T.goldLight,
               marginBottom: 16,
               fontWeight: 600,
-              animation: "fadeUp 0.8s ease",
             }}
           >
             {t("home.hero.subtitle")}
           </div>
 
-          <TextReveal
-            as="h1"
-            stagger={0.09}
-            duration={0.7}
+          <h1
             style={{
               fontSize: "clamp(40px, 7vw, 72px)",
               fontFamily: "'Cormorant Garamond', serif",
@@ -137,7 +68,7 @@ export default function Home() {
             }}
           >
             {t("home.hero.title")}
-          </TextReveal>
+          </h1>
 
           <div
             style={{
@@ -146,13 +77,12 @@ export default function Home() {
               textTransform: "uppercase",
               color: T.goldLight,
               marginBottom: 40,
-              animation: "fadeUp 1s ease 0.4s both",
             }}
           >
             {t("home.hero.location")}
           </div>
 
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap", animation: "fadeUp 1s ease 0.6s both" }}>
+          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
             <Btn variant="gold" onClick={() => navigate("/visit")}>
               {t("home.hero.ctaVisit")}
             </Btn>
@@ -162,7 +92,7 @@ export default function Home() {
           </div>
 
           {/* ── Next Mass Countdown ── */}
-          <div style={{ marginTop: 48, animation: "fadeUp 1s ease 0.8s both" }}>
+          <div style={{ marginTop: 48 }}>
             <NextMass />
           </div>
         </div>
@@ -256,7 +186,7 @@ export default function Home() {
           >
             {/* left text */}
             <div>
-              <SectionTitle sub={t("home.massCta.sub")} center={false}>
+              <SectionTitle sub={t("home.massCta.sub")} center={false} divider={false}>
                 {t("home.massCta.title")}
               </SectionTitle>
               <p style={{ fontSize: 17, lineHeight: 1.8, color: T.warmGray, marginBottom: 28 }}>
@@ -321,22 +251,6 @@ export default function Home() {
         }}
       >
         <HeroImage src={PHOTOS.dominicanCharism} overlay={0.7} position="center top" />
-        {/* Decorative Dominican star watermark */}
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 200 200"
-          style={{
-            position: "absolute",
-            right: "-5%",
-            top: "50%",
-            transform: "translateY(-50%)",
-            width: "clamp(300px, 40vw, 500px)",
-            height: "auto",
-            opacity: 0.04,
-          }}
-        >
-          <polygon points="100,10 120,80 195,80 135,120 155,190 100,150 45,190 65,120 5,80 80,80" fill="#fff" />
-        </svg>
 
         <div style={{ maxWidth: 1100, margin: "0 auto", position: "relative", zIndex: 1 }}>
           <FadeSection>
@@ -381,9 +295,7 @@ export default function Home() {
                     paddingLeft: 24,
                   }}
                 >
-                  <TextReveal as="span" stagger={0.06} duration={0.6}>
-                    {t("home.priests.quote")}
-                  </TextReveal>
+                  {t("home.priests.quote")}
                 </blockquote>
                 <cite
                   style={{
@@ -509,10 +421,9 @@ export default function Home() {
           textAlign: "center",
         }}
       >
-        <CrossPattern />
         <div style={{ position: "relative", zIndex: 1, maxWidth: 700, margin: "0 auto" }}>
           <FadeSection>
-            <SectionTitle sub={t("home.involved.sub")} light>
+            <SectionTitle sub={t("home.involved.sub")} light divider={false}>
               {t("home.involved.title")}
             </SectionTitle>
             <p
@@ -605,7 +516,7 @@ export default function Home() {
       {/* ════ Fray Nelson — YouTube Channel ════ */}
       <Section>
         <FadeSection>
-          <SectionTitle sub={t("youtube.sub")}>{t("youtube.title")}</SectionTitle>
+          <SectionTitle sub={t("youtube.sub")} divider={false}>{t("youtube.title")}</SectionTitle>
           <p
             style={{
               fontSize: 16,

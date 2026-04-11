@@ -24,7 +24,7 @@ export default function PageHeader({ title }) {
         >
           {title}
         </h1>
-        <div style={{ width: 60, height: 3, background: T.gold, margin: "16px auto 0" }} />
+        <div style={{ width: 48, height: 2, background: T.gold, margin: "14px auto 0" }} />
       </div>
     </div>
   );

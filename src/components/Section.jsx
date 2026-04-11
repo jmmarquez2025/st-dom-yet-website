@@ -8,9 +8,9 @@ export function Section({ children, bg = T.warmWhite, style: s = {}, id }) {
   );
 }
 
-export function SectionTitle({ children, sub, light, center = true }) {
+export function SectionTitle({ children, sub, light, center = true, divider = true }) {
   return (
-    <div style={{ textAlign: center ? "center" : "left", marginBottom: 48 }}>
+    <div style={{ textAlign: center ? "center" : "left", marginBottom: 40 }}>
       {sub && (
         <div
           style={{
@@ -28,15 +28,17 @@ export function SectionTitle({ children, sub, light, center = true }) {
       <h2 style={{ fontSize: "clamp(28px, 5vw, 42px)", color: light ? "#fff" : T.softBlack, fontWeight: 600 }}>
         {children}
       </h2>
-      <div
-        style={{
-          width: 60,
-          height: 3,
-          background: T.gold,
-          margin: center ? "16px auto 0" : "16px 0 0",
-          borderRadius: 2,
-        }}
-      />
+      {divider && (
+        <div
+          style={{
+            width: 48,
+            height: 2,
+            background: T.gold,
+            margin: center ? "14px auto 0" : "14px 0 0",
+            borderRadius: 1,
+          }}
+        />
+      )}
     </div>
   );
 }
