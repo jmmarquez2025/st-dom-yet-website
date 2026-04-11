@@ -64,6 +64,10 @@ export const CONFIG = {
   // Update this when deploying to the production domain
   siteUrl: "https://jmmarquez2025.github.io/st-dom-yet-website",
 
+  // Analytics — Plausible (privacy-friendly, no cookie banner needed)
+  // Sign up at https://plausible.io and add your domain
+  plausibleDomain: "",
+
   // Church info
   phone: "(330) 783-1900",
   phoneLink: "tel:+13307831900",

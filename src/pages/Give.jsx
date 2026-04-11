@@ -17,7 +17,7 @@ export default function Give() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Online Giving" description="Support St. Dominic Catholic Church through online giving. Your generosity sustains our ministries and community outreach." />
+      <Seo title="Online Giving" description="Support St. Dominic Catholic Church through online giving. Your generosity sustains our ministries and community outreach." image={PHOTOS.stockGiving} />
       <PageHeader title={t("give.title")} heroSrc={PHOTOS.stockGiving} tall />
 
       <Section bg={T.warmWhite}>

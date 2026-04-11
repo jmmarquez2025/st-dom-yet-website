@@ -6,6 +6,7 @@ import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
+import { PHOTOS } from "../constants/photos";
 import { useEvents } from "../cms/hooks";
 
 const CATEGORY_META = {
@@ -51,6 +52,7 @@ export default function Events() {
       <Seo
         title="Church Events"
         description="Upcoming events at St. Dominic Catholic Church — Masses, sacraments, education, and community gatherings in Youngstown, Ohio."
+        image={PHOTOS.homeHero}
       />
       <PageHeader title={t("events.title")} />
 

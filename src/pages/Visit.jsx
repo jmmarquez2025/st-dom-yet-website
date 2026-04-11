@@ -31,6 +31,7 @@ export default function Visit() {
       <Seo
         title="Plan Your Visit"
         description="Planning to visit St. Dominic Church? Everything you need to know — what to expect, Mass times, parking, and a warm welcome."
+        image={PHOTOS.visitHero}
       />
 
       {/* ════ Hero Banner ════ */}

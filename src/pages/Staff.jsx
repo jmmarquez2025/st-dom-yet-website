@@ -9,6 +9,7 @@ import { initials } from "../data/staff";
 import { useStaff } from "../cms/hooks";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
+import { PHOTOS } from "../constants/photos";
 import { X, Mail, Phone } from "lucide-react";
 
 export default function Staff() {
@@ -289,7 +290,7 @@ export default function Staff() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Priests & Staff" description="Meet the Dominican Friars and church staff serving the community at St. Dominic Catholic Church in Youngstown, Ohio." />
+      <Seo title="Priests & Staff" description="Meet the Dominican Friars and church staff serving the community at St. Dominic Catholic Church in Youngstown, Ohio." image={PHOTOS.aboutHero} />
       <PageHeader title={t("staff.title")} />
 
       <style>{`

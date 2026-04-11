@@ -16,7 +16,7 @@ export default function Baptism() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Baptism" description="Information about the Sacrament of Baptism at St. Dominic Church. Requirements, preparation, and how to schedule." />
+      <Seo title="Baptism" description="Information about the Sacrament of Baptism at St. Dominic Church. Requirements, preparation, and how to schedule." image={PHOTOS.baptismHero} />
       <PageHeader title={t("sacraments.baptism.title")} heroSrc={PHOTOS.baptismHero} tall />
 
       <Section bg={T.warmWhite}>

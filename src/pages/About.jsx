@@ -20,7 +20,7 @@ export default function About() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="About Our Church" description="Learn about the history of St. Dominic Church, founded by the Dominican Friars in 1923 in Youngstown, Ohio." />
+      <Seo title="About Our Church" description="Learn about the history of St. Dominic Church, founded by the Dominican Friars in 1923 in Youngstown, Ohio." image={PHOTOS.aboutHero} />
       {/* ════ Hero Banner ════ */}
       <section
         style={{

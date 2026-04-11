@@ -24,7 +24,7 @@ export default function Sacraments() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="The Sacraments" description="Learn about the seven sacraments celebrated at St. Dominic Church — Baptism, Eucharist, Confirmation, Marriage, and more." />
+      <Seo title="The Sacraments" description="Learn about the seven sacraments celebrated at St. Dominic Church — Baptism, Eucharist, Confirmation, Marriage, and more." image={PHOTOS.stockSacraments} />
       <PageHeader title={t("sacraments.title")} heroSrc={PHOTOS.stockSacraments} tall />
 
       <Section bg={T.warmWhite}>

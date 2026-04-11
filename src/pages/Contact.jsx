@@ -6,6 +6,7 @@ import { Section } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
 import Seo from "../components/Seo";
+import { PHOTOS } from "../constants/photos";
 import { Send, CheckCircle, AlertCircle, Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
 
 /* ── Animated floating-label input ── */
@@ -189,7 +190,7 @@ export default function Contact() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Contact Us" description="Contact St. Dominic Catholic Church in Youngstown, Ohio. Phone, email, office hours, and directions to 77 East Lucius Avenue." />
+      <Seo title="Contact Us" description="Contact St. Dominic Catholic Church in Youngstown, Ohio. Phone, email, office hours, and directions to 77 East Lucius Avenue." image={PHOTOS.visitHero} />
       <PageHeader title={t("contact.title")} />
 
       <Section bg={T.cream}>

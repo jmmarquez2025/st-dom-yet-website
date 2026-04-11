@@ -29,6 +29,7 @@ const SEGMENT_I18N_KEY = {
   register: "nav.register",
   events: "nav.events",
   architecture: "nav.architecture",
+  gallery: "nav.gallery",
 };
 
 /**

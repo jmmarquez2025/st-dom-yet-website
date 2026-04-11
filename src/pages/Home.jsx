@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <div>
-      <Seo description="St. Dominic Catholic Church in Youngstown, Ohio. Served by the Dominican Friars since 1923. Mass times, sacraments, and community life." />
+      <Seo description="St. Dominic Catholic Church in Youngstown, Ohio. Served by the Dominican Friars since 1923. Mass times, sacraments, and community life." image={PHOTOS.homeHero} />
 
       {/* ═══ Liturgical Season Strip ═══ */}
       <LiturgicalBanner />

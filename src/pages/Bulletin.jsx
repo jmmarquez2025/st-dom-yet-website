@@ -23,6 +23,7 @@ export default function Bulletin() {
       <Seo
         title="Weekly Bulletin"
         description="Read the weekly church bulletin from St. Dominic Catholic Church with announcements, Mass intentions, and ministry news."
+        image={PHOTOS.bulletinHero}
       />
 
       {/* ════ Hero ════ */}

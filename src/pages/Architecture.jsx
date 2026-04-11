@@ -147,6 +147,7 @@ export default function Architecture() {
       <Seo
         title="Architecture & Art"
         description="Explore the Romanesque architecture, stained glass, murals, and sacred art of St. Dominic Church in Youngstown, Ohio — a walking tour."
+        image={PHOTOS.archHero}
       />
 
       <style>{`

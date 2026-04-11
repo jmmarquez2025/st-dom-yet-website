@@ -6,6 +6,7 @@ import { Section } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
 import Seo from "../components/Seo";
+import { PHOTOS } from "../constants/photos";
 import { CheckCircle, AlertCircle, UserPlus, ChevronDown, ChevronUp, Loader2, Heart, Users, Home as HomeIcon, Church } from "lucide-react";
 
 /* ── Floating-label input ── */
@@ -332,6 +333,7 @@ export default function Register() {
       <Seo
         title="Church Registration"
         description="Register as a member at St. Dominic Catholic Church in Youngstown, Ohio."
+        image={PHOTOS.homeHero}
       />
       <PageHeader title={t("register.title")} />
 

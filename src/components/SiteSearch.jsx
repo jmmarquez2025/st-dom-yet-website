@@ -153,6 +153,13 @@ const SEARCH_INDEX = [
     description: "Explore the architecture, stained glass, and sacred art of St. Dominic",
     keywords: ["architecture", "art", "stained glass", "building", "church", "design", "windows", "tour", "artwork", "sacred art", "gothic", "beauty"],
   },
+  {
+    path: "/gallery",
+    titleKey: "nav.gallery",
+    title: "Photo Gallery",
+    description: "Browse photos of St. Dominic Church — aerial views, interior, sacred art, and liturgical celebrations",
+    keywords: ["gallery", "photos", "pictures", "images", "aerial", "interior", "exterior", "church photos", "photography"],
+  },
 ];
 
 /* ── Fuzzy search helper ── */

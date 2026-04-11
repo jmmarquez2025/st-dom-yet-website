@@ -235,6 +235,7 @@ export default function MassTimes() {
       <Seo
         title={t("massTimes.title")}
         description="Sunday and daily Mass schedule, Confession times, Examination of Conscience, and Eucharistic Adoration at St. Dominic Church, Youngstown OH."
+        image={PHOTOS.homeHero}
       />
 
       {/* ════ Section 1: Hero Banner ════ */}

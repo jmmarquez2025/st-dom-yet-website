@@ -98,6 +98,7 @@ export default function History() {
       <Seo
         title="Church History"
         description="Over 100 years of faith — the history of St. Dominic Catholic Church, founded by the Dominican Friars in 1923 in Youngstown, Ohio."
+        image={PHOTOS.homeHero}
       />
 
       <style>{`

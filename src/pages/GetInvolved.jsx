@@ -58,6 +58,7 @@ export default function GetInvolved() {
       <Seo
         title="Get Involved"
         description="Explore ministries and volunteer opportunities at St. Dominic Church — Hispanic Ministry, music, religious education, and more."
+        image={PHOTOS.getInvolvedHero}
       />
 
       {/* ════ Hero ════ */}

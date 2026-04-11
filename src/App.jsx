@@ -31,6 +31,7 @@ const History = lazy(() => import("./pages/History"));
 const Register = lazy(() => import("./pages/Register"));
 const Events = lazy(() => import("./pages/Events"));
 const Architecture = lazy(() => import("./pages/Architecture"));
+const Gallery = lazy(() => import("./pages/Gallery"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function ScrollToTop() {
@@ -78,6 +79,7 @@ function AppRoutes() {
             <Route path="/register" element={<Register />} />
             <Route path="/events" element={<Events />} />
             <Route path="/architecture" element={<Architecture />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
