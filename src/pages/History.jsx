@@ -122,7 +122,7 @@ export default function History() {
         image={PHOTOS.pageHeader}
         overlay={0.5}
         tint="rgba(30,20,15,0.6)"
-        height="160vh"
+        height="130vh"
       >
         <div
           style={{

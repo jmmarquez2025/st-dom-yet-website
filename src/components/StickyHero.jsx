@@ -18,22 +18,31 @@ export default function StickyHero({
   image,
   overlay = 0.5,
   tint,
-  height = "180vh",
+  height = "130vh",
   children,
 }) {
   const wrapperRef = useRef(null);
   const [progress, setProgress] = useState(0);
   const [loaded, setLoaded] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setReducedMotion(mq.matches);
+    const handler = (e) => setReducedMotion(e.matches);
+    mq.addEventListener?.("change", handler);
+    return () => mq.removeEventListener?.("change", handler);
+  }, []);
 
   const handleScroll = useCallback(() => {
+    if (reducedMotion) return;
     const el = wrapperRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
     const h = el.offsetHeight;
-    // progress: 0 when section top is at viewport top, 1 when bottom reaches viewport top
     const p = Math.min(1, Math.max(0, -rect.top / (h - window.innerHeight)));
     setProgress(p);
-  }, []);
+  }, [reducedMotion]);
 
   useEffect(() => {
     handleScroll();
@@ -41,10 +50,10 @@ export default function StickyHero({
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  // Derived values
-  const textOpacity = Math.max(0, 1 - progress * 2.5);
-  const textY = progress * -40;
-  const bgScale = 1 + progress * 0.1;
+  // Derived values (static when reduced motion is on)
+  const textOpacity = reducedMotion ? 1 : Math.max(0, 1 - progress * 2.5);
+  const textY = reducedMotion ? 0 : progress * -40;
+  const bgScale = reducedMotion ? 1 : 1 + progress * 0.1;
 
   return (
     <div ref={wrapperRef} style={{ height, position: "relative" }}>
@@ -116,6 +125,47 @@ export default function StickyHero({
         >
           {children}
         </div>
+
+        {/* Scroll indicator */}
+        {progress < 0.2 && (
+          <div
+            aria-hidden="true"
+            className="scroll-hint"
+            style={{
+              position: "absolute",
+              bottom: 32,
+              left: "50%",
+              transform: "translateX(-50%)",
+              zIndex: 1,
+              opacity: 1 - progress * 5,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 6,
+            }}
+          >
+            <div
+              style={{
+                fontSize: 11,
+                letterSpacing: 2,
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.5)",
+                fontWeight: 500,
+              }}
+            >
+              Scroll
+            </div>
+            <div
+              style={{
+                width: 1,
+                height: 28,
+                background: "linear-gradient(rgba(255,255,255,0.5), transparent)",
+                animation: "scrollPulse 2s ease infinite",
+              }}
+            />
+            <style>{`@keyframes scrollPulse { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }`}</style>
+          </div>
+        )}
 
         {/* Bottom gradient for seamless transition */}
         <div

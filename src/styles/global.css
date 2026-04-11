@@ -67,7 +67,7 @@ h1, h2, h3, h4 {
   left: 16px;
   z-index: 9999;
   padding: 12px 24px;
-  background: #6b1d2a;
+  background: var(--color-burgundy);
   color: #fff;
   font-weight: 600;
   text-decoration: none;
@@ -78,7 +78,7 @@ h1, h2, h3, h4 {
 }
 
 :focus-visible {
-  outline: 2px solid #c5a55a;
+  outline: 2px solid var(--color-gold);
   outline-offset: 2px;
 }
 
@@ -176,6 +176,37 @@ h1, h2, h3, h4 {
     z-index: 1;
   }
 }
+
+/* ── reusable layout classes ── */
+.section-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.section-inner--wide {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.section-heading {
+  font-size: clamp(24px, 4vw, 34px);
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--color-soft-black);
+}
+.body-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--color-warm-gray);
+  margin-bottom: 20px;
+}
+.sub-label {
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.sub-label--gold { color: var(--color-gold); }
+.sub-label--white { color: rgba(255,255,255,0.6); }
 
 /* ── contact links ── */
 a.contact-link {

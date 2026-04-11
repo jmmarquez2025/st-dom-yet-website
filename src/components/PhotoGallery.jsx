@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { T } from "../constants/theme";
@@ -25,18 +25,44 @@ export default function PhotoGallery({ photos = [] }) {
     [photos.length]
   );
 
+  const lightboxRef = useRef(null);
+  const triggerRef = useRef(null);
+
   useEffect(() => {
     if (lightbox === null) return;
+
+    // Focus the lightbox dialog for keyboard access
+    lightboxRef.current?.focus();
+
     const onKey = (e) => {
       if (e.key === "Escape") close();
       if (e.key === "ArrowLeft") prev();
       if (e.key === "ArrowRight") next();
+
+      // Trap focus within lightbox
+      if (e.key === "Tab") {
+        const focusable = lightboxRef.current?.querySelectorAll(
+          'button, [href], [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusable || focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     document.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
     return () => {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
+      // Restore focus to the trigger element
+      triggerRef.current?.focus();
     };
   }, [lightbox, close, prev, next]);
 
@@ -123,10 +149,10 @@ export default function PhotoGallery({ photos = [] }) {
           <div
             key={i}
             className="parish-gallery-item"
-            onClick={() => setLightbox(i)}
+            onClick={(e) => { triggerRef.current = e.currentTarget; setLightbox(i); }}
             role="button"
             tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && setLightbox(i)}
+            onKeyDown={(e) => { if (e.key === "Enter") { triggerRef.current = e.currentTarget; setLightbox(i); } }}
             aria-label={t(photo.alt)}
           >
             <img src={photo.src} alt={t(photo.alt)} loading="lazy" />
@@ -137,9 +163,11 @@ export default function PhotoGallery({ photos = [] }) {
       {/* Lightbox Modal */}
       {lightbox !== null && (
         <div
+          ref={lightboxRef}
           role="dialog"
           aria-modal="true"
           aria-label={t(photos[lightbox].alt)}
+          tabIndex={-1}
           style={{
             position: "fixed",
             inset: 0,

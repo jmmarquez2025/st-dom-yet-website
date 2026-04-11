@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && cp dist/index.html dist/404.html",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "images": "bash scripts/generate-webp.sh"
   },
   "dependencies": {
     "i18next": "^26.0.4",

@@ -847,6 +847,12 @@
   "saintOfDay": {
     "label": "Saint of the Day"
   },
+  "notFound": {
+    "title": "Page Not Found",
+    "desc": "The page you're looking for doesn't exist or has been moved. Let us help you find what you need.",
+    "home": "Go Home",
+    "massTimes": "Mass Times"
+  },
   "arch": {
     "title": "Architecture & Sacred Art",
     "hero": {

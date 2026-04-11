@@ -25,13 +25,13 @@ export default function ParallaxSection({
   const [loaded, setLoaded] = useState(false);
 
   const handleScroll = useCallback(() => {
+    // Respect prefers-reduced-motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
     const windowH = window.innerHeight;
-    // Only calculate when element is near viewport
     if (rect.bottom < -100 || rect.top > windowH + 100) return;
-    // Center the parallax range
     const center = rect.top + rect.height / 2 - windowH / 2;
     setOffset(center * speed);
   }, [speed]);

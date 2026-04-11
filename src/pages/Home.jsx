@@ -40,7 +40,7 @@ export default function Home() {
         image={PHOTOS.homeHero}
         overlay={0.5}
         tint="rgba(107,29,42,0.6)"
-        height="170vh"
+        height="130vh"
       >
         <div
           style={{

@@ -60,6 +60,10 @@ export const CONFIG = {
   // Example: "https://online.fliphtml5.com/abcde/fghij/"
   bulletinUrl: "https://online.fliphtml5.com/stpatrickchurch/2026-04-05/",
 
+  // Site URL for SEO (canonical, OpenGraph, etc.)
+  // Update this when deploying to the production domain
+  siteUrl: "https://jmmarquez2025.github.io/st-dom-yet-website",
+
   // Parish info
   phone: "(330) 783-1900",
   phoneLink: "tel:+13307831900",

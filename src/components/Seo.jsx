@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { CONFIG } from "../constants/config";
 
 const SITE_NAME = "St. Dominic Catholic Parish";
 const DEFAULT_DESC =
   "St. Dominic Catholic Parish — Youngstown, Ohio. Served by the Dominican Friars of the Province of St. Joseph since 1923.";
-const SITE_URL = "https://jmmarquez2025.github.io/st-dom-yet-website";
+const SITE_URL = CONFIG.siteUrl;
 
 /**
  * Lightweight SEO head manager. Sets document title, meta description,

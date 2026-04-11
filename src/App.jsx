@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import ScrollProgress from "./components/ScrollProgress";
+import ErrorBoundary from "./components/ErrorBoundary";
 import { T } from "./constants/theme";
 
 /* ── Code-split every page (separate chunks) ── */
@@ -28,6 +29,7 @@ const History = lazy(() => import("./pages/History"));
 const Register = lazy(() => import("./pages/Register"));
 const Events = lazy(() => import("./pages/Events"));
 const Architecture = lazy(() => import("./pages/Architecture"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -78,7 +80,7 @@ function AppRoutes() {
             <Route path="/register" element={<Register />} />
             <Route path="/events" element={<Events />} />
             <Route path="/architecture" element={<Architecture />} />
-            <Route path="*" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>
@@ -96,10 +98,12 @@ function AppRoutes() {
 export default function App() {
   const { i18n } = useTranslation();
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
-      <div lang={i18n.language}>
-        <AppRoutes />
-      </div>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <div lang={i18n.language}>
+          <AppRoutes />
+        </div>
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }

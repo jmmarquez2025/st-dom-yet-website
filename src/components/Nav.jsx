@@ -94,14 +94,33 @@ export default function Nav() {
     setMobileAccordion(null);
   }, [location]);
 
-  // Close dropdown on Escape
+  // Close dropdown/mobile menu on Escape + trap focus in mobile menu
   useEffect(() => {
     const handler = (e) => {
-      if (e.key === "Escape") setOpenDropdown(null);
+      if (e.key === "Escape") {
+        if (mobileOpen) setMobileOpen(false);
+        else setOpenDropdown(null);
+      }
+      // Focus trap for mobile menu
+      if (e.key === "Tab" && mobileOpen && menuRef.current) {
+        const focusable = menuRef.current.querySelectorAll(
+          'a, button, [tabindex]:not([tabindex="-1"])'
+        );
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
-  }, []);
+  }, [mobileOpen]);
 
   const isActive = useCallback(
     (to) => (to === "/" ? location.pathname === "/" : location.pathname.startsWith(to)),

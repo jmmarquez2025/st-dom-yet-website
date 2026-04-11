@@ -15,6 +15,15 @@ export default function useScrollProgress({ offset = 0.85 } = {}) {
   const [progress, setProgress] = useState(0);
 
   const handleScroll = useCallback(() => {
+    // When reduced motion is preferred, jump to fully visible immediately
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const el = ref.current;
+      if (el) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) setProgress(1);
+      }
+      return;
+    }
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();

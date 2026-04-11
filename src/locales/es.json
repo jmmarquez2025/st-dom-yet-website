@@ -848,6 +848,12 @@
   "saintOfDay": {
     "label": "Santo del Día"
   },
+  "notFound": {
+    "title": "Pagina No Encontrada",
+    "desc": "La pagina que busca no existe o ha sido movida. Permitanos ayudarle a encontrar lo que necesita.",
+    "home": "Ir al Inicio",
+    "massTimes": "Horario de Misas"
+  },
   "arch": {
     "title": "Arquitectura y Arte Sacro",
     "hero": {

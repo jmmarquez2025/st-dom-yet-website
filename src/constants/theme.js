@@ -1,3 +1,8 @@
+/**
+ * Theme constants for inline styles in React components.
+ * These mirror the CSS custom properties in src/styles/global.css.
+ * When updating colors, update BOTH locations.
+ */
 export const T = {
   burgundy: "#6B1D2A",
   burgundyDark: "#4A1019",

@@ -168,7 +168,7 @@ export default function Architecture() {
         image={PHOTOS.archHero}
         overlay={0.5}
         tint="rgba(30,20,15,0.55)"
-        height="160vh"
+        height="130vh"
       >
         <div
           style={{

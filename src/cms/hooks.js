@@ -9,21 +9,29 @@ import { bulletins as staticBulletins } from "../data/bulletins";
 
 /**
  * Generic CMS hook. Tries the CMS fetch first, falls back to static data.
+ * Returns { data, loading, isLive } where isLive indicates whether data
+ * came from the CMS (true) or static fallbacks (false).
  */
 function useCmsData(fetcher, fallback) {
   const [data, setData] = useState(fallback);
   const [loading, setLoading] = useState(true);
+  const [isLive, setIsLive] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
     fetcher().then((result) => {
-      if (!cancelled && result) setData(result);
+      if (!cancelled && result) {
+        setData(result);
+        setIsLive(true);
+      }
+      if (!cancelled) setLoading(false);
+    }).catch(() => {
       if (!cancelled) setLoading(false);
     });
     return () => { cancelled = true; };
   }, []);
 
-  return { data, loading };
+  return { data, loading, isLive };
 }
 
 /** Staff data — returns { friars, staff } */
