@@ -6,7 +6,6 @@ import { PHOTOS } from "../constants/photos";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
-import StickyHero from "../components/StickyHero";
 import ParallaxSection from "../components/ParallaxSection";
 import ScaleReveal from "../components/ScaleReveal";
 import { useSchedule } from "../cms/hooks";
@@ -238,14 +237,74 @@ export default function MassTimes() {
         description="Sunday and daily Mass schedule, Confession times, Examination of Conscience, and Eucharistic Adoration at St. Dominic Parish, Youngstown OH."
       />
 
-      {/* ════ Section 1: Hero ════ */}
-      <StickyHero
-        src={PHOTOS.archSanctuary}
-        alt="Sanctuary of St. Dominic Church"
-        title={t("massTimes.title")}
-        sub={t("massTimes.hero.sub")}
-        height="130vh"
-      />
+      {/* ════ Section 1: Hero Banner ════ */}
+      <section
+        style={{
+          position: "relative",
+          height: "clamp(340px, 50vh, 480px)",
+          overflow: "hidden",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          marginTop: 76,
+        }}
+      >
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `url(${PHOTOS.archSanctuary})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center 40%",
+          }}
+        />
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "linear-gradient(160deg, rgba(107,29,42,0.7), rgba(0,0,0,0.55))",
+          }}
+        />
+        <div style={{ position: "relative", zIndex: 1, textAlign: "center", padding: "0 24px" }}>
+          <div
+            style={{
+              fontSize: 12,
+              letterSpacing: 4,
+              textTransform: "uppercase",
+              color: T.goldLight,
+              fontWeight: 600,
+              marginBottom: 12,
+            }}
+          >
+            {t("massTimes.hero.sub")}
+          </div>
+          <h1
+            style={{
+              fontSize: "clamp(30px, 5.5vw, 48px)",
+              color: "#fff",
+              fontWeight: 600,
+              fontFamily: "'Cormorant Garamond', serif",
+              lineHeight: 1.15,
+              marginBottom: 16,
+            }}
+          >
+            {t("massTimes.title")}
+          </h1>
+          <p
+            style={{
+              fontSize: "clamp(14px, 2vw, 17px)",
+              color: "rgba(255,255,255,0.75)",
+              maxWidth: 560,
+              margin: "0 auto",
+              lineHeight: 1.6,
+            }}
+          >
+            {t("massTimes.hero.desc")}
+          </p>
+        </div>
+      </section>
 
       {/* ════ Section 2: Mass Schedule ════ */}
       <Section>
