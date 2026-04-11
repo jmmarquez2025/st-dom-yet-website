@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
@@ -11,6 +12,7 @@ import Seo from "../components/Seo";
 import ScrollColorNum from "../components/ScrollColorNum";
 import CountUp from "../components/CountUp";
 import Icon from "../components/Icon";
+import { X, Mail, Phone } from "lucide-react";
 
 /* ── Subtle accent per ministry ── */
 const ACCENTS = {
@@ -32,6 +34,22 @@ export default function GetInvolved() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { data: ministries } = useMinistries();
+  const [selected, setSelected] = useState(null);
+
+  const close = useCallback(() => setSelected(null), []);
+
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") close();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [selected, close]);
 
   return (
     <div style={{ paddingTop: 76 }}>
@@ -163,6 +181,7 @@ export default function GetInvolved() {
               padding: 28px 28px 28px 32px;
               background: ${T.warmWhite};
               border: 1px solid ${T.stone};
+              cursor: pointer;
               transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
                           box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
                           border-color 0.35s ease;
@@ -171,6 +190,10 @@ export default function GetInvolved() {
               transform: translateY(-4px);
               box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
               border-color: ${T.gold};
+            }
+            .ministry-card:focus-visible {
+              outline: 2px solid ${T.burgundy};
+              outline-offset: 2px;
             }
             .ministry-accent {
               position: absolute;
@@ -185,6 +208,69 @@ export default function GetInvolved() {
             }
             .ministry-card:hover .ministry-icon {
               transform: scale(1.12);
+            }
+            .ministry-hint {
+              font-size: 12px;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              color: ${T.warmGray};
+              margin-top: 12px;
+              opacity: 0;
+              transition: opacity 0.3s ease;
+            }
+            .ministry-card:hover .ministry-hint {
+              opacity: 1;
+            }
+            .ministry-modal-backdrop {
+              position: fixed;
+              inset: 0;
+              background: rgba(0, 0, 0, 0.6);
+              backdrop-filter: blur(6px);
+              -webkit-backdrop-filter: blur(6px);
+              z-index: 1000;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              padding: 24px;
+              animation: mFadeIn 0.2s ease;
+            }
+            .ministry-modal {
+              background: #fff;
+              border-radius: 16px;
+              max-width: 520px;
+              width: 100%;
+              max-height: 90vh;
+              overflow-y: auto;
+              position: relative;
+              animation: mSlideUp 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+              box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+            }
+            .ministry-modal-close {
+              position: absolute;
+              top: 16px;
+              right: 16px;
+              width: 36px;
+              height: 36px;
+              border-radius: 50%;
+              border: none;
+              background: rgba(255, 255, 255, 0.2);
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: background 0.2s ease;
+              z-index: 1;
+            }
+            .ministry-modal-close:hover {
+              background: rgba(255, 255, 255, 0.35);
+            }
+            @keyframes mFadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
+            @keyframes mSlideUp {
+              from { opacity: 0; transform: translateY(24px) scale(0.96); }
+              to { opacity: 1; transform: translateY(0) scale(1); }
             }
             @media (max-width: 768px) {
               .ministry-grid {
@@ -203,7 +289,15 @@ export default function GetInvolved() {
               const accent = ACCENTS[m.key] || T.burgundy;
 
               return (
-                <div key={m.id} className="ministry-card">
+                <div
+                  key={m.id}
+                  className="ministry-card"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={t(`getInvolved.ministries.${m.key}.title`)}
+                  onClick={() => setSelected({ ...m, accent })}
+                  onKeyDown={(e) => e.key === "Enter" && setSelected({ ...m, accent })}
+                >
                   <div className="ministry-accent" style={{ background: accent }} />
                   <div
                     style={{
@@ -251,6 +345,9 @@ export default function GetInvolved() {
                       >
                         {t(`getInvolved.ministries.${m.key}.desc`)}
                       </p>
+                      <div className="ministry-hint">
+                        {t("getInvolved.clickHint")}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -403,6 +500,152 @@ export default function GetInvolved() {
           </FadeSection>
         </div>
       </section>
+
+      {/* ════ Ministry Modal ════ */}
+      {selected && (
+        <div
+          className="ministry-modal-backdrop"
+          onClick={(e) => e.target === e.currentTarget && close()}
+        >
+          <div className="ministry-modal" role="dialog" aria-modal="true">
+            <button
+              className="ministry-modal-close"
+              onClick={close}
+              aria-label="Close"
+            >
+              <X size={18} color="#fff" />
+            </button>
+
+            {/* Header with accent color */}
+            <div
+              style={{
+                background: selected.accent,
+                padding: "44px 32px 32px",
+                textAlign: "center",
+                borderRadius: "16px 16px 0 0",
+              }}
+            >
+              <div
+                style={{
+                  width: 72,
+                  height: 72,
+                  borderRadius: "50%",
+                  background: "rgba(255,255,255,0.2)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 auto 16px",
+                }}
+              >
+                <Icon name={selected.icon} size={36} color="#fff" />
+              </div>
+              <h2
+                style={{
+                  fontSize: 26,
+                  fontFamily: "'Cormorant Garamond', serif",
+                  fontWeight: 700,
+                  color: "#fff",
+                  lineHeight: 1.2,
+                }}
+              >
+                {t(`getInvolved.ministries.${selected.key}.title`)}
+              </h2>
+            </div>
+
+            {/* Body */}
+            <div style={{ padding: 32 }}>
+              <p
+                style={{
+                  fontSize: 15,
+                  lineHeight: 1.8,
+                  color: T.warmGray,
+                  marginBottom: 24,
+                }}
+              >
+                {t(`getInvolved.ministries.${selected.key}.detail`)}
+              </p>
+
+              <p
+                style={{
+                  fontSize: 14,
+                  fontStyle: "italic",
+                  color: T.softBlack,
+                  marginBottom: 20,
+                  lineHeight: 1.6,
+                }}
+              >
+                {t("getInvolved.modal.joinCta")}
+              </p>
+
+              <div
+                style={{
+                  borderTop: `1px solid ${T.stone}`,
+                  paddingTop: 20,
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: 11,
+                    letterSpacing: 2,
+                    textTransform: "uppercase",
+                    color: T.warmGray,
+                    marginBottom: 12,
+                    fontWeight: 600,
+                  }}
+                >
+                  {t("getInvolved.modal.contact")}
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 10,
+                  }}
+                >
+                  <a
+                    href={CONFIG.phoneLink}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      color: T.softBlack,
+                      textDecoration: "none",
+                      fontSize: 15,
+                    }}
+                  >
+                    <Phone size={16} color={selected.accent} />
+                    {CONFIG.phone}
+                  </a>
+                  <a
+                    href={`mailto:${CONFIG.email}`}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 10,
+                      color: T.softBlack,
+                      textDecoration: "none",
+                      fontSize: 15,
+                    }}
+                  >
+                    <Mail size={16} color={selected.accent} />
+                    {CONFIG.email}
+                  </a>
+                </div>
+                <p
+                  style={{
+                    fontSize: 12,
+                    color: T.warmGray,
+                    fontStyle: "italic",
+                    marginTop: 12,
+                  }}
+                >
+                  {t("getInvolved.modal.reachVia")}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

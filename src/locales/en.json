@@ -294,54 +294,67 @@
     "sub": "Join Our Family",
     "heading": "There's a Place for You",
     "desc": "St. Dominic Parish is a vibrant community with many ways to get involved. Whether you're looking to deepen your prayer life, serve those in need, or build friendships — there's a ministry for you.",
+    "clickHint": "Click to learn more",
     "ministries": {
       "liturgical": {
         "title": "Liturgical Ministries",
-        "desc": "Serve as a lector, extraordinary minister, altar server, sacristan, or choir member."
+        "desc": "Serve as a lector, extraordinary minister, altar server, sacristan, or choir member.",
+        "detail": "Our liturgical ministries are at the heart of parish worship. We welcome volunteers to serve as lectors, extraordinary ministers of Holy Communion, altar servers, sacristans, and members of the liturgical environment committee. Training and formation are provided for all new ministers. Whether you have experience or are just beginning, there is a role for you in making our liturgies beautiful and reverent."
       },
       "hispanic": {
         "title": "Hispanic Ministry",
-        "desc": "Join our vibrant Spanish-speaking community with weekly Masses and cultural events."
+        "desc": "Join our vibrant Spanish-speaking community with weekly Masses and cultural events.",
+        "detail": "Our Hispanic Ministry serves the growing Spanish-speaking community of St. Dominic Parish. We celebrate a weekly Sunday Mass in Spanish at 1:00 PM and host cultural events, prayer groups, and community gatherings throughout the year. The ministry fosters a welcoming environment where Hispanic families can worship, grow in faith, and build lasting friendships within the parish."
       },
       "layDominicans": {
         "title": "Lay Dominicans",
-        "desc": "Explore the Dominican charism more deeply as a member of the Lay Dominican Chapter."
+        "desc": "Explore the Dominican charism more deeply as a member of the Lay Dominican Chapter.",
+        "detail": "The Lay Dominican Chapter at St. Dominic Parish invites men and women to live the Dominican charism in their daily lives. Members commit to a rule of life centered on prayer, study, community, and preaching. Through regular meetings, shared prayer, and ongoing formation in Dominican spirituality, lay Dominicans deepen their relationship with God and bring the fruits of contemplation to the world."
       },
       "familyLife": {
         "title": "Parish & Family Life",
-        "desc": "Help organize community-building events, dinners, and parish celebrations."
+        "desc": "Help organize community-building events, dinners, and parish celebrations.",
+        "detail": "Parish & Family Life coordinates community-building events that bring parishioners together outside of Sunday Mass. From parish dinners and picnics to holiday celebrations and social gatherings, this ministry helps create the bonds of friendship that make our parish a true family. Volunteers are always welcome to help plan and organize these events."
       },
       "mensFellowship": {
         "title": "Catholic Men's Fellowship",
-        "desc": "Join men of the parish for prayer, study, and fellowship."
+        "desc": "Join men of the parish for prayer, study, and fellowship.",
+        "detail": "The Catholic Men's Fellowship gathers men of the parish for prayer, study, and brotherhood. Through regular meetings featuring guest speakers, Scripture study, and shared meals, the fellowship encourages men to grow as Catholic husbands, fathers, and leaders in their families and community."
       },
       "svdp": {
         "title": "St. Vincent de Paul Society",
-        "desc": "Serve those in need in our community through direct outreach and assistance."
+        "desc": "Serve those in need in our community through direct outreach and assistance.",
+        "detail": "The St. Vincent de Paul Society is dedicated to serving those in need in our community. Members make home visits, provide emergency assistance with food, utilities, and rent, and connect individuals with additional resources. Following the example of St. Vincent de Paul, we see the face of Christ in every person we serve."
       },
       "music": {
         "title": "Music Ministry",
-        "desc": "Share your musical gifts at Mass — choir, cantoring, and instrumentalists welcome."
+        "desc": "Share your musical gifts at Mass — choir, cantoring, and instrumentalists welcome.",
+        "detail": "Our Music Ministry enhances the liturgical worship of the parish through sacred music. We welcome singers and instrumentalists of all skill levels to join our choir, serve as cantors, or accompany the congregation. Rehearsals are held weekly, and no audition is required — just a love for music and a desire to praise God through song."
       },
       "religiousEd": {
         "title": "Religious Education (CCD)",
-        "desc": "CCD classes serve grades K–8, meeting Sundays 9:00–10:15 AM from September through May. Help form the next generation of Catholics."
+        "desc": "CCD classes serve grades K–8, meeting Sundays 9:00–10:15 AM from September through May.",
+        "detail": "Our Religious Education program (CCD) provides faith formation for children in grades K through 8. Classes meet on Sundays from 9:00 to 10:15 AM, September through May. Our dedicated catechists guide students through the foundations of the Catholic faith, preparing them for the sacraments and a lifelong relationship with Christ. We are always looking for volunteer catechists and aides."
       },
       "youth": {
         "title": "Youth Ministry",
-        "desc": "High School and Junior High youth groups, plus a Young Families group. Mission trips offered each year for teens and medical volunteers."
+        "desc": "High School and Junior High youth groups, plus a Young Families group.",
+        "detail": "Youth Ministry at St. Dominic serves teens and young families through engaging programs that build faith and community. Our High School and Junior High groups meet regularly for fellowship, service projects, and faith formation. We also offer annual mission trips — a medical mission trip in April and a teen mission trip in June — giving young people the opportunity to serve those in need and grow in their faith."
       },
       "bibleStudy": {
         "title": "Bible Study",
-        "desc": "Weekly Bible study open to all parishioners. Deepen your knowledge of Sacred Scripture in the Dominican tradition of study and contemplation."
+        "desc": "Weekly Bible study open to all parishioners in the Dominican tradition.",
+        "detail": "Our weekly Bible Study is open to all parishioners who want to deepen their knowledge of Sacred Scripture. In the rich Dominican tradition of study and contemplation, participants explore the biblical texts together, guided by commentary from the Church Fathers and the Magisterium. No prior Bible knowledge is necessary — all are welcome, from beginners to seasoned students of Scripture."
       },
       "caring": {
         "title": "Caring Ministries",
-        "desc": "Reaching out to the sick, homebound, and grieving members of our parish family with visits, prayer, and practical support."
+        "desc": "Reaching out to the sick, homebound, and grieving members of our parish family.",
+        "detail": "Caring Ministries reach out to the sick, homebound, and grieving members of our parish family. Volunteers make regular visits, bring Holy Communion, send cards, prepare meals, and offer prayer and companionship during times of difficulty. If you or someone you know is in need of support, or if you would like to volunteer, please contact the parish office."
       },
       "missions": {
         "title": "Mission Trips",
-        "desc": "Annual medical mission trip (April) and teen mission trip (June) give parishioners the opportunity to serve those in need beyond our community."
+        "desc": "Annual medical mission trip (April) and teen mission trip (June).",
+        "detail": "St. Dominic Parish offers annual mission trips that give parishioners the opportunity to serve those in need beyond our community. Our medical mission trip takes place each April, bringing healthcare professionals and volunteers to underserved areas. In June, our teen mission trip gives young people a transformative experience of service and faith. Both trips are life-changing experiences of living out the Gospel."
       }
     },
     "stats": {
@@ -369,6 +382,11 @@
       "title": "Ready to Register?",
       "desc": "Contact the parish office to register as a new parishioner. We can't wait to welcome you to our family!",
       "cta": "Contact Us"
+    },
+    "modal": {
+      "contact": "Contact Information",
+      "reachVia": "Reach via parish office",
+      "joinCta": "Interested? Contact the parish office to get started."
     }
   },
   "contact": {

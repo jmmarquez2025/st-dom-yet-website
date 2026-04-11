@@ -294,54 +294,67 @@
     "sub": "Únase a Nuestra Familia",
     "heading": "Hay un Lugar para Usted",
     "desc": "La Parroquia Santo Domingo es una comunidad vibrante con muchas formas de participar. Ya sea que busque profundizar su vida de oración, servir a los necesitados o construir amistades — hay un ministerio para usted.",
+    "clickHint": "Haga clic para conocer más",
     "ministries": {
       "liturgical": {
         "title": "Ministerios Litúrgicos",
-        "desc": "Sirva como lector, ministro extraordinario, monaguillo, sacristán o miembro del coro."
+        "desc": "Sirva como lector, ministro extraordinario, monaguillo, sacristán o miembro del coro.",
+        "detail": "Nuestros ministerios litúrgicos están en el corazón del culto parroquial. Damos la bienvenida a voluntarios para servir como lectores, ministros extraordinarios de la Sagrada Comunión, monaguillos, sacristanes y miembros del comité de ambiente litúrgico. Se proporciona formación para todos los nuevos ministros. Ya sea que tenga experiencia o esté comenzando, hay un papel para usted en hacer nuestras liturgias hermosas y reverentes."
       },
       "hispanic": {
         "title": "Ministerio Hispano",
-        "desc": "Únase a nuestra vibrante comunidad hispanohablante con Misas semanales y eventos culturales."
+        "desc": "Únase a nuestra vibrante comunidad hispanohablante con Misas semanales y eventos culturales.",
+        "detail": "Nuestro Ministerio Hispano sirve a la creciente comunidad hispanohablante de la Parroquia Santo Domingo. Celebramos una Misa dominical semanal en español a la 1:00 PM y organizamos eventos culturales, grupos de oración y reuniones comunitarias durante todo el año. El ministerio fomenta un ambiente acogedor donde las familias hispanas pueden adorar, crecer en la fe y construir amistades duraderas dentro de la parroquia."
       },
       "layDominicans": {
         "title": "Laicos Dominicos",
-        "desc": "Explore el carisma dominicano más profundamente como miembro del Capítulo de Laicos Dominicos."
+        "desc": "Explore el carisma dominicano más profundamente como miembro del Capítulo de Laicos Dominicos.",
+        "detail": "El Capítulo de Laicos Dominicos en la Parroquia Santo Domingo invita a hombres y mujeres a vivir el carisma dominicano en su vida diaria. Los miembros se comprometen con una regla de vida centrada en la oración, el estudio, la comunidad y la predicación. A través de reuniones regulares, oración compartida y formación continua en la espiritualidad dominicana, los laicos dominicos profundizan su relación con Dios y llevan los frutos de la contemplación al mundo."
       },
       "familyLife": {
         "title": "Vida Parroquial y Familiar",
-        "desc": "Ayude a organizar eventos comunitarios, cenas y celebraciones parroquiales."
+        "desc": "Ayude a organizar eventos comunitarios, cenas y celebraciones parroquiales.",
+        "detail": "Vida Parroquial y Familiar coordina eventos comunitarios que unen a los feligreses fuera de la Misa dominical. Desde cenas parroquiales y picnics hasta celebraciones navideñas y reuniones sociales, este ministerio ayuda a crear lazos de amistad que hacen de nuestra parroquia una verdadera familia. Los voluntarios siempre son bienvenidos para ayudar a planificar y organizar estos eventos."
       },
       "mensFellowship": {
         "title": "Fraternidad de Hombres Católicos",
-        "desc": "Únase a los hombres de la parroquia para la oración, el estudio y la fraternidad."
+        "desc": "Únase a los hombres de la parroquia para la oración, el estudio y la fraternidad.",
+        "detail": "La Fraternidad de Hombres Católicos reúne a los hombres de la parroquia para la oración, el estudio y la hermandad. A través de reuniones regulares con oradores invitados, estudio de las Escrituras y comidas compartidas, la fraternidad anima a los hombres a crecer como esposos, padres y líderes católicos en sus familias y comunidad."
       },
       "svdp": {
         "title": "Sociedad de San Vicente de Paúl",
-        "desc": "Sirva a los necesitados en nuestra comunidad a través de alcance directo y asistencia."
+        "desc": "Sirva a los necesitados en nuestra comunidad a través de alcance directo y asistencia.",
+        "detail": "La Sociedad de San Vicente de Paúl se dedica a servir a los necesitados en nuestra comunidad. Los miembros realizan visitas domiciliarias, brindan asistencia de emergencia con alimentos, servicios públicos y alquiler, y conectan a las personas con recursos adicionales. Siguiendo el ejemplo de San Vicente de Paúl, vemos el rostro de Cristo en cada persona que servimos."
       },
       "music": {
         "title": "Ministerio de Música",
-        "desc": "Comparta sus dones musicales en la Misa — coro, cantores e instrumentistas son bienvenidos."
+        "desc": "Comparta sus dones musicales en la Misa — coro, cantores e instrumentistas son bienvenidos.",
+        "detail": "Nuestro Ministerio de Música mejora el culto litúrgico de la parroquia a través de la música sacra. Damos la bienvenida a cantantes e instrumentistas de todos los niveles para unirse a nuestro coro, servir como cantores o acompañar a la congregación. Los ensayos se realizan semanalmente y no se requiere audición — solo amor por la música y deseo de alabar a Dios a través del canto."
       },
       "religiousEd": {
         "title": "Educación Religiosa (CCD)",
-        "desc": "Las clases de CCD sirven a los grados K–8, reuniéndose los domingos de 9:00 a 10:15 AM de septiembre a mayo. Ayude a formar la próxima generación de católicos."
+        "desc": "Clases de CCD para grados K–8, domingos de 9:00 a 10:15 AM de septiembre a mayo.",
+        "detail": "Nuestro programa de Educación Religiosa (CCD) proporciona formación en la fe para niños de los grados K al 8. Las clases se reúnen los domingos de 9:00 a 10:15 AM, de septiembre a mayo. Nuestros dedicados catequistas guían a los estudiantes a través de los fundamentos de la fe católica, preparándolos para los sacramentos y una relación de por vida con Cristo. Siempre estamos buscando catequistas y asistentes voluntarios."
       },
       "youth": {
         "title": "Ministerio Juvenil",
-        "desc": "Grupos juveniles de secundaria y preparatoria, más un grupo de familias jóvenes. Se ofrecen viajes misioneros cada año para jóvenes y voluntarios médicos."
+        "desc": "Grupos juveniles de secundaria y preparatoria, más un grupo de familias jóvenes.",
+        "detail": "El Ministerio Juvenil en Santo Domingo sirve a adolescentes y familias jóvenes a través de programas que construyen fe y comunidad. Nuestros grupos de secundaria y preparatoria se reúnen regularmente para compañerismo, proyectos de servicio y formación en la fe. También ofrecemos viajes misioneros anuales — un viaje misionero médico en abril y un viaje misionero juvenil en junio — dando a los jóvenes la oportunidad de servir a los necesitados y crecer en su fe."
       },
       "bibleStudy": {
         "title": "Estudio Bíblico",
-        "desc": "Estudio bíblico semanal abierto a todos los feligreses. Profundice su conocimiento de las Sagradas Escrituras en la tradición dominicana de estudio y contemplación."
+        "desc": "Estudio bíblico semanal abierto a todos los feligreses en la tradición dominicana.",
+        "detail": "Nuestro Estudio Bíblico semanal está abierto a todos los feligreses que deseen profundizar su conocimiento de las Sagradas Escrituras. En la rica tradición dominicana de estudio y contemplación, los participantes exploran los textos bíblicos juntos, guiados por comentarios de los Padres de la Iglesia y el Magisterio. No se necesita conocimiento previo de la Biblia — todos son bienvenidos, desde principiantes hasta estudiantes experimentados de las Escrituras."
       },
       "caring": {
         "title": "Ministerios de Cuidado",
-        "desc": "Alcanzando a los enfermos, confinados en casa y en duelo de nuestra familia parroquial con visitas, oración y apoyo práctico."
+        "desc": "Alcanzando a los enfermos, confinados en casa y en duelo de nuestra familia parroquial.",
+        "detail": "Los Ministerios de Cuidado alcanzan a los enfermos, confinados en casa y en duelo de nuestra familia parroquial. Los voluntarios realizan visitas regulares, llevan la Sagrada Comunión, envían tarjetas, preparan comidas y ofrecen oración y compañía durante tiempos de dificultad. Si usted o alguien que conoce necesita apoyo, o si desea ser voluntario, contacte la oficina parroquial."
       },
       "missions": {
         "title": "Viajes Misioneros",
-        "desc": "Viaje misionero médico anual (abril) y viaje misionero juvenil (junio) que dan a los feligreses la oportunidad de servir a los necesitados más allá de nuestra comunidad."
+        "desc": "Viaje misionero médico anual (abril) y viaje misionero juvenil (junio).",
+        "detail": "La Parroquia Santo Domingo ofrece viajes misioneros anuales que dan a los feligreses la oportunidad de servir a los necesitados más allá de nuestra comunidad. Nuestro viaje misionero médico se realiza cada abril, llevando profesionales de la salud y voluntarios a áreas desatendidas. En junio, nuestro viaje misionero juvenil da a los jóvenes una experiencia transformadora de servicio y fe. Ambos viajes son experiencias que cambian la vida al vivir el Evangelio."
       }
     },
     "stats": {
@@ -369,6 +382,11 @@
       "title": "¿Listo para Registrarse?",
       "desc": "Contacte la oficina parroquial para registrarse como nuevo feligrés. ¡Estamos ansiosos por darle la bienvenida a nuestra familia!",
       "cta": "Contáctenos"
+    },
+    "modal": {
+      "contact": "Información de Contacto",
+      "reachVia": "Contactar a través de la oficina parroquial",
+      "joinCta": "¿Interesado? Contacte la oficina parroquial para comenzar."
     }
   },
   "contact": {
