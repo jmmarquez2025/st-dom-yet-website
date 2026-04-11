@@ -162,13 +162,115 @@
     "tuesdayEveningPrayer": "Tuesday Evening Prayer"
   },
   "massTimes": {
-    "title": "Mass & Confession Times",
+    "title": "Mass, Confession & Adoration",
+    "hero": {
+      "sub": "Worship with Us",
+      "desc": "Join us for the Holy Sacrifice of the Mass, the Sacrament of Reconciliation, and Eucharistic Adoration at St. Dominic Parish."
+    },
+    "mass": {
+      "sub": "The Holy Sacrifice",
+      "title": "Mass Schedule",
+      "quote": "\"The Eucharist is the source and summit of the Christian life.\"",
+      "quoteSrc": "— Catechism of the Catholic Church, 1324",
+      "desc": "The Holy Mass is celebrated daily at St. Dominic Parish. All are welcome to join us in the most sacred act of Catholic worship.",
+      "sundayTitle": "Sunday & Vigil Masses",
+      "dailyTitle": "Daily Masses"
+    },
+    "parallax1": {
+      "quote": "\"The Eucharist is the consummation of the whole spiritual life.\"",
+      "src": "— St. Thomas Aquinas, O.P."
+    },
+    "confession": {
+      "sub": "The Sacrament of Mercy",
+      "title": "Confession Schedule",
+      "quote": "\"The whole power of the sacrament of Penance consists in restoring us to God's grace and joining us with Him in an intimate friendship.\"",
+      "quoteSrc": "— Catechism of the Catholic Church, 1468",
+      "desc": "The Sacrament of Reconciliation is one of the great gifts of the Catholic faith. Through Confession, we receive God's mercy and are restored to grace. Our priests are available for Confession during the scheduled times below, or by appointment.",
+      "howToTitle": "How to Go to Confession",
+      "howToDesc": "If it has been a while since your last Confession, don't worry — our priests are patient and welcoming. Here is a simple guide:",
+      "step1": "Examine your conscience before entering the confessional.",
+      "step2": "Begin by saying: \"Bless me, Father, for I have sinned. It has been [length of time] since my last Confession.\"",
+      "step3": "Confess your sins honestly and completely.",
+      "step4": "Listen to the priest's counsel and accept the penance he assigns.",
+      "step5": "Pray the Act of Contrition when the priest asks you to.",
+      "step6": "After absolution, complete your penance and give thanks to God for His mercy."
+    },
+    "examine": {
+      "sub": "Preparing Your Heart",
+      "title": "Examination of Conscience",
+      "desc": "Before going to Confession, take time to prayerfully examine your conscience. The following questions, adapted from the USCCB, can help guide your reflection.",
+      "god": {
+        "title": "Responsibilities to God",
+        "items": [
+          "Have I failed to pray daily?",
+          "Have I used God's name in vain or spoken irreverently about sacred things?",
+          "Have I missed Mass on Sundays or Holy Days of Obligation through my own fault?",
+          "Have I failed to fast or abstain on days of penance?",
+          "Have I placed other things — money, possessions, pleasures — before God?",
+          "Have I received Holy Communion in a state of mortal sin?"
+        ]
+      },
+      "others": {
+        "title": "Responsibilities to Others",
+        "items": [
+          "Have I honored and obeyed my parents, or failed in my duties to my family?",
+          "Have I been selfish, unkind, or impatient with those around me?",
+          "Have I harbored anger, hatred, or a desire for revenge?",
+          "Have I refused to forgive someone?",
+          "Have I gossiped, lied, or damaged another's reputation?",
+          "Have I stolen, cheated, or failed to give what is owed to others?",
+          "Have I been a scandal or bad example to others, especially the young?"
+        ]
+      },
+      "self": {
+        "title": "Responsibilities to Self",
+        "items": [
+          "Have I given in to laziness and failed to develop the talents God has given me?",
+          "Have I been excessive in eating, drinking, or other bodily pleasures?",
+          "Have I harbored impure thoughts or entertained temptations?",
+          "Have I given in to envy, jealousy, or pride?",
+          "Have I failed to care for my body and health as a gift from God?"
+        ]
+      },
+      "source": "Adapted from the USCCB Examination of Conscience"
+    },
+    "parallax2": {
+      "quote": "\"God never tires of forgiving us; we are the ones who tire of seeking His mercy.\"",
+      "src": "— Pope Francis, Evangelii Gaudium"
+    },
+    "adoration": {
+      "sub": "Before the Blessed Sacrament",
+      "title": "Adoration & Devotions",
+      "quote": "\"In the Most Blessed Sacrament of the Eucharist the body and blood, together with the soul and divinity, of our Lord Jesus Christ are truly, really, and substantially contained.\"",
+      "quoteSrc": "— Catechism of the Catholic Church, 1374",
+      "desc": "Eucharistic Adoration is a profound encounter with the living Christ. At St. Dominic, we expose the Blessed Sacrament in a beautiful gold monstrance for the faithful to adore, pray, and spend time in the presence of our Lord.",
+      "devotions": "Parish Devotions",
+      "rosary": "Holy Rosary — prayed before daily Masses",
+      "divineMercy": "Divine Mercy Chaplet — Fridays at 3:00 PM",
+      "eveningPrayer": "Tuesday Evening Prayer — 4:45 PM"
+    },
+    "holyDays": {
+      "sub": "Days of Special Obligation",
+      "title": "Holy Days of Obligation",
+      "desc": "Catholics are required to attend Mass on Holy Days of Obligation. At St. Dominic, we celebrate these feasts with a Vigil Mass and multiple Masses throughout the day.",
+      "schedule": "Vigil: 5:00 PM · Holy Day: 8:00 AM, 12:00 PM, 5:00 PM",
+      "days": [
+        "Mary, Mother of God — January 1",
+        "Ascension of the Lord — 40 days after Easter",
+        "Assumption of Mary — August 15",
+        "All Saints' Day — November 1",
+        "Immaculate Conception — December 8",
+        "Christmas — December 25"
+      ]
+    },
+    "cta": {
+      "title": "Come Worship with Us",
+      "desc": "Whether you're joining us for Mass, spending time in prayer before the Blessed Sacrament, or seeking the healing grace of Confession — you are always welcome at St. Dominic.",
+      "visit": "Plan Your Visit",
+      "contact": "Contact Us"
+    },
     "sundayMass": "Sunday Mass Schedule",
-    "dailyMass": "Daily Mass Schedule",
-    "confession": "Confession Schedule",
-    "adoration": "Adoration & Devotions",
-    "holyDays": "Holy Days of Obligation",
-    "holyDaysDesc": "Vigil: 5:00 PM · Holy Day: 8:00 AM, 12:00 PM, 5:00 PM"
+    "dailyMass": "Daily Mass Schedule"
   },
   "about": {
     "title": "About Our Parish",

@@ -49,6 +49,9 @@ export const PHOTOS = {
   archSide: `${B}photos/architecture/DSC_0420-opt.jpg`,         // Side entrance angle
   archFullExterior: `${B}photos/architecture/DSC_0404-opt.jpg`, // Full exterior portrait
 
+  // ── Mass Times page ──
+  monstrance: `${B}photos/gallery/F69A5507.jpg`,               // Monstrance with Blessed Sacrament exposed
+
   // ── Gallery (About page) ──
   gallery: [
     { src: `${B}photos/gallery/aerial-overview.jpg`, alt: "gallery.aerial" },

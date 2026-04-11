@@ -162,13 +162,115 @@
     "tuesdayEveningPrayer": "Oración Vespertina del Martes"
   },
   "massTimes": {
-    "title": "Horarios de Misa y Confesión",
+    "title": "Misa, Confesión y Adoración",
+    "hero": {
+      "sub": "Adore con Nosotros",
+      "desc": "Acompáñenos para el Santo Sacrificio de la Misa, el Sacramento de la Reconciliación y la Adoración Eucarística en la Parroquia Santo Domingo."
+    },
+    "mass": {
+      "sub": "El Santo Sacrificio",
+      "title": "Horario de Misas",
+      "quote": "\"La Eucaristía es fuente y culmen de toda la vida cristiana.\"",
+      "quoteSrc": "— Catecismo de la Iglesia Católica, 1324",
+      "desc": "La Santa Misa se celebra diariamente en la Parroquia Santo Domingo. Todos son bienvenidos a unirse a nosotros en el acto más sagrado del culto católico.",
+      "sundayTitle": "Misas Dominicales y Vigilia",
+      "dailyTitle": "Misas Diarias"
+    },
+    "parallax1": {
+      "quote": "\"La Eucaristía es la consumación de toda la vida espiritual.\"",
+      "src": "— Santo Tomás de Aquino, O.P."
+    },
+    "confession": {
+      "sub": "El Sacramento de la Misericordia",
+      "title": "Horario de Confesiones",
+      "quote": "\"Todo el poder del sacramento de la Penitencia consiste en restituirnos a la gracia de Dios y unirnos con Él en una amistad íntima.\"",
+      "quoteSrc": "— Catecismo de la Iglesia Católica, 1468",
+      "desc": "El Sacramento de la Reconciliación es uno de los grandes dones de la fe católica. A través de la Confesión, recibimos la misericordia de Dios y somos restaurados a la gracia. Nuestros sacerdotes están disponibles para confesiones durante los horarios programados o con cita previa.",
+      "howToTitle": "Cómo Ir a Confesión",
+      "howToDesc": "Si ha pasado un tiempo desde su última Confesión, no se preocupe — nuestros sacerdotes son pacientes y acogedores. Aquí hay una guía sencilla:",
+      "step1": "Examine su conciencia antes de entrar al confesionario.",
+      "step2": "Comience diciendo: \"Bendígame, Padre, porque he pecado. Ha pasado [tiempo] desde mi última Confesión.\"",
+      "step3": "Confiese sus pecados honesta y completamente.",
+      "step4": "Escuche el consejo del sacerdote y acepte la penitencia que le asigne.",
+      "step5": "Rece el Acto de Contrición cuando el sacerdote se lo pida.",
+      "step6": "Después de la absolución, complete su penitencia y dé gracias a Dios por Su misericordia."
+    },
+    "examine": {
+      "sub": "Preparando Su Corazón",
+      "title": "Examen de Conciencia",
+      "desc": "Antes de ir a confesión, tómese un tiempo para examinar su conciencia en oración. Las siguientes preguntas, adaptadas de la USCCB, pueden ayudar a guiar su reflexión.",
+      "god": {
+        "title": "Responsabilidades con Dios",
+        "items": [
+          "¿He dejado de rezar diariamente?",
+          "¿He usado el nombre de Dios en vano o hablado irrespetuosamente de cosas sagradas?",
+          "¿He faltado a Misa los domingos o Días de Precepto por mi propia culpa?",
+          "¿He dejado de ayunar o abstenerme en días de penitencia?",
+          "¿He puesto otras cosas — dinero, posesiones, placeres — antes que Dios?",
+          "¿He recibido la Sagrada Comunión en estado de pecado mortal?"
+        ]
+      },
+      "others": {
+        "title": "Responsabilidades con los Demás",
+        "items": [
+          "¿He honrado y obedecido a mis padres, o he fallado en mis deberes familiares?",
+          "¿He sido egoísta, descortés o impaciente con los que me rodean?",
+          "¿He albergado ira, odio o deseo de venganza?",
+          "¿He rehusado perdonar a alguien?",
+          "¿He chismeado, mentido o dañado la reputación de otro?",
+          "¿He robado, engañado o dejado de dar lo que debo a otros?",
+          "¿He sido un escándalo o mal ejemplo para otros, especialmente los jóvenes?"
+        ]
+      },
+      "self": {
+        "title": "Responsabilidades Consigo Mismo",
+        "items": [
+          "¿He cedido a la pereza y no he desarrollado los talentos que Dios me ha dado?",
+          "¿He sido excesivo en la comida, la bebida u otros placeres corporales?",
+          "¿He albergado pensamientos impuros o entretenido tentaciones?",
+          "¿He cedido a la envidia, los celos o el orgullo?",
+          "¿He dejado de cuidar mi cuerpo y salud como un don de Dios?"
+        ]
+      },
+      "source": "Adaptado del Examen de Conciencia de la USCCB"
+    },
+    "parallax2": {
+      "quote": "\"Dios no se cansa de perdonarnos; somos nosotros los que nos cansamos de buscar Su misericordia.\"",
+      "src": "— Papa Francisco, Evangelii Gaudium"
+    },
+    "adoration": {
+      "sub": "Ante el Santísimo Sacramento",
+      "title": "Adoración y Devociones",
+      "quote": "\"En el Santísimo Sacramento de la Eucaristía están contenidos verdadera, real y sustancialmente el cuerpo y la sangre, junto con el alma y la divinidad, de nuestro Señor Jesucristo.\"",
+      "quoteSrc": "— Catecismo de la Iglesia Católica, 1374",
+      "desc": "La Adoración Eucarística es un encuentro profundo con el Cristo vivo. En Santo Domingo, exponemos el Santísimo Sacramento en una hermosa custodia de oro para que los fieles adoren, oren y pasen tiempo en la presencia de nuestro Señor.",
+      "devotions": "Devociones Parroquiales",
+      "rosary": "Santo Rosario — rezado antes de las Misas diarias",
+      "divineMercy": "Coronilla de la Divina Misericordia — Viernes a las 3:00 PM",
+      "eveningPrayer": "Oración Vespertina del Martes — 4:45 PM"
+    },
+    "holyDays": {
+      "sub": "Días de Especial Obligación",
+      "title": "Días de Precepto",
+      "desc": "Los católicos tienen la obligación de asistir a Misa en los Días de Precepto. En Santo Domingo, celebramos estas fiestas con una Misa de Vigilia y múltiples Misas durante el día.",
+      "schedule": "Vigilia: 5:00 PM · Día de Precepto: 8:00 AM, 12:00 PM, 5:00 PM",
+      "days": [
+        "María, Madre de Dios — 1 de enero",
+        "Ascensión del Señor — 40 días después de Pascua",
+        "Asunción de María — 15 de agosto",
+        "Todos los Santos — 1 de noviembre",
+        "Inmaculada Concepción — 8 de diciembre",
+        "Navidad — 25 de diciembre"
+      ]
+    },
+    "cta": {
+      "title": "Venga a Adorar con Nosotros",
+      "desc": "Ya sea que nos acompañe a Misa, pase tiempo en oración ante el Santísimo Sacramento, o busque la gracia sanadora de la Confesión — siempre es bienvenido en Santo Domingo.",
+      "visit": "Planifique Su Visita",
+      "contact": "Contáctenos"
+    },
     "sundayMass": "Horario de Misas Dominicales",
-    "dailyMass": "Horario de Misas Diarias",
-    "confession": "Horario de Confesiones",
-    "adoration": "Adoración y Devociones",
-    "holyDays": "Días de Precepto",
-    "holyDaysDesc": "Vigilia: 5:00 PM · Día de Precepto: 8:00 AM, 12:00 PM, 5:00 PM"
+    "dailyMass": "Horario de Misas Diarias"
   },
   "about": {
     "title": "Sobre Nuestra Parroquia",
