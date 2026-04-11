@@ -2,18 +2,38 @@ import { T } from "../constants/theme";
 import HeroImage from "./HeroImage";
 import { PHOTOS } from "../constants/photos";
 
-export default function PageHeader({ title }) {
+/**
+ * PageHeader — page title banner with background image.
+ *
+ * Props:
+ *   title     — heading text
+ *   heroSrc   — optional custom hero image (falls back to PHOTOS.pageHeader)
+ *   overlay   — dark overlay opacity (default 0.45)
+ *   tint      — overlay tint color (default burgundy)
+ *   tall      — if true, uses taller padding for more dramatic headers
+ */
+export default function PageHeader({
+  title,
+  heroSrc,
+  overlay = 0.45,
+  tint = "rgba(107,29,42,0.5)",
+  tall = false,
+}) {
   return (
     <div
       style={{
         position: "relative",
         overflow: "hidden",
         background: T.burgundy,
-        padding: "60px 24px",
+        padding: tall ? "90px 24px" : "60px 24px",
         textAlign: "center",
       }}
     >
-      <HeroImage src={PHOTOS.pageHeader} overlay={0.45} tint="rgba(107,29,42,0.5)" />
+      <HeroImage
+        src={heroSrc || PHOTOS.pageHeader}
+        overlay={overlay}
+        tint={tint}
+      />
       <div style={{ position: "relative", zIndex: 1 }}>
         <h1
           style={{

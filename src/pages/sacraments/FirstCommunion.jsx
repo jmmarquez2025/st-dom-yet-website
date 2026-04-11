@@ -2,11 +2,13 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { T } from "../../constants/theme";
 import { CONFIG } from "../../constants/config";
+import { PHOTOS } from "../../constants/photos";
 import { Section, SectionTitle } from "../../components/Section";
 import FadeSection from "../../components/FadeSection";
 import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
+import DominicanDivider from "../../components/DominicanDivider";
 
 export default function FirstCommunion() {
   const { t } = useTranslation();
@@ -15,7 +17,7 @@ export default function FirstCommunion() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo title="First Holy Communion" description="First Holy Communion preparation at St. Dominic Parish. Program details, requirements, and registration information." />
-      <PageHeader title={t("sacraments.firstCommunion.title")} />
+      <PageHeader title={t("sacraments.firstCommunion.title")} heroSrc={PHOTOS.stockEucharist} tall />
 
       <Section bg={T.warmWhite}>
         <FadeSection>
@@ -73,6 +75,7 @@ export default function FirstCommunion() {
 
       <Section bg={T.warmWhite}>
         <FadeSection>
+          <DominicanDivider style={{ marginBottom: 16 }} />
           <div style={{ textAlign: "center", maxWidth: 500, margin: "0 auto" }}>
             <h3 style={{ fontSize: 26, color: T.softBlack, marginBottom: 16, fontFamily: "'Cormorant Garamond', serif" }}>
               {t("sacraments.firstCommunion.cta")}

@@ -2,11 +2,13 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { T } from "../../constants/theme";
 import { CONFIG } from "../../constants/config";
+import { PHOTOS } from "../../constants/photos";
 import { Section, SectionTitle } from "../../components/Section";
 import FadeSection from "../../components/FadeSection";
 import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
 import Seo from "../../components/Seo";
+import DominicanDivider from "../../components/DominicanDivider";
 
 export default function Confirmation() {
   const { t } = useTranslation();
@@ -15,7 +17,7 @@ export default function Confirmation() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo title="Confirmation" description="Confirmation preparation at St. Dominic Parish. Program details for teens and adults seeking the Sacrament of Confirmation." />
-      <PageHeader title={t("sacraments.confirmation.title")} />
+      <PageHeader title={t("sacraments.confirmation.title")} heroSrc={PHOTOS.stockConfirmation} tall />
 
       <Section bg={T.warmWhite}>
         <FadeSection>
@@ -73,6 +75,7 @@ export default function Confirmation() {
 
       <Section bg={T.warmWhite}>
         <FadeSection>
+          <DominicanDivider style={{ marginBottom: 16 }} />
           <div style={{ textAlign: "center", maxWidth: 500, margin: "0 auto" }}>
             <h3 style={{ fontSize: 26, color: T.softBlack, marginBottom: 16, fontFamily: "'Cormorant Garamond', serif" }}>
               {t("sacraments.confirmation.cta")}

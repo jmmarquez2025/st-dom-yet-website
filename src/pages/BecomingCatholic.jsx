@@ -1,10 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
+import { PHOTOS } from "../constants/photos";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
+import ParallaxSection from "../components/ParallaxSection";
+import DominicanDivider from "../components/DominicanDivider";
 import Seo from "../components/Seo";
 
 export default function BecomingCatholic() {
@@ -19,7 +22,7 @@ export default function BecomingCatholic() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo title="Becoming Catholic" description="Interested in becoming Catholic? Learn about RCIA and the journey of faith at St. Dominic Parish, Youngstown OH." />
-      <PageHeader title={t("becomingCatholic.title")} />
+      <PageHeader title={t("becomingCatholic.title")} heroSrc={PHOTOS.stockRcia} tall />
 
       {/* ════ Intro ════ */}
       <Section>
@@ -133,6 +136,15 @@ export default function BecomingCatholic() {
           </div>
         </FadeSection>
       </Section>
+
+      {/* Parallax visual break */}
+      <ParallaxSection
+        image={PHOTOS.stockCandles}
+        height="30vh"
+        overlay={0.5}
+      >
+        <DominicanDivider color="#fff" width={160} />
+      </ParallaxSection>
 
       {/* ════ Contact CTA ════ */}
       <Section>

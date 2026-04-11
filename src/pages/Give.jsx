@@ -1,9 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
+import { PHOTOS } from "../constants/photos";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
+import ParallaxSection from "../components/ParallaxSection";
+import DominicanDivider from "../components/DominicanDivider";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 
@@ -15,7 +18,7 @@ export default function Give() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo title="Online Giving" description="Support St. Dominic Catholic Parish through online giving. Your generosity sustains our ministries and community outreach." />
-      <PageHeader title={t("give.title")} />
+      <PageHeader title={t("give.title")} heroSrc={PHOTOS.stockGiving} tall />
 
       <Section bg={T.warmWhite}>
         <FadeSection>
@@ -100,6 +103,15 @@ export default function Give() {
           </div>
         </FadeSection>
       </Section>
+
+      {/* Parallax visual break */}
+      <ParallaxSection
+        image={PHOTOS.stockCandles}
+        height="30vh"
+        overlay={0.45}
+      >
+        <DominicanDivider color={T.goldLight} width={160} />
+      </ParallaxSection>
 
       {/* Other giving methods */}
       <Section bg={T.warmWhite}>

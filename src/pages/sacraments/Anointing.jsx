@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { T } from "../../constants/theme";
 import { CONFIG } from "../../constants/config";
+import { PHOTOS } from "../../constants/photos";
 import { Section, SectionTitle } from "../../components/Section";
 import FadeSection from "../../components/FadeSection";
 import Btn from "../../components/Btn";
@@ -15,7 +16,7 @@ export default function Anointing() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo title="Anointing of the Sick" description="The Sacrament of Anointing of the Sick at St. Dominic Parish. For those who are seriously ill or facing surgery." />
-      <PageHeader title={t("sacraments.anointing.title")} />
+      <PageHeader title={t("sacraments.anointing.title")} heroSrc={PHOTOS.stockAnointing} tall />
 
       <Section bg={T.warmWhite}>
         <FadeSection>

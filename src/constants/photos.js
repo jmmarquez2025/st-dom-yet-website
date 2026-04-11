@@ -49,6 +49,19 @@ export const PHOTOS = {
   archSide: `${B}photos/architecture/DSC_0420-opt.jpg`,         // Side entrance angle
   archFullExterior: `${B}photos/architecture/DSC_0404-opt.jpg`, // Full exterior portrait
 
+  // ── Stock imagery (Unsplash, free to use) ──
+  stockBaptism: `${B}photos/vigil-fire-opt.jpg`,                // Easter Vigil fire — baptismal symbolism
+  stockEucharist: `${B}photos/gallery/F69A5507.jpg`,            // Monstrance — Eucharist
+  stockConfirmation: `${B}photos/vigil-candles-opt.jpg`,        // Vigil candles — Holy Spirit / flames
+  stockMarriage: `${B}photos/stock/marriage.jpg`,               // Wedding bouquet (Unsplash)
+  stockAnointing: `${B}photos/stock/anointing.jpg`,             // Praying hands (Unsplash)
+  stockFunerals: `${B}photos/stock/funerals.jpg`,               // White lilies / memorial flowers (Unsplash)
+  stockRcia: `${B}photos/stock/rcia.jpg`,                       // Open Bible / scripture study (Unsplash)
+  stockStainedGlass: `${B}photos/stock/stained-glass.jpg`,      // Stained glass window (Unsplash)
+  stockSacraments: `${B}photos/stock/sacraments.jpg`,           // Church altar / sanctuary (Unsplash)
+  stockCandles: `${B}photos/stock/candles.jpg`,                 // Votive candles (Unsplash)
+  stockGiving: `${B}photos/stock/giving.jpg`,                   // Charity / generosity (Unsplash)
+
   // ── Mass Times page ──
   monstrance: `${B}photos/gallery/F69A5507.jpg`,               // Monstrance with Blessed Sacrament exposed
 

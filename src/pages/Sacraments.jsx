@@ -1,9 +1,12 @@
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { T } from "../constants/theme";
+import { PHOTOS } from "../constants/photos";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
+import ParallaxSection from "../components/ParallaxSection";
+import DominicanDivider from "../components/DominicanDivider";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 
@@ -22,7 +25,7 @@ export default function Sacraments() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo title="The Sacraments" description="Learn about the seven sacraments celebrated at St. Dominic Parish — Baptism, Eucharist, Confirmation, Marriage, and more." />
-      <PageHeader title={t("sacraments.title")} />
+      <PageHeader title={t("sacraments.title")} heroSrc={PHOTOS.stockSacraments} tall />
 
       <Section bg={T.warmWhite}>
         <FadeSection>
@@ -60,6 +63,15 @@ export default function Sacraments() {
           </p>
         </FadeSection>
       </Section>
+
+      {/* Parallax visual break */}
+      <ParallaxSection
+        image={PHOTOS.stockStainedGlass}
+        height="35vh"
+        overlay={0.5}
+      >
+        <DominicanDivider color="#fff" width={160} />
+      </ParallaxSection>
 
       <Section bg={T.cream}>
         <FadeSection>
