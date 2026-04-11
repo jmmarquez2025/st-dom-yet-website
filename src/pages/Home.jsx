@@ -513,6 +513,14 @@ export default function Home() {
         </Section>
       )}
 
+      {/* ════ Vatican News ════ */}
+      <Section bg={T.cream}>
+        <FadeSection>
+          <SectionTitle sub={t("home.vatican.sub")}>{t("home.vatican.title")}</SectionTitle>
+          <VaticanNews />
+        </FadeSection>
+      </Section>
+
       {/* ════ Fray Nelson — YouTube Channel ════ */}
       <Section>
         <FadeSection>
@@ -530,14 +538,6 @@ export default function Home() {
             {t("youtube.desc")}
           </p>
           <YouTubeChannel />
-        </FadeSection>
-      </Section>
-
-      {/* ════ Vatican News ════ */}
-      <Section bg={T.cream}>
-        <FadeSection>
-          <SectionTitle sub={t("home.vatican.sub")}>{t("home.vatican.title")}</SectionTitle>
-          <VaticanNews />
         </FadeSection>
       </Section>
 
