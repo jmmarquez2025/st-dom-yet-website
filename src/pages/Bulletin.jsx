@@ -7,6 +7,8 @@ import FadeSection from "../components/FadeSection";
 import TextReveal from "../components/TextReveal";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
+import HeroImage from "../components/HeroImage";
+import { PHOTOS } from "../constants/photos";
 import { ExternalLink } from "lucide-react";
 
 export default function Bulletin() {
@@ -32,6 +34,7 @@ export default function Bulletin() {
           textAlign: "center",
         }}
       >
+        <HeroImage src={PHOTOS.bulletinHero} overlay={0.5} tint="rgba(107,29,42,0.5)" />
         <svg
           aria-hidden="true"
           style={{

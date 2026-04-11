@@ -56,7 +56,7 @@ export default function Home() {
           padding: "clamp(80px, 14vw, 160px) 24px clamp(60px, 10vw, 100px)",
         }}
       >
-        <HeroImage src={PHOTOS.homeHero} overlay={0.6} />
+        <HeroImage src={PHOTOS.homeHero} overlay={0.5} tint="rgba(107,29,42,0.6)" />
         {/* decorative radial gradients */}
         <div
           aria-hidden="true"
@@ -320,7 +320,7 @@ export default function Home() {
           padding: "clamp(60px, 12vw, 120px) 24px",
         }}
       >
-        <HeroImage src={PHOTOS.dominicanCharism} overlay={0.72} />
+        <HeroImage src={PHOTOS.dominicanCharism} overlay={0.7} position="center top" />
         {/* Decorative Dominican star watermark */}
         <svg
           aria-hidden="true"

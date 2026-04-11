@@ -28,7 +28,7 @@ export default function About() {
           textAlign: "center",
         }}
       >
-        <HeroImage src={PHOTOS.aboutHero} overlay={0.6} />
+        <HeroImage src={PHOTOS.aboutHero} overlay={0.55} tint="rgba(26,23,20,0.5)" />
         {/* Subtle Romanesque arch pattern */}
         <svg
           aria-hidden="true"
@@ -242,7 +242,7 @@ export default function About() {
           padding: "clamp(48px, 10vw, 96px) 24px",
         }}
       >
-        <HeroImage src={PHOTOS.aboutArchitecture} overlay={0.68} />
+        <HeroImage src={PHOTOS.aboutArchitecture} overlay={0.6} position="center top" />
         {/* Decorative arch pattern */}
         <svg
           aria-hidden="true"

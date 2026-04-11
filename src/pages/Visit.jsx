@@ -44,7 +44,7 @@ export default function Visit() {
           textAlign: "center",
         }}
       >
-        <HeroImage src={PHOTOS.visitHero} overlay={0.55} />
+        <HeroImage src={PHOTOS.visitHero} overlay={0.5} tint="rgba(107,29,42,0.5)" />
         <svg
           aria-hidden="true"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}

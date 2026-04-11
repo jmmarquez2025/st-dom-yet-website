@@ -12,6 +12,8 @@ import Seo from "../components/Seo";
 import ScrollColorNum from "../components/ScrollColorNum";
 import CountUp from "../components/CountUp";
 import Icon from "../components/Icon";
+import HeroImage from "../components/HeroImage";
+import { PHOTOS } from "../constants/photos";
 import { X, Mail, Phone } from "lucide-react";
 
 /* ── Subtle accent per ministry ── */
@@ -69,6 +71,7 @@ export default function GetInvolved() {
           textAlign: "center",
         }}
       >
+        <HeroImage src={PHOTOS.getInvolvedHero} overlay={0.5} tint="rgba(107,29,42,0.5)" />
         <svg
           aria-hidden="true"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}
