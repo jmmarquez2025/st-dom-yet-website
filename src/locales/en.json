@@ -192,9 +192,18 @@
   },
   "staff": {
     "title": "Priests & Staff",
+    "clickHint": "Click to learn more",
     "friars": {
       "sub": "Dominican Friars",
       "title": "Our Priests"
+    },
+    "leadership": {
+      "sub": "Parish Leadership",
+      "title": "Our Pastors"
+    },
+    "residence": {
+      "sub": "Dominican Community",
+      "title": "Friars in Residence"
     },
     "staff": {
       "sub": "Parish Team",
@@ -208,6 +217,19 @@
       "musicDirector": "Music Director",
       "religiousEdCoordinator": "Coordinator of Religious Education",
       "parochialAssistant": "Parochial Assistant"
+    },
+    "bios": {
+      "frassati-davis": "Fr. Frassati Davis, O.P. serves as Pastor of St. Dominic Parish. A Dominican Friar of the Province of St. Joseph, he leads the parish community in worship, preaching, and pastoral care, carrying forward the Dominican tradition of proclaiming the Gospel.",
+      "charles-rooney": "Fr. Charles Marie Rooney, O.P. serves as Parochial Vicar at St. Dominic Parish. He assists in the celebration of the sacraments and the pastoral care of the community, bringing a deep love for the Dominican charism of preaching and teaching.",
+      "john-kozlowski": "Fr. John Chrysostom Kozlowski, O.P. is a Dominican Friar in residence at St. Dominic Parish, contributing to the spiritual life of the community through preaching and sacramental ministry.",
+      "bernard-confer": "Fr. Bernard Confer, O.P. is a Dominican Friar in residence at St. Dominic Parish, serving the community through prayer, preaching, and the celebration of the sacraments.",
+      "gregory-salomone": "Fr. Gregory Salomone, O.P. is a Dominican Friar in residence at St. Dominic Parish, enriching the community through his ministry of preaching and teaching in the Dominican tradition.",
+      "sylvia-gould": "Sylvia Gould serves as Parish Secretary, managing the daily operations of the parish office and serving as the first point of contact for parishioners and visitors seeking information or assistance.",
+      "alec-ring": "Alec Ring serves as Music Director, leading the parish music program and enhancing the liturgical worship of the community through sacred music and choral direction."
+    },
+    "modal": {
+      "contact": "Contact Information",
+      "reachVia": "Reach via parish office"
     }
   },
   "bulletin": {

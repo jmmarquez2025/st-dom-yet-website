@@ -12,9 +12,6 @@ import ScrollColorNum from "../components/ScrollColorNum";
 import CountUp from "../components/CountUp";
 import Icon from "../components/Icon";
 
-/* ── Bento card sizes: featured ministries get span-2 ── */
-const FEATURED = new Set(["hispanic", "liturgical"]);
-
 /* ── Subtle accent per ministry ── */
 const ACCENTS = {
   liturgical: T.burgundy,
@@ -154,121 +151,108 @@ export default function GetInvolved() {
           <SectionTitle sub={t("getInvolved.sub")}>{t("getInvolved.title")}</SectionTitle>
 
           <style>{`
-            .bento-grid {
+            .ministry-grid {
               display: grid;
               grid-template-columns: repeat(3, 1fr);
               gap: 20px;
             }
-            .bento-card {
+            .ministry-card {
               position: relative;
               overflow: hidden;
               border-radius: 12px;
-              padding: 32px;
+              padding: 28px 28px 28px 32px;
               background: ${T.warmWhite};
               border: 1px solid ${T.stone};
               transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
                           box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
                           border-color 0.35s ease;
-              cursor: default;
             }
-            .bento-card:hover {
-              transform: perspective(800px) rotateY(-1deg) rotateX(1deg) translateY(-4px);
-              box-shadow: 0 20px 48px rgba(0, 0, 0, 0.10);
+            .ministry-card:hover {
+              transform: translateY(-4px);
+              box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
               border-color: ${T.gold};
             }
-            .bento-card--featured {
-              grid-column: span 2;
-              padding: 40px;
-            }
-            .bento-accent {
+            .ministry-accent {
               position: absolute;
               top: 0;
               left: 0;
-              width: 0;
-              height: 3px;
-              transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+              width: 4px;
+              height: 100%;
+              border-radius: 4px 0 0 4px;
             }
-            .bento-card:hover .bento-accent,
-            .bento-card.accent-visible .bento-accent {
-              width: 100%;
+            .ministry-icon {
+              transition: transform 0.3s ease;
             }
-            .bento-icon {
-              transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            }
-            .bento-card:hover .bento-icon {
-              transform: scale(1.15) rotate(-3deg);
+            .ministry-card:hover .ministry-icon {
+              transform: scale(1.12);
             }
             @media (max-width: 768px) {
-              .bento-grid {
+              .ministry-grid {
                 grid-template-columns: 1fr;
-              }
-              .bento-card--featured {
-                grid-column: span 1;
-              }
-              .bento-accent {
-                width: 100% !important;
               }
             }
             @media (min-width: 769px) and (max-width: 1024px) {
-              .bento-grid {
+              .ministry-grid {
                 grid-template-columns: repeat(2, 1fr);
-              }
-              .bento-card--featured {
-                grid-column: span 2;
               }
             }
           `}</style>
 
-          <div className="bento-grid">
+          <div className="ministry-grid">
             {ministries.map((m) => {
-              const isFeatured = FEATURED.has(m.key);
               const accent = ACCENTS[m.key] || T.burgundy;
 
               return (
-                <div
-                  key={m.id}
-                  className={`bento-card accent-visible${isFeatured ? " bento-card--featured" : ""}`}
-                >
-                  <div className="bento-accent" style={{ background: accent }} />
+                <div key={m.id} className="ministry-card">
+                  <div className="ministry-accent" style={{ background: accent }} />
                   <div
                     style={{
                       display: "flex",
-                      alignItems: "center",
-                      gap: 14,
-                      marginBottom: 14,
+                      alignItems: "flex-start",
+                      gap: 16,
                     }}
                   >
-                    <span
-                      className="bento-icon"
+                    <div
+                      className="ministry-icon"
                       style={{
-                        lineHeight: 1,
-                      }}
-                      aria-hidden="true"
-                    >
-                      <Icon name={m.icon} size={isFeatured ? 36 : 28} color={accent} />
-                    </span>
-                    <ScrollColorNum
-                      as="h3"
-                      colorFrom={T.warmGray}
-                      colorTo={accent}
-                      style={{
-                        fontSize: isFeatured ? 22 : 18,
-                        fontFamily: "'Cormorant Garamond', serif",
-                        fontWeight: 600,
+                        width: 44,
+                        height: 44,
+                        minWidth: 44,
+                        borderRadius: "50%",
+                        background: T.stoneLight,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                       }}
                     >
-                      {t(`getInvolved.ministries.${m.key}.title`)}
-                    </ScrollColorNum>
+                      <Icon name={m.icon} size={22} color={accent} />
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <ScrollColorNum
+                        as="h3"
+                        colorFrom={T.warmGray}
+                        colorTo={accent}
+                        style={{
+                          fontSize: 18,
+                          fontFamily: "'Cormorant Garamond', serif",
+                          fontWeight: 600,
+                          marginBottom: 8,
+                          lineHeight: 1.3,
+                        }}
+                      >
+                        {t(`getInvolved.ministries.${m.key}.title`)}
+                      </ScrollColorNum>
+                      <p
+                        style={{
+                          fontSize: 14,
+                          color: T.warmGray,
+                          lineHeight: 1.7,
+                        }}
+                      >
+                        {t(`getInvolved.ministries.${m.key}.desc`)}
+                      </p>
+                    </div>
                   </div>
-                  <p
-                    style={{
-                      fontSize: isFeatured ? 15 : 14,
-                      color: T.warmGray,
-                      lineHeight: 1.7,
-                    }}
-                  >
-                    {t(`getInvolved.ministries.${m.key}.desc`)}
-                  </p>
                 </div>
               );
             })}

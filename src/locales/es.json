@@ -192,9 +192,18 @@
   },
   "staff": {
     "title": "Sacerdotes y Personal",
+    "clickHint": "Haga clic para conocer más",
     "friars": {
       "sub": "Frailes Dominicos",
       "title": "Nuestros Sacerdotes"
+    },
+    "leadership": {
+      "sub": "Liderazgo Parroquial",
+      "title": "Nuestros Pastores"
+    },
+    "residence": {
+      "sub": "Comunidad Dominicana",
+      "title": "Frailes en Residencia"
     },
     "staff": {
       "sub": "Equipo Parroquial",
@@ -208,6 +217,19 @@
       "musicDirector": "Director de Música",
       "religiousEdCoordinator": "Coordinadora de Educación Religiosa",
       "parochialAssistant": "Asistente Parroquial"
+    },
+    "bios": {
+      "frassati-davis": "El P. Frassati Davis, O.P. sirve como Párroco de la Parroquia de Santo Domingo. Como Fraile Dominico de la Provincia de San José, lidera la comunidad parroquial en el culto, la predicación y la atención pastoral, continuando la tradición dominicana de proclamar el Evangelio.",
+      "charles-rooney": "El P. Charles Marie Rooney, O.P. sirve como Vicario Parroquial en la Parroquia de Santo Domingo. Asiste en la celebración de los sacramentos y la atención pastoral de la comunidad, con un profundo amor por el carisma dominicano de predicar y enseñar.",
+      "john-kozlowski": "El P. John Chrysostom Kozlowski, O.P. es un Fraile Dominico en residencia en la Parroquia de Santo Domingo, contribuyendo a la vida espiritual de la comunidad a través de la predicación y el ministerio sacramental.",
+      "bernard-confer": "El P. Bernard Confer, O.P. es un Fraile Dominico en residencia en la Parroquia de Santo Domingo, sirviendo a la comunidad a través de la oración, la predicación y la celebración de los sacramentos.",
+      "gregory-salomone": "El P. Gregory Salomone, O.P. es un Fraile Dominico en residencia en la Parroquia de Santo Domingo, enriqueciendo la comunidad a través de su ministerio de predicación y enseñanza en la tradición dominicana.",
+      "sylvia-gould": "Sylvia Gould sirve como Secretaria Parroquial, gestionando las operaciones diarias de la oficina parroquial y siendo el primer punto de contacto para los feligreses y visitantes que buscan información o asistencia.",
+      "alec-ring": "Alec Ring sirve como Director de Música, dirigiendo el programa musical de la parroquia y mejorando el culto litúrgico de la comunidad a través de la música sacra y la dirección coral."
+    },
+    "modal": {
+      "contact": "Información de Contacto",
+      "reachVia": "Contactar a través de la oficina parroquial"
     }
   },
   "bulletin": {
