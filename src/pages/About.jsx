@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
@@ -14,6 +15,7 @@ import { PHOTOS } from "../constants/photos";
 
 export default function About() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   return (
     <div style={{ paddingTop: 76 }}>
@@ -170,7 +172,7 @@ export default function About() {
               >
                 {t("about.history.p2")}
               </p>
-              <Btn to="/history" variant="outline">{t("about.historyLink")}</Btn>
+              <Btn variant="outline" onClick={() => navigate("/history")}>{t("about.historyLink")}</Btn>
             </div>
           </div>
         </FadeSection>
