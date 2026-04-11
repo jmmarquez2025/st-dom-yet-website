@@ -15,6 +15,7 @@ export const PHOTOS = {
   bulletinHero: `${B}photos/vigil-candles-opt.jpg`,      // Moody nave interior — Easter Vigil
   getInvolvedHero: `${B}photos/vigil-servers-opt.jpg`,   // Congregation with candles — community
   baptismHero: `${B}photos/baptism-opt.jpg`,              // Easter Vigil baptism — water pouring
+  marriageHero: `${B}photos/marriage-opt.jpg`,            // Order of Celebrating Matrimony ritual book
 
   // ── Section backgrounds ──
   aboutArchitecture: `${B}photos/exterior-facade-opt.jpg`,  // Church façade with rose window
