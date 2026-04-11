@@ -7,6 +7,7 @@ import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
 import TextReveal, { AnimatedDivider } from "../components/TextReveal";
+import Seo from "../components/Seo";
 
 const STEPS = [
   {
@@ -42,6 +43,7 @@ export default function Visit() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Plan Your Visit" description="Planning to visit St. Dominic Parish? Everything you need to know — what to expect, Mass times, parking, and a warm welcome." />
       {/* ════ Hero Banner ════ */}
       <section
         style={{

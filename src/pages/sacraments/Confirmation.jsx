@@ -6,6 +6,7 @@ import { Section, SectionTitle } from "../../components/Section";
 import FadeSection from "../../components/FadeSection";
 import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
+import Seo from "../../components/Seo";
 
 export default function Confirmation() {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ export default function Confirmation() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Confirmation" description="Confirmation preparation at St. Dominic Parish. Program details for teens and adults seeking the Sacrament of Confirmation." />
       <PageHeader title={t("sacraments.confirmation.title")} />
 
       <Section bg={T.warmWhite}>

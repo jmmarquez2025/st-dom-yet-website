@@ -62,6 +62,12 @@
       "ctaRegister": "Register in the Parish",
       "ctaBulletin": "Recent Bulletins"
     },
+    "announcements": {
+      "sub": "Parish Life",
+      "title": "News & Announcements",
+      "ctaBulletin": "View Full Bulletin",
+      "upcoming": "Upcoming"
+    },
     "cards": {
       "visitTitle": "Visit Us",
       "visitDesc": "77 East Lucius Ave\nYoungstown, OH 44507",

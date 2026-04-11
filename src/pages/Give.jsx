@@ -4,6 +4,7 @@ import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
+import Seo from "../components/Seo";
 
 export default function Give() {
   const { t } = useTranslation();
@@ -12,6 +13,7 @@ export default function Give() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Online Giving" description="Support St. Dominic Catholic Parish through online giving. Your generosity sustains our ministries and community outreach." />
       <PageHeader title={t("give.title")} />
 
       <Section bg={T.warmWhite}>

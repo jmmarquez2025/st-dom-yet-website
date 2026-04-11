@@ -6,6 +6,7 @@ import { Section, SectionTitle } from "../../components/Section";
 import FadeSection from "../../components/FadeSection";
 import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
+import Seo from "../../components/Seo";
 
 export default function Marriage() {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ export default function Marriage() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Marriage" description="Planning a Catholic wedding at St. Dominic Parish? Learn about marriage preparation, requirements, and scheduling." />
       <PageHeader title={t("sacraments.marriage.title")} />
 
       <Section bg={T.warmWhite}>

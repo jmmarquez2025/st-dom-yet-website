@@ -7,6 +7,7 @@ import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
 import { initials } from "../data/staff";
 import { useStaff } from "../cms/hooks";
+import Seo from "../components/Seo";
 
 export default function Staff() {
   const { t } = useTranslation();
@@ -15,6 +16,7 @@ export default function Staff() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Priests & Staff" description="Meet the Dominican Friars and parish staff serving the community at St. Dominic Catholic Parish in Youngstown, Ohio." />
       <PageHeader title={t("staff.title")} />
 
       {/* ════ Friars ════ */}

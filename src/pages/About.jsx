@@ -5,12 +5,14 @@ import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import TextReveal from "../components/TextReveal";
+import Seo from "../components/Seo";
 
 export default function About() {
   const { t } = useTranslation();
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="About Our Parish" description="Learn about the history of St. Dominic Parish, founded by the Dominican Friars in 1923 in Youngstown, Ohio." />
       {/* ════ Hero Banner ════ */}
       <section
         style={{

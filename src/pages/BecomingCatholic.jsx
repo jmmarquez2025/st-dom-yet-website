@@ -5,6 +5,7 @@ import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
+import Seo from "../components/Seo";
 
 export default function BecomingCatholic() {
   const { t } = useTranslation();
@@ -17,6 +18,7 @@ export default function BecomingCatholic() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Becoming Catholic" description="Interested in becoming Catholic? Learn about RCIA and the journey of faith at St. Dominic Parish, Youngstown OH." />
       <PageHeader title={t("becomingCatholic.title")} />
 
       {/* ════ Intro ════ */}

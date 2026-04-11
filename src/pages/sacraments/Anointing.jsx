@@ -6,6 +6,7 @@ import { Section, SectionTitle } from "../../components/Section";
 import FadeSection from "../../components/FadeSection";
 import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
+import Seo from "../../components/Seo";
 
 export default function Anointing() {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ export default function Anointing() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Anointing of the Sick" description="The Sacrament of Anointing of the Sick at St. Dominic Parish. For those who are seriously ill or facing surgery." />
       <PageHeader title={t("sacraments.anointing.title")} />
 
       <Section bg={T.warmWhite}>

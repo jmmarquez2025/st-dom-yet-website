@@ -6,6 +6,7 @@ import { Section, SectionTitle } from "../../components/Section";
 import FadeSection from "../../components/FadeSection";
 import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
+import Seo from "../../components/Seo";
 
 export default function FirstCommunion() {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ export default function FirstCommunion() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="First Holy Communion" description="First Holy Communion preparation at St. Dominic Parish. Program details, requirements, and registration information." />
       <PageHeader title={t("sacraments.firstCommunion.title")} />
 
       <Section bg={T.warmWhite}>

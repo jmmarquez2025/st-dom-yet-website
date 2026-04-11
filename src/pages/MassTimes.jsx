@@ -6,6 +6,7 @@ import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
 import { useSchedule } from "../cms/hooks";
+import Seo from "../components/Seo";
 
 /* ── schedule card ── */
 function ScheduleBlock({ title, rows, accent = T.burgundy, t }) {
@@ -58,6 +59,7 @@ export default function MassTimes() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Mass & Confession Times" description="Sunday and daily Mass schedule, Confession times, and Eucharistic Adoration hours at St. Dominic Parish, Youngstown OH." />
       <PageHeader title={t("massTimes.title")} />
 
       <Section>
