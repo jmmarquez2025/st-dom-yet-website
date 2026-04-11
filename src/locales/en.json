@@ -234,12 +234,26 @@
   },
   "bulletin": {
     "title": "Weekly Bulletin",
-    "heading": "Stay Up to Date",
-    "desc": "Our weekly parish bulletin contains announcements, upcoming events, Mass intentions, ministry news, and the pastor's message. Bulletins are available at the church entrance each weekend and can also be accessed online.",
-    "currentTitle": "Current Bulletin",
-    "currentDesc": "Visit our parish website for the most recent bulletin:",
-    "linkText": "saintdominic.org → Parish Bulletin",
-    "deadline": "Bulletin submissions are due by Monday at noon each week. Contact the parish office."
+    "hero": {
+      "sub": "Parish News",
+      "desc": "Stay connected with the latest announcements, Mass intentions, ministry updates, and the pastor's message."
+    },
+    "heading": "This Week's Bulletin",
+    "loading": "Loading bulletin...",
+    "fallback": {
+      "title": "Bulletin Coming Soon",
+      "desc": "Our weekly bulletin will be embedded here for easy reading. In the meantime, visit our parish website for the latest bulletin.",
+      "cta": "View on Parish Website"
+    },
+    "fullscreen": "View Full Screen",
+    "info": {
+      "sub": "Submissions & Info",
+      "title": "Bulletin Announcements",
+      "deadline": "Submissions due by Monday at noon",
+      "deadlineDesc": "All bulletin announcements must be submitted to the parish office by Monday at noon each week for inclusion in the following weekend's bulletin.",
+      "contact": "Submit an Announcement",
+      "contactDesc": "To submit an announcement or event for the bulletin, contact the parish office by phone or email."
+    }
   },
   "becomingCatholic": {
     "title": "Interested in Becoming Catholic?",

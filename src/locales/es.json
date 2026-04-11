@@ -234,12 +234,26 @@
   },
   "bulletin": {
     "title": "Boletín Semanal",
-    "heading": "Manténgase al Día",
-    "desc": "Nuestro boletín parroquial semanal contiene anuncios, próximos eventos, intenciones de Misa, noticias de ministerios y el mensaje del párroco. Los boletines están disponibles en la entrada de la iglesia cada fin de semana y también se pueden acceder en línea.",
-    "currentTitle": "Boletín Actual",
-    "currentDesc": "Visite nuestro sitio web parroquial para el boletín más reciente:",
-    "linkText": "saintdominic.org → Boletín Parroquial",
-    "deadline": "Las presentaciones para el boletín deben enviarse antes del lunes al mediodía cada semana. Contacte la oficina parroquial."
+    "hero": {
+      "sub": "Noticias Parroquiales",
+      "desc": "Manténgase conectado con los últimos anuncios, intenciones de Misa, actualizaciones de ministerios y el mensaje del párroco."
+    },
+    "heading": "Boletín de Esta Semana",
+    "loading": "Cargando boletín...",
+    "fallback": {
+      "title": "Boletín Próximamente",
+      "desc": "Nuestro boletín semanal será integrado aquí para fácil lectura. Mientras tanto, visite nuestro sitio web parroquial para el boletín más reciente.",
+      "cta": "Ver en Sitio Web Parroquial"
+    },
+    "fullscreen": "Ver Pantalla Completa",
+    "info": {
+      "sub": "Envíos e Información",
+      "title": "Anuncios del Boletín",
+      "deadline": "Envíos antes del lunes al mediodía",
+      "deadlineDesc": "Todos los anuncios del boletín deben enviarse a la oficina parroquial antes del lunes al mediodía cada semana para su inclusión en el boletín del siguiente fin de semana.",
+      "contact": "Enviar un Anuncio",
+      "contactDesc": "Para enviar un anuncio o evento para el boletín, contacte la oficina parroquial por teléfono o correo electrónico."
+    }
   },
   "becomingCatholic": {
     "title": "¿Interesado en Hacerse Católico?",

@@ -45,6 +45,11 @@ export const CONFIG = {
   // Google Sheets CMS — paste your published Sheet ID here
   cmsSheetId: "",
 
+  // Flipbook bulletin embed URL
+  // Paste the share/embed URL from your flipbook service (FlipHTML5, Heyzine, Issuu, etc.)
+  // Example: "https://online.fliphtml5.com/abcde/fghij/"
+  bulletinUrl: "",
+
   // Parish info
   phone: "(330) 783-1900",
   phoneLink: "tel:+13307831900",
