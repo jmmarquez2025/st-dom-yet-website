@@ -305,6 +305,27 @@
         "desc": "Annual medical mission trip (April) and teen mission trip (June) give parishioners the opportunity to serve those in need beyond our community."
       }
     },
+    "stats": {
+      "ministries": "Active Ministries",
+      "volunteers": "Volunteers",
+      "languages": "Languages"
+    },
+    "howTo": {
+      "sub": "Getting Started",
+      "title": "How to Get Involved",
+      "explore": {
+        "title": "Explore",
+        "desc": "Browse our ministries above and find one that matches your interests and gifts."
+      },
+      "connect": {
+        "title": "Connect",
+        "desc": "Call the parish office or talk to a priest after Mass to learn more about the ministry."
+      },
+      "serve": {
+        "title": "Serve",
+        "desc": "Show up, get involved, and become part of our parish family. There's a place for everyone."
+      }
+    },
     "register": {
       "title": "Ready to Register?",
       "desc": "Contact the parish office to register as a new parishioner. We can't wait to welcome you to our family!",
@@ -568,6 +589,17 @@
       "sun": "Sunday:",
       "sunEs": "Domingo (Español):",
       "confessionNote": "Confessions: Wed & Fri 11:15 AM–12:00 PM · Sat 11:15 AM–12:00 PM & 4:00–5:00 PM"
+    },
+    "glance": {
+      "masses": "Sunday Masses",
+      "languages": "Languages",
+      "priests": "Dominican Friars"
+    },
+    "directions": {
+      "sub": "Find Us",
+      "title": "Getting to St. Dominic",
+      "cta": "Open in Google Maps",
+      "parking": "Free parking is available in the lot adjacent to the church on Lucius Avenue. The church is accessible with a ramp entrance on the side of the building."
     },
     "cta": {
       "title": "We Can't Wait to Meet You",

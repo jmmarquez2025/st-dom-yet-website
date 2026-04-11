@@ -305,6 +305,27 @@
         "desc": "Viaje misionero médico anual (abril) y viaje misionero juvenil (junio) que dan a los feligreses la oportunidad de servir a los necesitados más allá de nuestra comunidad."
       }
     },
+    "stats": {
+      "ministries": "Ministerios Activos",
+      "volunteers": "Voluntarios",
+      "languages": "Idiomas"
+    },
+    "howTo": {
+      "sub": "Primeros Pasos",
+      "title": "Cómo Participar",
+      "explore": {
+        "title": "Explore",
+        "desc": "Explore nuestros ministerios arriba y encuentre uno que coincida con sus intereses y dones."
+      },
+      "connect": {
+        "title": "Conéctese",
+        "desc": "Llame a la oficina parroquial o hable con un sacerdote después de la Misa para saber más sobre el ministerio."
+      },
+      "serve": {
+        "title": "Sirva",
+        "desc": "Preséntese, involúcrese y sea parte de nuestra familia parroquial. Hay un lugar para todos."
+      }
+    },
     "register": {
       "title": "¿Listo para Registrarse?",
       "desc": "Contacte la oficina parroquial para registrarse como nuevo feligrés. ¡Estamos ansiosos por darle la bienvenida a nuestra familia!",
@@ -569,6 +590,17 @@
       "sun": "Domingo:",
       "sunEs": "Domingo (Español):",
       "confessionNote": "Confesiones: Mié y Vie 11:15 AM–12:00 PM · Sáb 11:15 AM–12:00 PM y 4:00–5:00 PM"
+    },
+    "glance": {
+      "masses": "Misas Dominicales",
+      "languages": "Idiomas",
+      "priests": "Frailes Dominicos"
+    },
+    "directions": {
+      "sub": "Encuéntrenos",
+      "title": "Cómo Llegar a Santo Domingo",
+      "cta": "Abrir en Google Maps",
+      "parking": "Estacionamiento gratuito disponible en el lote junto a la iglesia en Lucius Avenue. La iglesia es accesible con una rampa de entrada en el costado del edificio."
     },
     "cta": {
       "title": "Estamos Deseosos de Conocerle",
