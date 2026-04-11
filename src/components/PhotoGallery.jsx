@@ -1,0 +1,283 @@
+import { useState, useCallback, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { T } from "../constants/theme";
+
+/**
+ * PhotoGallery — masonry-style grid with lightbox modal.
+ *
+ * Props:
+ *   photos: Array of { src, alt }  — alt is a translation key
+ *
+ * If photos is empty, renders a placeholder inviting photos to be added.
+ */
+export default function PhotoGallery({ photos = [] }) {
+  const { t } = useTranslation();
+  const [lightbox, setLightbox] = useState(null); // index or null
+
+  const close = useCallback(() => setLightbox(null), []);
+  const prev = useCallback(
+    () => setLightbox((i) => (i > 0 ? i - 1 : photos.length - 1)),
+    [photos.length]
+  );
+  const next = useCallback(
+    () => setLightbox((i) => (i < photos.length - 1 ? i + 1 : 0)),
+    [photos.length]
+  );
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightbox, close, prev, next]);
+
+  if (photos.length === 0) {
+    return (
+      <div
+        style={{
+          textAlign: "center",
+          padding: "clamp(40px, 8vw, 64px) 24px",
+          background: T.stoneLight,
+          borderRadius: 12,
+          border: `2px dashed ${T.stone}`,
+        }}
+      >
+        <div
+          style={{
+            fontSize: 48,
+            color: T.stone,
+            marginBottom: 16,
+            fontFamily: "'Cormorant Garamond', serif",
+          }}
+        >
+          ✦
+        </div>
+        <h3
+          style={{
+            fontSize: 22,
+            fontFamily: "'Cormorant Garamond', serif",
+            fontWeight: 600,
+            color: T.warmGray,
+            marginBottom: 8,
+          }}
+        >
+          {t("gallery.placeholder.title")}
+        </h3>
+        <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7, maxWidth: 400, margin: "0 auto" }}>
+          {t("gallery.placeholder.desc")}
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <>
+      {/* Grid */}
+      <style>{`
+        .parish-gallery {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+          gap: 16px;
+        }
+        .parish-gallery-item {
+          position: relative;
+          border-radius: 8px;
+          overflow: hidden;
+          cursor: pointer;
+          aspect-ratio: 4 / 3;
+          background: ${T.stone};
+        }
+        .parish-gallery-item img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.4s ease;
+        }
+        .parish-gallery-item:hover img {
+          transform: scale(1.05);
+        }
+        .parish-gallery-item::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 50%);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+        .parish-gallery-item:hover::after {
+          opacity: 1;
+        }
+      `}</style>
+
+      <div className="parish-gallery">
+        {photos.map((photo, i) => (
+          <div
+            key={i}
+            className="parish-gallery-item"
+            onClick={() => setLightbox(i)}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => e.key === "Enter" && setLightbox(i)}
+            aria-label={t(photo.alt)}
+          >
+            <img src={photo.src} alt={t(photo.alt)} loading="lazy" />
+          </div>
+        ))}
+      </div>
+
+      {/* Lightbox Modal */}
+      {lightbox !== null && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={t(photos[lightbox].alt)}
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 10000,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "rgba(0,0,0,0.92)",
+            animation: "galleryFadeIn 0.25s ease",
+          }}
+          onClick={close}
+        >
+          <style>{`
+            @keyframes galleryFadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
+          `}</style>
+
+          {/* Close button */}
+          <button
+            onClick={close}
+            aria-label="Close"
+            style={{
+              position: "absolute",
+              top: 20,
+              right: 20,
+              background: "rgba(255,255,255,0.15)",
+              border: "none",
+              borderRadius: "50%",
+              width: 44,
+              height: 44,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              zIndex: 2,
+            }}
+          >
+            <X size={22} color="#fff" />
+          </button>
+
+          {/* Previous */}
+          {photos.length > 1 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                prev();
+              }}
+              aria-label="Previous"
+              style={{
+                position: "absolute",
+                left: 16,
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "rgba(255,255,255,0.12)",
+                border: "none",
+                borderRadius: "50%",
+                width: 48,
+                height: 48,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                zIndex: 2,
+              }}
+            >
+              <ChevronLeft size={28} color="#fff" />
+            </button>
+          )}
+
+          {/* Next */}
+          {photos.length > 1 && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                next();
+              }}
+              aria-label="Next"
+              style={{
+                position: "absolute",
+                right: 16,
+                top: "50%",
+                transform: "translateY(-50%)",
+                background: "rgba(255,255,255,0.12)",
+                border: "none",
+                borderRadius: "50%",
+                width: 48,
+                height: 48,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                zIndex: 2,
+              }}
+            >
+              <ChevronRight size={28} color="#fff" />
+            </button>
+          )}
+
+          {/* Image */}
+          <img
+            src={photos[lightbox].src}
+            alt={t(photos[lightbox].alt)}
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxWidth: "90vw",
+              maxHeight: "85vh",
+              objectFit: "contain",
+              borderRadius: 4,
+              boxShadow: "0 8px 60px rgba(0,0,0,0.5)",
+            }}
+          />
+
+          {/* Caption + counter */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: 24,
+              left: "50%",
+              transform: "translateX(-50%)",
+              textAlign: "center",
+              color: "rgba(255,255,255,0.7)",
+              fontSize: 13,
+              letterSpacing: 1,
+            }}
+          >
+            <div style={{ marginBottom: 4, color: "#fff", fontSize: 15 }}>
+              {t(photos[lightbox].alt)}
+            </div>
+            {photos.length > 1 && (
+              <span>
+                {lightbox + 1} / {photos.length}
+              </span>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}

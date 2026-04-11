@@ -7,6 +7,9 @@ import Btn from "../components/Btn";
 import TextReveal from "../components/TextReveal";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
+import HeroImage from "../components/HeroImage";
+import PhotoGallery from "../components/PhotoGallery";
+import { PHOTOS } from "../constants/photos";
 
 export default function About() {
   const { t } = useTranslation();
@@ -25,6 +28,7 @@ export default function About() {
           textAlign: "center",
         }}
       >
+        <HeroImage src={PHOTOS.aboutHero} overlay={0.6} />
         {/* Subtle Romanesque arch pattern */}
         <svg
           aria-hidden="true"
@@ -219,6 +223,16 @@ export default function About() {
         </FadeSection>
       </Section>
 
+      {/* ════ Photo Gallery ════ */}
+      {PHOTOS.gallery.length > 0 && (
+        <Section>
+          <FadeSection>
+            <SectionTitle sub={t("gallery.sub")}>{t("gallery.title")}</SectionTitle>
+            <PhotoGallery photos={PHOTOS.gallery} />
+          </FadeSection>
+        </Section>
+      )}
+
       {/* ════ Architecture — Full-width cinematic band ════ */}
       <section
         style={{
@@ -228,6 +242,7 @@ export default function About() {
           padding: "clamp(48px, 10vw, 96px) 24px",
         }}
       >
+        <HeroImage src={PHOTOS.aboutArchitecture} overlay={0.68} />
         {/* Decorative arch pattern */}
         <svg
           aria-hidden="true"

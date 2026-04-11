@@ -665,5 +665,19 @@
       "contact": "Contáctenos",
       "becoming": "¿Ser Católico?"
     }
+  },
+  "gallery": {
+    "title": "Nuestra Parroquia en Fotos",
+    "sub": "Un Vistazo al Interior",
+    "placeholder": {
+      "title": "Fotos Próximamente",
+      "desc": "Estamos recopilando hermosas imágenes de nuestra parroquia, nuestra comunidad y nuestra adoración. ¡Vuelva pronto!"
+    },
+    "crucifix": "Crucifijo de madera sobre panel de roble en la iglesia",
+    "exterior": "Exterior de la Iglesia Santo Domingo",
+    "sanctuary": "El santuario y el altar",
+    "stainedGlass": "Vitrales",
+    "altar": "El altar principal",
+    "community": "Reunión de la comunidad parroquial"
   }
 }

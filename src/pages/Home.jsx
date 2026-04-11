@@ -14,6 +14,8 @@ import DailyQuote from "../components/DailyQuote";
 import LiturgicalBanner from "../components/LiturgicalBanner";
 import VaticanNews from "../components/VaticanNews";
 import Icon from "../components/Icon";
+import HeroImage from "../components/HeroImage";
+import { PHOTOS } from "../constants/photos";
 
 /* ── cross SVG for pattern overlays ── */
 const CrossPattern = ({ opacity = 0.04 }) => (
@@ -53,6 +55,7 @@ export default function Home() {
           padding: "clamp(80px, 14vw, 160px) 24px clamp(60px, 10vw, 100px)",
         }}
       >
+        <HeroImage src={PHOTOS.homeHero} overlay={0.6} />
         {/* decorative radial gradients */}
         <div
           aria-hidden="true"
@@ -316,6 +319,7 @@ export default function Home() {
           padding: "clamp(60px, 12vw, 120px) 24px",
         }}
       >
+        <HeroImage src={PHOTOS.dominicanCharism} overlay={0.72} />
         {/* Decorative Dominican star watermark */}
         <svg
           aria-hidden="true"

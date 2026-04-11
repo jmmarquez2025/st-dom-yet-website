@@ -11,6 +11,8 @@ import ScrollColorNum from "../components/ScrollColorNum";
 import ScrollTimeline from "../components/ScrollTimeline";
 import CountUp from "../components/CountUp";
 import Icon from "../components/Icon";
+import HeroImage from "../components/HeroImage";
+import { PHOTOS } from "../constants/photos";
 
 const STEPS = [
   { num: "01", key: "arrive", icon: "MapPin" },
@@ -42,6 +44,7 @@ export default function Visit() {
           textAlign: "center",
         }}
       >
+        <HeroImage src={PHOTOS.visitHero} overlay={0.55} />
         <svg
           aria-hidden="true"
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}

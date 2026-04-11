@@ -664,5 +664,19 @@
       "contact": "Contact Us",
       "becoming": "Becoming Catholic?"
     }
+  },
+  "gallery": {
+    "title": "Our Parish in Photos",
+    "sub": "A Glimpse Inside",
+    "placeholder": {
+      "title": "Photos Coming Soon",
+      "desc": "We're gathering beautiful images of our parish, our community, and our worship. Check back soon!"
+    },
+    "crucifix": "Wooden crucifix on oak paneling in the church",
+    "exterior": "St. Dominic Church exterior",
+    "sanctuary": "The sanctuary and altar",
+    "stainedGlass": "Stained glass windows",
+    "altar": "The main altar",
+    "community": "Parish community gathering"
   }
 }
