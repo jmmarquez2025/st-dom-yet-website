@@ -124,11 +124,10 @@
     },
     "cards": {
       "visitTitle": "Visit Us",
-      "visitDesc": "77 East Lucius Ave\nYoungstown, OH 44507",
       "callTitle": "Call Us",
-      "fax": "Fax",
       "hoursTitle": "Office Hours",
-      "hoursDesc": "Monday – Friday\n8:30 AM – 1:30 PM",
+      "hoursDays": "Monday – Friday",
+      "hoursTime": "8:30 AM – 1:30 PM",
       "emailTitle": "Email Us"
     }
   },

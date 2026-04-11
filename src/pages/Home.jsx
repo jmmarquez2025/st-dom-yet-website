@@ -610,10 +610,52 @@ export default function Home() {
             }}
           >
             {[
-              { key: "visit", icon: "🏛️", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>{t("home.cards.visitDesc")}</p> },
-              { key: "call", icon: "📞", content: <><p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}><a href={CONFIG.phoneLink} className="contact-link">{CONFIG.phone}</a></p></> },
-              { key: "hours", icon: "🕐", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>{t("home.cards.hoursDesc")}</p> },
-              { key: "email", icon: "✉️", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}><a href={`mailto:${CONFIG.email}`} className="contact-link">{CONFIG.email}</a></p> },
+              {
+                key: "visit",
+                icon: "🏛️",
+                content: (
+                  <>
+                    <p style={{ fontSize: 15, fontWeight: 600, color: T.softBlack, marginBottom: 2 }}>
+                      {CONFIG.address}
+                    </p>
+                    <p style={{ fontSize: 14, color: T.warmGray }}>
+                      {CONFIG.city}, {CONFIG.state} {CONFIG.zip}
+                    </p>
+                  </>
+                ),
+              },
+              {
+                key: "call",
+                icon: "📞",
+                content: (
+                  <a href={CONFIG.phoneLink} className="contact-link" style={{ fontSize: 16, fontWeight: 600, color: T.burgundy }}>
+                    {CONFIG.phone}
+                  </a>
+                ),
+              },
+              {
+                key: "hours",
+                icon: "🕐",
+                content: (
+                  <>
+                    <p style={{ fontSize: 15, fontWeight: 600, color: T.softBlack, marginBottom: 2 }}>
+                      {t("home.cards.hoursDays")}
+                    </p>
+                    <p style={{ fontSize: 14, color: T.warmGray }}>
+                      {t("home.cards.hoursTime")}
+                    </p>
+                  </>
+                ),
+              },
+              {
+                key: "email",
+                icon: "✉️",
+                content: (
+                  <a href={`mailto:${CONFIG.email}`} className="contact-link" style={{ fontSize: 14, color: T.burgundy, wordBreak: "break-all" }}>
+                    {CONFIG.email}
+                  </a>
+                ),
+              },
             ].map((card) => (
               <div
                 key={card.key}
@@ -627,7 +669,8 @@ export default function Home() {
                   style={{
                     fontSize: 18,
                     fontFamily: "'Cormorant Garamond', serif",
-                    marginBottom: 8,
+                    marginBottom: 10,
+                    color: T.softBlack,
                   }}
                 >
                   {t(`home.cards.${card.key}Title`)}
