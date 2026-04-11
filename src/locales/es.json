@@ -5,13 +5,20 @@
     "massTimes": "Misa y Confesión",
     "sacraments": "Sacramentos",
     "about": "Nosotros",
+    "history": "Historia",
     "staff": "Sacerdotes y Personal",
     "bulletin": "Boletín",
     "becomingCatholic": "Hacerse Católico",
     "getInvolved": "Participe",
     "contact": "Contacto",
     "give": "Donar",
-    "visit": "Planifique Su Visita"
+    "visit": "Planifique Su Visita",
+    "baptism": "Bautismo",
+    "firstCommunion": "Primera Comunión",
+    "confirmation": "Confirmación",
+    "marriage": "Matrimonio",
+    "anointing": "Unción de los Enfermos",
+    "funerals": "Funerales"
   },
   "footer": {
     "subtitle": "Parroquia Católica · Youngstown, OH",
@@ -169,6 +176,7 @@
       "motto": "\"Alabar, bendecir y predicar.\"",
       "mottoSrc": "— Lema de la Orden Dominicana"
     },
+    "historyLink": "Leer Nuestra Historia Completa",
     "mission": {
       "sub": "Nuestra Misión",
       "title": "Lo Que Creemos",
@@ -675,15 +683,15 @@
       "desc": "Estamos recopilando hermosas imágenes de nuestra parroquia, nuestra comunidad y nuestra adoración. ¡Vuelva pronto!"
     },
     "aerial": "Vista aérea del campus parroquial de Santo Domingo",
-    "aerialInterior": "Vista aérea del interior de la iglesia desde arriba",
+    "campus": "Vista aérea de la iglesia y los edificios escolares",
     "nave": "Interior de la iglesia — vista de la nave hacia el santuario",
-    "roseWindow": "Exterior de la iglesia con rosetón y letrero de Santo Domingo",
-    "facade": "Fachada de la iglesia con rosetón y cruz",
+    "stRose": "Estatua de Santa Rosa de Lima",
+    "friarStatue": "Estatua de fraile dominico en la columna del púlpito",
     "exterior": "Exterior de la iglesia con estatua y tímpano tallado",
-    "arches": "Corredor con arcos dentro de la iglesia",
+    "rooftop": "Vista aérea del techo de la iglesia y el vecindario",
     "easterFire": "Fuego de la Vigilia Pascual con monaguillos",
-    "community": "Feligreses sosteniendo velas durante la Vigilia Pascual",
-    "vigilCandles": "Nave de la iglesia a la luz de las velas durante la Vigilia Pascual",
+    "entrance": "Entrada de la iglesia con puerta en arco",
+    "signage": "Letrero de la parroquia Santo Domingo con tímpano tallado",
     "mural": "Mural dominicano — Madonna y Niño con santos dominicos",
     "monstrance": "Custodia dorada — el Santísimo Sacramento",
     "preaching": "Un fraile dominico predicando desde el ambón",
@@ -697,5 +705,40 @@
     "desc": "Explore las enseñanzas y reflexiones de Fray Nelson Medina, O.P. — un fraile dominico cuyo ministerio en video llega a cientos de miles de fieles en todo el mundo hispanohablante.",
     "loading": "Cargando video\u2026",
     "visitChannel": "Visitar Canal Completo en YouTube"
+  },
+  "history": {
+    "sub": "Nuestra Historia",
+    "title": "Un Siglo de Fe",
+    "founding": {
+      "label": "La Fundación",
+      "title": "Un Humilde Comienzo en Market Street",
+      "p1": "La Orden de Predicadores fundó la parroquia de Santo Domingo el 23 de febrero de 1923, por invitación del Arzobispo de Cleveland, Joseph Schrembs. La primera Misa se celebró en un modesto local comercial en Market Street — un humilde comienzo para lo que se convertiría en uno de los centros de fe más perdurables de Youngstown.",
+      "p2": "En pocos años, la pequeña comunidad de frailes dominicos y su creciente feligresía superó la capilla del local. Se elaboraron planos para una iglesia permanente que serviría al lado sur de Youngstown por generaciones.",
+      "storeAlt": "El local donde se celebró la primera Misa en 1923",
+      "storeCap": "\"Donde se celebró la primera Misa\" — 1923"
+    },
+    "building": {
+      "label": "La Iglesia",
+      "title": "Una Casa de Dios en Piedra Caliza y Ladrillo",
+      "p1": "La iglesia actual, una impresionante estructura románica de piedra caliza y ladrillo, fue dedicada el 28 de abril de 1957, después de años de planificación y construcción. Una estatua de tamaño natural de Santo Domingo se encuentra sobre la entrada, dando la bienvenida a todos los que vienen a adorar.",
+      "p2": "El interior presenta techos arqueados imponentes, magníficos rosetones de vidrieras y murales ricamente pintados que representan escenas de la vida de la Santísima Virgen María y los santos dominicos. La iglesia es un testimonio de la fe y el sacrificio de los feligreses que la construyeron.",
+      "constructAlt": "La iglesia en construcción en los años 1950",
+      "constructCap": "Los arcos se elevan — la iglesia toma forma en los años 1950",
+      "exteriorAlt": "La entrada de la iglesia decorada para Navidad",
+      "exteriorCap": "La entrada completada de la iglesia con su tímpano tallado"
+    },
+    "dominican": {
+      "title": "La Tradición Dominicana",
+      "p1": "Santo Domingo de Guzmán fundó la Orden de Predicadores en el siglo XIII, dedicada a reavivar la fe de Europa a través de la predicación, la enseñanza y el estudio. En los siglos transcurridos, los dominicos se han extendido por todo el mundo con su lema: \"Laudare, Benedicere, Praedicare\" — alabar, bendecir y predicar. La parroquia de Santo Domingo en Youngstown continúa esta tradición de 800 años en la Diócesis de Youngstown, servida por los frailes de la Provincia de San José.",
+      "entranceAlt": "La entrada original de la iglesia en blanco y negro",
+      "entranceCap": "La entrada parroquial con el escudo dominicano y el tímpano tallado"
+    },
+    "today": {
+      "year": "Hoy",
+      "label": "Una Parroquia Viva",
+      "title": "Continuando la Misión",
+      "p1": "Hoy, la parroquia de Santo Domingo mantiene muchos ministerios enfocados en la comunidad, incluyendo un programa de Laicos Dominicos, Fraternidad Católica de Hombres, ministerio de Vida Parroquial y Familiar, y un vibrante programa de Ministerio Hispano con Misas semanales en español.",
+      "p2": "La parroquia sigue siendo un faro de fe y servicio en el lado sur de Youngstown, dando la bienvenida a personas de todos los caminos de la vida en una comunidad enraizada en el carisma dominicano de verdad, oración y predicación. Al mirar hacia nuestro segundo siglo, continuamos la misión que comenzó en ese humilde local en 1923."
+    }
   }
 }

@@ -24,6 +24,7 @@ const Marriage = lazy(() => import("./pages/sacraments/Marriage"));
 const Anointing = lazy(() => import("./pages/sacraments/Anointing"));
 const Funerals = lazy(() => import("./pages/sacraments/Funerals"));
 const Visit = lazy(() => import("./pages/Visit"));
+const History = lazy(() => import("./pages/History"));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -69,6 +70,7 @@ function AppRoutes() {
             <Route path="/sacraments/anointing" element={<Anointing />} />
             <Route path="/sacraments/funerals" element={<Funerals />} />
             <Route path="/visit" element={<Visit />} />
+            <Route path="/history" element={<History />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </Suspense>

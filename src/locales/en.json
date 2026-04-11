@@ -5,13 +5,20 @@
     "massTimes": "Mass & Confession",
     "sacraments": "Sacraments",
     "about": "About",
+    "history": "History",
     "staff": "Priests & Staff",
     "bulletin": "Bulletin",
     "becomingCatholic": "Becoming Catholic",
     "getInvolved": "Get Involved",
     "contact": "Contact",
     "give": "Give",
-    "visit": "Plan Your Visit"
+    "visit": "Plan Your Visit",
+    "baptism": "Baptism",
+    "firstCommunion": "First Communion",
+    "confirmation": "Confirmation",
+    "marriage": "Marriage",
+    "anointing": "Anointing of the Sick",
+    "funerals": "Funerals"
   },
   "footer": {
     "subtitle": "Catholic Parish · Youngstown, OH",
@@ -169,6 +176,7 @@
       "motto": "\"To praise, to bless, and to preach.\"",
       "mottoSrc": "— Dominican Order Motto"
     },
+    "historyLink": "Read Our Full History",
     "mission": {
       "sub": "Our Mission",
       "title": "What We Believe",
@@ -674,15 +682,15 @@
       "desc": "We're gathering beautiful images of our parish, our community, and our worship. Check back soon!"
     },
     "aerial": "Aerial view of the St. Dominic parish campus",
-    "aerialInterior": "Drone view of the church interior from above",
+    "campus": "Aerial view of the church and school buildings",
     "nave": "Church interior — view down the nave toward the sanctuary",
-    "roseWindow": "Church exterior with rose window and Saint Dominic sign",
-    "facade": "Church façade with rose window and cross",
+    "stRose": "Statue of St. Rose of Lima",
+    "friarStatue": "Dominican friar statue on the pulpit column",
     "exterior": "Church exterior with statue and carved tympanum",
-    "arches": "Arched corridor inside the church",
+    "rooftop": "Aerial view of the church rooftop and surrounding neighborhood",
     "easterFire": "Easter Vigil fire with altar servers",
-    "community": "Congregation holding candles during Easter Vigil",
-    "vigilCandles": "Church nave in candlelight during Easter Vigil",
+    "entrance": "Church entrance with arched doorway",
+    "signage": "Saint Dominic's parish signage with carved tympanum",
     "mural": "Dominican mural — Madonna and Child with Dominican saints",
     "monstrance": "Golden monstrance — the Blessed Sacrament",
     "preaching": "A Dominican friar preaching from the ambo",
@@ -696,5 +704,40 @@
     "desc": "Explore the teachings and reflections of Fray Nelson Medina, O.P. — a Dominican friar whose video ministry reaches hundreds of thousands of faithful across the Spanish-speaking world.",
     "loading": "Loading video\u2026",
     "visitChannel": "Visit Full Channel on YouTube"
+  },
+  "history": {
+    "sub": "Our Story",
+    "title": "A Century of Faith",
+    "founding": {
+      "label": "The Founding",
+      "title": "A Humble Beginning on Market Street",
+      "p1": "The Dominican Order of Preachers founded St. Dominic Parish on February 23, 1923, at the invitation of Cleveland Archbishop Joseph Schrembs. The first Mass was offered in a modest storeroom on Market Street — a humble beginning for what would become one of Youngstown's most enduring centers of faith.",
+      "p2": "Within just a few years, the small community of Dominican friars and their growing flock outgrew the storefront chapel. Plans were drawn for a permanent church that would serve the south side of Youngstown for generations to come.",
+      "storeAlt": "The storefront where the first Mass was said in 1923",
+      "storeCap": "\"Where the first Mass was said\" — 1923"
+    },
+    "building": {
+      "label": "The Church",
+      "title": "A House of God in Limestone and Brick",
+      "p1": "The current church, a stunning Romanesque structure of limestone and brick, was dedicated on April 28, 1957, after years of planning and construction. A life-size statue of Saint Dominic stands over the entrance, welcoming all who come to worship.",
+      "p2": "The interior features soaring arched ceilings, magnificent stained glass rose windows, and richly painted murals depicting scenes from the life of the Blessed Virgin Mary and the Dominican saints. The church stands as a testament to the faith and sacrifice of the parishioners who built it.",
+      "constructAlt": "The church under construction in the 1950s",
+      "constructCap": "Arches rising — the church takes shape in the 1950s",
+      "exteriorAlt": "The church entrance decorated for Christmas",
+      "exteriorCap": "The completed church entrance with its carved tympanum"
+    },
+    "dominican": {
+      "title": "The Dominican Tradition",
+      "p1": "Saint Dominic de Guzman founded the Order of Preachers in the 13th century, devoted to rekindling the faith of Europe through preaching, teaching, and study. In the centuries since, Dominicans have spread around the world with their motto: \"Laudare, Benedicere, Praedicare\" — to praise, to bless, and to preach. St. Dominic Parish in Youngstown carries forward this 800-year tradition in the Diocese of Youngstown, served by friars of the Province of St. Joseph.",
+      "entranceAlt": "The original church entrance in black and white",
+      "entranceCap": "The parish entrance with the Dominican crest and carved tympanum"
+    },
+    "today": {
+      "year": "Today",
+      "label": "A Living Parish",
+      "title": "Continuing the Mission",
+      "p1": "Today, St. Dominic Parish maintains many community-focused ministries, including a Lay Dominican program, Catholic Men's Fellowship, Parish and Family Life ministry, and a vibrant Hispanic Ministry program with weekly Spanish Masses.",
+      "p2": "The parish remains a beacon of faith and service on Youngstown's south side, welcoming people from all walks of life into a community rooted in the Dominican charism of truth, prayer, and preaching. As we look ahead to our second century, we continue the mission that began in that humble storeroom in 1923."
+    }
   }
 }

@@ -2,27 +2,59 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 
-const NAV_LINKS = [
-  { to: "/", key: "home" },
-  { to: "/visit", key: "visit" },
-  { to: "/mass-times", key: "massTimes" },
-  { to: "/sacraments", key: "sacraments" },
-  { to: "/about", key: "about" },
-  { to: "/staff", key: "staff" },
-  { to: "/get-involved", key: "getInvolved" },
+const NAV_ITEMS = [
+  { key: "home", to: "/" },
+  {
+    key: "about",
+    children: [
+      { key: "about", to: "/about" },
+      { key: "history", to: "/history" },
+      { key: "staff", to: "/staff" },
+    ],
+  },
+  {
+    key: "visit",
+    children: [
+      { key: "visit", to: "/visit" },
+      { key: "massTimes", to: "/mass-times" },
+      { key: "contact", to: "/contact" },
+    ],
+  },
+  {
+    key: "sacraments",
+    children: [
+      { key: "sacraments", to: "/sacraments" },
+      { key: "baptism", to: "/sacraments/baptism" },
+      { key: "firstCommunion", to: "/sacraments/first-communion" },
+      { key: "confirmation", to: "/sacraments/confirmation" },
+      { key: "marriage", to: "/sacraments/marriage" },
+      { key: "anointing", to: "/sacraments/anointing" },
+      { key: "funerals", to: "/sacraments/funerals" },
+    ],
+  },
+  {
+    key: "getInvolved",
+    children: [
+      { key: "getInvolved", to: "/get-involved" },
+      { key: "bulletin", to: "/bulletin" },
+      { key: "becomingCatholic", to: "/becoming-catholic" },
+    ],
+  },
 ];
 
 export default function Nav() {
   const { t } = useTranslation();
   const location = useLocation();
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileAccordion, setMobileAccordion] = useState(null);
   const menuRef = useRef(null);
+  const hoverTimeout = useRef(null);
 
-  // Throttled scroll handler
   useEffect(() => {
     let ticking = false;
     const onScroll = () => {
@@ -38,29 +70,76 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Scroll lock when mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
-  }, [open]);
+  }, [mobileOpen]);
 
-  // Close menu on outside click
   useEffect(() => {
-    if (!open) return;
+    if (!mobileOpen) return;
     const handler = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) setOpen(false);
+      if (menuRef.current && !menuRef.current.contains(e.target)) setMobileOpen(false);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
-  }, [open]);
+  }, [mobileOpen]);
 
-  // Close menu on route change
-  useEffect(() => { setOpen(false); }, [location]);
+  // Close everything on route change
+  useEffect(() => {
+    setMobileOpen(false);
+    setOpenDropdown(null);
+    setMobileAccordion(null);
+  }, [location]);
+
+  // Close dropdown on Escape
+  useEffect(() => {
+    const handler = (e) => {
+      if (e.key === "Escape") setOpenDropdown(null);
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, []);
 
   const isActive = useCallback(
     (to) => (to === "/" ? location.pathname === "/" : location.pathname.startsWith(to)),
     [location.pathname]
   );
+
+  const isGroupActive = useCallback(
+    (item) => {
+      if (item.to) return isActive(item.to);
+      return item.children?.some((c) => isActive(c.to));
+    },
+    [isActive]
+  );
+
+  const handleMouseEnter = (key) => {
+    clearTimeout(hoverTimeout.current);
+    hoverTimeout.current = setTimeout(() => setOpenDropdown(key), 80);
+  };
+
+  const handleMouseLeave = () => {
+    clearTimeout(hoverTimeout.current);
+    hoverTimeout.current = setTimeout(() => setOpenDropdown(null), 150);
+  };
+
+  const linkStyle = (active) => ({
+    textDecoration: "none",
+    padding: "8px 12px",
+    fontSize: 13.5,
+    fontWeight: active ? 600 : 400,
+    color: active ? T.burgundy : T.charcoal,
+    borderBottom: active ? `2px solid ${T.gold}` : "2px solid transparent",
+    transition: "all 0.3s",
+    fontFamily: "'Source Sans 3', sans-serif",
+    letterSpacing: 0.3,
+    display: "flex",
+    alignItems: "center",
+    gap: 3,
+    cursor: "pointer",
+    background: "none",
+    border: "none",
+  });
 
   return (
     <nav
@@ -102,23 +181,82 @@ export default function Nav() {
         </Link>
 
         {/* Desktop links */}
-        <div style={{ display: "flex", gap: 4, alignItems: "center" }} className="nav-desktop">
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              style={{
-                textDecoration: "none", padding: "8px 12px", fontSize: 13.5,
-                fontWeight: isActive(l.to) ? 600 : 400,
-                color: isActive(l.to) ? T.burgundy : T.charcoal,
-                borderBottom: isActive(l.to) ? `2px solid ${T.gold}` : "2px solid transparent",
-                transition: "all 0.3s",
-                fontFamily: "'Source Sans 3', sans-serif", letterSpacing: 0.3,
-              }}
-            >
-              {t(`nav.${l.key}`)}
-            </Link>
-          ))}
+        <div style={{ display: "flex", gap: 2, alignItems: "center" }} className="nav-desktop">
+          {NAV_ITEMS.map((item) =>
+            item.children ? (
+              <div
+                key={item.key}
+                style={{ position: "relative" }}
+                onMouseEnter={() => handleMouseEnter(item.key)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <Link
+                  to={item.children[0].to}
+                  style={linkStyle(isGroupActive(item))}
+                  aria-haspopup="true"
+                  aria-expanded={openDropdown === item.key}
+                >
+                  {t(`nav.${item.key}`)}
+                  <ChevronDown
+                    size={13}
+                    style={{
+                      transition: "transform 0.2s",
+                      transform: openDropdown === item.key ? "rotate(180deg)" : "rotate(0)",
+                      opacity: 0.5,
+                    }}
+                  />
+                </Link>
+
+                {/* Dropdown panel */}
+                {openDropdown === item.key && (
+                  <div
+                    role="menu"
+                    style={{
+                      position: "absolute",
+                      top: "100%",
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      minWidth: 200,
+                      background: "rgba(255,253,249,0.98)",
+                      backdropFilter: "blur(12px)",
+                      borderTop: `2px solid ${T.gold}`,
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+                      borderRadius: "0 0 6px 6px",
+                      padding: "8px 0",
+                      animation: "dropdownFadeIn 0.2s ease",
+                    }}
+                  >
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.to}
+                        to={child.to}
+                        role="menuitem"
+                        style={{
+                          display: "block",
+                          padding: "10px 20px",
+                          fontSize: 13.5,
+                          fontWeight: isActive(child.to) ? 600 : 400,
+                          color: isActive(child.to) ? T.burgundy : T.charcoal,
+                          textDecoration: "none",
+                          fontFamily: "'Source Sans 3', sans-serif",
+                          transition: "background 0.2s",
+                          whiteSpace: "nowrap",
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = T.cream)}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
+                      >
+                        {t(`nav.${child.key}`)}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link key={item.key} to={item.to} style={linkStyle(isActive(item.to))}>
+                {t(`nav.${item.key}`)}
+              </Link>
+            )
+          )}
           <Link
             to="/give"
             style={{
@@ -136,82 +274,138 @@ export default function Nav() {
 
         {/* Mobile toggle */}
         <button
-          onClick={() => setOpen(!open)}
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
           className="nav-mobile-toggle"
           style={{
             background: "none", border: "none", cursor: "pointer",
             padding: 8, fontSize: 24, color: T.burgundy, lineHeight: 1,
           }}
         >
-          {open ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile menu */}
-      {open && (
+      {mobileOpen && (
         <div
           style={{
             background: T.warmWhite, borderTop: `1px solid ${T.stone}`,
-            padding: "12px 24px 20px", animation: "slideDown 0.3s ease",
+            padding: "8px 24px 20px", animation: "slideDown 0.3s ease",
             maxHeight: "calc(100vh - 76px)", overflowY: "auto",
           }}
         >
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.to}
-              to={l.to}
-              style={{
-                display: "block", textDecoration: "none", padding: "14px 0", fontSize: 16,
-                fontWeight: isActive(l.to) ? 600 : 400,
-                color: isActive(l.to) ? T.burgundy : T.charcoal,
-                borderBottom: `1px solid ${T.stoneLight}`,
-                fontFamily: "'Source Sans 3', sans-serif",
-              }}
-            >
-              {t(`nav.${l.key}`)}
-            </Link>
-          ))}
+          {NAV_ITEMS.map((item) =>
+            item.children ? (
+              <div key={item.key}>
+                {/* Accordion header */}
+                <button
+                  onClick={() =>
+                    setMobileAccordion(mobileAccordion === item.key ? null : item.key)
+                  }
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    padding: "14px 0",
+                    fontSize: 16,
+                    fontWeight: isGroupActive(item) ? 600 : 400,
+                    color: isGroupActive(item) ? T.burgundy : T.charcoal,
+                    borderBottom: `1px solid ${T.stoneLight}`,
+                    fontFamily: "'Source Sans 3', sans-serif",
+                    background: "none",
+                    border: "none",
+                    borderBottomWidth: 1,
+                    borderBottomStyle: "solid",
+                    borderBottomColor: T.stoneLight,
+                    cursor: "pointer",
+                    textAlign: "left",
+                  }}
+                >
+                  {t(`nav.${item.key}`)}
+                  <ChevronDown
+                    size={16}
+                    style={{
+                      transition: "transform 0.2s",
+                      transform:
+                        mobileAccordion === item.key ? "rotate(180deg)" : "rotate(0)",
+                      opacity: 0.5,
+                    }}
+                  />
+                </button>
+
+                {/* Accordion children */}
+                {mobileAccordion === item.key && (
+                  <div style={{ paddingLeft: 16, background: T.cream, marginBottom: 2 }}>
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.to}
+                        to={child.to}
+                        style={{
+                          display: "block",
+                          textDecoration: "none",
+                          padding: "12px 0",
+                          fontSize: 15,
+                          fontWeight: isActive(child.to) ? 600 : 400,
+                          color: isActive(child.to) ? T.burgundy : T.charcoal,
+                          borderBottom: `1px solid ${T.stoneLight}`,
+                          fontFamily: "'Source Sans 3', sans-serif",
+                        }}
+                      >
+                        {t(`nav.${child.key}`)}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={item.key}
+                to={item.to}
+                style={{
+                  display: "block",
+                  textDecoration: "none",
+                  padding: "14px 0",
+                  fontSize: 16,
+                  fontWeight: isActive(item.to) ? 600 : 400,
+                  color: isActive(item.to) ? T.burgundy : T.charcoal,
+                  borderBottom: `1px solid ${T.stoneLight}`,
+                  fontFamily: "'Source Sans 3', sans-serif",
+                }}
+              >
+                {t(`nav.${item.key}`)}
+              </Link>
+            )
+          )}
           <Link
             to="/give"
             style={{
-              display: "block", textDecoration: "none", padding: "14px 0", fontSize: 16,
+              display: "block",
+              textDecoration: "none",
+              padding: "14px 0",
+              fontSize: 16,
               fontWeight: isActive("/give") ? 600 : 400,
-              color: T.gold, borderBottom: `1px solid ${T.stoneLight}`,
-              fontFamily: "'Source Sans 3', sans-serif",
-            }}
-          >
-            {t("nav.give")}
-          </Link>
-          <Link
-            to="/bulletin"
-            style={{
-              display: "block", textDecoration: "none", padding: "14px 0", fontSize: 16,
-              fontWeight: isActive("/bulletin") ? 600 : 400,
-              color: isActive("/bulletin") ? T.burgundy : T.charcoal,
+              color: T.gold,
               borderBottom: `1px solid ${T.stoneLight}`,
               fontFamily: "'Source Sans 3', sans-serif",
             }}
           >
-            {t("nav.bulletin")}
-          </Link>
-          <Link
-            to="/contact"
-            style={{
-              display: "block", textDecoration: "none", padding: "14px 0", fontSize: 16,
-              fontWeight: isActive("/contact") ? 600 : 400,
-              color: isActive("/contact") ? T.burgundy : T.charcoal,
-              fontFamily: "'Source Sans 3', sans-serif",
-            }}
-          >
-            {t("nav.contact")}
+            {t("nav.give")}
           </Link>
           <div style={{ paddingTop: 16 }}>
             <LanguageToggle />
           </div>
         </div>
       )}
+
+      <style>{`
+        @keyframes dropdownFadeIn {
+          from { opacity: 0; transform: translateX(-50%) translateY(-4px); }
+          to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+      `}</style>
     </nav>
   );
 }

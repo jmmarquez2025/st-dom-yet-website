@@ -136,7 +136,7 @@ export default function About() {
               </div>
             </div>
 
-            {/* Right — History paragraphs */}
+            {/* Right — History summary + link */}
             <div>
               <h2
                 style={{
@@ -149,19 +149,27 @@ export default function About() {
               >
                 {t("about.history.title")}
               </h2>
-              {["p1", "p2", "p3", "p4"].map((k) => (
-                <p
-                  key={k}
-                  style={{
-                    fontSize: 16,
-                    lineHeight: 1.8,
-                    color: T.warmGray,
-                    marginBottom: 20,
-                  }}
-                >
-                  {t(`about.history.${k}`)}
-                </p>
-              ))}
+              <p
+                style={{
+                  fontSize: 16,
+                  lineHeight: 1.8,
+                  color: T.warmGray,
+                  marginBottom: 20,
+                }}
+              >
+                {t("about.history.p1")}
+              </p>
+              <p
+                style={{
+                  fontSize: 16,
+                  lineHeight: 1.8,
+                  color: T.warmGray,
+                  marginBottom: 28,
+                }}
+              >
+                {t("about.history.p2")}
+              </p>
+              <Btn to="/history" variant="outline">{t("about.historyLink")}</Btn>
             </div>
           </div>
         </FadeSection>
