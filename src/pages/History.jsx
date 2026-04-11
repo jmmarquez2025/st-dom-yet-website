@@ -6,16 +6,21 @@ import HeroImage from "../components/HeroImage";
 import Seo from "../components/Seo";
 import { PHOTOS } from "../constants/photos";
 
-function HistoryPhoto({ src, alt, caption }) {
+function HistoryPhoto({ src, alt, caption, side }) {
   return (
-    <figure style={{ margin: "32px 0", textAlign: "center" }}>
+    <figure
+      style={{
+        margin: "36px 0",
+        textAlign: side === "left" ? "left" : side === "right" ? "right" : "center",
+      }}
+    >
       <img
         src={src}
         alt={alt}
         loading="lazy"
         style={{
           width: "100%",
-          maxWidth: 700,
+          maxWidth: 680,
           borderRadius: 4,
           boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
         }}
@@ -36,6 +41,51 @@ function HistoryPhoto({ src, alt, caption }) {
   );
 }
 
+function TwoPhotos({ left, right }) {
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: 20,
+        margin: "36px 0",
+      }}
+      className="history-two-photos"
+    >
+      <figure style={{ margin: 0, textAlign: "center" }}>
+        <img
+          src={left.src}
+          alt={left.alt}
+          loading="lazy"
+          style={{ width: "100%", borderRadius: 4, boxShadow: "0 4px 20px rgba(0,0,0,0.15)" }}
+        />
+        {left.caption && (
+          <figcaption style={{ fontSize: 12, color: T.warmGray, fontStyle: "italic", marginTop: 8 }}>
+            {left.caption}
+          </figcaption>
+        )}
+      </figure>
+      <figure style={{ margin: 0, textAlign: "center" }}>
+        <img
+          src={right.src}
+          alt={right.alt}
+          loading="lazy"
+          style={{ width: "100%", borderRadius: 4, boxShadow: "0 4px 20px rgba(0,0,0,0.15)" }}
+        />
+        {right.caption && (
+          <figcaption style={{ fontSize: 12, color: T.warmGray, fontStyle: "italic", marginTop: 8 }}>
+            {right.caption}
+          </figcaption>
+        )}
+      </figure>
+    </div>
+  );
+}
+
+const P = (props) => (
+  <p style={{ fontSize: 16, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }} {...props} />
+);
+
 export default function History() {
   const { t } = useTranslation();
 
@@ -43,8 +93,25 @@ export default function History() {
     <div style={{ paddingTop: 76 }}>
       <Seo
         title="Parish History"
-        description="The history of St. Dominic Catholic Parish, founded by the Dominican Friars in 1923 in Youngstown, Ohio."
+        description="Over 100 years of faith — the history of St. Dominic Catholic Parish, founded by the Dominican Friars in 1923 in Youngstown, Ohio."
       />
+
+      <style>{`
+        .history-section { max-width: 800px; margin: 0 auto; }
+        .history-era { display: flex; align-items: baseline; gap: 16px; margin-bottom: 16px; }
+        .history-year {
+          font-size: clamp(48px, 8vw, 72px);
+          font-family: 'Cormorant Garamond', serif;
+          font-weight: 700; color: ${T.stone}; line-height: 1; flex-shrink: 0;
+        }
+        .history-era-label {
+          font-size: 14px; letter-spacing: 3px; text-transform: uppercase;
+          color: ${T.gold}; font-weight: 600;
+        }
+        @media (max-width: 600px) {
+          .history-two-photos { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
 
       {/* ════ Hero Banner ════ */}
       <section
@@ -53,75 +120,54 @@ export default function History() {
           overflow: "hidden",
           background: T.softBlack,
           color: "#fff",
-          padding: "clamp(64px, 12vw, 120px) 24px clamp(48px, 8vw, 80px)",
+          padding: "clamp(80px, 14vw, 140px) 24px clamp(60px, 10vw, 100px)",
           textAlign: "center",
         }}
       >
-        <HeroImage src={PHOTOS.historyHero} overlay={0.5} />
+        <HeroImage src={PHOTOS.historyHero} overlay={0.6} />
         <div style={{ position: "relative", zIndex: 1 }}>
           <div
             style={{
-              fontSize: 13,
-              letterSpacing: 3,
+              fontSize: 14,
+              letterSpacing: 4,
               textTransform: "uppercase",
-              color: T.goldLight,
-              marginBottom: 12,
+              color: T.gold,
+              marginBottom: 16,
+              fontWeight: 600,
             }}
           >
             {t("history.sub")}
           </div>
           <h1
             style={{
-              fontSize: "clamp(36px, 6vw, 56px)",
+              fontSize: "clamp(40px, 7vw, 64px)",
               fontFamily: "'Cormorant Garamond', serif",
               fontWeight: 700,
               lineHeight: 1.1,
+              textShadow: "0 2px 20px rgba(0,0,0,0.5)",
             }}
           >
             {t("history.title")}
           </h1>
-          <div
+          <div style={{ width: 56, height: 3, background: T.gold, margin: "20px auto 0" }} />
+          <p
             style={{
-              width: 48,
-              height: 2,
-              background: T.gold,
-              margin: "18px auto 0",
+              fontSize: 17,
+              maxWidth: 520,
+              margin: "20px auto 0",
+              lineHeight: 1.6,
+              color: "rgba(255,255,255,0.85)",
+              textShadow: "0 1px 8px rgba(0,0,0,0.4)",
             }}
-          />
+          >
+            {t("history.heroDesc")}
+          </p>
         </div>
       </section>
 
-      {/* ════ Founding — 1923 ════ */}
+      {/* ════ 1923 — The Founding ════ */}
       <Section>
         <FadeSection>
-          <style>{`
-            .history-section {
-              max-width: 800px;
-              margin: 0 auto;
-            }
-            .history-era {
-              display: flex;
-              align-items: baseline;
-              gap: 16px;
-              margin-bottom: 16px;
-            }
-            .history-year {
-              font-size: clamp(48px, 8vw, 72px);
-              font-family: 'Cormorant Garamond', serif;
-              font-weight: 700;
-              color: ${T.stone};
-              line-height: 1;
-              flex-shrink: 0;
-            }
-            .history-era-label {
-              font-size: 14px;
-              letter-spacing: 3px;
-              text-transform: uppercase;
-              color: ${T.gold};
-              font-weight: 600;
-            }
-          `}</style>
-
           <div className="history-section">
             <div className="history-era">
               <div className="history-year">1923</div>
@@ -131,16 +177,12 @@ export default function History() {
               style={{
                 fontSize: "clamp(24px, 4vw, 32px)",
                 fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                marginBottom: 20,
-                color: T.softBlack,
+                fontWeight: 600, marginBottom: 20, color: T.softBlack,
               }}
             >
               {t("history.founding.title")}
             </h2>
-            <p style={{ fontSize: 16, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
-              {t("history.founding.p1")}
-            </p>
+            <P>{t("history.founding.p1")}</P>
 
             <HistoryPhoto
               src={PHOTOS.historyStorefront}
@@ -148,119 +190,165 @@ export default function History() {
               caption={t("history.founding.storeCap")}
             />
 
-            <p style={{ fontSize: 16, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
-              {t("history.founding.p2")}
-            </p>
+            <P>{t("history.founding.p2")}</P>
+            <P>{t("history.founding.p3")}</P>
           </div>
         </FadeSection>
       </Section>
 
-      {/* ════ The Building — 1957 ════ */}
+      {/* ════ 1950s — Building the Church ════ */}
       <Section bg={T.cream}>
         <FadeSection>
           <div className="history-section">
             <div className="history-era">
-              <div className="history-year">1957</div>
+              <div className="history-year">1952</div>
               <div className="history-era-label">{t("history.building.label")}</div>
             </div>
             <h2
               style={{
                 fontSize: "clamp(24px, 4vw, 32px)",
                 fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                marginBottom: 20,
-                color: T.softBlack,
+                fontWeight: 600, marginBottom: 20, color: T.softBlack,
               }}
             >
               {t("history.building.title")}
             </h2>
-            <p style={{ fontSize: 16, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
-              {t("history.building.p1")}
-            </p>
+            <P>{t("history.building.p1")}</P>
 
-            <HistoryPhoto
-              src={PHOTOS.historyConstruction}
-              alt={t("history.building.constructAlt")}
-              caption={t("history.building.constructCap")}
+            <TwoPhotos
+              left={{
+                src: PHOTOS.historyFoundation,
+                alt: t("history.building.foundationAlt"),
+                caption: t("history.building.foundationCap"),
+              }}
+              right={{
+                src: PHOTOS.historyConstruction,
+                alt: t("history.building.constructAlt"),
+                caption: t("history.building.constructCap"),
+              }}
             />
 
-            <p style={{ fontSize: 16, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
-              {t("history.building.p2")}
-            </p>
+            <P>{t("history.building.p2")}</P>
 
             <HistoryPhoto
-              src={PHOTOS.historyExteriorBw}
+              src={PHOTOS.historyConstructionExt}
               alt={t("history.building.exteriorAlt")}
               caption={t("history.building.exteriorCap")}
             />
+
+            <P>{t("history.building.p3")}</P>
           </div>
         </FadeSection>
       </Section>
 
-      {/* ════ Dominican Heritage ════ */}
+      {/* ════ 1957 — Dedication ════ */}
       <Section>
         <FadeSection>
           <div className="history-section">
-            <div
-              className="glass-card--dark"
-              style={{
-                padding: "clamp(28px, 5vw, 48px)",
-                color: "#fff",
-                textAlign: "center",
-                marginBottom: 40,
-              }}
-            >
-              <blockquote
-                style={{
-                  fontSize: "clamp(22px, 4vw, 30px)",
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontStyle: "italic",
-                  lineHeight: 1.5,
-                  marginBottom: 16,
-                }}
-              >
-                {t("about.history.motto")}
-              </blockquote>
-              <cite
-                style={{
-                  display: "block",
-                  fontSize: 12,
-                  letterSpacing: 2,
-                  textTransform: "uppercase",
-                  color: T.goldLight,
-                  fontStyle: "normal",
-                }}
-              >
-                {t("about.history.mottoSrc")}
-              </cite>
+            <div className="history-era">
+              <div className="history-year">1957</div>
+              <div className="history-era-label">{t("history.dedication.label")}</div>
             </div>
-
             <h2
               style={{
                 fontSize: "clamp(24px, 4vw, 32px)",
                 fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                marginBottom: 20,
-                color: T.softBlack,
+                fontWeight: 600, marginBottom: 20, color: T.softBlack,
               }}
             >
-              {t("history.dominican.title")}
+              {t("history.dedication.title")}
             </h2>
-            <p style={{ fontSize: 16, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
-              {t("history.dominican.p1")}
-            </p>
+            <P>{t("history.dedication.p1")}</P>
 
             <HistoryPhoto
-              src={PHOTOS.historyExteriorOld}
-              alt={t("history.dominican.entranceAlt")}
-              caption={t("history.dominican.entranceCap")}
+              src={PHOTOS.historyExteriorBw}
+              alt={t("history.dedication.completedAlt")}
+              caption={t("history.dedication.completedCap")}
+            />
+
+            <P>{t("history.dedication.p2")}</P>
+
+            <HistoryPhoto
+              src={PHOTOS.historyAltarboys}
+              alt={t("history.dedication.altarboysAlt")}
+              caption={t("history.dedication.altarboysCap")}
             />
           </div>
         </FadeSection>
       </Section>
 
-      {/* ════ Today ════ */}
+      {/* ════ Dominican Motto Banner ════ */}
+      <section
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          background: T.softBlack,
+          padding: "clamp(48px, 8vw, 80px) 24px",
+          textAlign: "center",
+        }}
+      >
+        <HeroImage src={PHOTOS.historyInteriorVintage} overlay={0.65} />
+        <div style={{ position: "relative", zIndex: 1, maxWidth: 700, margin: "0 auto" }}>
+          <blockquote
+            style={{
+              fontSize: "clamp(24px, 5vw, 36px)",
+              fontFamily: "'Cormorant Garamond', serif",
+              fontStyle: "italic",
+              lineHeight: 1.5,
+              color: "#fff",
+              marginBottom: 16,
+            }}
+          >
+            {t("about.history.motto")}
+          </blockquote>
+          <cite
+            style={{
+              display: "block",
+              fontSize: 13,
+              letterSpacing: 3,
+              textTransform: "uppercase",
+              color: T.gold,
+              fontStyle: "normal",
+            }}
+          >
+            {t("about.history.mottoSrc")}
+          </cite>
+        </div>
+      </section>
+
+      {/* ════ Growth & Change ════ */}
       <Section bg={T.cream}>
+        <FadeSection>
+          <div className="history-section">
+            <div className="history-era">
+              <div className="history-year">1960s</div>
+              <div className="history-era-label">{t("history.growth.label")}</div>
+            </div>
+            <h2
+              style={{
+                fontSize: "clamp(24px, 4vw, 32px)",
+                fontFamily: "'Cormorant Garamond', serif",
+                fontWeight: 600, marginBottom: 20, color: T.softBlack,
+              }}
+            >
+              {t("history.growth.title")}
+            </h2>
+            <P>{t("history.growth.p1")}</P>
+
+            <HistoryPhoto
+              src={PHOTOS.historyMass1979}
+              alt={t("history.growth.massAlt")}
+              caption={t("history.growth.massCap")}
+            />
+
+            <P>{t("history.growth.p2")}</P>
+            <P>{t("history.growth.p3")}</P>
+          </div>
+        </FadeSection>
+      </Section>
+
+      {/* ════ Renewal & Today ════ */}
+      <Section>
         <FadeSection>
           <div className="history-section">
             <div className="history-era">
@@ -271,19 +359,21 @@ export default function History() {
               style={{
                 fontSize: "clamp(24px, 4vw, 32px)",
                 fontFamily: "'Cormorant Garamond', serif",
-                fontWeight: 600,
-                marginBottom: 20,
-                color: T.softBlack,
+                fontWeight: 600, marginBottom: 20, color: T.softBlack,
               }}
             >
               {t("history.today.title")}
             </h2>
-            <p style={{ fontSize: 16, lineHeight: 1.8, color: T.warmGray, marginBottom: 20 }}>
-              {t("history.today.p1")}
-            </p>
-            <p style={{ fontSize: 16, lineHeight: 1.8, color: T.warmGray }}>
-              {t("history.today.p2")}
-            </p>
+            <P>{t("history.today.p1")}</P>
+            <P>{t("history.today.p2")}</P>
+
+            <HistoryPhoto
+              src={PHOTOS.historyExteriorOld}
+              alt={t("history.today.entranceAlt")}
+              caption={t("history.today.entranceCap")}
+            />
+
+            <P>{t("history.today.p3")}</P>
           </div>
         </FadeSection>
       </Section>

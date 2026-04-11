@@ -21,12 +21,17 @@ export const PHOTOS = {
   pageHeader: `${B}photos/arched-interior-opt.jpg`,         // Arched corridor interior
 
   // ── History page ──
-  historyHero: `${B}photos/aerial-overview-opt.jpg`,          // Aerial campus overview
-  historyStorefront: `${B}photos/history/storefront.jpg`,     // 1923 storefront — first Mass
-  historyConstruction: `${B}photos/history/inscription.jpg`,  // Church under construction 1950s
-  historyExteriorOld: `${B}photos/history/exterior-old.jpg`,  // Old entrance B&W
-  historyExteriorBw: `${B}photos/history/exterior-bw.jpg`,    // Church front vintage color
-  historyCommunity: `${B}photos/history/community.jpg`,       // Old parish community gathering
+  historyHero: `${B}photos/aerial-overview-opt.jpg`,                   // Aerial campus overview
+  historyStorefront: `${B}photos/history/storefront.jpg`,              // 1923 storefront — first Mass
+  historyConstruction: `${B}photos/history/inscription.jpg`,           // Church arches under construction 1950s
+  historyConstructionExt: `${B}photos/history/construction-exterior.jpg`, // Exterior with steel frame
+  historyFoundation: `${B}photos/history/construction-foundation.jpg`, // Foundation work with workers
+  historyExteriorOld: `${B}photos/history/exterior-old.jpg`,           // Old entrance B&W
+  historyExteriorBw: `${B}photos/history/exterior-bw.jpg`,             // Church front vintage color
+  historyAltarboys: `${B}photos/history/altarboys.jpg`,                // 1963 altar boys with mural
+  historyMass1979: `${B}photos/history/mass-1979.jpg`,                 // 1979 concelebrated Mass
+  historyInteriorVintage: `${B}photos/history/interior-vintage.jpg`,   // Interior showing Loreto symbols
+  historyCommunity: `${B}photos/history/community.jpg`,                // Old parish community gathering
 
   // ── Gallery (About page) ──
   gallery: [

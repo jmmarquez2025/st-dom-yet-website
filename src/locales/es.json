@@ -707,38 +707,59 @@
     "visitChannel": "Visitar Canal Completo en YouTube"
   },
   "history": {
-    "sub": "Nuestra Historia",
+    "sub": "Est. 1923",
     "title": "Un Siglo de Fe",
+    "heroDesc": "Desde un humilde local en Market Street hasta un hito románico en el lado sur de Youngstown — la historia de la parroquia de Santo Domingo.",
     "founding": {
       "label": "La Fundación",
       "title": "Un Humilde Comienzo en Market Street",
-      "p1": "La Orden de Predicadores fundó la parroquia de Santo Domingo el 23 de febrero de 1923, por invitación del Arzobispo de Cleveland, Joseph Schrembs. La primera Misa se celebró en un modesto local comercial en Market Street — un humilde comienzo para lo que se convertiría en uno de los centros de fe más perdurables de Youngstown.",
-      "p2": "En pocos años, la pequeña comunidad de frailes dominicos y su creciente feligresía superó la capilla del local. Se elaboraron planos para una iglesia permanente que serviría al lado sur de Youngstown por generaciones.",
+      "p1": "La Orden de Predicadores fundó la parroquia de Santo Domingo el 23 de febrero de 1923, por invitación del Arzobispo de Cleveland, Joseph Schrembs. La primera Misa se celebró en un modesto local comercial en la esquina de Market Street y Ravenwood Avenue — un humilde comienzo para lo que se convertiría en uno de los centros de fe más perdurables de Youngstown.",
+      "p2": "Para 1924, la creciente comunidad había superado el local. Se construyó una combinación de iglesia, escuela y auditorio en Auburndale Avenue, junto a Southern Boulevard, para servir a las familias del lado sur. La escuela fue dirigida por las Hermanas Dominicas de Akron, y para 1929 se añadieron un ala nueva y un auditorio para acomodar el aumento de la matrícula.",
+      "p3": "En 1939 se construyó un convento de tres pisos para albergar a las hermanas, y a principios de la década de 1950 la escuela había alcanzado una matrícula máxima de aproximadamente 1,300 estudiantes. La parroquia prosperaba — un reflejo de la industria del acero en auge de Youngstown y las oleadas de familias inmigrantes que se habían asentado en el lado sur.",
       "storeAlt": "El local donde se celebró la primera Misa en 1923",
       "storeCap": "\"Donde se celebró la primera Misa\" — 1923"
     },
     "building": {
-      "label": "La Iglesia",
-      "title": "Una Casa de Dios en Piedra Caliza y Ladrillo",
-      "p1": "La iglesia actual, una impresionante estructura románica de piedra caliza y ladrillo, fue dedicada el 28 de abril de 1957, después de años de planificación y construcción. Una estatua de tamaño natural de Santo Domingo se encuentra sobre la entrada, dando la bienvenida a todos los que vienen a adorar.",
-      "p2": "El interior presenta techos arqueados imponentes, magníficos rosetones de vidrieras y murales ricamente pintados que representan escenas de la vida de la Santísima Virgen María y los santos dominicos. La iglesia es un testimonio de la fe y el sacrificio de los feligreses que la construyeron.",
-      "constructAlt": "La iglesia en construcción en los años 1950",
-      "constructCap": "Los arcos se elevan — la iglesia toma forma en los años 1950",
-      "exteriorAlt": "La entrada de la iglesia decorada para Navidad",
-      "exteriorCap": "La entrada completada de la iglesia con su tímpano tallado"
+      "label": "Construcción",
+      "title": "Construyendo una Casa de Dios",
+      "p1": "Bajo el liderazgo del P. Joseph O'Connell, O.P., quien sirvió como párroco de 1942 a 1956, la parroquia emprendió un ambicioso programa de construcción. Se completó un nuevo priorato para los frailes dominicos en 1952, y poco después comenzó la construcción de la iglesia actual — un proyecto monumental que tomaría varios años en completarse.",
+      "p2": "La estructura románica se levantó de la tierra en piedra caliza y ladrillo, con sus imponentes arcos tomando forma a través del trabajo de los feligreses y artesanos locales. El diseño presenta más de dieciocho arcos románicos semicirculares, un sello del estilo medieval que la Orden Dominicana ha favorecido durante siglos.",
+      "p3": "En la Navidad de 1955, antes de que el edificio estuviera completamente terminado, se celebró la primera Misa de Gallo en la nueva iglesia — un momento de profunda alegría para una comunidad que había esperado décadas por un hogar espiritual permanente.",
+      "foundationAlt": "Trabajadores colocando los cimientos de la iglesia a principios de los años 1950",
+      "foundationCap": "Colocando los cimientos — principios de los años 1950",
+      "constructAlt": "Interior de la iglesia con arcos en construcción",
+      "constructCap": "Los arcos románicos toman forma",
+      "exteriorAlt": "Exterior de la iglesia en construcción con estructura de acero",
+      "exteriorCap": "El exterior de la iglesia con las cerchas de acero del techo"
     },
-    "dominican": {
-      "title": "La Tradición Dominicana",
-      "p1": "Santo Domingo de Guzmán fundó la Orden de Predicadores en el siglo XIII, dedicada a reavivar la fe de Europa a través de la predicación, la enseñanza y el estudio. En los siglos transcurridos, los dominicos se han extendido por todo el mundo con su lema: \"Laudare, Benedicere, Praedicare\" — alabar, bendecir y predicar. La parroquia de Santo Domingo en Youngstown continúa esta tradición de 800 años en la Diócesis de Youngstown, servida por los frailes de la Provincia de San José.",
-      "entranceAlt": "La entrada original de la iglesia en blanco y negro",
-      "entranceCap": "La entrada parroquial con el escudo dominicano y el tímpano tallado"
+    "dedication": {
+      "label": "Dedicación",
+      "title": "Un Hito Dedicado",
+      "p1": "La iglesia actual fue oficialmente dedicada el 28 de abril de 1957. Una estatua de tamaño natural de Santo Domingo fue colocada sobre la entrada principal, dando la bienvenida a todos los que vienen a adorar. Al año siguiente se abrió un nuevo edificio escolar con 14 aulas, biblioteca, gimnasio y cafetería — seis aulas adicionales se añadieron posteriormente para satisfacer la demanda.",
+      "p2": "El interior de la iglesia es una obra maestra del arte sacro. Sobre los arcos, doce símbolos derivados de los títulos dados a la Santísima Virgen María en la Letanía de Loreto se intercalan con cruces dominicanas en blanco y negro. El santuario presenta un magnífico mural de la Madonna y el Niño rodeados de santos dominicos — un punto focal que ha inspirado a generaciones de fieles.",
+      "completedAlt": "La entrada completada de la iglesia decorada para Navidad",
+      "completedCap": "La iglesia completada con su tímpano tallado y rosetón",
+      "altarboysAlt": "Monaguillos posando frente al mural dominicano, circa 1963",
+      "altarboysCap": "Monaguillos frente al mural del santuario — c. 1963"
+    },
+    "growth": {
+      "label": "Cambio y Renovación",
+      "title": "A Través del Desafío y la Transformación",
+      "p1": "Las décadas de 1960 y 1970 trajeron cambios radicales tanto para la Iglesia como para la ciudad. Tras el Concilio Vaticano II, la parroquia renovó su espacio de culto en 1978-1979 para reflejar las nuevas directivas litúrgicas. Las Hermanas Dominicas, que habían dirigido fielmente la escuela desde la década de 1930, partieron en 1979.",
+      "p2": "La ciudad de Youngstown también se estaba transformando. El 19 de septiembre de 1977 — un día conocido como el \"Lunes Negro\" — Youngstown Sheet and Tube Company cerró abruptamente su planta Campbell Works, despidiendo a más de 5,000 trabajadores. En pocos años, todas las principales plantas siderúrgicas del valle habían cerrado. Siguió un éxodo masivo de familias, y el vecindario del lado sur alrededor de Santo Domingo experimentó deterioro severo, aumento de la criminalidad y pérdida de población.",
+      "p3": "Sin embargo, la parroquia perduró. En 2009, el P. Gregory Maturi, O.P. lanzó la \"Operación Redención,\" un programa integral de renovación del vecindario que se convirtió en modelo de desarrollo comunitario basado en la fe. Trabajando con socios federales, estatales y locales, la parroquia demolió aproximadamente 80 casas abandonadas en un radio de cuatro cuadras, convirtió lotes vacantes en espacios verdes y organizó eventos familiares mensuales que atraían a cientos de familias. El edificio escolar, cerrado en 1999, fue vendido y reabierto como escuela charter sirviendo a aproximadamente 400 niños.",
+      "massAlt": "Misa concelebrada en Santo Domingo, 1979",
+      "massCap": "Misa concelebrada tras las renovaciones del Vaticano II — 1979"
     },
     "today": {
       "year": "Hoy",
       "label": "Una Parroquia Viva",
-      "title": "Continuando la Misión",
-      "p1": "Hoy, la parroquia de Santo Domingo mantiene muchos ministerios enfocados en la comunidad, incluyendo un programa de Laicos Dominicos, Fraternidad Católica de Hombres, ministerio de Vida Parroquial y Familiar, y un vibrante programa de Ministerio Hispano con Misas semanales en español.",
-      "p2": "La parroquia sigue siendo un faro de fe y servicio en el lado sur de Youngstown, dando la bienvenida a personas de todos los caminos de la vida en una comunidad enraizada en el carisma dominicano de verdad, oración y predicación. Al mirar hacia nuestro segundo siglo, continuamos la misión que comenzó en ese humilde local en 1923."
+      "title": "Hacia Nuestro Segundo Siglo",
+      "p1": "En mayo de 2023, Santo Domingo celebró su centenario con una Misa celebrada por el Obispo David Bonnar y un banquete al que asistieron más de 230 feligreses. Cien años después de aquella primera Misa en un local comercial, la parroquia sigue siendo un faro de fe en el lado sur de Youngstown — sirviendo ahora a más de 700 familias registradas de todo el Valle de Mahoning.",
+      "p2": "La parroquia mantiene una vibrante variedad de ministerios enraizados en el carisma dominicano: un programa de Laicos Dominicos, Fraternidad Católica de Hombres, ministerio de Vida Parroquial y Familiar, Sociedad de San Vicente de Paúl, y un próspero Ministerio Hispano con Misas semanales en español. Los frailes dominicos del Priorato también sirven a la Iglesia de Santa Rosa en Girard y al Centro Newman de la Universidad Estatal de Youngstown.",
+      "p3": "Servida por los frailes de la Provincia de San José — la provincia dominicana más antigua de las Américas, fundada en 1805 — la parroquia de Santo Domingo lleva adelante una tradición de 800 años de predicación, oración y servicio en el corazón del Valle de Mahoning.",
+      "entranceAlt": "La entrada parroquial con escudo dominicano",
+      "entranceCap": "La entrada parroquial hoy"
     }
   }
 }

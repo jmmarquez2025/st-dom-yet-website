@@ -706,38 +706,59 @@
     "visitChannel": "Visit Full Channel on YouTube"
   },
   "history": {
-    "sub": "Our Story",
+    "sub": "Est. 1923",
     "title": "A Century of Faith",
+    "heroDesc": "From a humble storeroom on Market Street to a Romanesque landmark on Youngstown's South Side — the story of St. Dominic Parish.",
     "founding": {
       "label": "The Founding",
       "title": "A Humble Beginning on Market Street",
-      "p1": "The Dominican Order of Preachers founded St. Dominic Parish on February 23, 1923, at the invitation of Cleveland Archbishop Joseph Schrembs. The first Mass was offered in a modest storeroom on Market Street — a humble beginning for what would become one of Youngstown's most enduring centers of faith.",
-      "p2": "Within just a few years, the small community of Dominican friars and their growing flock outgrew the storefront chapel. Plans were drawn for a permanent church that would serve the south side of Youngstown for generations to come.",
+      "p1": "The Dominican Order of Preachers founded St. Dominic Parish on February 23, 1923, at the invitation of Cleveland Archbishop Joseph Schrembs. The first Mass was celebrated in a modest storeroom at the corner of Market Street and Ravenwood Avenue — a humble beginning for what would become one of Youngstown's most enduring centers of faith.",
+      "p2": "By 1924, the growing community had outgrown the storefront. A combination church, school, and auditorium was erected on Auburndale Avenue, just off Southern Boulevard, to serve the families of the South Side. The school was staffed by Dominican Sisters from Akron, and by 1929 a new wing and auditorium were added to accommodate the surge of enrollment.",
+      "p3": "In 1939, a three-story convent was built to house the teaching sisters, and by the early 1950s the school had reached a peak enrollment of approximately 1,300 students. The parish was thriving — a reflection of Youngstown's booming steel industry and the waves of immigrant families who had settled on the South Side.",
       "storeAlt": "The storefront where the first Mass was said in 1923",
       "storeCap": "\"Where the first Mass was said\" — 1923"
     },
     "building": {
-      "label": "The Church",
-      "title": "A House of God in Limestone and Brick",
-      "p1": "The current church, a stunning Romanesque structure of limestone and brick, was dedicated on April 28, 1957, after years of planning and construction. A life-size statue of Saint Dominic stands over the entrance, welcoming all who come to worship.",
-      "p2": "The interior features soaring arched ceilings, magnificent stained glass rose windows, and richly painted murals depicting scenes from the life of the Blessed Virgin Mary and the Dominican saints. The church stands as a testament to the faith and sacrifice of the parishioners who built it.",
-      "constructAlt": "The church under construction in the 1950s",
-      "constructCap": "Arches rising — the church takes shape in the 1950s",
-      "exteriorAlt": "The church entrance decorated for Christmas",
-      "exteriorCap": "The completed church entrance with its carved tympanum"
+      "label": "Construction",
+      "title": "Building a House of God",
+      "p1": "Under the leadership of Fr. Joseph O'Connell, O.P., who served as pastor from 1942 to 1956, the parish embarked on an ambitious building program. A new priory for the Dominican friars was completed in 1952, and construction of the current church began shortly after — a monumental project that would take several years to complete.",
+      "p2": "The Romanesque structure rose from the earth in limestone and brick, its soaring arches taking shape through the labor of the parishioners and local craftsmen. The design features over eighteen semi-circular Romanesque arches, a hallmark of the medieval style that the Dominican Order has favored for centuries.",
+      "p3": "On Christmas 1955, even before the building was fully complete, the first Midnight Mass was celebrated in the new church — a moment of profound joy for a community that had waited decades for a permanent spiritual home.",
+      "foundationAlt": "Workers laying the church foundation in the early 1950s",
+      "foundationCap": "Laying the foundation — early 1950s",
+      "constructAlt": "The church interior with arches under construction",
+      "constructCap": "The Romanesque arches take shape",
+      "exteriorAlt": "Church exterior under construction with steel roof frame",
+      "exteriorCap": "The church exterior with steel roof trusses in place"
     },
-    "dominican": {
-      "title": "The Dominican Tradition",
-      "p1": "Saint Dominic de Guzman founded the Order of Preachers in the 13th century, devoted to rekindling the faith of Europe through preaching, teaching, and study. In the centuries since, Dominicans have spread around the world with their motto: \"Laudare, Benedicere, Praedicare\" — to praise, to bless, and to preach. St. Dominic Parish in Youngstown carries forward this 800-year tradition in the Diocese of Youngstown, served by friars of the Province of St. Joseph.",
-      "entranceAlt": "The original church entrance in black and white",
-      "entranceCap": "The parish entrance with the Dominican crest and carved tympanum"
+    "dedication": {
+      "label": "Dedication",
+      "title": "A Landmark Dedicated",
+      "p1": "The current church was officially dedicated on April 28, 1957. A life-size statue of Saint Dominic was positioned over the main entrance, welcoming all who come to worship. The following year, a new school building was opened with 14 classrooms, a library, gymnasium, and cafeteria — six additional classrooms were later added to meet demand.",
+      "p2": "The interior of the church is a masterwork of sacred art. Above the arches, twelve symbols derived from the titles given to the Blessed Virgin Mary in the Litany of Loreto are interspersed with black and white Dominican crosses. The sanctuary features a magnificent mural of the Madonna and Child surrounded by Dominican saints — a focal point that has inspired generations of worshippers.",
+      "completedAlt": "The completed church entrance decorated for Christmas",
+      "completedCap": "The completed church with its carved tympanum and rose window",
+      "altarboysAlt": "Altar boys posed before the Dominican mural, circa 1963",
+      "altarboysCap": "Altar boys before the sanctuary mural — c. 1963"
+    },
+    "growth": {
+      "label": "Change & Renewal",
+      "title": "Through Challenge and Transformation",
+      "p1": "The 1960s and 1970s brought sweeping changes to both the Church and the city. Following the Second Vatican Council, the parish renovated its worship space in 1978-1979 to reflect the new liturgical directives. The Dominican Sisters, who had faithfully staffed the school since the 1930s, departed in 1979.",
+      "p2": "The city of Youngstown was also transforming. On September 19, 1977 — a day known as \"Black Monday\" — the Youngstown Sheet and Tube Company abruptly closed its Campbell Works, laying off over 5,000 workers. Within a few years, every major steel plant in the valley had shut down. A mass exodus of families followed, and the South Side neighborhood around St. Dominic experienced severe blight, rising crime, and population loss.",
+      "p3": "Yet the parish endured. In 2009, Fr. Gregory Maturi, O.P. launched \"Operation Redemption,\" a comprehensive neighborhood renewal program that became a model for faith-based community development. Working with federal, state, and local partners, the parish demolished approximately 80 abandoned houses in a four-block radius, converted vacant lots to green spaces, and hosted monthly family events drawing hundreds of families. The school building, closed in 1999, was sold and reopened as a charter school serving approximately 400 children.",
+      "massAlt": "Concelebrated Mass at St. Dominic, 1979",
+      "massCap": "Concelebrated Mass following the Vatican II renovations — 1979"
     },
     "today": {
       "year": "Today",
       "label": "A Living Parish",
-      "title": "Continuing the Mission",
-      "p1": "Today, St. Dominic Parish maintains many community-focused ministries, including a Lay Dominican program, Catholic Men's Fellowship, Parish and Family Life ministry, and a vibrant Hispanic Ministry program with weekly Spanish Masses.",
-      "p2": "The parish remains a beacon of faith and service on Youngstown's south side, welcoming people from all walks of life into a community rooted in the Dominican charism of truth, prayer, and preaching. As we look ahead to our second century, we continue the mission that began in that humble storeroom in 1923."
+      "title": "Into Our Second Century",
+      "p1": "In May 2023, St. Dominic celebrated its centennial with a Mass celebrated by Bishop David Bonnar and a banquet attended by over 230 parishioners. One hundred years after that first Mass in a storeroom, the parish remains a beacon of faith on Youngstown's South Side — now serving over 700 registered households from across the Mahoning Valley.",
+      "p2": "The parish maintains a vibrant array of ministries rooted in the Dominican charism: a Lay Dominican program, Catholic Men's Fellowship, Parish and Family Life ministry, St. Vincent de Paul Society, and a thriving Hispanic Ministry with weekly Spanish Masses. Dominican friars from the Priory also serve St. Rose Church in Girard and the Youngstown State University Newman Center.",
+      "p3": "Served by the friars of the Province of St. Joseph — the oldest Dominican province in the Americas, founded in 1805 — St. Dominic Parish carries forward an 800-year tradition of preaching, prayer, and service in the heart of the Mahoning Valley.",
+      "entranceAlt": "The parish entrance with Dominican crest",
+      "entranceCap": "The parish entrance today"
     }
   }
 }
