@@ -94,7 +94,7 @@ export default function Staff() {
     return (
       <div
         className="flip-card"
-        style={{ perspective: "1000px", height: 340, cursor: "pointer" }}
+        style={{ perspective: "1000px", height: 380, cursor: "pointer" }}
         onClick={() => setFlipped(isFlipped ? null : person.id)}
         role="button"
         tabIndex={0}
@@ -129,7 +129,7 @@ export default function Staff() {
               boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
             }}
           >
-            <Avatar name={person.name} photo={person.photo} size={100} />
+            <Avatar name={person.name} photo={person.photo} size={130} />
             <h3 style={{ fontSize: 21, fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, marginTop: 18, marginBottom: 8, color: T.softBlack, lineHeight: 1.2 }}>
               {person.name}
             </h3>
@@ -198,7 +198,7 @@ export default function Staff() {
   const ResidenceCard = ({ person }) => (
     <div
       className="flip-card"
-      style={{ perspective: "1000px", height: 240, cursor: "pointer" }}
+      style={{ perspective: "1000px", height: 270, cursor: "pointer" }}
       onClick={() => setModal({ ...person, group: "residence" })}
       role="button"
       tabIndex={0}
@@ -221,7 +221,7 @@ export default function Staff() {
           transition: "all 0.3s ease",
         }}
       >
-        <Avatar name={person.name} size={72} dark />
+        <Avatar name={person.name} size={96} dark />
         <h3 style={{ fontSize: 17, fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, marginTop: 14, marginBottom: 6, color: "#fff", lineHeight: 1.2 }}>
           {person.name}
         </h3>
@@ -239,7 +239,7 @@ export default function Staff() {
   const StaffCard = ({ person }) => (
     <div
       className="flip-card"
-      style={{ perspective: "1000px", height: 240, cursor: "pointer" }}
+      style={{ perspective: "1000px", height: 270, cursor: "pointer" }}
       onClick={() => setModal({ ...person, group: "staff" })}
       role="button"
       tabIndex={0}
@@ -264,11 +264,11 @@ export default function Staff() {
         className="staff-plain-card"
       >
         <div style={{
-          width: 72, height: 72, borderRadius: "50%",
+          width: 96, height: 96, borderRadius: "50%",
           background: `linear-gradient(135deg, ${T.gold}, ${T.goldLight})`,
           color: T.softBlack,
           display: "flex", alignItems: "center", justifyContent: "center",
-          fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: 22,
+          fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, fontSize: 28,
           border: `2px solid ${T.stone}`, margin: "0 auto",
         }}>
           {initials(person.name)}
