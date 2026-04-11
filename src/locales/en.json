@@ -18,7 +18,8 @@
     "confirmation": "Confirmation",
     "marriage": "Marriage",
     "anointing": "Anointing of the Sick",
-    "funerals": "Funerals"
+    "funerals": "Funerals",
+    "register": "Register"
   },
   "footer": {
     "subtitle": "Catholic Parish · Youngstown, OH",
@@ -269,6 +270,8 @@
     "sub": "Your Journey",
     "heading": "Begin Your Journey of Faith",
     "desc": "Whether you've never been baptized, were baptized in another Christian tradition, or are a baptized Catholic who hasn't yet received Confirmation or the Eucharist — we're here to walk with you.",
+    "quote": "\"Thus faith comes from what is heard, and what is heard comes through the word of Christ.\"",
+    "quoteSrc": "— Romans 10:17 (NABRE)",
     "intro": {
       "sub": "Your Journey",
       "title": "Begin Your Journey of Faith",
@@ -426,6 +429,8 @@
     "sub": "Support Our Parish",
     "heading": "Your Generosity Makes a Difference",
     "desc": "Your financial support helps St. Dominic Parish continue its mission of preaching, teaching, and serving. Every gift — large or small — helps sustain our liturgies, ministries, and outreach programs.",
+    "quote": "\"Each must do as already determined, without sadness or compulsion, for God loves a cheerful giver.\"",
+    "quoteSrc": "— 2 Corinthians 9:7 (NABRE)",
     "onlineTitle": "Give Online with WeShare",
     "onlineDesc": "WeShare is a safe, convenient way to make one-time or recurring donations to St. Dominic Parish. You can give anytime from your computer or mobile device.",
     "weShareBtn": "Give Now via WeShare",
@@ -456,10 +461,14 @@
     "sub": "Gifts of Grace",
     "heading": "Encounter Christ Through the Sacraments",
     "desc": "The seven sacraments are at the heart of Catholic life. They are efficacious signs of grace, instituted by Christ and entrusted to the Church, by which divine life is dispensed to us. At St. Dominic Parish, we joyfully celebrate each sacrament.",
+    "quote": "\"The sacraments are efficacious signs of grace, instituted by Christ and entrusted to the Church, by which divine life is dispensed to us.\"",
+    "quoteSrc": "— Catechism of the Catholic Church, 1131",
     "learnMore": "Learn More",
     "contactUs": "Contact Us",
     "baptism": {
       "title": "Baptism",
+      "quote": "\"Go, therefore, and make disciples of all nations, baptizing them in the name of the Father, and of the Son, and of the holy Spirit.\"",
+      "quoteSrc": "— Matthew 28:19 (NABRE)",
       "brief": "The gateway to life in the Spirit. Through Baptism we are freed from sin and reborn as children of God.",
       "sub": "The Sacrament of",
       "heading": "New Life in Christ",
@@ -484,6 +493,8 @@
     },
     "firstCommunion": {
       "title": "First Holy Communion",
+      "quote": "\"I am the living bread that came down from heaven; whoever eats this bread will live forever.\"",
+      "quoteSrc": "— John 6:51 (NABRE)",
       "brief": "Children receive the Body and Blood of Christ for the first time, deepening their union with Jesus.",
       "sub": "The Sacrament of",
       "heading": "Receiving the Body of Christ",
@@ -508,6 +519,8 @@
     },
     "confirmation": {
       "title": "Confirmation",
+      "quote": "\"You will receive power when the holy Spirit comes upon you, and you will be my witnesses.\"",
+      "quoteSrc": "— Acts 1:8 (NABRE)",
       "brief": "The fullness of the Holy Spirit strengthens the baptized to spread and defend the faith.",
       "sub": "The Sacrament of",
       "heading": "Sealed with the Holy Spirit",
@@ -532,6 +545,8 @@
     },
     "marriage": {
       "title": "Marriage",
+      "quote": "\"That is why a man leaves his father and mother and clings to his wife, and the two of them become one body.\"",
+      "quoteSrc": "— Genesis 2:24 (NABRE)",
       "brief": "A man and a woman establish a lifelong partnership ordered to the good of the spouses and the procreation of children.",
       "sub": "The Sacrament of",
       "heading": "A Covenant of Love",
@@ -556,6 +571,8 @@
     },
     "anointing": {
       "title": "Anointing of the Sick",
+      "quote": "\"Is anyone among you sick? He should summon the presbyters of the church, and they should pray over him and anoint him with oil in the name of the Lord.\"",
+      "quoteSrc": "— James 5:14 (NABRE)",
       "brief": "Comfort and strength from God for those who are seriously ill, facing surgery, or nearing the end of life.",
       "sub": "The Sacrament of",
       "heading": "Healing and Comfort",
@@ -572,6 +589,8 @@
     },
     "funerals": {
       "title": "Catholic Funerals",
+      "quote": "\"I am the resurrection and the life; whoever believes in me, even if he dies, will live.\"",
+      "quoteSrc": "— John 11:25 (NABRE)",
       "brief": "The Church accompanies the deceased and their loved ones with prayer, commending the soul to God's mercy.",
       "sub": "Christian Burial",
       "heading": "Hope in the Resurrection",
@@ -596,6 +615,8 @@
     }
   },
   "visit": {
+    "quote": "\"Do not neglect hospitality, for through it some have unknowingly entertained angels.\"",
+    "quoteSrc": "— Hebrews 13:2 (NABRE)",
     "hero": {
       "sub": "Your First Visit",
       "title": "Plan Your Visit",
@@ -760,5 +781,45 @@
       "aerialAlt": "Aerial view of the St. Dominic parish campus today",
       "aerialCap": "The St. Dominic campus today — over 100 years of faith on Youngstown's South Side"
     }
+  },
+  "register": {
+    "title": "Parish Registration",
+    "desc": "Welcome to St. Dominic Parish! Please complete the form below to register as a parishioner. We look forward to welcoming you into our community.",
+    "headOfHousehold": "Head of Household",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "addSpouse": "Add Spouse",
+    "removeSpouse": "Remove Spouse",
+    "spouse": "Spouse",
+    "contactInfo": "Contact Information",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Street Address",
+    "city": "City",
+    "state": "State",
+    "zip": "ZIP Code",
+    "parishDetails": "Parish Details",
+    "previousParish": "Previous Parish",
+    "previousParishHint": "Name and city of your previous parish (if any)",
+    "children": "Number of Children",
+    "sacramentsReceived": "Sacraments Received",
+    "sac_baptism": "Baptism",
+    "sac_firstCommunion": "First Communion",
+    "sac_confirmation": "Confirmation",
+    "sac_marriage": "Marriage",
+    "heardAbout": "How did you hear about us?",
+    "selectOne": "Select one...",
+    "heard_word": "Word of Mouth",
+    "heard_website": "Website",
+    "heard_social": "Social Media",
+    "heard_drove": "Drove By",
+    "heard_other": "Other",
+    "notes": "Additional Notes",
+    "notesHint": "Any additional information you'd like to share...",
+    "submit": "Submit Registration",
+    "sending": "Submitting...",
+    "error": "Something went wrong. Please try again or call the parish office.",
+    "successTitle": "Registration Received!",
+    "successDesc": "Thank you for registering at St. Dominic Parish. We will be in touch soon to welcome you personally."
   }
 }

@@ -39,6 +39,7 @@ const NAV_ITEMS = [
     key: "getInvolved",
     children: [
       { key: "getInvolved", to: "/get-involved" },
+      { key: "register", to: "/register" },
       { key: "bulletin", to: "/bulletin" },
       { key: "becomingCatholic", to: "/becoming-catholic" },
     ],

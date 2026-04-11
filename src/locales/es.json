@@ -18,7 +18,8 @@
     "confirmation": "Confirmación",
     "marriage": "Matrimonio",
     "anointing": "Unción de los Enfermos",
-    "funerals": "Funerales"
+    "funerals": "Funerales",
+    "register": "Registrarse"
   },
   "footer": {
     "subtitle": "Parroquia Católica · Youngstown, OH",
@@ -269,6 +270,8 @@
     "sub": "Su Camino",
     "heading": "Comience Su Camino de Fe",
     "desc": "Ya sea que nunca haya sido bautizado, fue bautizado en otra tradición cristiana, o es un católico bautizado que aún no ha recibido la Confirmación o la Eucaristía — estamos aquí para caminar con usted.",
+    "quote": "\"La fe viene de la predicación, y la predicación se realiza en virtud de la palabra de Cristo.\"",
+    "quoteSrc": "— Romanos 10:17",
     "intro": {
       "sub": "Su Camino",
       "title": "Comience Su Camino de Fe",
@@ -427,6 +430,8 @@
     "sub": "Apoye a Nuestra Parroquia",
     "heading": "Su Generosidad Hace la Diferencia",
     "desc": "Su apoyo financiero ayuda a la Parroquia Santo Domingo a continuar su misión de predicar, enseñar y servir. Cada donación — grande o pequeña — ayuda a sostener nuestras liturgias, ministerios y programas de alcance.",
+    "quote": "\"Cada uno dé según lo que haya decidido en su corazón, no de mala gana ni por obligación, porque Dios ama al que da con alegría.\"",
+    "quoteSrc": "— 2 Corintios 9:7",
     "onlineTitle": "Done en Línea con WeShare",
     "onlineDesc": "WeShare es una forma segura y conveniente de hacer donaciones únicas o recurrentes a la Parroquia Santo Domingo. Puede donar en cualquier momento desde su computadora o dispositivo móvil.",
     "weShareBtn": "Done Ahora por WeShare",
@@ -457,10 +462,14 @@
     "sub": "Dones de Gracia",
     "heading": "Encuentre a Cristo a Través de los Sacramentos",
     "desc": "Los siete sacramentos están en el corazón de la vida católica. Son signos eficaces de gracia, instituidos por Cristo y confiados a la Iglesia, por los cuales la vida divina se nos dispensa. En la Parroquia Santo Domingo, celebramos con alegría cada sacramento.",
+    "quote": "\"Los sacramentos son signos eficaces de la gracia, instituidos por Cristo y confiados a la Iglesia, por los cuales nos es dispensada la vida divina.\"",
+    "quoteSrc": "— Catecismo de la Iglesia Católica, 1131",
     "learnMore": "Más Información",
     "contactUs": "Contáctenos",
     "baptism": {
       "title": "Bautismo",
+      "quote": "\"Vayan, pues, y hagan discípulos a todas las naciones, bautizándolos en el nombre del Padre, y del Hijo, y del Espíritu Santo.\"",
+      "quoteSrc": "— Mateo 28:19",
       "brief": "La puerta a la vida en el Espíritu. A través del Bautismo somos liberados del pecado y renacemos como hijos de Dios.",
       "sub": "El Sacramento del",
       "heading": "Nueva Vida en Cristo",
@@ -485,6 +494,8 @@
     },
     "firstCommunion": {
       "title": "Primera Comunión",
+      "quote": "\"Yo soy el pan vivo que ha bajado del cielo; el que coma de este pan vivirá para siempre.\"",
+      "quoteSrc": "— Juan 6:51",
       "brief": "Los niños reciben el Cuerpo y la Sangre de Cristo por primera vez, profundizando su unión con Jesús.",
       "sub": "El Sacramento del",
       "heading": "Recibiendo el Cuerpo de Cristo",
@@ -509,6 +520,8 @@
     },
     "confirmation": {
       "title": "Confirmación",
+      "quote": "\"Recibirán la fuerza del Espíritu Santo, que vendrá sobre ustedes, y serán mis testigos.\"",
+      "quoteSrc": "— Hechos 1:8",
       "brief": "La plenitud del Espíritu Santo fortalece a los bautizados para difundir y defender la fe.",
       "sub": "El Sacramento del",
       "heading": "Sellado con el Espíritu Santo",
@@ -533,6 +546,8 @@
     },
     "marriage": {
       "title": "Matrimonio",
+      "quote": "\"Por eso deja el hombre a su padre y a su madre, se une a su mujer, y se hacen una sola carne.\"",
+      "quoteSrc": "— Génesis 2:24",
       "brief": "Un hombre y una mujer establecen una asociación de por vida ordenada al bien de los esposos y la procreación de los hijos.",
       "sub": "El Sacramento del",
       "heading": "Un Pacto de Amor",
@@ -557,6 +572,8 @@
     },
     "anointing": {
       "title": "Unción de los Enfermos",
+      "quote": "\"¿Está enfermo alguno de ustedes? Llame a los presbíteros de la Iglesia, que oren sobre él y lo unjan con óleo en el nombre del Señor.\"",
+      "quoteSrc": "— Santiago 5:14",
       "brief": "Consuelo y fortaleza de Dios para quienes están gravemente enfermos, enfrentan cirugía o se acercan al final de la vida.",
       "sub": "El Sacramento del",
       "heading": "Sanación y Consuelo",
@@ -573,6 +590,8 @@
     },
     "funerals": {
       "title": "Funerales Católicos",
+      "quote": "\"Yo soy la resurrección y la vida; el que cree en mí, aunque haya muerto, vivirá.\"",
+      "quoteSrc": "— Juan 11:25",
       "brief": "La Iglesia acompaña al difunto y a sus seres queridos con oración, encomendando el alma a la misericordia de Dios.",
       "sub": "Sepultura Cristiana",
       "heading": "Esperanza en la Resurrección",
@@ -597,6 +616,8 @@
     }
   },
   "visit": {
+    "quote": "\"No se olviden de la hospitalidad, pues gracias a ella algunos, sin saberlo, hospedaron ángeles.\"",
+    "quoteSrc": "— Hebreos 13:2",
     "hero": {
       "sub": "Su Primera Visita",
       "title": "Planifique Su Visita",
@@ -761,5 +782,45 @@
       "aerialAlt": "Vista aérea del campus parroquial de Santo Domingo hoy",
       "aerialCap": "El campus de Santo Domingo hoy — más de 100 años de fe en el lado sur de Youngstown"
     }
+  },
+  "register": {
+    "title": "Registro Parroquial",
+    "desc": "¡Bienvenido a la parroquia de Santo Domingo! Por favor complete el formulario a continuación para registrarse como feligrés. Esperamos darle la bienvenida a nuestra comunidad.",
+    "headOfHousehold": "Jefe de Familia",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "addSpouse": "Agregar Cónyuge",
+    "removeSpouse": "Quitar Cónyuge",
+    "spouse": "Cónyuge",
+    "contactInfo": "Información de Contacto",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "address": "Dirección",
+    "city": "Ciudad",
+    "state": "Estado",
+    "zip": "Código Postal",
+    "parishDetails": "Detalles Parroquiales",
+    "previousParish": "Parroquia Anterior",
+    "previousParishHint": "Nombre y ciudad de su parroquia anterior (si aplica)",
+    "children": "Número de Hijos",
+    "sacramentsReceived": "Sacramentos Recibidos",
+    "sac_baptism": "Bautismo",
+    "sac_firstCommunion": "Primera Comunión",
+    "sac_confirmation": "Confirmación",
+    "sac_marriage": "Matrimonio",
+    "heardAbout": "¿Cómo nos conoció?",
+    "selectOne": "Seleccione uno...",
+    "heard_word": "Recomendación",
+    "heard_website": "Sitio Web",
+    "heard_social": "Redes Sociales",
+    "heard_drove": "Pasé por aquí",
+    "heard_other": "Otro",
+    "notes": "Notas Adicionales",
+    "notesHint": "Cualquier información adicional que desee compartir...",
+    "submit": "Enviar Registro",
+    "sending": "Enviando...",
+    "error": "Algo salió mal. Por favor intente de nuevo o llame a la oficina parroquial.",
+    "successTitle": "¡Registro Recibido!",
+    "successDesc": "Gracias por registrarse en la parroquia de Santo Domingo. Nos comunicaremos pronto para darle la bienvenida personalmente."
   }
 }

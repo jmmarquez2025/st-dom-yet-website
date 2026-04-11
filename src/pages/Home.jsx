@@ -432,7 +432,7 @@ export default function Home() {
               {t("home.involved.desc")}
             </p>
             <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <Btn variant="gold" onClick={() => navigate("/get-involved")}>
+              <Btn variant="gold" onClick={() => navigate("/register")}>
                 {t("home.involved.ctaRegister")}
               </Btn>
               <Btn variant="light" onClick={() => navigate("/bulletin")}>

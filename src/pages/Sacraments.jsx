@@ -27,6 +27,34 @@ export default function Sacraments() {
       <Section bg={T.warmWhite}>
         <FadeSection>
           <SectionTitle sub={t("sacraments.sub")}>{t("sacraments.heading")}</SectionTitle>
+          <blockquote
+            style={{
+              fontSize: "clamp(17px, 2.5vw, 21px)",
+              fontFamily: "'Cormorant Garamond', serif",
+              fontStyle: "italic",
+              lineHeight: 1.6,
+              color: T.warmGray,
+              borderLeft: `3px solid ${T.gold}`,
+              paddingLeft: 20,
+              margin: "0 auto 28px",
+              maxWidth: 640,
+            }}
+          >
+            {t("sacraments.quote")}
+            <cite
+              style={{
+                display: "block",
+                fontSize: 12,
+                letterSpacing: 2,
+                textTransform: "uppercase",
+                color: T.gold,
+                fontStyle: "normal",
+                marginTop: 10,
+              }}
+            >
+              {t("sacraments.quoteSrc")}
+            </cite>
+          </blockquote>
           <p style={{ fontSize: 16, color: T.warmGray, lineHeight: 1.9, textAlign: "center", maxWidth: 700, margin: "0 auto 48px" }}>
             {t("sacraments.desc")}
           </p>
