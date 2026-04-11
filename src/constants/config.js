@@ -48,7 +48,7 @@ export const CONFIG = {
   // Flipbook bulletin embed URL
   // Paste the share/embed URL from your flipbook service (FlipHTML5, Heyzine, Issuu, etc.)
   // Example: "https://online.fliphtml5.com/abcde/fghij/"
-  bulletinUrl: "",
+  bulletinUrl: "https://online.fliphtml5.com/stpatrickchurch/2026-04-05/",
 
   // Parish info
   phone: "(330) 783-1900",

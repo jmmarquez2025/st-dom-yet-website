@@ -120,7 +120,6 @@ export default function Bulletin() {
                 {/* Flipbook container */}
                 <div
                   style={{
-                    position: "relative",
                     borderRadius: 12,
                     overflow: "hidden",
                     boxShadow: "0 8px 40px rgba(0,0,0,0.12)",
@@ -128,53 +127,68 @@ export default function Bulletin() {
                     background: T.cream,
                   }}
                 >
-                  {/* Loading skeleton */}
-                  {loading && (
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        gap: 16,
-                        background: T.cream,
-                        zIndex: 2,
-                      }}
-                    >
-                      <style>{`
-                        @keyframes bulletinPulse {
-                          0%, 100% { opacity: 0.4; }
-                          50% { opacity: 1; }
-                        }
-                      `}</style>
-                      <Icon name="Newspaper" size={48} color={T.stone} />
+                  {/* Responsive aspect-ratio container */}
+                  <div
+                    style={{
+                      position: "relative",
+                      paddingTop: "max(60%, 324px)",
+                      width: "100%",
+                      height: 0,
+                    }}
+                  >
+                    {/* Loading skeleton */}
+                    {loading && (
                       <div
                         style={{
-                          fontSize: 14,
-                          color: T.warmGray,
-                          letterSpacing: 1,
-                          animation: "bulletinPulse 1.5s ease infinite",
+                          position: "absolute",
+                          inset: 0,
+                          display: "flex",
+                          flexDirection: "column",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          gap: 16,
+                          background: T.cream,
+                          zIndex: 2,
                         }}
                       >
-                        {t("bulletin.loading")}
+                        <style>{`
+                          @keyframes bulletinPulse {
+                            0%, 100% { opacity: 0.4; }
+                            50% { opacity: 1; }
+                          }
+                        `}</style>
+                        <Icon name="Newspaper" size={48} color={T.stone} />
+                        <div
+                          style={{
+                            fontSize: 14,
+                            color: T.warmGray,
+                            letterSpacing: 1,
+                            animation: "bulletinPulse 1.5s ease infinite",
+                          }}
+                        >
+                          {t("bulletin.loading")}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
 
-                  <iframe
-                    src={CONFIG.bulletinUrl}
-                    onLoad={() => setLoading(false)}
-                    style={{
-                      width: "100%",
-                      height: "clamp(500px, 80vh, 820px)",
-                      border: "none",
-                      display: "block",
-                    }}
-                    allowFullScreen
-                    title={t("bulletin.heading")}
-                  />
+                    <iframe
+                      src={CONFIG.bulletinUrl}
+                      onLoad={() => setLoading(false)}
+                      seamless="seamless"
+                      scrolling="no"
+                      style={{
+                        position: "absolute",
+                        width: "100%",
+                        height: "100%",
+                        left: 0,
+                        top: 0,
+                        border: "none",
+                      }}
+                      allowFullScreen
+                      allowTransparency="true"
+                      title={t("bulletin.heading")}
+                    />
+                  </div>
                 </div>
 
                 {/* Fullscreen link */}
