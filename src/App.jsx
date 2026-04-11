@@ -25,31 +25,10 @@ const Anointing = lazy(() => import("./pages/sacraments/Anointing"));
 const Funerals = lazy(() => import("./pages/sacraments/Funerals"));
 const Visit = lazy(() => import("./pages/Visit"));
 
-const PAGE_TITLES = {
-  "/": "St. Dominic Catholic Parish — Youngstown, OH",
-  "/mass-times": "Mass & Confession Times — St. Dominic Parish",
-  "/about": "About Our Parish — St. Dominic Parish",
-  "/staff": "Priests & Staff — St. Dominic Parish",
-  "/bulletin": "Weekly Bulletin — St. Dominic Parish",
-  "/becoming-catholic": "Becoming Catholic — St. Dominic Parish",
-  "/get-involved": "Get Involved — St. Dominic Parish",
-  "/contact": "Contact Us — St. Dominic Parish",
-  "/give": "Online Giving — St. Dominic Parish",
-  "/sacraments": "The Sacraments — St. Dominic Parish",
-  "/sacraments/baptism": "Baptism — St. Dominic Parish",
-  "/sacraments/first-communion": "First Holy Communion — St. Dominic Parish",
-  "/sacraments/confirmation": "Confirmation — St. Dominic Parish",
-  "/sacraments/marriage": "Marriage — St. Dominic Parish",
-  "/sacraments/anointing": "Anointing of the Sick — St. Dominic Parish",
-  "/sacraments/funerals": "Catholic Funerals — St. Dominic Parish",
-  "/visit": "Plan Your Visit — St. Dominic Parish",
-};
-
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo({ top: 0 });
-    document.title = PAGE_TITLES[pathname] || PAGE_TITLES["/"];
   }, [pathname]);
   return null;
 }

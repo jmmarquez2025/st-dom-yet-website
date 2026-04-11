@@ -8,6 +8,7 @@ import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
 import TextReveal from "../components/TextReveal";
 import { useMinistries } from "../cms/hooks";
+import Seo from "../components/Seo";
 
 /* ── Bento card sizes: featured ministries get span-2 ── */
 const FEATURED = new Set(["hispanic", "liturgical"]);
@@ -31,6 +32,7 @@ export default function GetInvolved() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Get Involved" description="Explore ministries and volunteer opportunities at St. Dominic Parish — Hispanic Ministry, music, religious education, and more." />
       {/* ════ Hero ════ */}
       <section
         style={{

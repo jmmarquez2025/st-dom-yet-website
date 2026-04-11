@@ -1,18 +1,18 @@
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
+import Seo from "../components/Seo";
 
 export default function Bulletin() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Weekly Bulletin" description="Read the weekly parish bulletin from St. Dominic Catholic Parish with announcements, Mass intentions, and ministry news." />
       <PageHeader title={t("bulletin.title")} />
 
       <Section>

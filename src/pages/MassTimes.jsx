@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
@@ -7,6 +6,7 @@ import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
 import { useSchedule } from "../cms/hooks";
+import Seo from "../components/Seo";
 
 /* ── schedule card ── */
 function ScheduleBlock({ title, rows, accent = T.burgundy, t }) {
@@ -54,12 +54,12 @@ function ScheduleBlock({ title, rows, accent = T.burgundy, t }) {
 
 export default function MassTimes() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   const { data: schedule } = useSchedule();
   const { sundayMass, dailyMass, confession, adoration } = schedule;
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Mass & Confession Times" description="Sunday and daily Mass schedule, Confession times, and Eucharistic Adoration hours at St. Dominic Parish, Youngstown OH." />
       <PageHeader title={t("massTimes.title")} />
 
       <Section>

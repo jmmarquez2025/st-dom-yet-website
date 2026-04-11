@@ -1,4 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="64" fill="#6B1D2A"/>
-  <text x="256" y="320" text-anchor="middle" fill="#C5A55A" font-family="serif" font-weight="700" font-size="220">SD</text>
+  <!-- Burgundy circle background -->
+  <circle cx="256" cy="256" r="256" fill="#6B1D2A"/>
+  <!-- Decorative inner ring -->
+  <circle cx="256" cy="256" r="224" fill="none" stroke="#C5A55A" stroke-width="2" opacity="0.3"/>
+  <!-- Gold stylized cross - vertical beam -->
+  <rect x="232" y="80" width="48" height="300" rx="8" fill="#C5A55A"/>
+  <!-- Gold stylized cross - horizontal beam -->
+  <rect x="140" y="164" width="232" height="48" rx="8" fill="#C5A55A"/>
+  <!-- Subtle cross inner detail - vertical -->
+  <rect x="244" y="92" width="24" height="276" rx="4" fill="#6B1D2A" opacity="0.12"/>
+  <!-- Subtle cross inner detail - horizontal -->
+  <rect x="152" y="176" width="208" height="24" rx="4" fill="#6B1D2A" opacity="0.12"/>
+  <!-- SD monogram below cross -->
+  <text x="256" y="456" text-anchor="middle" fill="#C5A55A" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="56" letter-spacing="6">SD</text>
+  <!-- Small decorative dots flanking monogram -->
+  <circle cx="184" cy="444" r="4" fill="#C5A55A" opacity="0.5"/>
+  <circle cx="328" cy="444" r="4" fill="#C5A55A" opacity="0.5"/>
 </svg>

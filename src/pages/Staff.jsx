@@ -1,5 +1,4 @@
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
@@ -8,15 +7,16 @@ import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
 import { initials } from "../data/staff";
 import { useStaff } from "../cms/hooks";
+import Seo from "../components/Seo";
 
 export default function Staff() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   const { data: staffData } = useStaff();
   const { friars, staff } = staffData;
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Priests & Staff" description="Meet the Dominican Friars and parish staff serving the community at St. Dominic Catholic Parish in Youngstown, Ohio." />
       <PageHeader title={t("staff.title")} />
 
       {/* ════ Friars ════ */}

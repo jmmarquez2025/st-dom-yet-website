@@ -1,12 +1,13 @@
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
-import PageHeader from "../components/PageHeader";
 import TextReveal from "../components/TextReveal";
+import { useAnnouncements } from "../cms/hooks";
+import Seo from "../components/Seo";
 
 /* ── cross SVG for pattern overlays ── */
 const CrossPattern = ({ opacity = 0.04 }) => (
@@ -26,9 +27,11 @@ const CrossPattern = ({ opacity = 0.04 }) => (
 export default function Home() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const { data: announcements } = useAnnouncements();
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo description="St. Dominic Catholic Parish in Youngstown, Ohio. Served by the Dominican Friars since 1923. Mass times, sacraments, and community life." />
       {/* ════ Hero ════ */}
       <section
         style={{
@@ -357,6 +360,71 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ════ Announcements ════ */}
+      {announcements.length > 0 && (
+        <Section>
+          <FadeSection>
+            <SectionTitle sub={t("home.announcements.sub")}>
+              {t("home.announcements.title")}
+            </SectionTitle>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                gap: 24,
+                marginBottom: 32,
+              }}
+            >
+              {announcements.slice(0, 3).map((a, i) => (
+                <div
+                  key={a.title || i}
+                  className="glass-card"
+                  style={{ padding: 28 }}
+                >
+                  {a.date && (
+                    <div
+                      style={{
+                        display: "inline-block",
+                        fontSize: 11,
+                        fontWeight: 600,
+                        letterSpacing: 1.5,
+                        textTransform: "uppercase",
+                        color: T.burgundy,
+                        background: `${T.burgundy}12`,
+                        padding: "4px 10px",
+                        borderRadius: 3,
+                        marginBottom: 12,
+                      }}
+                    >
+                      {t("home.announcements.upcoming")} · {new Date(a.date + "T00:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })}
+                    </div>
+                  )}
+                  <h3
+                    style={{
+                      fontSize: 19,
+                      fontFamily: "'Cormorant Garamond', serif",
+                      fontWeight: 600,
+                      marginBottom: 8,
+                      color: T.softBlack,
+                    }}
+                  >
+                    {a.title}
+                  </h3>
+                  <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.7 }}>
+                    {a.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <Btn variant="primary" onClick={() => navigate("/bulletin")}>
+                {t("home.announcements.ctaBulletin")}
+              </Btn>
+            </div>
+          </FadeSection>
+        </Section>
+      )}
+
       {/* ════ Quick Info Cards ════ */}
       <Section bg={T.cream}>
         <FadeSection>
@@ -369,7 +437,7 @@ export default function Home() {
           >
             {[
               { key: "visit", icon: "🏛️", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>{t("home.cards.visitDesc")}</p> },
-              { key: "call", icon: "📞", content: <><p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}><a href={CONFIG.phoneLink} className="contact-link">{CONFIG.phone}</a></p><p style={{ fontSize: 14, color: T.warmGray }}>{t("home.cards.fax")}: {CONFIG.fax}</p></> },
+              { key: "call", icon: "📞", content: <><p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}><a href={CONFIG.phoneLink} className="contact-link">{CONFIG.phone}</a></p></> },
               { key: "hours", icon: "🕐", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}>{t("home.cards.hoursDesc")}</p> },
               { key: "email", icon: "✉️", content: <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.6 }}><a href={`mailto:${CONFIG.email}`} className="contact-link">{CONFIG.email}</a></p> },
             ].map((card) => (

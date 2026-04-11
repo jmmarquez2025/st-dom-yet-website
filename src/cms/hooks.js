@@ -3,6 +3,7 @@ import { fetchStaff, fetchSchedule, fetchMinistries, fetchAnnouncements } from "
 import { friars as staticFriars, staff as staticStaff } from "../data/staff";
 import { sundayMass, dailyMass, confession, adoration } from "../data/schedule";
 import { ministries as staticMinistries } from "../data/ministries";
+import { announcements as staticAnnouncements } from "../data/announcements";
 
 /**
  * Generic CMS hook. Tries the CMS fetch first, falls back to static data.
@@ -38,7 +39,7 @@ export function useMinistries() {
   return useCmsData(fetchMinistries, staticMinistries);
 }
 
-/** Announcements (empty fallback — no static announcements) */
+/** Announcements — falls back to static sample data */
 export function useAnnouncements() {
-  return useCmsData(fetchAnnouncements, []);
+  return useCmsData(fetchAnnouncements, staticAnnouncements);
 }

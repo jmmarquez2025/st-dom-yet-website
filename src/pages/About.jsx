@@ -1,18 +1,18 @@
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import TextReveal from "../components/TextReveal";
+import Seo from "../components/Seo";
 
 export default function About() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="About Our Parish" description="Learn about the history of St. Dominic Parish, founded by the Dominican Friars in 1923 in Youngstown, Ohio." />
       {/* ════ Hero Banner ════ */}
       <section
         style={{
@@ -126,7 +126,7 @@ export default function About() {
                     paddingLeft: 20,
                   }}
                 >
-                  "To praise, to bless, and to preach."
+                  {t("about.history.motto")}
                 </blockquote>
                 <cite
                   style={{
@@ -140,7 +140,7 @@ export default function About() {
                     paddingLeft: 24,
                   }}
                 >
-                  — Dominican Order Motto
+                  {t("about.history.mottoSrc")}
                 </cite>
               </div>
             </div>
@@ -251,7 +251,7 @@ export default function About() {
                 marginBottom: 16,
               }}
             >
-              Romanesque
+              {t("about.architecture.style")}
             </div>
             <TextReveal
               as="h3"

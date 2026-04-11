@@ -7,6 +7,13 @@
     <meta property="og:title" content="St. Dominic Catholic Parish" />
     <meta property="og:description" content="Served by the Dominican Friars of the Province of St. Joseph. Youngstown, Ohio since 1923." />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="St. Dominic Catholic Parish" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_US" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="St. Dominic Catholic Parish" />
+    <meta name="twitter:description" content="Served by the Dominican Friars of the Province of St. Joseph. Youngstown, Ohio since 1923." />
+    <link rel="canonical" href="https://jmmarquez2025.github.io/st-dom-yet-website/" />
     <title>St. Dominic Catholic Parish — Youngstown, OH</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <!-- PWA -->
@@ -33,14 +40,65 @@
         "postalCode": "44507",
         "addressCountry": "US"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.0855,
+        "longitude": -80.6549
+      },
       "telephone": "+1-330-783-1900",
+      "faxNumber": "+1-330-783-2396",
       "email": "office@saintdominic.org",
-      "url": "https://saintdominic.org",
+      "url": "https://jmmarquez2025.github.io/st-dom-yet-website/",
       "foundingDate": "1923-02-23",
-      "description": "Catholic parish served by the Dominican Friars of the Province of St. Joseph since 1923.",
+      "description": "Catholic parish served by the Dominican Friars of the Province of St. Joseph since 1923. Located on Youngstown's south side, offering daily Mass, Confession, Adoration, and vibrant community ministries.",
+      "inLanguage": ["en", "es"],
+      "memberOf": {
+        "@type": "Organization",
+        "name": "Diocese of Youngstown"
+      },
       "openingHoursSpecification": [
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "13:30" }
-      ]
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "13:30", "description": "Parish Office" }
+      ],
+      "event": [
+        {
+          "@type": "Event",
+          "name": "Sunday Mass",
+          "startDate": "2026-04-12T08:00:00-04:00",
+          "eventSchedule": {
+            "@type": "Schedule",
+            "byDay": "https://schema.org/Sunday",
+            "startTime": "08:00",
+            "repeatFrequency": "P1W"
+          },
+          "location": { "@type": "Place", "name": "St. Dominic Catholic Parish" }
+        },
+        {
+          "@type": "Event",
+          "name": "Sunday Mass",
+          "startDate": "2026-04-12T10:30:00-04:00",
+          "eventSchedule": {
+            "@type": "Schedule",
+            "byDay": "https://schema.org/Sunday",
+            "startTime": "10:30",
+            "repeatFrequency": "P1W"
+          },
+          "location": { "@type": "Place", "name": "St. Dominic Catholic Parish" }
+        },
+        {
+          "@type": "Event",
+          "name": "Misa en Español",
+          "startDate": "2026-04-12T12:30:00-04:00",
+          "eventSchedule": {
+            "@type": "Schedule",
+            "byDay": "https://schema.org/Sunday",
+            "startTime": "12:30",
+            "repeatFrequency": "P1W"
+          },
+          "inLanguage": "es",
+          "location": { "@type": "Place", "name": "St. Dominic Catholic Parish" }
+        }
+      ],
+      "sameAs": []
     }
     </script>
   </head>

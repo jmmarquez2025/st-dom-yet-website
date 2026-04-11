@@ -6,6 +6,7 @@ import { Section, SectionTitle } from "../../components/Section";
 import FadeSection from "../../components/FadeSection";
 import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
+import Seo from "../../components/Seo";
 
 export default function Baptism() {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ export default function Baptism() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Baptism" description="Information about the Sacrament of Baptism at St. Dominic Parish. Requirements, preparation, and how to schedule." />
       <PageHeader title={t("sacraments.baptism.title")} />
 
       <Section bg={T.warmWhite}>

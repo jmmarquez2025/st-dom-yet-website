@@ -6,6 +6,7 @@ import { Section, SectionTitle } from "../../components/Section";
 import FadeSection from "../../components/FadeSection";
 import Btn from "../../components/Btn";
 import PageHeader from "../../components/PageHeader";
+import Seo from "../../components/Seo";
 
 export default function Funerals() {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ export default function Funerals() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Catholic Funerals" description="Catholic funeral services at St. Dominic Parish. Vigil, Funeral Mass, and Rite of Committal information." />
       <PageHeader title={t("sacraments.funerals.title")} />
 
       <Section bg={T.warmWhite}>

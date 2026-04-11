@@ -1,15 +1,14 @@
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
 import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
+import Seo from "../components/Seo";
 
 export default function BecomingCatholic() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
 
   const cards = [
     { key: "new" },
@@ -19,6 +18,7 @@ export default function BecomingCatholic() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Becoming Catholic" description="Interested in becoming Catholic? Learn about RCIA and the journey of faith at St. Dominic Parish, Youngstown OH." />
       <PageHeader title={t("becomingCatholic.title")} />
 
       {/* ════ Intro ════ */}

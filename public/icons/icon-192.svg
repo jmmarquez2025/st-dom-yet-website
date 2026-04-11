@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="64" fill="#6B1D2A"/>
-  <text x="256" y="320" text-anchor="middle" fill="#C5A55A" font-family="serif" font-weight="700" font-size="220">SD</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <!-- Burgundy circle background -->
+  <circle cx="96" cy="96" r="96" fill="#6B1D2A"/>
+  <!-- Subtle inner ring for depth -->
+  <circle cx="96" cy="96" r="84" fill="none" stroke="#C5A55A" stroke-width="1.5" opacity="0.35"/>
+  <!-- Gold stylized cross -->
+  <rect x="88" y="36" width="16" height="120" rx="4" fill="#C5A55A"/>
+  <rect x="56" y="68" width="80" height="16" rx="4" fill="#C5A55A"/>
+  <!-- SD monogram below cross -->
+  <text x="96" y="174" text-anchor="middle" fill="#C5A55A" font-family="Georgia,serif" font-weight="700" font-size="24" letter-spacing="3">SD</text>
 </svg>

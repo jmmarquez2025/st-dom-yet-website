@@ -5,6 +5,7 @@ import { CONFIG } from "../constants/config";
 import { Section } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
+import Seo from "../components/Seo";
 
 export default function Contact() {
   const { t } = useTranslation();
@@ -45,6 +46,7 @@ export default function Contact() {
 
   return (
     <div style={{ paddingTop: 76 }}>
+      <Seo title="Contact Us" description="Contact St. Dominic Catholic Parish in Youngstown, Ohio. Phone, email, office hours, and directions to 77 East Lucius Avenue." />
       <PageHeader title={t("contact.title")} />
 
       <Section bg={T.cream}>
