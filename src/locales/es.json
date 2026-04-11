@@ -68,6 +68,60 @@
       "ctaBulletin": "Ver Boletín Completo",
       "upcoming": "Próximamente"
     },
+    "nextMass": {
+      "label": "Próxima Misa",
+      "days": "Días",
+      "hours": "Hrs",
+      "min": "Min",
+      "sec": "Seg"
+    },
+    "stats": {
+      "years": "Años de Fe",
+      "masses": "Misas Cada Domingo",
+      "ministries": "Ministerios Activos",
+      "languages": "Idiomas"
+    },
+    "quotes": {
+      "label": "Reflexión del Día",
+      "q1": "La verdad no cambia según nuestra capacidad para digerirla.",
+      "s1": "Flannery O'Connor",
+      "q2": "El hombre que gobierna sus pasiones es dueño del mundo. Debemos mandarlas o ser esclavizados por ellas.",
+      "s2": "Santo Domingo de Guzmán",
+      "q3": "El alma que camina en amor ni cansa a otros ni se cansa.",
+      "s3": "San Juan de la Cruz",
+      "q4": "Para quien tiene fe, ninguna explicación es necesaria. Para quien no tiene fe, ninguna explicación es posible.",
+      "s4": "Santo Tomás de Aquino",
+      "q5": "No tengan miedo. No se conformen con la mediocridad. Remen mar adentro y echen las redes para pescar.",
+      "s5": "Papa San Juan Pablo II",
+      "q6": "No somos la suma de nuestras debilidades y fracasos; somos la suma del amor del Padre por nosotros.",
+      "s6": "Papa San Juan Pablo II",
+      "q7": "La oración es el lugar de refugio para toda preocupación, un fundamento de alegría, una fuente de felicidad constante, una protección contra la tristeza.",
+      "s7": "San Juan Crisóstomo"
+    },
+    "pillars": {
+      "sub": "Nuestra Misión",
+      "title": "Palabra, Sacramento y Servicio",
+      "word": {
+        "title": "Palabra",
+        "desc": "Arraigados en la tradición intelectual dominicana, predicamos el Evangelio con claridad y profundidad a través de homilías, estudio bíblico y formación en la fe."
+      },
+      "sacrament": {
+        "title": "Sacramento",
+        "desc": "Celebramos la liturgia con reverencia y belleza — Misa diaria, Confesión frecuente, adoración eucarística y los siete sacramentos."
+      },
+      "service": {
+        "title": "Servicio",
+        "desc": "Desde la ayuda de San Vicente de Paúl hasta viajes misioneros, servimos a nuestros vecinos y llevamos el amor de Cristo a los necesitados de Youngstown."
+      }
+    },
+    "liturgical": {
+      "advent": "Tiempo de Adviento",
+      "christmas": "Tiempo de Navidad",
+      "lent": "Tiempo de Cuaresma",
+      "triduum": "Triduo Sacro",
+      "easter": "Tiempo de Pascua",
+      "ordinary": "Tiempo Ordinario"
+    },
     "cards": {
       "visitTitle": "Visítenos",
       "visitDesc": "77 East Lucius Ave\nYoungstown, OH 44507",
