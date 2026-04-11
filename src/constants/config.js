@@ -45,6 +45,13 @@ export const CONFIG = {
   // Google Sheets CMS — paste your published Sheet ID here
   cmsSheetId: "",
 
+  // YouTube channel embed (Fray Nelson)
+  youtubeChannelUrl: "https://www.youtube.com/fraynelson",
+  youtubeEmbedUrl: "https://www.youtube.com/embed?listType=user_uploads&list=fraynelson",
+
+  // Dominican Province of St. Joseph
+  provinceUrl: "https://dominicanfriars.org/",
+
   // Flipbook bulletin embed URL
   // Paste the share/embed URL from your flipbook service (FlipHTML5, Heyzine, Issuu, etc.)
   // Example: "https://online.fliphtml5.com/abcde/fghij/"

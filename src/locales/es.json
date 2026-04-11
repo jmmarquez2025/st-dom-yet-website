@@ -53,7 +53,8 @@
       "quote": "\"Alabar, bendecir y predicar.\"",
       "quoteSrc": "— Lema de la Orden Dominicana",
       "desc": "Nuestro dedicado equipo de frailes dominicos y personal parroquial está aquí para brindar guía espiritual, apoyo y recursos para ayudarle a crecer en su fe católica.",
-      "cta": "Conozca a Nuestros Sacerdotes y Personal"
+      "cta": "Conozca a Nuestros Sacerdotes y Personal",
+      "province": "Nuestra Provincia"
     },
     "involved": {
       "sub": "Participe",
@@ -679,5 +680,12 @@
     "stainedGlass": "Vitrales",
     "altar": "El altar principal",
     "community": "Reunión de la comunidad parroquial"
+  },
+  "youtube": {
+    "title": "Predicación Dominicana",
+    "sub": "Fray Nelson Medina, O.P.",
+    "desc": "Explore las enseñanzas y reflexiones de Fray Nelson Medina, O.P. — un fraile dominico cuyo ministerio en video llega a cientos de miles de fieles en todo el mundo hispanohablante.",
+    "loading": "Cargando video\u2026",
+    "visitChannel": "Visitar Canal Completo en YouTube"
   }
 }

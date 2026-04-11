@@ -53,7 +53,8 @@
       "quote": "\"To praise, to bless, and to preach.\"",
       "quoteSrc": "— Motto of the Dominican Order",
       "desc": "Our dedicated team of Dominican friars and parish staff are here to provide spiritual guidance, support, and resources to help you grow in your Catholic faith.",
-      "cta": "Meet Our Priests & Staff"
+      "cta": "Meet Our Priests & Staff",
+      "province": "Our Province"
     },
     "involved": {
       "sub": "Get Involved",
@@ -678,5 +679,12 @@
     "stainedGlass": "Stained glass windows",
     "altar": "The main altar",
     "community": "Parish community gathering"
+  },
+  "youtube": {
+    "title": "Dominican Preaching",
+    "sub": "Fray Nelson Medina, O.P.",
+    "desc": "Explore the teachings and reflections of Fray Nelson Medina, O.P. — a Dominican friar whose video ministry reaches hundreds of thousands of faithful across the Spanish-speaking world.",
+    "loading": "Loading video\u2026",
+    "visitChannel": "Visit Full Channel on YouTube"
   }
 }

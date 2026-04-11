@@ -13,6 +13,7 @@ import CountUp from "../components/CountUp";
 import DailyQuote from "../components/DailyQuote";
 import LiturgicalBanner from "../components/LiturgicalBanner";
 import VaticanNews from "../components/VaticanNews";
+import YouTubeChannel from "../components/YouTubeChannel";
 import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
 import { PHOTOS } from "../constants/photos";
@@ -414,9 +415,17 @@ export default function Home() {
                 <p style={{ fontSize: 16, lineHeight: 1.8, color: "rgba(255,255,255,0.7)", marginBottom: 28 }}>
                   {t("home.priests.desc")}
                 </p>
-                <Btn variant="gold" onClick={() => navigate("/staff")}>
-                  {t("home.priests.cta")}
-                </Btn>
+                <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+                  <Btn variant="gold" onClick={() => navigate("/staff")}>
+                    {t("home.priests.cta")}
+                  </Btn>
+                  <Btn
+                    variant="light"
+                    onClick={() => window.open(CONFIG.provinceUrl, "_blank")}
+                  >
+                    {t("home.priests.province")}
+                  </Btn>
+                </div>
               </div>
             </div>
           </FadeSection>
@@ -593,8 +602,28 @@ export default function Home() {
         </Section>
       )}
 
-      {/* ════ Vatican News ════ */}
+      {/* ════ Fray Nelson — YouTube Channel ════ */}
       <Section>
+        <FadeSection>
+          <SectionTitle sub={t("youtube.sub")}>{t("youtube.title")}</SectionTitle>
+          <p
+            style={{
+              fontSize: 16,
+              lineHeight: 1.8,
+              color: T.warmGray,
+              textAlign: "center",
+              maxWidth: 640,
+              margin: "0 auto 32px",
+            }}
+          >
+            {t("youtube.desc")}
+          </p>
+          <YouTubeChannel />
+        </FadeSection>
+      </Section>
+
+      {/* ════ Vatican News ════ */}
+      <Section bg={T.cream}>
         <FadeSection>
           <SectionTitle sub={t("home.vatican.sub")}>{t("home.vatican.title")}</SectionTitle>
           <VaticanNews />
