@@ -77,7 +77,7 @@ export default function Bulletin() {
       {/* ════ Embedded Flipbook ════ */}
       <Section>
         <FadeSection>
-          <div style={{ maxWidth: 960, margin: "0 auto" }}>
+          <div style={{ maxWidth: 1100, margin: "0 auto" }}>
             <h2
               style={{
                 fontSize: "clamp(24px, 4vw, 34px)",
@@ -107,7 +107,7 @@ export default function Bulletin() {
                   <div
                     style={{
                       position: "relative",
-                      paddingTop: "max(60%, 324px)",
+                      paddingTop: "max(85%, 600px)",
                       width: "100%",
                       height: 0,
                     }}
