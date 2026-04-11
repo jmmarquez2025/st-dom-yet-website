@@ -21,7 +21,7 @@ export default function BecomingCatholic() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Becoming Catholic" description="Interested in becoming Catholic? Learn about RCIA and the journey of faith at St. Dominic Parish, Youngstown OH." />
+      <Seo title="Becoming Catholic" description="Interested in becoming Catholic? Learn about RCIA and the journey of faith at St. Dominic Church, Youngstown OH." />
       <PageHeader title={t("becomingCatholic.title")} heroSrc={PHOTOS.stockRcia} tall />
 
       {/* ════ Intro ════ */}

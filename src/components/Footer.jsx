@@ -64,21 +64,23 @@ export default function Footer() {
           <h4 style={{ color: T.goldLight, fontSize: 14, letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
             {t("footer.quickLinks")}
           </h4>
-          {FOOTER_LINKS.map((l) => (
-            <div key={l.to}>
-              <FooterLink
-                to={l.to}
-                style={{
-                  display: "inline-block",
-                  color: "rgba(255,255,255,0.7)", textDecoration: "none",
-                  fontSize: 14, padding: "6px 0",
-                  fontFamily: "'Source Sans 3', sans-serif",
-                }}
-              >
-                {t(`nav.${l.key}`)}
-              </FooterLink>
-            </div>
-          ))}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 16px" }}>
+            {FOOTER_LINKS.map((l) => (
+              <div key={l.to}>
+                <FooterLink
+                  to={l.to}
+                  style={{
+                    display: "inline-block",
+                    color: "rgba(255,255,255,0.7)", textDecoration: "none",
+                    fontSize: 14, padding: "6px 0",
+                    fontFamily: "'Source Sans 3', sans-serif",
+                  }}
+                >
+                  {t(`nav.${l.key}`)}
+                </FooterLink>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Contact */}
@@ -141,7 +143,7 @@ export default function Footer() {
           textAlign: "center", fontSize: 12, color: "rgba(255,255,255,0.55)",
         }}
       >
-        © {new Date().getFullYear()} St. Dominic Catholic Parish · Youngstown, OH · {t("footer.rights")}
+        © {new Date().getFullYear()} St. Dominic Catholic Church · Youngstown, OH · {t("footer.rights")}
       </div>
     </footer>
   );

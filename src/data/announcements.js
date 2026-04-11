@@ -5,14 +5,14 @@
  */
 export const announcements = [
   {
-    title: "Summer Parish Picnic",
-    body: "Join us for our annual parish picnic on the church grounds. Food, games, and fellowship for the whole family!",
+    title: "Summer Church Picnic",
+    body: "Join us for our annual church picnic on the church grounds. Food, games, and fellowship for the whole family!",
     date: "2026-06-14",
     active: true,
   },
   {
     title: "Vacation Bible School Registration",
-    body: "Registration is now open for Vacation Bible School, July 7–11. Children ages 5–12 are welcome. Sign up at the parish office.",
+    body: "Registration is now open for Vacation Bible School, July 7–11. Children ages 5–12 are welcome. Sign up at the church office.",
     date: "2026-07-07",
     active: true,
   },

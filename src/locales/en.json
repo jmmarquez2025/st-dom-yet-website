@@ -1,6 +1,6 @@
 {
   "nav": {
-    "subtitle": "Catholic Parish",
+    "subtitle": "Catholic Church",
     "home": "Home",
     "massTimes": "Mass & Confession",
     "sacraments": "Sacraments",
@@ -24,7 +24,7 @@
     "architecture": "Architecture & Art"
   },
   "footer": {
-    "subtitle": "Catholic Parish · Youngstown, OH",
+    "subtitle": "Catholic Church · Youngstown, OH",
     "description": "Served by the Dominican Friars of the Province of St. Joseph. Bringing the riches of Christ to Youngstown since 1923.",
     "quickLinks": "Quick Links",
     "contactTitle": "Contact",
@@ -34,7 +34,7 @@
   "home": {
     "hero": {
       "subtitle": "Served by the Dominican Friars",
-      "title": "St. Dominic\nCatholic Parish",
+      "title": "St. Dominic\nCatholic Church",
       "location": "Youngstown, Ohio",
       "ctaVisit": "Plan Your Visit",
       "ctaMass": "Mass & Confession Times",
@@ -43,14 +43,14 @@
     "welcome": {
       "sub": "Welcome",
       "title": "Encounter Jesus Christ with Us",
-      "p1": "St. Dominic Parish has been a center of faith, liturgy, and preaching in the heart of Youngstown's south side since 1923. Led by the Dominican Friars of the Province of St. Joseph, we are devoted to forming faithful disciples in the rich liturgical and intellectual tradition of the Catholic Church.",
+      "p1": "St. Dominic Church has been a center of faith, liturgy, and preaching in the heart of Youngstown's south side since 1923. Led by the Dominican Friars of the Province of St. Joseph, we are devoted to forming faithful disciples in the rich liturgical and intellectual tradition of the Catholic Church.",
       "p2": "Our doors are open to everyone — lifelong Catholics, those returning to the faith, and anyone seeking truth. Join us in growing closer to Christ through Word, Sacrament, and Service.",
       "cta": "About Us"
     },
     "massCta": {
       "sub": "Worship",
       "title": "Come Worship with Us",
-      "desc": "Join us! We'd love to welcome you to our beautiful Romanesque church. Whether you're visiting Youngstown or looking for a new parish home, find our Mass and Confession times below.",
+      "desc": "Join us! We'd love to welcome you to our beautiful Romanesque church. Whether you're visiting Youngstown or looking for a new church home, find our Mass and Confession times below.",
       "cta": "See Mass & Confession Times",
       "sundayMass": "Sunday Mass",
       "satVigil": "Saturday Vigil:",
@@ -62,19 +62,19 @@
       "title": "Priests & Staff",
       "quote": "\"To praise, to bless, and to preach.\"",
       "quoteSrc": "— Motto of the Dominican Order",
-      "desc": "Our dedicated team of Dominican friars and parish staff are here to provide spiritual guidance, support, and resources to help you grow in your Catholic faith.",
+      "desc": "Our dedicated team of Dominican friars and church staff are here to provide spiritual guidance, support, and resources to help you grow in your Catholic faith.",
       "cta": "Meet Our Priests & Staff",
       "province": "Our Province"
     },
     "involved": {
       "sub": "Get Involved",
-      "title": "Become a Parishioner",
+      "title": "Become a Member",
       "desc": "Explore St. Dominic's! We have vibrant ministries, community events, a Hispanic ministry program, and many service opportunities. Come be a part of our family.",
-      "ctaRegister": "Register in the Parish",
+      "ctaRegister": "Register at the Church",
       "ctaBulletin": "Recent Bulletins"
     },
     "announcements": {
-      "sub": "Parish Life",
+      "sub": "Church Life",
       "title": "News & Announcements",
       "ctaBulletin": "View Full Bulletin",
       "upcoming": "Upcoming"
@@ -165,14 +165,14 @@
     "title": "Mass, Confession & Adoration",
     "hero": {
       "sub": "Worship with Us",
-      "desc": "Join us for the Holy Sacrifice of the Mass, the Sacrament of Reconciliation, and Eucharistic Adoration at St. Dominic Parish."
+      "desc": "Join us for the Holy Sacrifice of the Mass, the Sacrament of Reconciliation, and Eucharistic Adoration at St. Dominic Church."
     },
     "mass": {
       "sub": "The Holy Sacrifice",
       "title": "Mass Schedule",
       "quote": "\"The Eucharist is the source and summit of the Christian life.\"",
       "quoteSrc": "— Catechism of the Catholic Church, 1324",
-      "desc": "The Holy Mass is celebrated daily at St. Dominic Parish. All are welcome to join us in the most sacred act of Catholic worship.",
+      "desc": "The Holy Mass is celebrated daily at St. Dominic Church. All are welcome to join us in the most sacred act of Catholic worship.",
       "sundayTitle": "Sunday & Vigil Masses",
       "dailyTitle": "Daily Masses"
     },
@@ -244,7 +244,7 @@
       "quote": "\"In the Most Blessed Sacrament of the Eucharist the body and blood, together with the soul and divinity, of our Lord Jesus Christ are truly, really, and substantially contained.\"",
       "quoteSrc": "— Catechism of the Catholic Church, 1374",
       "desc": "Eucharistic Adoration is a profound encounter with the living Christ. At St. Dominic, we expose the Blessed Sacrament in a beautiful gold monstrance for the faithful to adore, pray, and spend time in the presence of our Lord.",
-      "devotions": "Parish Devotions",
+      "devotions": "Church Devotions",
       "rosary": "Holy Rosary — prayed before daily Masses",
       "divineMercy": "Divine Mercy Chaplet — Fridays at 3:00 PM",
       "eveningPrayer": "Tuesday Evening Prayer — 4:45 PM"
@@ -273,14 +273,14 @@
     "dailyMass": "Daily Mass Schedule"
   },
   "about": {
-    "title": "About Our Parish",
+    "title": "About Our Church",
     "history": {
       "sub": "Our History",
       "title": "A Legacy of Faith Since 1923",
-      "p1": "The Dominican Order of Preachers founded St. Dominic Parish on February 23, 1923, at the invitation of Cleveland Archbishop Joseph Schrembs. The first Mass was offered in a storeroom on Market Street — a humble beginning for what would become a vibrant center of faith on Youngstown's south side.",
+      "p1": "The Dominican Order of Preachers founded St. Dominic Church on February 23, 1923, at the invitation of Cleveland Archbishop Joseph Schrembs. The first Mass was offered in a storeroom on Market Street — a humble beginning for what would become a vibrant center of faith on Youngstown's south side.",
       "p2": "The current building, a stunning limestone-and-brick Romanesque structure, was dedicated on April 28, 1957. A life-size statue of Saint Dominic stands positioned over the entrance, welcoming all who come to worship.",
-      "p3": "Saint Dominic de Guzman founded the Dominican Order in the 13th century, devoted to rekindling the faith of Europe. In the centuries since, Dominicans have spread around the world with their motto: \"to praise, to bless, and to preach.\" Our parish carries forward this tradition in the Diocese of Youngstown.",
-      "p4": "Today, St. Dominic maintains many community-focused ministries, including a Lay Dominican program, Catholic Men's Fellowship, Parish and Family Life ministry, and a vibrant Hispanic Ministry program with weekly Spanish Masses.",
+      "p3": "Saint Dominic de Guzman founded the Dominican Order in the 13th century, devoted to rekindling the faith of Europe. In the centuries since, Dominicans have spread around the world with their motto: \"to praise, to bless, and to preach.\" Our church carries forward this tradition in the Diocese of Youngstown.",
+      "p4": "Today, St. Dominic maintains many community-focused ministries, including a Lay Dominican program, Catholic Men's Fellowship, Church and Family Life ministry, and a vibrant Hispanic Ministry program with weekly Spanish Masses.",
       "motto": "\"To praise, to bless, and to preach.\"",
       "mottoSrc": "— Dominican Order Motto"
     },
@@ -316,7 +316,7 @@
       "title": "Our Priests"
     },
     "leadership": {
-      "sub": "Parish Leadership",
+      "sub": "Church Leadership",
       "title": "Our Pastors"
     },
     "residence": {
@@ -324,14 +324,14 @@
       "title": "Friars in Residence"
     },
     "staff": {
-      "sub": "Parish Team",
+      "sub": "Church Team",
       "title": "Our Staff"
     },
     "roles": {
       "pastor": "Pastor",
       "associate": "Parochial Vicar",
       "inResidence": "In Residence",
-      "parishSecretary": "Parish Secretary",
+      "parishSecretary": "Church Secretary",
       "musicDirector": "Music Director",
       "religiousEdCoordinator": "Coordinator of Religious Education",
       "parochialAssistant": "Parochial Assistant"
@@ -339,39 +339,39 @@
     "bios": {
       "frassati-davis": "Fr. Frassati Davis was born into a military family and calls Bellevue, Nebraska home. He grew up with two older sisters and a younger brother. He attended St. Mary's University of Minnesota, where he was taught by a Dominican Friar of the Central Province and earned a BA in Philosophy. \"The natural rhythm of prayer, study, and preaching attracted me to the Order of Preachers, and the joy of the friars living out a consecrated religious vocation drew me deeper into the call to be a son of St. Dominic.\"",
       "charles-rooney": "Fr. Charles Rooney was raised in Darien, Connecticut, where he and his two younger brothers grew up attending St. Thomas More Church and St. John Church. In 2016, he graduated from Duke University with a degree in \"Markets, Society, and Personalism,\" running on the varsity cross-country and track teams and writing an imago Dei column for the student newspaper. From 2016 to 2017, Fr. Charles earned an MA in Philosophy at Maynooth University, Ireland, through the George J. Mitchell Scholarship, writing his dissertation on Thomistic Personalism. He entered the Dominican novitiate in July 2017: \"I was deeply attracted by the Dominican charism of consecrating one's entire self to the truth and sharing the sweet fruits of that consecration with others. It is a joy and a privilege to be a member of St. Dominic's Order of Friars Preachers, abiding together in the love of Jesus Christ and proclaiming His saving truth to all whom we encounter.\"",
-      "john-kozlowski": "Fr. John Chrysostom Kozlowski, O.P. is a Dominican Friar in residence at St. Dominic Parish, contributing to the spiritual life of the community through preaching and sacramental ministry.",
-      "bernard-confer": "Fr. Bernard Confer, O.P. is a Dominican Friar in residence at St. Dominic Parish, serving the community through prayer, preaching, and the celebration of the sacraments.",
-      "gregory-salomone": "Fr. Gregory Salomone, O.P. is a Dominican Friar in residence at St. Dominic Parish, enriching the community through his ministry of preaching and teaching in the Dominican tradition.",
-      "sylvia-gould": "Sylvia Gould serves as Parish Secretary, managing the daily operations of the parish office and serving as the first point of contact for parishioners and visitors seeking information or assistance.",
-      "alec-ring": "Alec Ring serves as Music Director, leading the parish music program and enhancing the liturgical worship of the community through sacred music and choral direction."
+      "john-kozlowski": "Fr. John Chrysostom Kozlowski, O.P. is a Dominican Friar in residence at St. Dominic Church, contributing to the spiritual life of the community through preaching and sacramental ministry.",
+      "bernard-confer": "Fr. Bernard Confer, O.P. is a Dominican Friar in residence at St. Dominic Church, serving the community through prayer, preaching, and the celebration of the sacraments.",
+      "gregory-salomone": "Fr. Gregory Salomone, O.P. is a Dominican Friar in residence at St. Dominic Church, enriching the community through his ministry of preaching and teaching in the Dominican tradition.",
+      "sylvia-gould": "Sylvia Gould serves as Church Secretary, managing the daily operations of the church office and serving as the first point of contact for members and visitors seeking information or assistance.",
+      "alec-ring": "Alec Ring serves as Music Director, leading the church music program and enhancing the liturgical worship of the community through sacred music and choral direction."
     },
     "modal": {
       "contact": "Contact Information",
-      "reachVia": "Reach via parish office"
+      "reachVia": "Reach via church office"
     },
     "viewDetails": "View Details"
   },
   "bulletin": {
     "title": "Weekly Bulletin",
     "hero": {
-      "sub": "Parish News",
+      "sub": "Church News",
       "desc": "Stay connected with the latest announcements, Mass intentions, ministry updates, and the pastor's message."
     },
     "heading": "This Week's Bulletin",
     "loading": "Loading bulletin...",
     "fallback": {
       "title": "Bulletin Coming Soon",
-      "desc": "Our weekly bulletin will be embedded here for easy reading. In the meantime, visit our parish website for the latest bulletin.",
-      "cta": "View on Parish Website"
+      "desc": "Our weekly bulletin will be embedded here for easy reading. In the meantime, visit our church website for the latest bulletin.",
+      "cta": "View on Church Website"
     },
     "fullscreen": "View Full Screen",
     "info": {
       "sub": "Submissions & Info",
       "title": "Bulletin Announcements",
       "deadline": "Submissions due by Monday at noon",
-      "deadlineDesc": "All bulletin announcements must be submitted to the parish office by Monday at noon each week for inclusion in the following weekend's bulletin.",
+      "deadlineDesc": "All bulletin announcements must be submitted to the church office by Monday at noon each week for inclusion in the following weekend's bulletin.",
       "contact": "Submit an Announcement",
-      "contactDesc": "To submit an announcement or event for the bulletin, contact the parish office by phone or email."
+      "contactDesc": "To submit an announcement or event for the bulletin, contact the church office by phone or email."
     },
     "archive": {
       "title": "Bulletin Archive",
@@ -405,48 +405,48 @@
       },
       "ready": {
         "title": "Ready to Begin RCIA?",
-        "desc": "Our parish offers RCIA (Order of Christian Initiation of Adults) — an 8-to-9-month journey of faith running September through May. Classes meet weekly, culminating at the Easter Vigil. Available in English and in Spanish (Wednesday evenings at 7:00 PM).",
+        "desc": "Our church offers RCIA (Order of Christian Initiation of Adults) — an 8-to-9-month journey of faith running September through May. Classes meet weekly, culminating at the Easter Vigil. Available in English and in Spanish (Wednesday evenings at 7:00 PM).",
         "step": "Take the next step"
       }
     },
     "reachOut": "Reach Out to Us",
-    "reachOutDesc": "Contact the parish office and we'll connect you with one of our priests or staff who can answer your questions and help you take the next step.",
+    "reachOutDesc": "Contact the church office and we'll connect you with one of our priests or staff who can answer your questions and help you take the next step.",
     "contact": {
       "title": "Reach Out to Us",
-      "desc": "Contact the parish office and we'll connect you with one of our priests or staff who can answer your questions and help you take the next step toward Baptism or full reception into the Church."
+      "desc": "Contact the church office and we'll connect you with one of our priests or staff who can answer your questions and help you take the next step toward Baptism or full reception into the Church."
     }
   },
   "getInvolved": {
     "title": "Get Involved",
     "sub": "Join Our Family",
     "heading": "There's a Place for You",
-    "desc": "St. Dominic Parish is a vibrant community with many ways to get involved. Whether you're looking to deepen your prayer life, serve those in need, or build friendships — there's a ministry for you.",
+    "desc": "St. Dominic Church is a vibrant community with many ways to get involved. Whether you're looking to deepen your prayer life, serve those in need, or build friendships — there's a ministry for you.",
     "clickHint": "Click to learn more",
     "ministries": {
       "liturgical": {
         "title": "Liturgical Ministries",
         "desc": "Serve as a lector, extraordinary minister, altar server, sacristan, or choir member.",
-        "detail": "Our liturgical ministries are at the heart of parish worship. We welcome volunteers to serve as lectors, extraordinary ministers of Holy Communion, altar servers, sacristans, and members of the liturgical environment committee. Training and formation are provided for all new ministers. Whether you have experience or are just beginning, there is a role for you in making our liturgies beautiful and reverent."
+        "detail": "Our liturgical ministries are at the heart of church worship. We welcome volunteers to serve as lectors, extraordinary ministers of Holy Communion, altar servers, sacristans, and members of the liturgical environment committee. Training and formation are provided for all new ministers. Whether you have experience or are just beginning, there is a role for you in making our liturgies beautiful and reverent."
       },
       "hispanic": {
         "title": "Hispanic Ministry",
         "desc": "Join our vibrant Spanish-speaking community with weekly Masses and cultural events.",
-        "detail": "Our Hispanic Ministry serves the growing Spanish-speaking community of St. Dominic Parish. We celebrate a weekly Sunday Mass in Spanish at 1:00 PM and host cultural events, prayer groups, and community gatherings throughout the year. The ministry fosters a welcoming environment where Hispanic families can worship, grow in faith, and build lasting friendships within the parish."
+        "detail": "Our Hispanic Ministry serves the growing Spanish-speaking community of St. Dominic Church. We celebrate a weekly Sunday Mass in Spanish at 1:00 PM and host cultural events, prayer groups, and community gatherings throughout the year. The ministry fosters a welcoming environment where Hispanic families can worship, grow in faith, and build lasting friendships within the church."
       },
       "layDominicans": {
         "title": "Lay Dominicans",
         "desc": "Explore the Dominican charism more deeply as a member of the Lay Dominican Chapter.",
-        "detail": "The Lay Dominican Chapter at St. Dominic Parish invites men and women to live the Dominican charism in their daily lives. Members commit to a rule of life centered on prayer, study, community, and preaching. Through regular meetings, shared prayer, and ongoing formation in Dominican spirituality, lay Dominicans deepen their relationship with God and bring the fruits of contemplation to the world."
+        "detail": "The Lay Dominican Chapter at St. Dominic Church invites men and women to live the Dominican charism in their daily lives. Members commit to a rule of life centered on prayer, study, community, and preaching. Through regular meetings, shared prayer, and ongoing formation in Dominican spirituality, lay Dominicans deepen their relationship with God and bring the fruits of contemplation to the world."
       },
       "familyLife": {
-        "title": "Parish & Family Life",
-        "desc": "Help organize community-building events, dinners, and parish celebrations.",
-        "detail": "Parish & Family Life coordinates community-building events that bring parishioners together outside of Sunday Mass. From parish dinners and picnics to holiday celebrations and social gatherings, this ministry helps create the bonds of friendship that make our parish a true family. Volunteers are always welcome to help plan and organize these events."
+        "title": "Church & Family Life",
+        "desc": "Help organize community-building events, dinners, and church celebrations.",
+        "detail": "Church & Family Life coordinates community-building events that bring members together outside of Sunday Mass. From church dinners and picnics to holiday celebrations and social gatherings, this ministry helps create the bonds of friendship that make our church a true family. Volunteers are always welcome to help plan and organize these events."
       },
       "mensFellowship": {
         "title": "Catholic Men's Fellowship",
-        "desc": "Join men of the parish for prayer, study, and fellowship.",
-        "detail": "The Catholic Men's Fellowship gathers men of the parish for prayer, study, and brotherhood. Through regular meetings featuring guest speakers, Scripture study, and shared meals, the fellowship encourages men to grow as Catholic husbands, fathers, and leaders in their families and community."
+        "desc": "Join men of the church for prayer, study, and fellowship.",
+        "detail": "The Catholic Men's Fellowship gathers men of the church for prayer, study, and brotherhood. Through regular meetings featuring guest speakers, Scripture study, and shared meals, the fellowship encourages men to grow as Catholic husbands, fathers, and leaders in their families and community."
       },
       "svdp": {
         "title": "St. Vincent de Paul Society",
@@ -456,7 +456,7 @@
       "music": {
         "title": "Music Ministry",
         "desc": "Share your musical gifts at Mass — choir, cantoring, and instrumentalists welcome.",
-        "detail": "Our Music Ministry enhances the liturgical worship of the parish through sacred music. We welcome singers and instrumentalists of all skill levels to join our choir, serve as cantors, or accompany the congregation. Rehearsals are held weekly, and no audition is required — just a love for music and a desire to praise God through song."
+        "detail": "Our Music Ministry enhances the liturgical worship of the church through sacred music. We welcome singers and instrumentalists of all skill levels to join our choir, serve as cantors, or accompany the congregation. Rehearsals are held weekly, and no audition is required — just a love for music and a desire to praise God through song."
       },
       "religiousEd": {
         "title": "Religious Education (CCD)",
@@ -470,18 +470,18 @@
       },
       "bibleStudy": {
         "title": "Bible Study",
-        "desc": "Weekly Bible study open to all parishioners in the Dominican tradition.",
-        "detail": "Our weekly Bible Study is open to all parishioners who want to deepen their knowledge of Sacred Scripture. In the rich Dominican tradition of study and contemplation, participants explore the biblical texts together, guided by commentary from the Church Fathers and the Magisterium. No prior Bible knowledge is necessary — all are welcome, from beginners to seasoned students of Scripture."
+        "desc": "Weekly Bible study open to all members in the Dominican tradition.",
+        "detail": "Our weekly Bible Study is open to all members who want to deepen their knowledge of Sacred Scripture. In the rich Dominican tradition of study and contemplation, participants explore the biblical texts together, guided by commentary from the Church Fathers and the Magisterium. No prior Bible knowledge is necessary — all are welcome, from beginners to seasoned students of Scripture."
       },
       "caring": {
         "title": "Caring Ministries",
-        "desc": "Reaching out to the sick, homebound, and grieving members of our parish family.",
-        "detail": "Caring Ministries reach out to the sick, homebound, and grieving members of our parish family. Volunteers make regular visits, bring Holy Communion, send cards, prepare meals, and offer prayer and companionship during times of difficulty. If you or someone you know is in need of support, or if you would like to volunteer, please contact the parish office."
+        "desc": "Reaching out to the sick, homebound, and grieving members of our church family.",
+        "detail": "Caring Ministries reach out to the sick, homebound, and grieving members of our church family. Volunteers make regular visits, bring Holy Communion, send cards, prepare meals, and offer prayer and companionship during times of difficulty. If you or someone you know is in need of support, or if you would like to volunteer, please contact the church office."
       },
       "missions": {
         "title": "Mission Trips",
         "desc": "Annual medical mission trip (April) and teen mission trip (June).",
-        "detail": "St. Dominic Parish offers annual mission trips that give parishioners the opportunity to serve those in need beyond our community. Our medical mission trip takes place each April, bringing healthcare professionals and volunteers to underserved areas. In June, our teen mission trip gives young people a transformative experience of service and faith. Both trips are life-changing experiences of living out the Gospel."
+        "detail": "St. Dominic Church offers annual mission trips that give members the opportunity to serve those in need beyond our community. Our medical mission trip takes place each April, bringing healthcare professionals and volunteers to underserved areas. In June, our teen mission trip gives young people a transformative experience of service and faith. Both trips are life-changing experiences of living out the Gospel."
       }
     },
     "stats": {
@@ -498,22 +498,22 @@
       },
       "connect": {
         "title": "Connect",
-        "desc": "Call the parish office or talk to a priest after Mass to learn more about the ministry."
+        "desc": "Call the church office or talk to a priest after Mass to learn more about the ministry."
       },
       "serve": {
         "title": "Serve",
-        "desc": "Show up, get involved, and become part of our parish family. There's a place for everyone."
+        "desc": "Show up, get involved, and become part of our church family. There's a place for everyone."
       }
     },
     "register": {
       "title": "Ready to Register?",
-      "desc": "Contact the parish office to register as a new parishioner. We can't wait to welcome you to our family!",
+      "desc": "Contact the church office to register as a new member. We can't wait to welcome you to our family!",
       "cta": "Contact Us"
     },
     "modal": {
       "contact": "Contact Information",
-      "reachVia": "Reach via parish office",
-      "joinCta": "Interested? Contact the parish office to get started."
+      "reachVia": "Reach via church office",
+      "joinCta": "Interested? Contact the church office to get started."
     }
   },
   "contact": {
@@ -534,25 +534,25 @@
     "sending": "Sending…",
     "success": "Thank you! Your message has been sent. We'll be in touch soon.",
     "error": "Something went wrong. Please try calling us or sending an email directly.",
-    "infoTitle": "Parish Information",
+    "infoTitle": "Church Information",
     "addressLabel": "Address",
     "phoneLabel": "Phone",
     "fax": "Fax",
     "officeHours": "Office Hours",
     "sendAnother": "Send Another Message",
-    "mapTitle": "Map to St. Dominic Catholic Parish"
+    "mapTitle": "Map to St. Dominic Catholic Church"
   },
   "give": {
     "title": "Online Giving",
-    "sub": "Support Our Parish",
+    "sub": "Support Our Church",
     "heading": "Your Generosity Makes a Difference",
-    "desc": "Your financial support helps St. Dominic Parish continue its mission of preaching, teaching, and serving. Every gift — large or small — helps sustain our liturgies, ministries, and outreach programs.",
+    "desc": "Your financial support helps St. Dominic Church continue its mission of preaching, teaching, and serving. Every gift — large or small — helps sustain our liturgies, ministries, and outreach programs.",
     "quote": "\"Each must do as already determined, without sadness or compulsion, for God loves a cheerful giver.\"",
     "quoteSrc": "— 2 Corinthians 9:7 (NABRE)",
     "onlineTitle": "Give Online with WeShare",
-    "onlineDesc": "WeShare is a safe, convenient way to make one-time or recurring donations to St. Dominic Parish. You can give anytime from your computer or mobile device.",
+    "onlineDesc": "WeShare is a safe, convenient way to make one-time or recurring donations to St. Dominic Church. You can give anytime from your computer or mobile device.",
     "weShareBtn": "Give Now via WeShare",
-    "comingSoon": "Online giving is coming soon. In the meantime, please use one of the methods below or contact the parish office.",
+    "comingSoon": "Online giving is coming soon. In the meantime, please use one of the methods below or contact the church office.",
     "contactOffice": "Call us to arrange your gift today.",
     "weShareNote": "Powered by WeShare. Your information is secure and encrypted.",
     "otherSub": "Other Ways",
@@ -564,21 +564,21 @@
       },
       "mail": {
         "title": "Give by Mail",
-        "desc": "Mail your gift to: St. Dominic Parish, 77 East Lucius Avenue, Youngstown, OH 44507."
+        "desc": "Mail your gift to: St. Dominic Church, 77 East Lucius Avenue, Youngstown, OH 44507."
       },
       "stock": {
         "title": "Stock & Securities",
-        "desc": "Transfer appreciated stock or securities for a tax-advantaged gift. Contact the parish office for details."
+        "desc": "Transfer appreciated stock or securities for a tax-advantaged gift. Contact the church office for details."
       }
     },
-    "taxNote": "St. Dominic Catholic Parish is a 501(c)(3) tax-exempt organization. All donations are tax-deductible to the extent allowed by law. You will receive an annual giving statement for your records.",
+    "taxNote": "St. Dominic Catholic Church is a 501(c)(3) tax-exempt organization. All donations are tax-deductible to the extent allowed by law. You will receive an annual giving statement for your records.",
     "questions": "Questions about giving?"
   },
   "sacraments": {
     "title": "The Sacraments",
     "sub": "Gifts of Grace",
     "heading": "Encounter Christ Through the Sacraments",
-    "desc": "The seven sacraments are at the heart of Catholic life. They are efficacious signs of grace, instituted by Christ and entrusted to the Church, by which divine life is dispensed to us. At St. Dominic Parish, we joyfully celebrate each sacrament.",
+    "desc": "The seven sacraments are at the heart of Catholic life. They are efficacious signs of grace, instituted by Christ and entrusted to the Church, by which divine life is dispensed to us. At St. Dominic Church, we joyfully celebrate each sacrament.",
     "quote": "\"The sacraments are efficacious signs of grace, instituted by Christ and entrusted to the Church, by which divine life is dispensed to us.\"",
     "quoteSrc": "— Catechism of the Catholic Church, 1131",
     "learnMore": "Learn More",
@@ -591,7 +591,7 @@
       "sub": "The Sacrament of",
       "heading": "New Life in Christ",
       "p1": "Baptism is the first and fundamental sacrament of Christian initiation. Through the waters of Baptism, we are cleansed of original sin, reborn as children of God, and welcomed into the Catholic Church. It is the doorway through which we enter into life with Christ.",
-      "p2": "At St. Dominic Parish, Baptism is celebrated at 12:30 PM on the 2nd and 4th Sundays of each month. Baptism preparation classes are held on the 2nd Wednesday of odd-numbered months at 7:00 PM in the church. Contact the parish office to register.",
+      "p2": "At St. Dominic Church, Baptism is celebrated at 12:30 PM on the 2nd and 4th Sundays of each month. Baptism preparation classes are held on the 2nd Wednesday of odd-numbered months at 7:00 PM in the church. Contact the church office to register.",
       "reqSub": "What You Need",
       "reqTitle": "Requirements for Baptism",
       "req1": {
@@ -604,7 +604,7 @@
       },
       "req3": {
         "title": "Registration",
-        "desc": "Contact the parish office at least one month before the desired Baptism date to register and schedule your preparation."
+        "desc": "Contact the church office at least one month before the desired Baptism date to register and schedule your preparation."
       },
       "cta": "Schedule a Baptism",
       "ctaDesc": "Contact us to begin the process. We're happy to answer any questions you may have."
@@ -617,12 +617,12 @@
       "sub": "The Sacrament of",
       "heading": "Receiving the Body of Christ",
       "p1": "First Holy Communion is a profound moment in a young Catholic's faith journey. It is the first time a child receives the Eucharist — the true Body and Blood of Jesus Christ — and enters into deeper communion with the Lord and the Church.",
-      "p2": "At St. Dominic Parish, children typically receive First Communion in second grade, after a two-year preparation through our religious education program. The celebration is a joyful occasion for the child, their family, and the entire parish community.",
+      "p2": "At St. Dominic Church, children typically receive First Communion in second grade, after a two-year preparation through our religious education program. The celebration is a joyful occasion for the child, their family, and the entire church community.",
       "prepSub": "Preparation",
       "prepTitle": "The Path to First Communion",
       "prep1": {
         "title": "Religious Education",
-        "desc": "Children participate in our parish CCD program beginning in first grade, learning the fundamentals of the Catholic faith."
+        "desc": "Children participate in our church CCD program beginning in first grade, learning the fundamentals of the Catholic faith."
       },
       "prep2": {
         "title": "First Reconciliation",
@@ -633,7 +633,7 @@
         "desc": "Parents are partners in their child's faith formation. Families attend a preparation session together before the celebration."
       },
       "cta": "Enroll Your Child",
-      "ctaDesc": "Contact the parish office or our Coordinator of Religious Education to enroll your child in the program."
+      "ctaDesc": "Contact the church office or our Coordinator of Religious Education to enroll your child in the program."
     },
     "confirmation": {
       "title": "Confirmation",
@@ -643,7 +643,7 @@
       "sub": "The Sacrament of",
       "heading": "Sealed with the Holy Spirit",
       "p1": "Confirmation completes the grace of Baptism and endows the recipient with the special strength of the Holy Spirit. Through Confirmation, Catholics are more perfectly bound to the Church and enriched with the power to witness to Christ in word and deed.",
-      "p2": "At St. Dominic Parish, Confirmation is usually conferred upon students in grade 8, prepared through our CCD program. Adults who have not been confirmed are welcome to contact the parish to arrange preparation at any time.",
+      "p2": "At St. Dominic Church, Confirmation is usually conferred upon students in grade 8, prepared through our CCD program. Adults who have not been confirmed are welcome to contact the church to arrange preparation at any time.",
       "prepSub": "Preparation",
       "prepTitle": "Preparing for Confirmation",
       "prep1": {
@@ -669,7 +669,7 @@
       "sub": "The Sacrament of",
       "heading": "A Covenant of Love",
       "p1": "The Sacrament of Marriage is a sacred covenant between a man and a woman, witnessed before God and the Church. Through this sacrament, the couple receives the grace to love each other with the selfless, faithful love that mirrors Christ's love for the Church.",
-      "p2": "At St. Dominic Parish, we are honored to walk with couples as they prepare for the Sacrament of Marriage. Couples should contact the parish at least six months before their desired wedding date to begin the preparation process.",
+      "p2": "At St. Dominic Church, we are honored to walk with couples as they prepare for the Sacrament of Marriage. Couples should contact the church at least six months before their desired wedding date to begin the preparation process.",
       "stepsSub": "Getting Started",
       "stepsTitle": "Steps to Getting Married at St. Dominic",
       "step1": {
@@ -678,14 +678,14 @@
       },
       "step2": {
         "title": "Pre-Cana Marriage Preparation",
-        "desc": "Complete Pre-Cana — three consecutive Sunday evening sessions (offered in winter, spring, or fall) covering communication, decision-making, faith, and family life. Open to parishioners and alumni."
+        "desc": "Complete Pre-Cana — three consecutive Sunday evening sessions (offered in winter, spring, or fall) covering communication, decision-making, faith, and family life. Open to members and alumni."
       },
       "step3": {
         "title": "Wedding Liturgy",
         "desc": "Work with the celebrant to plan your wedding liturgy, including readings, music, and vows. A rehearsal is held before the ceremony."
       },
       "cta": "Begin Marriage Preparation",
-      "ctaDesc": "Contact the parish office to schedule your initial meeting with one of our priests."
+      "ctaDesc": "Contact the church office to schedule your initial meeting with one of our priests."
     },
     "anointing": {
       "title": "Anointing of the Sick",
@@ -702,8 +702,8 @@
       "when3": "When dealing with the frailty of old age",
       "when4": "In danger of death from illness or injury",
       "emergencyTitle": "Emergency? Call Us Anytime",
-      "emergencyDesc": "If someone is in danger of death and needs a priest, please call the parish at any hour.",
-      "ctaDesc": "To arrange Anointing of the Sick for yourself or a loved one, contact the parish office."
+      "emergencyDesc": "If someone is in danger of death and needs a priest, please call the church at any hour.",
+      "ctaDesc": "To arrange Anointing of the Sick for yourself or a loved one, contact the church office."
     },
     "funerals": {
       "title": "Catholic Funerals",
@@ -713,7 +713,7 @@
       "sub": "Christian Burial",
       "heading": "Hope in the Resurrection",
       "p1": "The Catholic funeral rites are a celebration of the Christian's journey from this life to eternal life. The Church accompanies the deceased and their loved ones with prayer, offering the Holy Sacrifice of the Mass for the repose of the soul and commending the departed to God's loving mercy.",
-      "p2": "At St. Dominic Parish, our priests and staff walk with families during their time of loss, helping to arrange a funeral liturgy that honors their loved one and offers the comfort of faith. We are here to help in any way we can.",
+      "p2": "At St. Dominic Church, our priests and staff walk with families during their time of loss, helping to arrange a funeral liturgy that honors their loved one and offers the comfort of faith. We are here to help in any way we can.",
       "ritesSub": "The Funeral Rites",
       "ritesTitle": "The Order of Christian Funerals",
       "rite1": {
@@ -729,7 +729,7 @@
         "desc": "The final prayers at the cemetery, commending the body of the deceased to the earth and the soul to God."
       },
       "cta": "Arranging a Funeral",
-      "ctaDesc": "Contact the parish office as soon as possible after the death of a loved one. We will guide you through every step."
+      "ctaDesc": "Contact the church office as soon as possible after the death of a loved one. We will guide you through every step."
     }
   },
   "visit": {
@@ -761,7 +761,7 @@
       },
       "community": {
         "title": "Stay & Say Hello",
-        "desc": "After Mass, feel free to introduce yourself to one of the friars or fellow parishioners. We'd love to learn your name and help you feel at home. If you'd like to learn more, the parish office is happy to help."
+        "desc": "After Mass, feel free to introduce yourself to one of the friars or fellow members. We'd love to learn your name and help you feel at home. If you'd like to learn more, the church office is happy to help."
       }
     },
     "know": {
@@ -773,7 +773,7 @@
       },
       "children": {
         "title": "Can I Bring My Kids?",
-        "desc": "Absolutely! Children are always welcome at Mass. Don't worry if they get a little noisy — we're a family parish and we love having young ones here."
+        "desc": "Absolutely! Children are always welcome at Mass. Don't worry if they get a little noisy — we're a family church and we love having young ones here."
       },
       "language": {
         "title": "Spanish Mass Available",
@@ -808,19 +808,19 @@
     },
     "cta": {
       "title": "We Can't Wait to Meet You",
-      "desc": "Whether you've been Catholic your whole life or have never stepped foot in a church, our doors are open. The Dominican Friars and the people of St. Dominic Parish are here to welcome you home.",
+      "desc": "Whether you've been Catholic your whole life or have never stepped foot in a church, our doors are open. The Dominican Friars and the people of St. Dominic Church are here to welcome you home.",
       "contact": "Contact Us",
       "becoming": "Becoming Catholic?"
     }
   },
   "gallery": {
-    "title": "Our Parish in Photos",
+    "title": "Our Church in Photos",
     "sub": "A Glimpse Inside",
     "placeholder": {
       "title": "Photos Coming Soon",
-      "desc": "We're gathering beautiful images of our parish, our community, and our worship. Check back soon!"
+      "desc": "We're gathering beautiful images of our church, our community, and our worship. Check back soon!"
     },
-    "aerial": "Aerial view of the St. Dominic parish campus",
+    "aerial": "Aerial view of the St. Dominic church campus",
     "campus": "Aerial view of the church and school buildings",
     "nave": "Church interior — view down the nave toward the sanctuary",
     "stRose": "Statue of St. Rose of Lima",
@@ -829,7 +829,7 @@
     "rooftop": "Aerial view of the church rooftop and surrounding neighborhood",
     "easterFire": "Easter Vigil fire with altar servers",
     "entrance": "Church entrance with arched doorway",
-    "signage": "Saint Dominic's parish signage with carved tympanum",
+    "signage": "Saint Dominic's church signage with carved tympanum",
     "mural": "Dominican mural — Madonna and Child with Dominican saints",
     "monstrance": "Golden monstrance — the Blessed Sacrament",
     "preaching": "A Dominican friar preaching from the ambo",
@@ -847,21 +847,21 @@
   "history": {
     "sub": "Est. 1923",
     "title": "A Century of Faith",
-    "heroDesc": "From a humble storeroom on Market Street to a Romanesque landmark on Youngstown's South Side — the story of St. Dominic Parish.",
+    "heroDesc": "From a humble storeroom on Market Street to a Romanesque landmark on Youngstown's South Side — the story of St. Dominic Church.",
     "founding": {
       "label": "The Founding",
       "title": "A Humble Beginning on Market Street",
-      "p1": "The Dominican Order of Preachers founded St. Dominic Parish on February 23, 1923, at the invitation of Cleveland Archbishop Joseph Schrembs. The first Mass was celebrated in a modest storeroom at the corner of Market Street and Ravenwood Avenue — a humble beginning for what would become one of Youngstown's most enduring centers of faith.",
+      "p1": "The Dominican Order of Preachers founded St. Dominic Church on February 23, 1923, at the invitation of Cleveland Archbishop Joseph Schrembs. The first Mass was celebrated in a modest storeroom at the corner of Market Street and Ravenwood Avenue — a humble beginning for what would become one of Youngstown's most enduring centers of faith.",
       "p2": "By 1924, the growing community had outgrown the storefront. A combination church, school, and auditorium was erected on Auburndale Avenue, just off Southern Boulevard, to serve the families of the South Side. The school was staffed by Dominican Sisters from Akron, and by 1929 a new wing and auditorium were added to accommodate the surge of enrollment.",
-      "p3": "In 1939, a three-story convent was built to house the teaching sisters, and by the early 1950s the school had reached a peak enrollment of approximately 1,300 students. The parish was thriving — a reflection of Youngstown's booming steel industry and the waves of immigrant families who had settled on the South Side.",
+      "p3": "In 1939, a three-story convent was built to house the teaching sisters, and by the early 1950s the school had reached a peak enrollment of approximately 1,300 students. The church was thriving — a reflection of Youngstown's booming steel industry and the waves of immigrant families who had settled on the South Side.",
       "storeAlt": "The storefront where the first Mass was said in 1923",
       "storeCap": "\"Where the first Mass was said\" — 1923"
     },
     "building": {
       "label": "Construction",
       "title": "Building a House of God",
-      "p1": "Under the leadership of Fr. Joseph O'Connell, O.P., who served as pastor from 1942 to 1956, the parish embarked on an ambitious building program. A new priory for the Dominican friars was completed in 1952, and construction of the current church began shortly after — a monumental project that would take several years to complete.",
-      "p2": "The Romanesque structure rose from the earth in limestone and brick, its soaring arches taking shape through the labor of the parishioners and local craftsmen. The design features over eighteen semi-circular Romanesque arches, a hallmark of the medieval style that the Dominican Order has favored for centuries.",
+      "p1": "Under the leadership of Fr. Joseph O'Connell, O.P., who served as pastor from 1942 to 1956, the church embarked on an ambitious building program. A new priory for the Dominican friars was completed in 1952, and construction of the current church began shortly after — a monumental project that would take several years to complete.",
+      "p2": "The Romanesque structure rose from the earth in limestone and brick, its soaring arches taking shape through the labor of the churchioners and local craftsmen. The design features over eighteen semi-circular Romanesque arches, a hallmark of the medieval style that the Dominican Order has favored for centuries.",
       "p3": "On Christmas 1955, even before the building was fully complete, the first Midnight Mass was celebrated in the new church — a moment of profound joy for a community that had waited decades for a permanent spiritual home.",
       "foundationAlt": "Workers laying the church foundation in the early 1950s",
       "foundationCap": "Laying the foundation — early 1950s",
@@ -883,26 +883,26 @@
     "growth": {
       "label": "Change & Renewal",
       "title": "Through Challenge and Transformation",
-      "p1": "The 1960s and 1970s brought sweeping changes to both the Church and the city. Following the Second Vatican Council, the parish renovated its worship space in 1978-1979 to reflect the new liturgical directives. The Dominican Sisters, who had faithfully staffed the school since the 1930s, departed in 1979.",
+      "p1": "The 1960s and 1970s brought sweeping changes to both the Church and the city. Following the Second Vatican Council, the church renovated its worship space in 1978-1979 to reflect the new liturgical directives. The Dominican Sisters, who had faithfully staffed the school since the 1930s, departed in 1979.",
       "p2": "The city of Youngstown was also transforming. On September 19, 1977 — a day known as \"Black Monday\" — the Youngstown Sheet and Tube Company abruptly closed its Campbell Works, laying off over 5,000 workers. Within a few years, every major steel plant in the valley had shut down. A mass exodus of families followed, and the South Side neighborhood around St. Dominic experienced severe blight, rising crime, and population loss.",
-      "p3": "Yet the parish endured. In 2009, Fr. Gregory Maturi, O.P. launched \"Operation Redemption,\" a comprehensive neighborhood renewal program that became a model for faith-based community development. Working with federal, state, and local partners, the parish demolished approximately 80 abandoned houses in a four-block radius, converted vacant lots to green spaces, and hosted monthly family events drawing hundreds of families. The school building, closed in 1999, was sold and reopened as a charter school serving approximately 400 children.",
+      "p3": "Yet the church endured. In 2009, Fr. Gregory Maturi, O.P. launched \"Operation Redemption,\" a comprehensive neighborhood renewal program that became a model for faith-based community development. Working with federal, state, and local partners, the church demolished approximately 80 abandoned houses in a four-block radius, converted vacant lots to green spaces, and hosted monthly family events drawing hundreds of families. The school building, closed in 1999, was sold and reopened as a charter school serving approximately 400 children.",
       "massAlt": "Concelebrated Mass at St. Dominic, 1979",
       "massCap": "Concelebrated Mass following the Vatican II renovations — 1979"
     },
     "today": {
       "year": "Today",
-      "label": "A Living Parish",
+      "label": "A Living Church",
       "title": "Into Our Second Century",
-      "p1": "In May 2023, St. Dominic celebrated its centennial with a Mass celebrated by Bishop David Bonnar and a banquet attended by over 230 parishioners. One hundred years after that first Mass in a storeroom, the parish remains a beacon of faith on Youngstown's South Side — now serving over 700 registered households from across the Mahoning Valley.",
-      "p2": "The parish maintains a vibrant array of ministries rooted in the Dominican charism: a Lay Dominican program, Catholic Men's Fellowship, Parish and Family Life ministry, St. Vincent de Paul Society, and a thriving Hispanic Ministry with weekly Spanish Masses. Dominican friars from the Priory also serve St. Rose Church in Girard and the Youngstown State University Newman Center.",
-      "p3": "Served by the friars of the Province of St. Joseph — the oldest Dominican province in the Americas, founded in 1805 — St. Dominic Parish carries forward an 800-year tradition of preaching, prayer, and service in the heart of the Mahoning Valley.",
-      "aerialAlt": "Aerial view of the St. Dominic parish campus today",
+      "p1": "In May 2023, St. Dominic celebrated its centennial with a Mass celebrated by Bishop David Bonnar and a banquet attended by over 230 members. One hundred years after that first Mass in a storeroom, the church remains a beacon of faith on Youngstown's South Side — now serving over 700 registered households from across the Mahoning Valley.",
+      "p2": "The church maintains a vibrant array of ministries rooted in the Dominican charism: a Lay Dominican program, Catholic Men's Fellowship, Church and Family Life ministry, St. Vincent de Paul Society, and a thriving Hispanic Ministry with weekly Spanish Masses. Dominican friars from the Priory also serve St. Rose Church in Girard and the Youngstown State University Newman Center.",
+      "p3": "Served by the friars of the Province of St. Joseph — the oldest Dominican province in the Americas, founded in 1805 — St. Dominic Church carries forward an 800-year tradition of preaching, prayer, and service in the heart of the Mahoning Valley.",
+      "aerialAlt": "Aerial view of the St. Dominic church campus today",
       "aerialCap": "The St. Dominic campus today — over 100 years of faith on Youngstown's South Side"
     }
   },
   "register": {
-    "title": "Parish Registration",
-    "desc": "Welcome to St. Dominic Parish! Please complete the form below to register as a parishioner. We look forward to welcoming you into our community.",
+    "title": "Church Registration",
+    "desc": "Welcome to St. Dominic Church! Please complete the form below to register as a member. We look forward to welcoming you into our community.",
     "headOfHousehold": "Head of Household",
     "firstName": "First Name",
     "lastName": "Last Name",
@@ -916,7 +916,7 @@
     "city": "City",
     "state": "State",
     "zip": "ZIP Code",
-    "parishDetails": "Parish Details",
+    "parishDetails": "Church Details",
     "previousParish": "Previous Parish",
     "previousParishHint": "Name and city of your previous parish (if any)",
     "children": "Number of Children",
@@ -936,17 +936,17 @@
     "notesHint": "Any additional information you'd like to share...",
     "submit": "Submit Registration",
     "sending": "Submitting...",
-    "error": "Something went wrong. Please try again or call the parish office.",
+    "error": "Something went wrong. Please try again or call the church office.",
     "successTitle": "Registration Received!",
-    "successDesc": "Thank you for registering at St. Dominic Parish. We will be in touch soon to welcome you personally.",
+    "successDesc": "Thank you for registering at St. Dominic Church. We will be in touch soon to welcome you personally.",
     "registerAnother": "Register Another Family"
   },
   "events": {
-    "title": "Parish Events",
-    "sub": "St. Dominic Catholic Parish",
+    "title": "Church Events",
+    "sub": "St. Dominic Catholic Church",
     "upcomingTitle": "Upcoming Events",
     "pastTitle": "Past Events",
-    "pastSub": "Recent Parish Life",
+    "pastSub": "Recent Church Life",
     "filterAll": "All Events",
     "noneFound": "No events found for this category."
   },
@@ -969,12 +969,12 @@
       "title": "The Exterior & Facade",
       "p1": "St. Dominic Church presents a striking example of Modernized Romanesque architecture with Gothic elements, built of warm brick and Indiana limestone. The facade rises to a peaked gable crowned by a Cross of Thorns — a symbol of Christ's Passion — above the great rose window.",
       "p2": "The main entrance features twin arched doorways flanked by carved stone. The papal coat of arms is carved above the left door and the diocesan coat of arms above the right. Between them, in a recessed niche, stands a statue of St. Dominic holding a lily and the Book of the Gospels.",
-      "p3": "At street level, the parish sign features a marble relief depicting the Blessed Virgin Mary presenting the Rosary to St. Dominic — the foundational scene of Dominican spirituality.",
+      "p3": "At street level, the church sign features a marble relief depicting the Blessed Virgin Mary presenting the Rosary to St. Dominic — the foundational scene of Dominican spirituality.",
       "facadeAlt": "St. Dominic Church exterior facade with rose window and limestone entrance",
       "facadeCap": "The limestone facade of St. Dominic Church, completed in 1954",
       "doorsAlt": "Main entrance doors with papal and diocesan coats of arms",
       "doorsCap": "Twin arched doorways with papal and diocesan coats of arms",
-      "signAlt": "Parish sign with marble relief of the Rosary scene",
+      "signAlt": "Church sign with marble relief of the Rosary scene",
       "signCap": "Marble relief: the Blessed Virgin presenting the Rosary to St. Dominic",
       "styleLabel": "Style",
       "styleValue": "Modernized Romanesque",
@@ -986,7 +986,7 @@
     "entrance": {
       "title": "The Main Entrance",
       "p1": "Approaching the church, visitors are drawn upward by the magnificent rose window — a circular masterpiece of stained glass depicting the four Evangelists with their traditional symbols surrounding Christ at the center. The window's tracery forms a Dominican cross pattern.",
-      "p2": "The cornerstone, set into the limestone at the base of the church, reads \"St. Dominic's Church 1954,\" marking the year of completion after two years of construction. The parish itself was founded in 1923 by the Dominican Friars.",
+      "p2": "The cornerstone, set into the limestone at the base of the church, reads \"St. Dominic's Church 1954,\" marking the year of completion after two years of construction. The church itself was founded in 1923 by the Dominican Friars.",
       "photoAlt": "Close-up of entrance showing rose window, St. Dominic statue, and carved coats of arms",
       "photoCap": "The entrance in detail: rose window, St. Dominic statue, and carved coats of arms",
       "cornerstoneAlt": "Cornerstone reading St. Dominic's Church 1954",
@@ -1031,7 +1031,7 @@
     "campus": {
       "sub": "The Dominican Campus",
       "title": "A Place of Prayer, Study, & Community",
-      "desc": "The church is connected to the Dominican priory by a cloister walk featuring Eric Gill's Stations of the Cross etchings. Together with the parish hall and school buildings, the campus forms a complete center for Dominican life — prayer, study, community, and preaching."
+      "desc": "The church is connected to the Dominican priory by a cloister walk featuring Eric Gill's Stations of the Cross etchings. Together with the church hall and school buildings, the campus forms a complete center for Dominican life — prayer, study, community, and preaching."
     }
   }
 }

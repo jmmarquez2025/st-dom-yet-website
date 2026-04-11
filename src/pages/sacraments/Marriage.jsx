@@ -16,7 +16,7 @@ export default function Marriage() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Marriage" description="Planning a Catholic wedding at St. Dominic Parish? Learn about marriage preparation, requirements, and scheduling." />
+      <Seo title="Marriage" description="Planning a Catholic wedding at St. Dominic Church? Learn about marriage preparation, requirements, and scheduling." />
       <PageHeader title={t("sacraments.marriage.title")} heroSrc={PHOTOS.stockMarriage} tall />
 
       <Section bg={T.warmWhite}>

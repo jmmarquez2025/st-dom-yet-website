@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { Menu, X, ChevronDown } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
+import SiteSearch from "./SiteSearch";
 
 /** Navigate with View Transition when supported */
 function NavLink({ to, children, style, ...props }) {
@@ -307,6 +308,7 @@ export default function Nav() {
           >
             {t("nav.give")}
           </NavLink>
+          <SiteSearch />
           <div style={{ marginLeft: 6 }}>
             <LanguageToggle />
           </div>
@@ -434,7 +436,8 @@ export default function Nav() {
           >
             {t("nav.give")}
           </NavLink>
-          <div style={{ paddingTop: 16 }}>
+          <div style={{ paddingTop: 16, display: "flex", alignItems: "center", gap: 12 }}>
+            <SiteSearch />
             <LanguageToggle />
           </div>
         </div>

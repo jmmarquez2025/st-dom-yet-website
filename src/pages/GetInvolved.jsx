@@ -57,7 +57,7 @@ export default function GetInvolved() {
     <div style={{ paddingTop: 76 }}>
       <Seo
         title="Get Involved"
-        description="Explore ministries and volunteer opportunities at St. Dominic Parish — Hispanic Ministry, music, religious education, and more."
+        description="Explore ministries and volunteer opportunities at St. Dominic Church — Hispanic Ministry, music, religious education, and more."
       />
 
       {/* ════ Hero ════ */}

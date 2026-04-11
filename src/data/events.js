@@ -72,8 +72,8 @@ export const events = [
   {
     id: "8",
     date: "2026-05-10",
-    title: "Mother's Day Parish Breakfast",
-    description: "A community brunch to celebrate mothers in our parish family. All are invited.",
+    title: "Mother's Day Church Breakfast",
+    description: "A community brunch to celebrate mothers in our church family. All are invited.",
     category: "social",
     time: "After 10:30 AM Mass",
     location: "Parish Hall",

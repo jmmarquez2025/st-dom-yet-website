@@ -30,7 +30,7 @@ export default function Visit() {
     <div style={{ paddingTop: 76 }}>
       <Seo
         title="Plan Your Visit"
-        description="Planning to visit St. Dominic Parish? Everything you need to know — what to expect, Mass times, parking, and a warm welcome."
+        description="Planning to visit St. Dominic Church? Everything you need to know — what to expect, Mass times, parking, and a warm welcome."
       />
 
       {/* ════ Hero Banner ════ */}

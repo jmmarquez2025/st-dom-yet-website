@@ -1,5 +1,5 @@
 /**
- * Parish Photo Configuration
+ * Church Photo Configuration
  *
  * All paths are relative to public/ — the Vite base URL is prepended
  * automatically so they work on GitHub Pages.
@@ -14,6 +14,7 @@ export const PHOTOS = {
   visitHero: `${B}photos/rose-window-opt.jpg`,           // Church exterior with sign & rose window
   bulletinHero: `${B}photos/vigil-candles-opt.jpg`,      // Moody nave interior — Easter Vigil
   getInvolvedHero: `${B}photos/vigil-servers-opt.jpg`,   // Congregation with candles — community
+  baptismHero: `${B}photos/baptism-opt.jpg`,              // Easter Vigil baptism — water pouring
 
   // ── Section backgrounds ──
   aboutArchitecture: `${B}photos/exterior-facade-opt.jpg`,  // Church façade with rose window

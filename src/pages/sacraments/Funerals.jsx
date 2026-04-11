@@ -16,7 +16,7 @@ export default function Funerals() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Catholic Funerals" description="Catholic funeral services at St. Dominic Parish. Vigil, Funeral Mass, and Rite of Committal information." />
+      <Seo title="Catholic Funerals" description="Catholic funeral services at St. Dominic Church. Vigil, Funeral Mass, and Rite of Committal information." />
       <PageHeader title={t("sacraments.funerals.title")} heroSrc={PHOTOS.stockFunerals} tall />
 
       <Section bg={T.warmWhite}>

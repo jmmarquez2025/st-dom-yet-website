@@ -82,7 +82,7 @@ const FEAST_DAYS = {
 
 // Rotating Dominican saints for days without a named feast
 const DOMINICAN_SAINTS = [
-  { name: "St. Dominic", desc: "Founder of the Order of Preachers, whose life of prayer, study, and preaching continues in the Dominican charism at this parish." },
+  { name: "St. Dominic", desc: "Founder of the Order of Preachers, whose life of prayer, study, and preaching continues in the Dominican charism at this church." },
   { name: "St. Thomas Aquinas", desc: "The Angelic Doctor, who showed that the love of truth is itself a form of divine love." },
   { name: "St. Catherine of Siena", desc: "Doctor of the Church who called the Church back to holiness through love and truth." },
   { name: "St. Martin de Porres", desc: "Dominican lay brother who cared for the sick and poor of Lima, Peru. Patron of social justice." },

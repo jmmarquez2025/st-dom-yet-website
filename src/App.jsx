@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Nav from "./components/Nav";
+import Breadcrumbs from "./components/Breadcrumbs";
 import Footer from "./components/Footer";
 import ScrollProgress from "./components/ScrollProgress";
 import ErrorBoundary from "./components/ErrorBoundary";
@@ -52,6 +53,7 @@ function AppRoutes() {
       <ScrollProgress />
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Nav />
+      <Breadcrumbs />
       <main id="main-content" key={location.pathname}>
         <Suspense fallback={<PageSkeleton />}>
           <Routes>

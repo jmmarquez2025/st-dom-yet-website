@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <div>
-      <Seo description="St. Dominic Catholic Parish in Youngstown, Ohio. Served by the Dominican Friars since 1923. Mass times, sacraments, and community life." />
+      <Seo description="St. Dominic Catholic Church in Youngstown, Ohio. Served by the Dominican Friars since 1923. Mass times, sacraments, and community life." />
 
       {/* ═══ Liturgical Season Strip ═══ */}
       <LiturgicalBanner />
@@ -94,7 +94,7 @@ export default function Home() {
         </div>
       </StickyHero>
 
-      {/* ════ Parish Stats Band ════ */}
+      {/* ════ Church Stats Band ════ */}
       <section
         style={{
           background: T.softBlack,

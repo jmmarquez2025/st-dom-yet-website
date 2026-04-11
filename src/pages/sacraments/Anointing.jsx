@@ -15,7 +15,7 @@ export default function Anointing() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Anointing of the Sick" description="The Sacrament of Anointing of the Sick at St. Dominic Parish. For those who are seriously ill or facing surgery." />
+      <Seo title="Anointing of the Sick" description="The Sacrament of Anointing of the Sick at St. Dominic Church. For those who are seriously ill or facing surgery." />
       <PageHeader title={t("sacraments.anointing.title")} heroSrc={PHOTOS.stockAnointing} tall />
 
       <Section bg={T.warmWhite}>

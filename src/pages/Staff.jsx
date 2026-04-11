@@ -289,7 +289,7 @@ export default function Staff() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Priests & Staff" description="Meet the Dominican Friars and parish staff serving the community at St. Dominic Catholic Parish in Youngstown, Ohio." />
+      <Seo title="Priests & Staff" description="Meet the Dominican Friars and church staff serving the community at St. Dominic Catholic Church in Youngstown, Ohio." />
       <PageHeader title={t("staff.title")} />
 
       <style>{`

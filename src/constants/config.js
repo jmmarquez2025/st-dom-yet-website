@@ -64,7 +64,7 @@ export const CONFIG = {
   // Update this when deploying to the production domain
   siteUrl: "https://jmmarquez2025.github.io/st-dom-yet-website",
 
-  // Parish info
+  // Church info
   phone: "(330) 783-1900",
   phoneLink: "tel:+13307831900",
   fax: "(330) 783-2396",

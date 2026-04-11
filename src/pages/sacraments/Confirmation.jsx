@@ -16,7 +16,7 @@ export default function Confirmation() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Confirmation" description="Confirmation preparation at St. Dominic Parish. Program details for teens and adults seeking the Sacrament of Confirmation." />
+      <Seo title="Confirmation" description="Confirmation preparation at St. Dominic Church. Program details for teens and adults seeking the Sacrament of Confirmation." />
       <PageHeader title={t("sacraments.confirmation.title")} heroSrc={PHOTOS.stockConfirmation} tall />
 
       <Section bg={T.warmWhite}>

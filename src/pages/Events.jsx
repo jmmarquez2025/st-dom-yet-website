@@ -49,8 +49,8 @@ export default function Events() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo
-        title="Parish Events"
-        description="Upcoming events at St. Dominic Catholic Parish — Masses, sacraments, education, and community gatherings in Youngstown, Ohio."
+        title="Church Events"
+        description="Upcoming events at St. Dominic Catholic Church — Masses, sacraments, education, and community gatherings in Youngstown, Ohio."
       />
       <PageHeader title={t("events.title")} />
 

@@ -22,7 +22,7 @@ export default function Bulletin() {
     <div style={{ paddingTop: 76 }}>
       <Seo
         title="Weekly Bulletin"
-        description="Read the weekly parish bulletin from St. Dominic Catholic Parish with announcements, Mass intentions, and ministry news."
+        description="Read the weekly church bulletin from St. Dominic Catholic Church with announcements, Mass intentions, and ministry news."
       />
 
       {/* ════ Hero ════ */}

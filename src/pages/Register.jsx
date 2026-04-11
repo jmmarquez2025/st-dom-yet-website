@@ -211,7 +211,7 @@ function StepIndicator({ currentStep }) {
   const steps = [
     { num: 1, label: "Personal" },
     { num: 2, label: "Contact" },
-    { num: 3, label: "Parish" },
+    { num: 3, label: "Church" },
   ];
   return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 0, marginBottom: 36 }}>
@@ -302,7 +302,7 @@ export default function Register() {
         form.heardAbout ? `Heard About Us: ${form.heardAbout}` : "",
         form.notes ? `Notes: ${form.notes}` : "",
       ].filter(Boolean).join("\n");
-      window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent("New Parish Registration")}&body=${encodeURIComponent(body)}`;
+      window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent("New Church Registration")}&body=${encodeURIComponent(body)}`;
       return;
     }
 
@@ -330,8 +330,8 @@ export default function Register() {
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo
-        title="Parish Registration"
-        description="Register as a parishioner at St. Dominic Catholic Parish in Youngstown, Ohio."
+        title="Church Registration"
+        description="Register as a member at St. Dominic Catholic Church in Youngstown, Ohio."
       />
       <PageHeader title={t("register.title")} />
 

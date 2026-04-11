@@ -189,7 +189,7 @@ export default function Contact() {
 
   return (
     <div style={{ paddingTop: 76 }}>
-      <Seo title="Contact Us" description="Contact St. Dominic Catholic Parish in Youngstown, Ohio. Phone, email, office hours, and directions to 77 East Lucius Avenue." />
+      <Seo title="Contact Us" description="Contact St. Dominic Catholic Church in Youngstown, Ohio. Phone, email, office hours, and directions to 77 East Lucius Avenue." />
       <PageHeader title={t("contact.title")} />
 
       <Section bg={T.cream}>

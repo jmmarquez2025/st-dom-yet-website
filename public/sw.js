@@ -1,73 +1,106 @@
 const CACHE_NAME = "st-dominic-v1";
-const BASE = self.registration?.scope || "/";
-const STATIC_ASSETS = [
+const BASE = "/st-dom-yet-website/";
+
+// App shell files to precache on install
+const PRECACHE_URLS = [
   BASE,
   BASE + "manifest.json",
-  BASE + "favicon.svg",
   BASE + "offline.html",
+  BASE + "icons/icon-192.png",
+  BASE + "icons/icon-512.png",
 ];
 
-// Install: pre-cache essential assets
-self.addEventListener("install", (e) => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS))
+// File extensions that should use cache-first strategy
+const CACHE_FIRST_EXT = /\.(js|css|png|jpg|jpeg|webp|avif|svg|gif|ico|woff2?|ttf|eot)$/i;
+
+// ─── Install: precache the app shell ─────────────────────────────────
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE_URLS))
   );
   self.skipWaiting();
 });
 
-// Activate: clean old caches
-self.addEventListener("activate", (e) => {
-  e.waitUntil(
+// ─── Activate: clean old caches ──────────────────────────────────────
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
+      Promise.all(
+        keys
+          .filter((key) => key !== CACHE_NAME)
+          .map((key) => caches.delete(key))
+      )
     )
   );
   self.clients.claim();
 });
 
-// Fetch: network-first for navigations & API, cache-first for static assets
-self.addEventListener("fetch", (e) => {
-  const { request } = e;
+// ─── Fetch: strategy depends on request type ─────────────────────────
+self.addEventListener("fetch", (event) => {
+  const { request } = event;
 
-  // Skip non-GET and chrome-extension requests
-  if (request.method !== "GET" || request.url.startsWith("chrome-extension")) return;
+  // Only handle GET requests
+  if (request.method !== "GET") return;
 
-  // Google Sheets API calls — network only, don't cache
+  // Skip chrome-extension and non-http(s) requests
+  if (!request.url.startsWith("http")) return;
+
+  // Google Sheets API calls — network only, never cache
   if (request.url.includes("docs.google.com/spreadsheets")) {
-    e.respondWith(fetch(request).catch(() => new Response("{}", { status: 503 })));
+    event.respondWith(
+      fetch(request).catch(() => new Response("{}", { status: 503 }))
+    );
     return;
   }
 
-  // HTML navigations — network first, fall back to cache, then offline page
+  // ── Navigation requests: network-first ──
   if (request.mode === "navigate") {
-    e.respondWith(
+    event.respondWith(
       fetch(request)
-        .then((res) => {
-          const clone = res.clone();
+        .then((response) => {
+          const clone = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
-          return res;
+          return response;
         })
         .catch(() =>
-          caches.match(request).then((cached) => cached || caches.match(BASE + "offline.html"))
+          caches
+            .match(request)
+            .then(
+              (cached) => cached || caches.match(BASE + "offline.html")
+            )
         )
     );
     return;
   }
 
-  // Static assets (JS, CSS, images, fonts) — stale-while-revalidate
-  e.respondWith(
-    caches.match(request).then((cached) => {
-      const networkFetch = fetch(request)
-        .then((res) => {
-          if (res.ok) {
-            const clone = res.clone();
+  // ── Static assets (images, fonts, CSS, JS): cache-first ──
+  const url = new URL(request.url);
+  if (CACHE_FIRST_EXT.test(url.pathname)) {
+    event.respondWith(
+      caches.match(request).then((cached) => {
+        if (cached) return cached;
+        return fetch(request).then((response) => {
+          if (response.ok) {
+            const clone = response.clone();
             caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
           }
-          return res;
-        })
-        .catch(() => cached);
+          return response;
+        });
+      })
+    );
+    return;
+  }
 
-      return cached || networkFetch;
-    })
+  // ── Everything else: network-first with cache fallback ──
+  event.respondWith(
+    fetch(request)
+      .then((response) => {
+        if (response.ok) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+        }
+        return response;
+      })
+      .catch(() => caches.match(request))
   );
 });
