@@ -41,6 +41,7 @@ export default function Register() {
     e.preventDefault();
     const payload = {
       ...form,
+      formType: "registration",
       sacraments: form.sacraments.join(", "),
       spouse: showSpouse ? `${form.spouseFirst} ${form.spouseLast}`.trim() : "",
       timestamp: new Date().toISOString(),

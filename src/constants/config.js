@@ -37,10 +37,10 @@
 
 export const CONFIG = {
   // Google Apps Script web-app URL (leave empty to fall back to mailto)
-  contactFormUrl: "",
+  contactFormUrl: "https://script.google.com/macros/s/AKfycbxShuvwO7GJ3HlRrPNaOIQNyciEZOgD0GitP7Rz2irNbwJ53eZIrSQyGAcLekba2vH3WQ/exec",
 
   // Registration form URL (same setup as contact form; leave empty for mailto fallback)
-  registrationFormUrl: "",
+  registrationFormUrl: "https://script.google.com/macros/s/AKfycbxShuvwO7GJ3HlRrPNaOIQNyciEZOgD0GitP7Rz2irNbwJ53eZIrSQyGAcLekba2vH3WQ/exec",
 
   // WeShare online giving page
   weShareUrl: "",
