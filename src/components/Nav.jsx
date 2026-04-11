@@ -20,6 +20,7 @@ const NAV_ITEMS = [
     children: [
       { key: "visit", to: "/visit" },
       { key: "massTimes", to: "/mass-times" },
+      { key: "events", to: "/events" },
       { key: "contact", to: "/contact" },
     ],
   },

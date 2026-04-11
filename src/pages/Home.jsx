@@ -6,7 +6,7 @@ import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 
-import { useAnnouncements } from "../cms/hooks";
+import { useAnnouncements, useEvents } from "../cms/hooks";
 import Seo from "../components/Seo";
 import NextMass from "../components/NextMass";
 import CountUp from "../components/CountUp";
@@ -26,6 +26,7 @@ export default function Home() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { data: announcements } = useAnnouncements();
+  const { data: events } = useEvents();
 
   return (
     <div>
@@ -507,6 +508,57 @@ export default function Home() {
           </FadeSection>
         </Section>
       )}
+
+      {/* ════ Upcoming Events ════ */}
+      {(() => {
+        const today = new Date(); today.setHours(0,0,0,0);
+        const upcoming = events.filter((e) => new Date(e.date + "T00:00:00") >= today).slice(0, 3);
+        if (!upcoming.length) return null;
+        const CATEGORY_COLORS = { mass: T.burgundy, sacrament: T.gold, education: "#4A7C59", social: "#5B7FA6", prayer: "#7B5EA7", other: T.warmGray };
+        return (
+          <Section>
+            <FadeSection>
+              <SectionTitle sub={t("events.sub")}>{t("events.upcomingTitle")}</SectionTitle>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 20, maxWidth: 960, margin: "0 auto 32px" }}>
+                {upcoming.map((evt, i) => {
+                  const d = new Date(evt.date + "T00:00:00");
+                  const color = CATEGORY_COLORS[evt.category] ?? T.warmGray;
+                  return (
+                    <div key={i} className="glass-card" style={{ padding: 24, borderTop: `3px solid ${color}` }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 12 }}>
+                        <div style={{ textAlign: "center", minWidth: 48 }}>
+                          <div style={{ fontSize: 10, letterSpacing: 2, fontWeight: 700, color, textTransform: "uppercase" }}>
+                            {d.toLocaleDateString("en-US", { month: "short" })}
+                          </div>
+                          <div style={{ fontSize: 30, fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: T.softBlack, lineHeight: 1 }}>
+                            {d.getDate()}
+                          </div>
+                        </div>
+                        <div>
+                          <h3 style={{ fontSize: 17, fontFamily: "'Cormorant Garamond', serif", fontWeight: 600, color: T.softBlack, marginBottom: 3 }}>
+                            {evt.title}
+                          </h3>
+                          <div style={{ fontSize: 13, color: T.warmGray }}>
+                            {evt.time}{evt.location ? ` · ${evt.location}` : ""}
+                          </div>
+                        </div>
+                      </div>
+                      {evt.description && (
+                        <p style={{ fontSize: 13.5, color: T.warmGray, lineHeight: 1.65 }}>
+                          {evt.description.length > 100 ? evt.description.slice(0, 97) + "…" : evt.description}
+                        </p>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <Btn variant="primary" onClick={() => navigate("/events")}>{t("home.events.cta")}</Btn>
+              </div>
+            </FadeSection>
+          </Section>
+        );
+      })()}
 
       {/* ════ Vatican News ════ */}
       <Section bg={T.cream}>

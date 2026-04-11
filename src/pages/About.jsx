@@ -11,6 +11,7 @@ import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
 import PhotoGallery from "../components/PhotoGallery";
 import TextReveal from "../components/TextReveal";
+import SaintOfTheDay from "../components/SaintOfTheDay";
 import { PHOTOS } from "../constants/photos";
 
 export default function About() {
@@ -175,6 +176,13 @@ export default function About() {
               <Btn variant="outline" onClick={() => navigate("/history")}>{t("about.historyLink")}</Btn>
             </div>
           </div>
+        </FadeSection>
+      </Section>
+
+      {/* ════ Saint of the Day ════ */}
+      <Section bg={T.cream}>
+        <FadeSection>
+          <SaintOfTheDay />
         </FadeSection>
       </Section>
 

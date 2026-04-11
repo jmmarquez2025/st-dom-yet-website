@@ -19,7 +19,8 @@
     "marriage": "Matrimonio",
     "anointing": "Unción de los Enfermos",
     "funerals": "Funerales",
-    "register": "Registrarse"
+    "register": "Registrarse",
+    "events": "Eventos"
   },
   "footer": {
     "subtitle": "Parroquia Católica · Youngstown, OH",
@@ -142,6 +143,9 @@
       "hoursDays": "Lunes – Viernes",
       "hoursTime": "8:30 AM – 1:30 PM",
       "emailTitle": "Envíenos un Correo"
+    },
+    "events": {
+      "cta": "Ver Todos los Eventos"
     }
   },
   "schedule": {
@@ -229,8 +233,8 @@
       "parochialAssistant": "Asistente Parroquial"
     },
     "bios": {
-      "frassati-davis": "El P. Frassati Davis, O.P. sirve como Párroco de la Parroquia de Santo Domingo. Como Fraile Dominico de la Provincia de San José, lidera la comunidad parroquial en el culto, la predicación y la atención pastoral, continuando la tradición dominicana de proclamar el Evangelio.",
-      "charles-rooney": "El P. Charles Marie Rooney, O.P. sirve como Vicario Parroquial en la Parroquia de Santo Domingo. Asiste en la celebración de los sacramentos y la atención pastoral de la comunidad, con un profundo amor por el carisma dominicano de predicar y enseñar.",
+      "frassati-davis": "Fr. Frassati Davis was born into a military family and calls Bellevue, Nebraska home. He grew up with two older sisters and a younger brother. He attended St. Mary's University of Minnesota, where he was taught by a Dominican Friar of the Central Province and earned a BA in Philosophy. \"The natural rhythm of prayer, study, and preaching attracted me to the Order of Preachers, and the joy of the friars living out a consecrated religious vocation drew me deeper into the call to be a son of St. Dominic.\"",
+      "charles-rooney": "Fr. Charles Rooney was raised in Darien, Connecticut, where he and his two younger brothers grew up attending St. Thomas More Church and St. John Church. In 2016, he graduated from Duke University with a degree in \"Markets, Society, and Personalism,\" running on the varsity cross-country and track teams and writing an imago Dei column for the student newspaper. From 2016 to 2017, Fr. Charles earned an MA in Philosophy at Maynooth University, Ireland, through the George J. Mitchell Scholarship, writing his dissertation on Thomistic Personalism. He entered the Dominican novitiate in July 2017: \"I was deeply attracted by the Dominican charism of consecrating one's entire self to the truth and sharing the sweet fruits of that consecration with others. It is a joy and a privilege to be a member of St. Dominic's Order of Friars Preachers, abiding together in the love of Jesus Christ and proclaiming His saving truth to all whom we encounter.\"",
       "john-kozlowski": "El P. John Chrysostom Kozlowski, O.P. es un Fraile Dominico en residencia en la Parroquia de Santo Domingo, contribuyendo a la vida espiritual de la comunidad a través de la predicación y el ministerio sacramental.",
       "bernard-confer": "El P. Bernard Confer, O.P. es un Fraile Dominico en residencia en la Parroquia de Santo Domingo, sirviendo a la comunidad a través de la oración, la predicación y la celebración de los sacramentos.",
       "gregory-salomone": "El P. Gregory Salomone, O.P. es un Fraile Dominico en residencia en la Parroquia de Santo Domingo, enriqueciendo la comunidad a través de su ministerio de predicación y enseñanza en la tradición dominicana.",
@@ -240,7 +244,8 @@
     "modal": {
       "contact": "Información de Contacto",
       "reachVia": "Contactar a través de la oficina parroquial"
-    }
+    },
+    "viewDetails": "Ver Detalles"
   },
   "bulletin": {
     "title": "Boletín Semanal",
@@ -263,6 +268,12 @@
       "deadlineDesc": "Todos los anuncios del boletín deben enviarse a la oficina parroquial antes del lunes al mediodía cada semana para su inclusión en el boletín del siguiente fin de semana.",
       "contact": "Enviar un Anuncio",
       "contactDesc": "Para enviar un anuncio o evento para el boletín, contacte la oficina parroquial por teléfono o correo electrónico."
+    },
+    "archive": {
+      "title": "Archivo de Boletines",
+      "sub": "Boletines Anteriores",
+      "download": "Ver",
+      "noLink": "No disponible en línea"
     }
   },
   "becomingCatholic": {
@@ -724,7 +735,7 @@
     "title": "Predicación Dominicana",
     "sub": "Fray Nelson Medina, O.P.",
     "desc": "Explore las enseñanzas y reflexiones de Fray Nelson Medina, O.P. — un fraile dominico cuyo ministerio en video llega a cientos de miles de fieles en todo el mundo hispanohablante.",
-    "loading": "Cargando video\u2026",
+    "loading": "Cargando video…",
     "visitChannel": "Visitar Canal Completo en YouTube"
   },
   "history": {
@@ -822,5 +833,17 @@
     "error": "Algo salió mal. Por favor intente de nuevo o llame a la oficina parroquial.",
     "successTitle": "¡Registro Recibido!",
     "successDesc": "Gracias por registrarse en la parroquia de Santo Domingo. Nos comunicaremos pronto para darle la bienvenida personalmente."
+  },
+  "events": {
+    "title": "Eventos Parroquiales",
+    "sub": "Parroquia Católica de Santo Domingo",
+    "upcomingTitle": "Próximos Eventos",
+    "pastTitle": "Eventos Pasados",
+    "pastSub": "Vida Parroquial Reciente",
+    "filterAll": "Todos los Eventos",
+    "noneFound": "No se encontraron eventos para esta categoría."
+  },
+  "saintOfDay": {
+    "label": "Santo del Día"
   }
 }

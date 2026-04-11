@@ -109,3 +109,21 @@ export async function fetchAnnouncements() {
   if (!rows) return null;
   return rows.filter((r) => r.active === true || r.active === "TRUE");
 }
+
+/** Fetch events from CMS — tab: Events, columns: id | date | title | description | category | time | location */
+export async function fetchEvents() {
+  const rows = await fetchSheet("Events");
+  if (!rows) return null;
+  return rows
+    .filter((r) => r.date && r.title)
+    .sort((a, b) => new Date(a.date) - new Date(b.date));
+}
+
+/** Fetch bulletin archive from CMS — tab: Bulletins, columns: date | label | url */
+export async function fetchBulletins() {
+  const rows = await fetchSheet("Bulletins");
+  if (!rows) return null;
+  return rows
+    .filter((r) => r.date && r.label)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+}

@@ -9,12 +9,14 @@ import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
 import { PHOTOS } from "../constants/photos";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, FileText } from "lucide-react";
+import { useBulletins } from "../cms/hooks";
 
 export default function Bulletin() {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
   const hasBulletin = Boolean(CONFIG.bulletinUrl);
+  const { data: bulletins } = useBulletins();
 
   return (
     <div style={{ paddingTop: 76 }}>
@@ -251,6 +253,66 @@ export default function Bulletin() {
           </div>
         </FadeSection>
       </Section>
+
+      {/* ════ Bulletin Archive ════ */}
+      {bulletins.length > 0 && (
+        <Section bg={T.cream}>
+          <FadeSection>
+            <SectionTitle sub={t("bulletin.archive.sub")}>{t("bulletin.archive.title")}</SectionTitle>
+            <div style={{ maxWidth: 680, margin: "0 auto", display: "flex", flexDirection: "column", gap: 10 }}>
+              {bulletins.map((b, i) => {
+                const d = new Date(b.date + "T00:00:00");
+                const dateLabel = d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      background: "#fff",
+                      border: `1px solid ${T.stone}`,
+                      borderRadius: 8,
+                      padding: "14px 20px",
+                      gap: 16,
+                    }}
+                  >
+                    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                      <FileText size={18} color={T.burgundy} />
+                      <div>
+                        <div style={{ fontSize: 15, fontWeight: 600, color: T.softBlack, fontFamily: "'Cormorant Garamond', serif" }}>
+                          {b.label}
+                        </div>
+                        <div style={{ fontSize: 12, color: T.warmGray }}>{dateLabel}</div>
+                      </div>
+                    </div>
+                    {b.url ? (
+                      <a
+                        href={b.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: "inline-flex", alignItems: "center", gap: 6,
+                          fontSize: 12, fontWeight: 700, letterSpacing: 1,
+                          textTransform: "uppercase", color: T.burgundy,
+                          textDecoration: "none", whiteSpace: "nowrap",
+                        }}
+                      >
+                        <ExternalLink size={13} />
+                        {t("bulletin.archive.download")}
+                      </a>
+                    ) : (
+                      <span style={{ fontSize: 12, color: T.warmGray, fontStyle: "italic" }}>
+                        {t("bulletin.archive.noLink")}
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </FadeSection>
+        </Section>
+      )}
 
       {/* ════ Bulletin Info ════ */}
       <Section bg={T.cream}>

@@ -26,6 +26,7 @@ const Funerals = lazy(() => import("./pages/sacraments/Funerals"));
 const Visit = lazy(() => import("./pages/Visit"));
 const History = lazy(() => import("./pages/History"));
 const Register = lazy(() => import("./pages/Register"));
+const Events = lazy(() => import("./pages/Events"));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -45,13 +46,14 @@ function PageSpinner() {
 }
 
 function AppRoutes() {
+  const location = useLocation();
   return (
     <>
       <ScrollToTop />
       <ScrollProgress />
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Nav />
-      <main id="main-content">
+      <main id="main-content" key={location.pathname} style={{ animation: "pageFadeIn 0.35s ease" }}>
         <Suspense fallback={<PageSpinner />}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -73,11 +75,18 @@ function AppRoutes() {
             <Route path="/visit" element={<Visit />} />
             <Route path="/history" element={<History />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/events" element={<Events />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </Suspense>
       </main>
       <Footer />
+      <style>{`
+        @keyframes pageFadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </>
   );
 }

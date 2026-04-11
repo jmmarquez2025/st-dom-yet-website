@@ -1,9 +1,9 @@
 export const friars = [
-  { id: "frassati-davis", name: "Rev. Frassati Davis, O.P.", role: "pastor" },
-  { id: "charles-rooney", name: "Rev. Charles Marie Rooney, O.P.", role: "associate" },
-  { id: "john-kozlowski", name: "Rev. John Chrysostom Kozlowski, O.P.", role: "inResidence" },
-  { id: "bernard-confer", name: "Rev. Bernard Confer, O.P.", role: "inResidence" },
-  { id: "gregory-salomone", name: "Rev. Gregory Salomone, O.P.", role: "inResidence" },
+  { id: "frassati-davis", name: "Fr. Frassati Davis, O.P.", role: "pastor", photo: "/photos/davis_frassati.jpg" },
+  { id: "charles-rooney", name: "Fr. Charles Marie Rooney, O.P.", role: "associate", photo: "/photos/rooney_charles.jpg" },
+  { id: "john-kozlowski", name: "Fr. John Chrysostom Kozlowski, O.P.", role: "inResidence" },
+  { id: "bernard-confer", name: "Fr. Bernard Confer, O.P.", role: "inResidence" },
+  { id: "gregory-salomone", name: "Fr. Gregory Salomone, O.P.", role: "inResidence" },
 ];
 
 export const staff = [
