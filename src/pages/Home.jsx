@@ -16,6 +16,10 @@ import VaticanNews from "../components/VaticanNews";
 import YouTubeChannel from "../components/YouTubeChannel";
 import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
+import StickyHero from "../components/StickyHero";
+import ParallaxSection from "../components/ParallaxSection";
+import TextReveal from "../components/TextReveal";
+import { AnimatedDivider } from "../components/TextReveal";
 import { PHOTOS } from "../constants/photos";
 
 export default function Home() {
@@ -24,79 +28,70 @@ export default function Home() {
   const { data: announcements } = useAnnouncements();
 
   return (
-    <div style={{ paddingTop: 76 }}>
+    <div>
       <Seo description="St. Dominic Catholic Parish in Youngstown, Ohio. Served by the Dominican Friars since 1923. Mass times, sacraments, and community life." />
 
       {/* ═══ Liturgical Season Strip ═══ */}
       <LiturgicalBanner />
 
-      {/* ════ Hero ════ */}
-      <section
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          background: `linear-gradient(135deg, ${T.burgundyDark} 0%, ${T.burgundy} 50%, ${T.burgundyDark} 100%)`,
-          color: "#fff",
-          textAlign: "center",
-          padding: "clamp(80px, 14vw, 160px) 24px clamp(60px, 10vw, 100px)",
-        }}
+      {/* ════ Hero — Apple-style Sticky with Scroll Fade ════ */}
+      <StickyHero
+        image={PHOTOS.homeHero}
+        overlay={0.5}
+        tint="rgba(107,29,42,0.6)"
+        height="170vh"
       >
-        <HeroImage src={PHOTOS.homeHero} overlay={0.5} tint="rgba(107,29,42,0.6)" />
-
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <div
-            style={{
-              fontSize: 12,
-              letterSpacing: 4,
-              textTransform: "uppercase",
-              color: T.goldLight,
-              marginBottom: 16,
-              fontWeight: 600,
-            }}
-          >
-            {t("home.hero.subtitle")}
-          </div>
-
-          <h1
-            style={{
-              fontSize: "clamp(40px, 7vw, 72px)",
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 700,
-              lineHeight: 1.1,
-              marginBottom: 12,
-              color: "#fff",
-            }}
-          >
-            {t("home.hero.title")}
-          </h1>
-
-          <div
-            style={{
-              fontSize: 16,
-              letterSpacing: 3,
-              textTransform: "uppercase",
-              color: T.goldLight,
-              marginBottom: 40,
-            }}
-          >
-            {t("home.hero.location")}
-          </div>
-
-          <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-            <Btn variant="gold" onClick={() => navigate("/visit")}>
-              {t("home.hero.ctaVisit")}
-            </Btn>
-            <Btn variant="light" onClick={() => navigate("/mass-times")}>
-              {t("home.hero.ctaMass")}
-            </Btn>
-          </div>
-
-          {/* ── Next Mass Countdown ── */}
-          <div style={{ marginTop: 48 }}>
-            <NextMass />
-          </div>
+        <div
+          style={{
+            fontSize: 12,
+            letterSpacing: 4,
+            textTransform: "uppercase",
+            color: T.goldLight,
+            marginBottom: 16,
+            fontWeight: 600,
+          }}
+        >
+          {t("home.hero.subtitle")}
         </div>
-      </section>
+
+        <h1
+          style={{
+            fontSize: "clamp(40px, 7vw, 72px)",
+            fontFamily: "'Cormorant Garamond', serif",
+            fontWeight: 700,
+            lineHeight: 1.1,
+            marginBottom: 12,
+            color: "#fff",
+          }}
+        >
+          {t("home.hero.title")}
+        </h1>
+
+        <div
+          style={{
+            fontSize: 16,
+            letterSpacing: 3,
+            textTransform: "uppercase",
+            color: T.goldLight,
+            marginBottom: 40,
+          }}
+        >
+          {t("home.hero.location")}
+        </div>
+
+        <div style={{ display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
+          <Btn variant="gold" onClick={() => navigate("/visit")}>
+            {t("home.hero.ctaVisit")}
+          </Btn>
+          <Btn variant="light" onClick={() => navigate("/mass-times")}>
+            {t("home.hero.ctaMass")}
+          </Btn>
+        </div>
+
+        <div style={{ marginTop: 48 }}>
+          <NextMass />
+        </div>
+      </StickyHero>
 
       {/* ════ Parish Stats Band ════ */}
       <section

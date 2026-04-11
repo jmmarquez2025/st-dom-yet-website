@@ -3,6 +3,10 @@ import { T } from "../constants/theme";
 import { Section } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import HeroImage from "../components/HeroImage";
+import StickyHero from "../components/StickyHero";
+import ParallaxSection from "../components/ParallaxSection";
+import ScaleReveal from "../components/ScaleReveal";
+import TextReveal from "../components/TextReveal";
 import Seo from "../components/Seo";
 import { PHOTOS } from "../constants/photos";
 
@@ -90,7 +94,7 @@ export default function History() {
   const { t } = useTranslation();
 
   return (
-    <div style={{ paddingTop: 76 }}>
+    <div>
       <Seo
         title="Parish History"
         description="Over 100 years of faith — the history of St. Dominic Catholic Parish, founded by the Dominican Friars in 1923 in Youngstown, Ohio."
@@ -113,57 +117,51 @@ export default function History() {
         }
       `}</style>
 
-      {/* ════ Hero Banner ════ */}
-      <section
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          background: T.softBlack,
-          color: "#fff",
-          padding: "clamp(80px, 14vw, 140px) 24px clamp(60px, 10vw, 100px)",
-          textAlign: "center",
-        }}
+      {/* ════ Hero — Apple-style Sticky with Scroll Fade ════ */}
+      <StickyHero
+        image={PHOTOS.pageHeader}
+        overlay={0.5}
+        tint="rgba(30,20,15,0.6)"
+        height="160vh"
       >
-        <HeroImage src={PHOTOS.pageHeader} overlay={0.5} tint="rgba(30,20,15,0.6)" />
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <div
-            style={{
-              fontSize: 14,
-              letterSpacing: 4,
-              textTransform: "uppercase",
-              color: T.gold,
-              marginBottom: 16,
-              fontWeight: 600,
-            }}
-          >
-            {t("history.sub")}
-          </div>
-          <h1
-            style={{
-              fontSize: "clamp(40px, 7vw, 64px)",
-              fontFamily: "'Cormorant Garamond', serif",
-              fontWeight: 700,
-              lineHeight: 1.1,
-              textShadow: "0 2px 20px rgba(0,0,0,0.5)",
-            }}
-          >
-            {t("history.title")}
-          </h1>
-          <div style={{ width: 56, height: 3, background: T.gold, margin: "20px auto 0" }} />
-          <p
-            style={{
-              fontSize: 17,
-              maxWidth: 520,
-              margin: "20px auto 0",
-              lineHeight: 1.6,
-              color: "rgba(255,255,255,0.85)",
-              textShadow: "0 1px 8px rgba(0,0,0,0.4)",
-            }}
-          >
-            {t("history.heroDesc")}
-          </p>
+        <div
+          style={{
+            fontSize: 14,
+            letterSpacing: 4,
+            textTransform: "uppercase",
+            color: T.gold,
+            marginBottom: 16,
+            fontWeight: 600,
+          }}
+        >
+          {t("history.sub")}
         </div>
-      </section>
+        <h1
+          style={{
+            fontSize: "clamp(44px, 8vw, 72px)",
+            fontFamily: "'Cormorant Garamond', serif",
+            fontWeight: 700,
+            lineHeight: 1.1,
+            color: "#fff",
+            textShadow: "0 2px 30px rgba(0,0,0,0.6)",
+          }}
+        >
+          {t("history.title")}
+        </h1>
+        <div style={{ width: 56, height: 3, background: T.gold, margin: "20px auto 0" }} />
+        <p
+          style={{
+            fontSize: 18,
+            maxWidth: 540,
+            margin: "24px auto 0",
+            lineHeight: 1.6,
+            color: "rgba(255,255,255,0.9)",
+            textShadow: "0 1px 12px rgba(0,0,0,0.5)",
+          }}
+        >
+          {t("history.heroDesc")}
+        </p>
+      </StickyHero>
 
       {/* ════ 1923 — The Founding ════ */}
       <Section>
@@ -268,7 +266,7 @@ export default function History() {
 
             <P>{t("history.dedication.p2")}</P>
 
-            <HistoryPhoto
+            <ScaleReveal
               src={PHOTOS.historyAltarboys}
               alt={t("history.dedication.altarboysAlt")}
               caption={t("history.dedication.altarboysCap")}
@@ -277,18 +275,14 @@ export default function History() {
         </FadeSection>
       </Section>
 
-      {/* ════ Dominican Motto Banner ════ */}
-      <section
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          background: T.softBlack,
-          padding: "clamp(48px, 8vw, 80px) 24px",
-          textAlign: "center",
-        }}
+      {/* ════ Dominican Motto — Parallax Banner ════ */}
+      <ParallaxSection
+        image={PHOTOS.historyInteriorVintage}
+        height="auto"
+        speed={0.3}
+        overlay={0.65}
       >
-        <HeroImage src={PHOTOS.historyInteriorVintage} overlay={0.65} />
-        <div style={{ position: "relative", zIndex: 1, maxWidth: 700, margin: "0 auto" }}>
+        <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center", padding: "clamp(48px, 8vw, 80px) 0" }}>
           <blockquote
             style={{
               fontSize: "clamp(24px, 5vw, 36px)",
@@ -314,7 +308,7 @@ export default function History() {
             {t("about.history.mottoSrc")}
           </cite>
         </div>
-      </section>
+      </ParallaxSection>
 
       {/* ════ Growth & Change ════ */}
       <Section bg={T.cream}>
@@ -367,7 +361,7 @@ export default function History() {
             <P>{t("history.today.p1")}</P>
             <P>{t("history.today.p2")}</P>
 
-            <HistoryPhoto
+            <ScaleReveal
               src={PHOTOS.historyHero}
               alt={t("history.today.aerialAlt")}
               caption={t("history.today.aerialCap")}

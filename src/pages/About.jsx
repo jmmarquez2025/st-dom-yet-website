@@ -9,6 +9,7 @@ import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
 import PhotoGallery from "../components/PhotoGallery";
+import TextReveal from "../components/TextReveal";
 import { PHOTOS } from "../constants/photos";
 
 export default function About() {
@@ -147,7 +148,7 @@ export default function About() {
                   color: T.softBlack,
                 }}
               >
-                {t("about.history.title")}
+                <TextReveal>{t("about.history.title")}</TextReveal>
               </h2>
               <p
                 style={{
