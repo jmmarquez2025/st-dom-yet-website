@@ -10,6 +10,7 @@ import { useMinistries } from "../cms/hooks";
 import Seo from "../components/Seo";
 import ScrollColorNum from "../components/ScrollColorNum";
 import CountUp from "../components/CountUp";
+import Icon from "../components/Icon";
 
 /* ── Bento card sizes: featured ministries get span-2 ── */
 const FEATURED = new Set(["hispanic", "liturgical"]);
@@ -240,12 +241,11 @@ export default function GetInvolved() {
                     <span
                       className="bento-icon"
                       style={{
-                        fontSize: isFeatured ? 36 : 28,
                         lineHeight: 1,
                       }}
                       aria-hidden="true"
                     >
-                      {m.icon}
+                      <Icon name={m.icon} size={isFeatured ? 36 : 28} color={accent} />
                     </span>
                     <ScrollColorNum
                       as="h3"
@@ -290,9 +290,9 @@ export default function GetInvolved() {
             }}
           >
             {[
-              { num: "1", key: "explore", icon: "🔍" },
-              { num: "2", key: "connect", icon: "📞" },
-              { num: "3", key: "serve", icon: "🙏" },
+              { num: "1", key: "explore", icon: "Search" },
+              { num: "2", key: "connect", icon: "Phone" },
+              { num: "3", key: "serve", icon: "HeartHandshake" },
             ].map((step) => (
               <div
                 key={step.key}
@@ -313,8 +313,8 @@ export default function GetInvolved() {
                 >
                   {step.num}
                 </ScrollColorNum>
-                <div style={{ fontSize: 24, marginBottom: 8 }} aria-hidden="true">
-                  {step.icon}
+                <div style={{ marginBottom: 8 }} aria-hidden="true">
+                  <Icon name={step.icon} size={24} color={T.gold} />
                 </div>
                 <h3
                   style={{

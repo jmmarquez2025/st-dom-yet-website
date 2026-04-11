@@ -13,6 +13,7 @@ import CountUp from "../components/CountUp";
 import DailyQuote from "../components/DailyQuote";
 import LiturgicalBanner from "../components/LiturgicalBanner";
 import VaticanNews from "../components/VaticanNews";
+import Icon from "../components/Icon";
 
 /* ── cross SVG for pattern overlays ── */
 const CrossPattern = ({ opacity = 0.04 }) => (
@@ -431,33 +432,19 @@ export default function Home() {
           >
             {[
               {
-                icon: (
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <path d="M20 4v32M12 12h16M8 20h24" stroke={T.gold} strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                ),
+                iconName: "BookOpenText",
                 titleKey: "home.pillars.word.title",
                 descKey: "home.pillars.word.desc",
                 link: "/about",
               },
               {
-                icon: (
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <circle cx="20" cy="16" r="8" stroke={T.gold} strokeWidth="2" />
-                    <path d="M12 36c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke={T.gold} strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                ),
+                iconName: "Church",
                 titleKey: "home.pillars.sacrament.title",
                 descKey: "home.pillars.sacrament.desc",
                 link: "/sacraments",
               },
               {
-                icon: (
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <path d="M20 8c-6 0-12 6-12 12s6 12 12 12 12-6 12-12" stroke={T.gold} strokeWidth="2" strokeLinecap="round" />
-                    <path d="M16 20l4 4 8-8" stroke={T.gold} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                ),
+                iconName: "Handshake",
                 titleKey: "home.pillars.service.title",
                 descKey: "home.pillars.service.desc",
                 link: "/get-involved",
@@ -476,7 +463,9 @@ export default function Home() {
                 tabIndex={0}
                 onKeyDown={(e) => e.key === "Enter" && navigate(pillar.link)}
               >
-                <div style={{ marginBottom: 16 }}>{pillar.icon}</div>
+                <div style={{ marginBottom: 16 }}>
+                  <Icon name={pillar.iconName} size={40} color={T.gold} />
+                </div>
                 <h3
                   style={{
                     fontSize: 22,
@@ -621,7 +610,7 @@ export default function Home() {
             {[
               {
                 key: "visit",
-                icon: "🏛️",
+                iconName: "MapPin",
                 content: (
                   <>
                     <p style={{ fontSize: 15, fontWeight: 600, color: T.softBlack, marginBottom: 2 }}>
@@ -635,7 +624,7 @@ export default function Home() {
               },
               {
                 key: "call",
-                icon: "📞",
+                iconName: "Phone",
                 content: (
                   <a href={CONFIG.phoneLink} className="contact-link" style={{ fontSize: 16, fontWeight: 600, color: T.burgundy }}>
                     {CONFIG.phone}
@@ -644,7 +633,7 @@ export default function Home() {
               },
               {
                 key: "hours",
-                icon: "🕐",
+                iconName: "Clock",
                 content: (
                   <>
                     <p style={{ fontSize: 15, fontWeight: 600, color: T.softBlack, marginBottom: 2 }}>
@@ -658,7 +647,7 @@ export default function Home() {
               },
               {
                 key: "email",
-                icon: "✉️",
+                iconName: "Mail",
                 content: (
                   <a href={`mailto:${CONFIG.email}`} className="contact-link" style={{ fontSize: 14, color: T.burgundy, wordBreak: "break-all" }}>
                     {CONFIG.email}
@@ -671,8 +660,8 @@ export default function Home() {
                 className="glass-card tilt-card"
                 style={{ padding: 32, textAlign: "center" }}
               >
-                <div aria-hidden="true" style={{ fontSize: 32, marginBottom: 12 }}>
-                  {card.icon}
+                <div style={{ marginBottom: 12 }}>
+                  <Icon name={card.iconName} size={32} color={T.burgundy} />
                 </div>
                 <h3
                   style={{

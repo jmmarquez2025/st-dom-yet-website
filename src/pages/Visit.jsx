@@ -10,13 +10,14 @@ import Seo from "../components/Seo";
 import ScrollColorNum from "../components/ScrollColorNum";
 import ScrollTimeline from "../components/ScrollTimeline";
 import CountUp from "../components/CountUp";
+import Icon from "../components/Icon";
 
 const STEPS = [
-  { num: "01", key: "arrive", icon: "🏛️" },
-  { num: "02", key: "enter", icon: "🚪" },
-  { num: "03", key: "seat", icon: "⛪" },
-  { num: "04", key: "mass", icon: "✝️" },
-  { num: "05", key: "community", icon: "🤝" },
+  { num: "01", key: "arrive", icon: "MapPin" },
+  { num: "02", key: "enter", icon: "DoorOpen" },
+  { num: "03", key: "seat", icon: "Church" },
+  { num: "04", key: "mass", icon: "Cross" },
+  { num: "05", key: "community", icon: "Handshake" },
 ];
 
 export default function Visit() {
@@ -201,9 +202,7 @@ export default function Visit() {
                       marginBottom: 8,
                     }}
                   >
-                    <span style={{ fontSize: 22 }} aria-hidden="true">
-                      {step.icon}
-                    </span>
+                    <Icon name={step.icon} size={22} color={T.gold} />
                     <ScrollColorNum
                       as="h3"
                       colorFrom={T.warmGray}
@@ -239,10 +238,10 @@ export default function Visit() {
             }}
           >
             {[
-              { key: "dress", icon: "👔", accent: T.burgundy },
-              { key: "children", icon: "👶", accent: "#2E7D32" },
-              { key: "language", icon: "🌎", accent: "#C0392B" },
-              { key: "parking", icon: "🅿️", accent: "#1565C0" },
+              { key: "dress", icon: "Users", accent: T.burgundy },
+              { key: "children", icon: "Baby", accent: "#2E7D32" },
+              { key: "language", icon: "Languages", accent: "#C0392B" },
+              { key: "parking", icon: "Car", accent: "#1565C0" },
             ].map((item) => (
               <div
                 key={item.key}
@@ -266,12 +265,11 @@ export default function Visit() {
                 />
                 <div
                   style={{
-                    fontSize: 28,
                     marginBottom: 12,
                   }}
                   aria-hidden="true"
                 >
-                  {item.icon}
+                  <Icon name={item.icon} size={28} color={item.accent} />
                 </div>
                 <ScrollColorNum
                   as="h3"
@@ -487,7 +485,9 @@ export default function Visit() {
         </svg>
         <div style={{ position: "relative", zIndex: 1, maxWidth: 650, margin: "0 auto" }}>
           <FadeSection>
-            <div style={{ fontSize: 48, marginBottom: 20, lineHeight: 1 }}>☩</div>
+            <div style={{ marginBottom: 20, lineHeight: 1 }}>
+              <Icon name="Cross" size={48} color={T.goldLight} />
+            </div>
             <TextReveal
               as="h2"
               style={{

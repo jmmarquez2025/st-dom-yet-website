@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
+import { Menu, X } from "lucide-react";
 import LanguageToggle from "./LanguageToggle";
 
 const NAV_LINKS = [
@@ -144,7 +145,7 @@ export default function Nav() {
             padding: 8, fontSize: 24, color: T.burgundy, lineHeight: 1,
           }}
         >
-          {open ? "✕" : "☰"}
+          {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 

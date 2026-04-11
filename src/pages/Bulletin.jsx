@@ -6,6 +6,7 @@ import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import PageHeader from "../components/PageHeader";
 import Seo from "../components/Seo";
+import Icon from "../components/Icon";
 
 export default function Bulletin() {
   const { t } = useTranslation();
@@ -18,8 +19,8 @@ export default function Bulletin() {
       <Section>
         <FadeSection>
           <div style={{ maxWidth: 640, margin: "0 auto", textAlign: "center" }}>
-            <div aria-hidden="true" style={{ fontSize: 48, marginBottom: 16 }}>
-              📰
+            <div aria-hidden="true" style={{ marginBottom: 16 }}>
+              <Icon name="Newspaper" size={48} color={T.burgundy} />
             </div>
 
             <h2

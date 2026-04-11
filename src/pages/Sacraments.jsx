@@ -5,14 +5,15 @@ import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
 import Seo from "../components/Seo";
+import Icon from "../components/Icon";
 
 const SACRAMENT_LINKS = [
-  { to: "/sacraments/baptism", key: "baptism", icon: "💧" },
-  { to: "/sacraments/first-communion", key: "firstCommunion", icon: "🍞" },
-  { to: "/sacraments/confirmation", key: "confirmation", icon: "🔥" },
-  { to: "/sacraments/marriage", key: "marriage", icon: "💍" },
-  { to: "/sacraments/anointing", key: "anointing", icon: "🕊️" },
-  { to: "/sacraments/funerals", key: "funerals", icon: "✝️" },
+  { to: "/sacraments/baptism", key: "baptism", icon: "Droplets" },
+  { to: "/sacraments/first-communion", key: "firstCommunion", icon: "Wheat" },
+  { to: "/sacraments/confirmation", key: "confirmation", icon: "Flame" },
+  { to: "/sacraments/marriage", key: "marriage", icon: "Gem" },
+  { to: "/sacraments/anointing", key: "anointing", icon: "Bird" },
+  { to: "/sacraments/funerals", key: "funerals", icon: "Cross" },
 ];
 
 export default function Sacraments() {
@@ -46,7 +47,9 @@ export default function Sacraments() {
                   display: "block",
                 }}
               >
-                <div style={{ fontSize: 36, marginBottom: 12 }} aria-hidden="true">{s.icon}</div>
+                <div style={{ marginBottom: 12 }} aria-hidden="true">
+                  <Icon name={s.icon} size={36} color={T.burgundy} />
+                </div>
                 <h3 style={{ fontSize: 22, color: T.burgundy, marginBottom: 8, fontFamily: "'Cormorant Garamond', serif" }}>
                   {t(`sacraments.${s.key}.title`)}
                 </h3>

@@ -6,6 +6,7 @@ import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 import TextReveal from "../components/TextReveal";
 import Seo from "../components/Seo";
+import Icon from "../components/Icon";
 
 export default function About() {
   const { t } = useTranslation();
@@ -188,17 +189,17 @@ export default function About() {
             }}
           >
             {[
-              { key: "word", icon: "📖" },
-              { key: "sacrament", icon: "✝️" },
-              { key: "service", icon: "🤝" },
+              { key: "word", icon: "BookOpenText" },
+              { key: "sacrament", icon: "Cross" },
+              { key: "service", icon: "Handshake" },
             ].map(({ key, icon }) => (
               <div
                 key={key}
                 className="glass-card"
                 style={{ padding: 32, textAlign: "center" }}
               >
-                <div aria-hidden="true" style={{ fontSize: 36, marginBottom: 12 }}>
-                  {icon}
+                <div aria-hidden="true" style={{ marginBottom: 12 }}>
+                  <Icon name={icon} size={36} color={T.burgundy} />
                 </div>
                 <h3
                   style={{

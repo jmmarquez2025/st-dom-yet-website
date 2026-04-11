@@ -5,6 +5,7 @@ import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import PageHeader from "../components/PageHeader";
 import Seo from "../components/Seo";
+import Icon from "../components/Icon";
 
 export default function Give() {
   const { t } = useTranslation();
@@ -30,7 +31,9 @@ export default function Give() {
         <FadeSection>
           <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
             <div style={{ background: T.warmWhite, border: `1px solid ${T.stone}`, borderRadius: 4, padding: 48 }}>
-              <div style={{ fontSize: 48, marginBottom: 16 }} aria-hidden="true">💝</div>
+              <div style={{ marginBottom: 16 }} aria-hidden="true">
+                <Icon name="Gift" size={48} color={T.burgundy} />
+              </div>
               <h3 style={{ fontSize: 28, color: T.burgundy, marginBottom: 16, fontFamily: "'Cormorant Garamond', serif" }}>
                 {t("give.onlineTitle")}
               </h3>
@@ -77,8 +80,8 @@ export default function Give() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 24 }}>
             {["offertory", "mail", "stock"].map((key) => (
               <div key={key} className="hover-lift" style={{ background: T.cream, padding: 32, borderRadius: 4, textAlign: "center", border: `1px solid ${T.stone}` }}>
-                <div style={{ fontSize: 32, marginBottom: 12 }} aria-hidden="true">
-                  {key === "offertory" ? "⛪" : key === "mail" ? "✉️" : "📈"}
+                <div style={{ marginBottom: 12 }} aria-hidden="true">
+                  <Icon name={key === "offertory" ? "Church" : key === "mail" ? "Mail" : "TrendingUp"} size={32} color={T.burgundy} />
                 </div>
                 <h4 style={{ fontSize: 18, marginBottom: 8, color: T.burgundy }}>{t(`give.methods.${key}.title`)}</h4>
                 <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.7 }}>{t(`give.methods.${key}.desc`)}</p>
