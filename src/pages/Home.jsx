@@ -188,7 +188,7 @@ export default function Home() {
                 [t("home.massCta.satVigil"), "5:00 PM"],
                 [t("home.massCta.sun"), "8:00 AM"],
                 [t("home.massCta.sun"), "10:30 AM"],
-                [t("home.massCta.sunEspanol"), "12:30 PM"],
+                [t("home.massCta.sunEspanol"), "1:00 PM"],
               ].map(([label, time], i) => (
                 <div
                   key={i}

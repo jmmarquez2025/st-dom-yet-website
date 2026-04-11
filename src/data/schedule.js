@@ -1,8 +1,9 @@
 export const sundayMass = [
   ["saturdayVigil", "5:00 PM"],
+  ["saturday", "8:00 AM"],
   ["sunday", "8:00 AM"],
   ["sunday", "10:30 AM"],
-  ["sundayEspanol", "12:30 PM"],
+  ["sundayEspanol", "1:00 PM"],
 ];
 
 export const dailyMass = [
@@ -15,14 +16,14 @@ export const dailyMass = [
 ];
 
 export const confession = [
-  ["wednesday", "11:15 AM – 11:55 AM"],
-  ["friday", "11:15 AM – 11:55 AM"],
-  ["saturday", "11:15 AM – 11:55 AM"],
-  ["saturday", "4:00 PM – 4:55 PM"],
+  ["wednesday", "11:15 AM – 12:00 PM"],
+  ["friday", "11:15 AM – 12:00 PM"],
+  ["saturday", "11:15 AM – 12:00 PM"],
+  ["saturday", "4:00 PM – 5:00 PM"],
   ["sundayEspanol", "11:30 AM – 11:55 AM"],
 ];
 
 export const adoration = [
-  ["tuesday", "12:30 PM – 4:45 PM"],
+  ["tuesday", "12:30 PM – 5:00 PM"],
   ["tuesdayEveningPrayer", "4:45 PM"],
 ];

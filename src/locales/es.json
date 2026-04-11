@@ -97,7 +97,7 @@
     "confession": "Horario de Confesiones",
     "adoration": "Adoración y Devociones",
     "holyDays": "Días de Precepto",
-    "holyDaysDesc": "Vigilia: 5:00 PM · Día de Precepto: 8:00 AM, 12:00 PM, 7:00 PM (Español)"
+    "holyDaysDesc": "Vigilia: 5:00 PM · Día de Precepto: 8:00 AM, 12:00 PM, 5:00 PM"
   },
   "about": {
     "title": "Sobre Nuestra Parroquia",
@@ -146,8 +146,9 @@
     "roles": {
       "pastor": "Párroco",
       "associate": "Vicario Parroquial",
+      "inResidence": "En Residencia",
       "parishSecretary": "Secretaria Parroquial",
-      "musicDirector": "Directora de Música",
+      "musicDirector": "Director de Música",
       "religiousEdCoordinator": "Coordinadora de Educación Religiosa",
       "parochialAssistant": "Asistente Parroquial"
     }
@@ -166,6 +167,11 @@
     "sub": "Su Camino",
     "heading": "Comience Su Camino de Fe",
     "desc": "Ya sea que nunca haya sido bautizado, fue bautizado en otra tradición cristiana, o es un católico bautizado que aún no ha recibido la Confirmación o la Eucaristía — estamos aquí para caminar con usted.",
+    "intro": {
+      "sub": "Su Camino",
+      "title": "Comience Su Camino de Fe",
+      "desc": "Ya sea que nunca haya sido bautizado, fue bautizado en otra tradición cristiana, o es un católico bautizado que aún no ha recibido la Confirmación o la Eucaristía — estamos aquí para caminar con usted."
+    },
     "cards": {
       "new": {
         "title": "¿Nuevo en la Fe?",
@@ -178,13 +184,17 @@
         "step": "Regrese a casa"
       },
       "ready": {
-        "title": "¿Listo para Comenzar?",
-        "desc": "Nuestra parroquia ofrece un proceso de formación (a veces llamado RICA o el Orden de Iniciación Cristiana de Adultos) donde puede aprender, hacer preguntas y prepararse para recibir los Sacramentos.",
+        "title": "¿Listo para Comenzar el RICA?",
+        "desc": "Nuestra parroquia ofrece el RICA (Rito de Iniciación Cristiana de Adultos) — un camino de 8 a 9 meses de septiembre a mayo. Las clases se reúnen semanalmente y culminan en la Vigilia Pascual. Disponible en inglés y en español (miércoles por la noche a las 7:00 PM).",
         "step": "Dé el siguiente paso"
       }
     },
     "reachOut": "Comuníquese con Nosotros",
-    "reachOutDesc": "Contacte la oficina parroquial y le conectaremos con uno de nuestros sacerdotes o personal que puede responder sus preguntas y ayudarle a dar el siguiente paso."
+    "reachOutDesc": "Contacte la oficina parroquial y le conectaremos con uno de nuestros sacerdotes o personal que puede responder sus preguntas y ayudarle a dar el siguiente paso.",
+    "contact": {
+      "title": "Comuníquese con Nosotros",
+      "desc": "Contacte la oficina parroquial y le conectaremos con uno de nuestros sacerdotes o personal que puede responder sus preguntas y ayudarle a dar el siguiente paso hacia el Bautismo o la plena recepción en la Iglesia."
+    }
   },
   "getInvolved": {
     "title": "Participe",
@@ -221,8 +231,24 @@
         "desc": "Comparta sus dones musicales en la Misa — coro, cantores e instrumentistas son bienvenidos."
       },
       "religiousEd": {
-        "title": "Educación Religiosa",
-        "desc": "Ayude a formar la próxima generación de católicos a través de nuestros programas de catecismo y formación en la fe."
+        "title": "Educación Religiosa (CCD)",
+        "desc": "Las clases de CCD sirven a los grados K–8, reuniéndose los domingos de 9:00 a 10:15 AM de septiembre a mayo. Ayude a formar la próxima generación de católicos."
+      },
+      "youth": {
+        "title": "Ministerio Juvenil",
+        "desc": "Grupos juveniles de secundaria y preparatoria, más un grupo de familias jóvenes. Se ofrecen viajes misioneros cada año para jóvenes y voluntarios médicos."
+      },
+      "bibleStudy": {
+        "title": "Estudio Bíblico",
+        "desc": "Estudio bíblico semanal abierto a todos los feligreses. Profundice su conocimiento de las Sagradas Escrituras en la tradición dominicana de estudio y contemplación."
+      },
+      "caring": {
+        "title": "Ministerios de Cuidado",
+        "desc": "Alcanzando a los enfermos, confinados en casa y en duelo de nuestra familia parroquial con visitas, oración y apoyo práctico."
+      },
+      "missions": {
+        "title": "Viajes Misioneros",
+        "desc": "Viaje misionero médico anual (abril) y viaje misionero juvenil (junio) que dan a los feligreses la oportunidad de servir a los necesitados más allá de nuestra comunidad."
       }
     },
     "register": {
@@ -298,7 +324,7 @@
       "sub": "El Sacramento del",
       "heading": "Nueva Vida en Cristo",
       "p1": "El Bautismo es el primer y fundamental sacramento de la iniciación cristiana. A través de las aguas del Bautismo, somos purificados del pecado original, renacidos como hijos de Dios y acogidos en la Iglesia Católica. Es la puerta a través de la cual entramos a la vida con Cristo.",
-      "p2": "En la Parroquia Santo Domingo, celebramos el Bautismo para infantes, niños y adultos. Los padres que buscan el Bautismo para su hijo están invitados a contactar la oficina parroquial para programar una sesión de preparación bautismal.",
+      "p2": "En la Parroquia Santo Domingo, el Bautismo se celebra a las 12:30 PM los 2° y 4° domingos de cada mes. Las clases de preparación bautismal se ofrecen el 2° miércoles de los meses impares a las 7:00 PM en la iglesia. Contacte la oficina parroquial para inscribirse.",
       "reqSub": "Lo Que Necesita",
       "reqTitle": "Requisitos para el Bautismo",
       "req1": {
@@ -346,7 +372,7 @@
       "sub": "El Sacramento del",
       "heading": "Sellado con el Espíritu Santo",
       "p1": "La Confirmación completa la gracia del Bautismo y dota al receptor con la fuerza especial del Espíritu Santo. A través de la Confirmación, los católicos están más perfectamente unidos a la Iglesia y enriquecidos con el poder de testimoniar a Cristo en palabra y obra.",
-      "p2": "En la Parroquia Santo Domingo, la preparación para la Confirmación típicamente tiene lugar durante los años de secundaria. Los adultos que no han sido confirmados pueden contactar la parroquia para organizar la preparación en cualquier momento.",
+      "p2": "En la Parroquia Santo Domingo, la Confirmación generalmente se confiere a los estudiantes en octavo grado, preparados a través de nuestro programa de CCD. Los adultos que no han sido confirmados pueden contactar la parroquia para organizar la preparación en cualquier momento.",
       "prepSub": "Preparación",
       "prepTitle": "Preparándose para la Confirmación",
       "prep1": {
@@ -379,7 +405,7 @@
       },
       "step2": {
         "title": "Preparación Matrimonial",
-        "desc": "Complete el programa diocesano de preparación matrimonial, que incluye sesiones de Pre-Cana sobre comunicación, fe, finanzas y vida familiar."
+        "desc": "Complete el Pre-Cana — tres sesiones consecutivas de domingo por la noche (ofrecidas en invierno, primavera u otoño) sobre comunicación, toma de decisiones, fe y vida familiar. Abierto a feligreses y ex-alumnos."
       },
       "step3": {
         "title": "Liturgia de la Boda",
@@ -472,7 +498,7 @@
       },
       "language": {
         "title": "Misa en Español",
-        "desc": "Celebramos Misa en español cada domingo a las 12:30 PM. Nuestra comunidad del Ministerio Hispano es vibrante y acogedora — ¡todos son bienvenidos!"
+        "desc": "Celebramos Misa en español cada domingo a la 1:00 PM. Nuestra comunidad del Ministerio Hispano es vibrante y acogedora — ¡todos son bienvenidos!"
       },
       "parking": {
         "title": "Estacionamiento y Accesibilidad",
@@ -488,7 +514,7 @@
       "satVigil": "Vigilia del Sábado:",
       "sun": "Domingo:",
       "sunEs": "Domingo (Español):",
-      "confessionNote": "Confesiones: Sábado 4:00 – 4:45 PM"
+      "confessionNote": "Confesiones: Mié y Vie 11:15 AM–12:00 PM · Sáb 11:15 AM–12:00 PM y 4:00–5:00 PM"
     },
     "cta": {
       "title": "Estamos Deseosos de Conocerle",
