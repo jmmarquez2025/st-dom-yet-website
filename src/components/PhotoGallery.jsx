@@ -240,41 +240,48 @@ export default function PhotoGallery({ photos = [] }) {
             </button>
           )}
 
-          {/* Image */}
-          <img
-            src={photos[lightbox].src}
-            alt={t(photos[lightbox].alt)}
+          {/* Image + caption — stacked in a flex column so caption never overlaps */}
+          <div
             onClick={(e) => e.stopPropagation()}
             style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
               maxWidth: "90vw",
-              maxHeight: "85vh",
-              objectFit: "contain",
-              borderRadius: 4,
-              boxShadow: "0 8px 60px rgba(0,0,0,0.5)",
-            }}
-          />
-
-          {/* Caption + counter */}
-          <div
-            style={{
-              position: "absolute",
-              bottom: 24,
-              left: "50%",
-              transform: "translateX(-50%)",
-              textAlign: "center",
-              color: "rgba(255,255,255,0.7)",
-              fontSize: 13,
-              letterSpacing: 1,
+              maxHeight: "92vh",
+              gap: 12,
             }}
           >
-            <div style={{ marginBottom: 4, color: "#fff", fontSize: 15 }}>
-              {t(photos[lightbox].alt)}
+            <img
+              src={photos[lightbox].src}
+              alt={t(photos[lightbox].alt)}
+              style={{
+                maxWidth: "100%",
+                maxHeight: "78vh",
+                objectFit: "contain",
+                borderRadius: 4,
+                boxShadow: "0 8px 60px rgba(0,0,0,0.5)",
+                flexShrink: 1,
+              }}
+            />
+            <div
+              style={{
+                textAlign: "center",
+                color: "rgba(255,255,255,0.7)",
+                fontSize: 13,
+                letterSpacing: 1,
+                width: "100%",
+              }}
+            >
+              <div style={{ marginBottom: 4, color: "#fff", fontSize: 15, lineHeight: 1.5 }}>
+                {t(photos[lightbox].alt)}
+              </div>
+              {photos.length > 1 && (
+                <span>
+                  {lightbox + 1} / {photos.length}
+                </span>
+              )}
             </div>
-            {photos.length > 1 && (
-              <span>
-                {lightbox + 1} / {photos.length}
-              </span>
-            )}
           </div>
         </div>
       )}
