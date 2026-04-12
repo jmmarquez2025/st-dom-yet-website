@@ -231,7 +231,7 @@ export default function WritersGuide() {
 }
 
 function StaffDashboard() {
-  const { data: blogPosts, loading } = useBlogPosts();
+  const { data: blogPosts, loading, refresh } = useBlogPosts();
 
   // View state: "dashboard" | "compose"
   const [view, setView] = useState("dashboard");
@@ -262,6 +262,7 @@ function StaffDashboard() {
         setToast({ message: "Post deleted successfully.", type: "success" });
         setView("dashboard");
         setEditingPost(null);
+        refresh();
       } else {
         setToast({ message: result.error || "Failed to delete post.", type: "error" });
       }
@@ -270,7 +271,7 @@ function StaffDashboard() {
     } finally {
       setSaving(false);
     }
-  }, []);
+  }, [refresh]);
 
   const handleSave = useCallback(async (postData) => {
     setSaving(true);
@@ -285,6 +286,7 @@ function StaffDashboard() {
         });
         setView("dashboard");
         setEditingPost(null);
+        refresh();
       } else {
         setToast({
           message: result.error || "Something went wrong. Please try again.",
@@ -299,7 +301,7 @@ function StaffDashboard() {
     } finally {
       setSaving(false);
     }
-  }, []);
+  }, [refresh]);
 
   return (
     <div style={{ paddingTop: 76 }}>
@@ -340,6 +342,7 @@ function StaffDashboard() {
             onDelete={handleDelete}
             onCancel={handleCancel}
             saving={saving}
+            onValidationError={(msg) => setToast({ message: msg, type: "error" })}
           />
         </Section>
       )}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { fetchStaff, fetchSchedule, fetchMinistries, fetchAnnouncements, fetchEvents, fetchBulletins, fetchBlogPosts } from "./client";
 import { friars as staticFriars, staff as staticStaff } from "../data/staff";
 import { sundayMass, dailyMass, confession, adoration } from "../data/schedule";
@@ -68,14 +68,21 @@ export function useBulletins() {
 /**
  * Blog posts — tries the Google Docs CMS first, falls back to static sample posts.
  * CMS posts are merged with static posts (CMS takes precedence on matching IDs).
+ *
+ * Returns { data, loading, isLive, refresh } — call refresh() after
+ * mutations (create / update / delete) to re-read the post list.
  */
 export function useBlogPosts() {
   const [data, setData] = useState(staticBlogPosts);
   const [loading, setLoading] = useState(true);
   const [isLive, setIsLive] = useState(false);
+  const [tick, setTick] = useState(0);
+
+  const refresh = useCallback(() => setTick((n) => n + 1), []);
 
   useEffect(() => {
     let cancelled = false;
+    setLoading(true);
     fetchBlogPosts().then((cmsPosts) => {
       if (!cancelled && cmsPosts && cmsPosts.length > 0) {
         // Merge: CMS posts first, then static posts not in CMS
@@ -92,7 +99,7 @@ export function useBlogPosts() {
       if (!cancelled) setLoading(false);
     });
     return () => { cancelled = true; };
-  }, []);
+  }, [tick]);
 
-  return { data, loading, isLive };
+  return { data, loading, isLive, refresh };
 }

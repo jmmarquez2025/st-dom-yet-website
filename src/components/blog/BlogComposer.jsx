@@ -51,7 +51,7 @@ function Field({ label, children, span = 1 }) {
   );
 }
 
-export default function BlogComposer({ post, onSave, onDelete, onCancel, saving }) {
+export default function BlogComposer({ post, onSave, onDelete, onCancel, saving, onValidationError }) {
   const isEditing = !!post;
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [dirty, setDirty] = useState(false);
@@ -116,7 +116,26 @@ export default function BlogComposer({ post, onSave, onDelete, onCancel, saving 
   };
 
   const handleSubmit = (asDraft) => {
-    if (!validate()) return;
+    if (!validate()) {
+      // Scroll to first error field
+      const firstErrKey = Object.keys(errors).length > 0
+        ? Object.keys(errors)[0]
+        : null;
+      if (firstErrKey) {
+        // Re-run validate to capture errors since setState is async
+        const e = {};
+        if (!title.trim()) e.title = "Title is required";
+        if (!excerpt.trim()) e.excerpt = "Excerpt is required";
+        if (inputMode === "doc" && !docUrl.trim()) e.docUrl = "Google Doc link is required";
+        if (inputMode === "editor" && !editorHtml.trim()) e.editor = "Article content is required";
+        const key = Object.keys(e)[0];
+        if (key) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+      if (onValidationError) onValidationError("Please fill in all required fields.");
+      return;
+    }
 
     const postData = {
       id: post?.id || slug,

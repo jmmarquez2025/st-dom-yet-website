@@ -136,86 +136,123 @@ export async function fetchBulletins() {
  * See cms/blog-cms.gs for the server-side code.
  */
 const BLOG_CACHE_KEY = "__blog_cms";
+const BLOG_LOCAL_KEY = "__blog_local"; // local-only posts when CMS not configured
+
+/* ── Local-storage helpers (offline / no-CMS mode) ── */
+
+function getLocalPosts() {
+  try {
+    return JSON.parse(localStorage.getItem(BLOG_LOCAL_KEY) || "[]");
+  } catch { return []; }
+}
+
+function saveLocalPosts(posts) {
+  try {
+    localStorage.setItem(BLOG_LOCAL_KEY, JSON.stringify(posts));
+  } catch { /* quota exceeded */ }
+}
 
 /**
- * Submit (create or update) a blog post via the Apps Script doPost endpoint.
+ * Submit (create or update) a blog post.
+ *
+ * When CONFIG.blogCmsUrl is set → POSTs to the Apps Script backend.
+ * When it's empty → saves to localStorage so the blog manager works
+ * immediately for testing and offline authoring.
+ *
  * @param {Object} postData — post metadata + optional body blocks
  * @returns {Promise<{success: boolean, error?: string}>}
  */
 export async function submitBlogPost(postData) {
-  if (!CONFIG.blogCmsUrl) {
-    return { success: false, error: "Blog CMS URL not configured. Set VITE_BLOG_CMS_URL in your .env file." };
+  // ── Remote CMS mode ──
+  if (CONFIG.blogCmsUrl) {
+    try {
+      await fetch(CONFIG.blogCmsUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify(postData),
+      });
+      // Invalidate cache so next fetch picks up the change
+      try { localStorage.removeItem(BLOG_CACHE_KEY); } catch { /* ignore */ }
+      return { success: true };
+    } catch (err) {
+      return { success: false, error: err.message || "Failed to submit post" };
+    }
   }
 
+  // ── Local mode (no CMS URL) ──
   try {
-    const res = await fetch(CONFIG.blogCmsUrl, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify(postData),
-    });
-
-    // no-cors returns opaque response — we can't read it
-    // Invalidate the cache so the next fetch picks up the new post
-    try {
-      localStorage.removeItem(BLOG_CACHE_KEY);
-    } catch { /* ignore */ }
-
-    return { success: true };
+    const posts = getLocalPosts();
+    const idx = posts.findIndex((p) => p.id === postData.id);
+    if (idx >= 0) {
+      posts[idx] = { ...posts[idx], ...postData };
+    } else {
+      posts.unshift(postData);
+    }
+    saveLocalPosts(posts);
+    return { success: true, local: true };
   } catch (err) {
-    return { success: false, error: err.message || "Failed to submit post" };
+    return { success: false, error: err.message || "Failed to save locally" };
   }
 }
 
 /**
- * Delete a blog post by ID via the Apps Script doPost endpoint.
- * @param {string} postId — the post slug/ID to delete
- * @returns {Promise<{success: boolean, error?: string}>}
+ * Delete a blog post by ID.
+ * Remote when CMS URL is set, localStorage otherwise.
  */
 export async function deleteBlogPost(postId) {
-  if (!CONFIG.blogCmsUrl) {
-    return { success: false, error: "Blog CMS URL not configured." };
+  if (CONFIG.blogCmsUrl) {
+    try {
+      await fetch(CONFIG.blogCmsUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain" },
+        body: JSON.stringify({ action: "delete", id: postId }),
+      });
+      try { localStorage.removeItem(BLOG_CACHE_KEY); } catch { /* ignore */ }
+      return { success: true };
+    } catch (err) {
+      return { success: false, error: err.message || "Failed to delete post" };
+    }
   }
 
+  // ── Local mode ──
   try {
-    await fetch(CONFIG.blogCmsUrl, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify({ action: "delete", id: postId }),
-    });
-
-    // Invalidate cache
-    try { localStorage.removeItem(BLOG_CACHE_KEY); } catch { /* ignore */ }
-
-    return { success: true };
+    const posts = getLocalPosts().filter((p) => p.id !== postId);
+    saveLocalPosts(posts);
+    return { success: true, local: true };
   } catch (err) {
-    return { success: false, error: err.message || "Failed to delete post" };
+    return { success: false, error: err.message || "Failed to delete locally" };
   }
 }
 
+/**
+ * Fetch blog posts.
+ * Remote CMS → localStorage cache → local-only posts as fallback.
+ */
 export async function fetchBlogPosts() {
-  if (!CONFIG.blogCmsUrl) return null;
-
-  // Check localStorage cache (5 min TTL)
-  try {
-    const cached = JSON.parse(localStorage.getItem(BLOG_CACHE_KEY) || "null");
-    if (cached && Date.now() - cached.ts < CACHE_TTL) return cached.data;
-  } catch { /* ignore */ }
-
-  try {
-    const res = await fetch(CONFIG.blogCmsUrl);
-    if (!res.ok) return null;
-    const posts = await res.json();
-    if (!Array.isArray(posts)) return null;
-
-    // Cache in localStorage
+  // ── Remote CMS mode ──
+  if (CONFIG.blogCmsUrl) {
     try {
-      localStorage.setItem(BLOG_CACHE_KEY, JSON.stringify({ data: posts, ts: Date.now() }));
-    } catch { /* quota exceeded — ignore */ }
+      const cached = JSON.parse(localStorage.getItem(BLOG_CACHE_KEY) || "null");
+      if (cached && Date.now() - cached.ts < CACHE_TTL) return cached.data;
+    } catch { /* ignore */ }
 
-    return posts;
-  } catch {
-    return null;
+    try {
+      const res = await fetch(CONFIG.blogCmsUrl);
+      if (!res.ok) return null;
+      const posts = await res.json();
+      if (!Array.isArray(posts)) return null;
+      try {
+        localStorage.setItem(BLOG_CACHE_KEY, JSON.stringify({ data: posts, ts: Date.now() }));
+      } catch { /* quota exceeded */ }
+      return posts;
+    } catch {
+      return null;
+    }
   }
+
+  // ── Local mode — return any locally-saved posts (may be empty) ──
+  const local = getLocalPosts();
+  return local.length > 0 ? local : null;
 }

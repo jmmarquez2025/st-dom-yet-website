@@ -10,7 +10,8 @@
     "images": "bash scripts/generate-webp.sh",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",
-    "format": "prettier --write 'src/**/*.{js,jsx,css,json}'"
+    "format": "prettier --write 'src/**/*.{js,jsx,css,json}'",
+    "docs": "python3 docs/generate-docx.py"
   },
   "dependencies": {
     "gsap": "^3.14.2",
