@@ -154,6 +154,13 @@ const SEARCH_INDEX = [
     keywords: ["architecture", "art", "stained glass", "building", "church", "design", "windows", "tour", "artwork", "sacred art", "gothic", "beauty"],
   },
   {
+    path: "/faith-formation",
+    titleKey: "nav.faithFormation",
+    title: "Faith Formation",
+    description: "Deepen your faith with Dominican resources — podcasts, theology, catechesis, and the Catechism",
+    keywords: ["faith formation", "education", "study", "theology", "catechism", "podcast", "godsplaining", "thomistic", "rosary", "dominicana", "saints", "learn", "resources", "dominican", "aquinas"],
+  },
+  {
     path: "/gallery",
     titleKey: "nav.gallery",
     title: "Photo Gallery",

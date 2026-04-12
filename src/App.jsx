@@ -31,6 +31,7 @@ const History = lazy(() => import("./pages/History"));
 const Register = lazy(() => import("./pages/Register"));
 const Events = lazy(() => import("./pages/Events"));
 const Architecture = lazy(() => import("./pages/Architecture"));
+const FaithFormation = lazy(() => import("./pages/FaithFormation"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -79,6 +80,7 @@ function AppRoutes() {
             <Route path="/register" element={<Register />} />
             <Route path="/events" element={<Events />} />
             <Route path="/architecture" element={<Architecture />} />
+            <Route path="/faith-formation" element={<FaithFormation />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

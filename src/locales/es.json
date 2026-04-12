@@ -22,7 +22,8 @@
     "register": "Registrarse",
     "events": "Eventos",
     "architecture": "Arquitectura y Arte",
-    "gallery": "Galería"
+    "gallery": "Galería",
+    "faithFormation": "Formación en la Fe"
   },
   "footer": {
     "subtitle": "Iglesia Católica · Youngstown, OH",
@@ -415,6 +416,65 @@
     "contact": {
       "title": "Comuníquese con Nosotros",
       "desc": "Contacte la oficina parroquial y le conectaremos con uno de nuestros sacerdotes o personal que puede responder sus preguntas y ayudarle a dar el siguiente paso hacia el Bautismo o la plena recepción en la Iglesia."
+    }
+  },
+  "faithFormation": {
+    "title": "Formación en la Fe",
+    "quote": "\"Transfórmense por la renovación de su mente, para que puedan discernir cuál es la voluntad de Dios, lo bueno, lo agradable y lo perfecto.\"",
+    "quoteSrc": "— Romanos 12:2",
+    "intro": {
+      "sub": "Crecer en Conocimiento y Amor",
+      "title": "Profundice Su Fe",
+      "desc": "La tradición dominicana coloca la búsqueda de la verdad en el corazón de la vida espiritual. Ya sea un católico de toda la vida o que está comenzando a explorar, estos recursos — enraizados en la Sagrada Escritura, las enseñanzas de la Iglesia y la sabiduría de Santo Tomás de Aquino — le ayudarán a crecer en su relación con Jesucristo."
+    },
+    "why": {
+      "sub": "El Llamado a Aprender",
+      "title": "¿Por Qué Aprender Más Sobre Su Fe?",
+      "p1": "Nuestro Señor nos llama no solo a creer, sino a entender lo que creemos. Cuanto más profundamente conocemos nuestra fe, más poderosamente podemos vivirla — y compartirla con los demás. El estudio y la oración van de la mano; uno alimenta al otro.",
+      "p2": "Santo Domingo fundó la Orden de Predicadores para que los frutos de la contemplación pudieran ser compartidos con el mundo. Estos recursos continúan esa misión, haciendo accesibles las riquezas de la teología y espiritualidad católica para todos."
+    },
+    "resources": {
+      "sub": "Recursos Dominicanos y Católicos",
+      "title": "Explore y Aprenda",
+      "desc": "Recursos seleccionados de la tradición intelectual dominicana y la Iglesia Católica en general — teología, podcasts, catequesis y lectura espiritual.",
+      "thomistic": {
+        "title": "Thomistic Institute",
+        "tag": "Teología y Conferencias",
+        "desc": "El Thomistic Institute promueve la verdad católica en la esfera pública a través de conferencias académicas, alcance en campus y contenido digital enraizado en el pensamiento de Santo Tomás de Aquino."
+      },
+      "godsplaining": {
+        "title": "Godsplaining",
+        "tag": "Podcast Dominicano",
+        "desc": "Frailes dominicanos hablan de todo lo relacionado con Dios — un podcast animado y accesible que trae la riqueza de la teología católica a la vida cotidiana y las preguntas modernas."
+      },
+      "rosary": {
+        "title": "Rosary in a Year",
+        "tag": "Podcast de Oración",
+        "desc": "Rece los misterios del Rosario día a día con el P. Mark-Mary Ames, CFR. Un hermoso viaje guiado hacia la vida de oración de Nuestra Señora."
+      },
+      "dominicana": {
+        "title": "Dominicana Journal",
+        "tag": "Teología y Espiritualidad",
+        "desc": "Una revista de teología y espiritualidad por los hermanos estudiantes dominicanos de la Provincia de San José — artículos sobre la Escritura, filosofía, los santos y la vida dominicana."
+      },
+      "saintsAlive": {
+        "title": "Saints Alive!",
+        "tag": "Podcast para Familias",
+        "desc": "Contenido católico sobre las vidas de los Santos, perfecto para familias y niños. Descubra los héroes de nuestra fe en episodios atractivos basados en historias."
+      },
+      "catechism": {
+        "title": "Catecismo de la Iglesia Católica",
+        "tag": "Enseñanza Oficial",
+        "desc": "El resumen definitivo de la doctrina católica de la USCCB. Una referencia esencial para entender lo que la Iglesia cree, enseña y proclama."
+      }
+    },
+    "listen": {
+      "sub": "Escuche Ahora",
+      "title": "Podcasts Destacados"
+    },
+    "cta": {
+      "title": "Comience Su Camino Hoy",
+      "desc": "Elija un recurso, reproduzca un podcast o abra el Catecismo. Cada paso que da hacia la comprensión de su fe es un paso más cerca de Cristo."
     }
   },
   "getInvolved": {

@@ -64,6 +64,7 @@ const NAV_ITEMS = [
       { key: "register", to: "/register" },
       { key: "bulletin", to: "/bulletin" },
       { key: "becomingCatholic", to: "/becoming-catholic" },
+      { key: "faithFormation", to: "/faith-formation" },
     ],
   },
 ];

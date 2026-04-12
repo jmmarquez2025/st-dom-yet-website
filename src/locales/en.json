@@ -22,7 +22,8 @@
     "register": "Register",
     "events": "Events",
     "architecture": "Architecture & Art",
-    "gallery": "Gallery"
+    "gallery": "Gallery",
+    "faithFormation": "Faith Formation"
   },
   "footer": {
     "subtitle": "Catholic Church · Youngstown, OH",
@@ -415,6 +416,65 @@
     "contact": {
       "title": "Reach Out to Us",
       "desc": "Contact the church office and we'll connect you with one of our priests or staff who can answer your questions and help you take the next step toward Baptism or full reception into the Church."
+    }
+  },
+  "faithFormation": {
+    "title": "Faith Formation",
+    "quote": "\"Be transformed by the renewal of your mind, that you may discern what is the will of God, what is good and pleasing and perfect.\"",
+    "quoteSrc": "— Romans 12:2 (NABRE)",
+    "intro": {
+      "sub": "Grow in Knowledge & Love",
+      "title": "Deepen Your Faith",
+      "desc": "The Dominican tradition places the pursuit of truth at the heart of the spiritual life. Whether you are a lifelong Catholic or just beginning to explore, these resources — rooted in Sacred Scripture, the teachings of the Church, and the wisdom of St. Thomas Aquinas — will help you grow in your relationship with Jesus Christ."
+    },
+    "why": {
+      "sub": "The Call to Learn",
+      "title": "Why Learn More About Your Faith?",
+      "p1": "Our Lord calls us not only to believe, but to understand what we believe. The more deeply we know our faith, the more powerfully we can live it — and share it with others. Study and prayer go hand in hand; one feeds the other.",
+      "p2": "St. Dominic founded the Order of Preachers so that the fruits of contemplation could be shared with the world. These resources carry on that mission, making the riches of Catholic theology and spirituality accessible to everyone."
+    },
+    "resources": {
+      "sub": "Dominican & Catholic Resources",
+      "title": "Explore & Learn",
+      "desc": "Curated resources from the Dominican intellectual tradition and the wider Catholic Church — theology, podcasts, catechesis, and spiritual reading.",
+      "thomistic": {
+        "title": "Thomistic Institute",
+        "tag": "Theology & Lectures",
+        "desc": "The Thomistic Institute promotes Catholic truth in the public square through academic lectures, campus outreach, and digital content rooted in the thought of St. Thomas Aquinas."
+      },
+      "godsplaining": {
+        "title": "Godsplaining",
+        "tag": "Dominican Podcast",
+        "desc": "Dominican friars talk all things God — a lively, accessible podcast bringing the richness of Catholic theology to everyday life and modern questions."
+      },
+      "rosary": {
+        "title": "Rosary in a Year",
+        "tag": "Prayer Podcast",
+        "desc": "Pray through the mysteries of the Rosary day by day with Fr. Mark-Mary Ames, CFR. A beautiful guided journey into the prayer life of Our Lady."
+      },
+      "dominicana": {
+        "title": "Dominicana Journal",
+        "tag": "Theology & Spirituality",
+        "desc": "A journal of theology and spirituality by Dominican student brothers of the Province of St. Joseph — articles on Scripture, philosophy, the saints, and the Dominican life."
+      },
+      "saintsAlive": {
+        "title": "Saints Alive!",
+        "tag": "Podcast for Families",
+        "desc": "Catholic content about the lives of the Saints, perfect for families and children. Discover the heroes of our faith in engaging, story-driven episodes."
+      },
+      "catechism": {
+        "title": "Catechism of the Catholic Church",
+        "tag": "Official Teaching",
+        "desc": "The definitive summary of Catholic doctrine from the USCCB. An essential reference for understanding what the Church believes, teaches, and proclaims."
+      }
+    },
+    "listen": {
+      "sub": "Listen Now",
+      "title": "Featured Podcasts"
+    },
+    "cta": {
+      "title": "Start Your Journey Today",
+      "desc": "Pick a resource, press play on a podcast, or open the Catechism. Every step you take toward understanding your faith is a step closer to Christ."
     }
   },
   "getInvolved": {
