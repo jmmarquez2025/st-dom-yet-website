@@ -151,7 +151,7 @@ export default function FaithFormation() {
 
       {/* Parallax visual break */}
       <ParallaxSection
-        image={PHOTOS.stockStainedGlass}
+        image={PHOTOS.stockBibleGolden}
         height="30vh"
         overlay={0.5}
       >
