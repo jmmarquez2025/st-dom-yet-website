@@ -9,18 +9,37 @@ import Seo from "../components/Seo";
 import { PHOTOS } from "../constants/photos";
 import { CheckCircle, AlertCircle, UserPlus, ChevronDown, ChevronUp, Loader2, Heart, Users, Home as HomeIcon, Church } from "lucide-react";
 
+/* ── Validation helpers ── */
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_RE = /^[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*(\d[\s().\-+]*)?(\d[\s().\-+]*)?(\d[\s().\-+]*)?$/;
+
+const errorStyle = { fontSize: 12, color: "#c0392b", marginTop: 4, fontFamily: "'Source Sans 3', sans-serif" };
+
+function validateEmail(v) {
+  if (v && !EMAIL_RE.test(v)) return "Please enter a valid email address.";
+  return "";
+}
+function validatePhone(v) {
+  if (v && !PHONE_RE.test(v)) return "Please enter a valid phone number.";
+  return "";
+}
+
 /* ── Floating-label input ── */
-function FloatingInput({ label, required, type = "text", value, onChange, ...rest }) {
+function FloatingInput({ label, required, type = "text", value, onChange, onBlurValidate, error, ariaLabel, ariaDescribedBy, ...rest }) {
   const [focused, setFocused] = useState(false);
   const active = focused || value;
   return (
     <div style={{ position: "relative" }}>
       <input
         type={type} required={required} value={value} onChange={onChange}
-        onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
+        aria-label={ariaLabel || label}
+        aria-describedby={ariaDescribedBy}
+        aria-invalid={!!error}
+        onFocus={() => setFocused(true)}
+        onBlur={() => { setFocused(false); if (onBlurValidate) onBlurValidate(); }}
         style={{
           width: "100%", padding: "22px 16px 8px", fontSize: 15,
-          border: `1.5px solid ${focused ? T.burgundy : T.stone}`,
+          border: `1.5px solid ${error ? "#c0392b" : focused ? T.burgundy : T.stone}`,
           borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif",
           background: "#fff", minHeight: 56, outline: "none",
           transition: "border-color 0.25s, box-shadow 0.25s",
@@ -40,18 +59,20 @@ function FloatingInput({ label, required, type = "text", value, onChange, ...res
       }}>
         {label}{required && " *"}
       </label>
+      {error && <div id={ariaDescribedBy} style={errorStyle}>{error}</div>}
     </div>
   );
 }
 
 /* ── Floating-label textarea ── */
-function FloatingTextarea({ label, value, onChange, rows = 4, placeholder }) {
+function FloatingTextarea({ label, value, onChange, rows = 4, placeholder, ariaLabel }) {
   const [focused, setFocused] = useState(false);
   const active = focused || value;
   return (
     <div style={{ position: "relative" }}>
       <textarea
         value={value} onChange={onChange} rows={rows}
+        aria-label={ariaLabel || label}
         onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
         placeholder={active ? placeholder : ""}
         style={{
@@ -80,12 +101,13 @@ function FloatingTextarea({ label, value, onChange, rows = 4, placeholder }) {
 }
 
 /* ── Styled select ── */
-function StyledSelect({ label, value, onChange, children }) {
+function StyledSelect({ label, value, onChange, children, ariaLabel }) {
   const [focused, setFocused] = useState(false);
   return (
     <div style={{ position: "relative" }}>
       <select
         value={value} onChange={onChange}
+        aria-label={ariaLabel || label}
         onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
         style={{
           width: "100%", padding: "22px 16px 8px", fontSize: 15,
@@ -268,8 +290,32 @@ export default function Register() {
   const [form, setForm] = useState(INITIAL);
   const [showSpouse, setShowSpouse] = useState(false);
   const [status, setStatus] = useState("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+  const [errors, setErrors] = useState({});
 
   const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
+
+  const validateField = (field) => {
+    let err = "";
+    if (field === "email") err = validateEmail(form.email);
+    if (field === "phone") err = validatePhone(form.phone);
+    setErrors((prev) => {
+      const next = { ...prev };
+      if (err) next[field] = err; else delete next[field];
+      return next;
+    });
+    return err;
+  };
+
+  const validateAll = () => {
+    const emailErr = validateEmail(form.email);
+    const phoneErr = validatePhone(form.phone);
+    const next = {};
+    if (emailErr) next.email = emailErr;
+    if (phoneErr) next.phone = phoneErr;
+    setErrors(next);
+    return Object.keys(next).length === 0;
+  };
 
   const toggleSacrament = (sac) => {
     setForm((f) => ({
@@ -282,6 +328,8 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateAll()) return;
+
     const payload = {
       ...form,
       formType: "registration",
@@ -308,18 +356,30 @@ export default function Register() {
     }
 
     setStatus("sending");
+    setStatusMessage("");
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 8000);
       await fetch(CONFIG.registrationFormUrl, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
+        signal: controller.signal,
       });
+      clearTimeout(timeoutId);
       setStatus("success");
+      setStatusMessage(t("register.successTitle"));
       setForm(INITIAL);
       setShowSpouse(false);
-    } catch {
+      setErrors({});
+    } catch (err) {
       setStatus("error");
+      if (err.name === "AbortError") {
+        setStatusMessage("Request timed out. Please try again or call the parish office.");
+      } else {
+        setStatusMessage(t("register.error") || "Something went wrong. Please try again or call the parish office.");
+      }
     }
   };
 
@@ -349,6 +409,8 @@ export default function Register() {
 
             {status === "success" ? (
               <div
+                aria-live="polite"
+                role="status"
                 style={{
                   background: "linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%)",
                   border: "1px solid #c8e6c9",
@@ -368,13 +430,13 @@ export default function Register() {
                   fontSize: 28, color: "#2e7d32", fontWeight: 600,
                   fontFamily: "'Cormorant Garamond', serif", marginBottom: 12,
                 }}>
-                  {t("register.successTitle")}
+                  {statusMessage || t("register.successTitle")}
                 </h3>
                 <p style={{ fontSize: 16, color: "#388e3c", lineHeight: 1.7, maxWidth: 400, margin: "0 auto" }}>
                   {t("register.successDesc")}
                 </p>
                 <button
-                  onClick={() => setStatus("idle")}
+                  onClick={() => { setStatus("idle"); setStatusMessage(""); }}
                   style={{
                     marginTop: 28, background: "none", border: `1.5px solid #66bb6a`,
                     borderRadius: 10, padding: "12px 28px", fontSize: 14,
@@ -386,7 +448,7 @@ export default function Register() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} noValidate>
                 <StepIndicator currentStep={step} />
 
                 <div style={{ display: "grid", gap: 20 }}>
@@ -397,10 +459,12 @@ export default function Register() {
                       <FloatingInput
                         label={t("register.firstName")}
                         required value={form.firstName} onChange={set("firstName")}
+                        ariaLabel={t("register.firstName")}
                       />
                       <FloatingInput
                         label={t("register.lastName")}
                         required value={form.lastName} onChange={set("lastName")}
+                        ariaLabel={t("register.lastName")}
                       />
                     </div>
 
@@ -435,10 +499,12 @@ export default function Register() {
                         <FloatingInput
                           label={`${t("register.spouse")} ${t("register.firstName")}`}
                           value={form.spouseFirst} onChange={set("spouseFirst")}
+                          ariaLabel={`${t("register.spouse")} ${t("register.firstName")}`}
                         />
                         <FloatingInput
                           label={`${t("register.spouse")} ${t("register.lastName")}`}
                           value={form.spouseLast} onChange={set("spouseLast")}
+                          ariaLabel={`${t("register.spouse")} ${t("register.lastName")}`}
                         />
                       </div>
                     )}
@@ -451,29 +517,41 @@ export default function Register() {
                       <FloatingInput
                         label={t("register.email")}
                         required type="email" value={form.email} onChange={set("email")}
+                        onBlurValidate={() => validateField("email")}
+                        error={errors.email}
+                        ariaLabel={t("register.email")}
+                        ariaDescribedBy={errors.email ? "register-email-error" : undefined}
                       />
                       <FloatingInput
                         label={t("register.phone")}
                         required type="tel" value={form.phone} onChange={set("phone")}
+                        onBlurValidate={() => validateField("phone")}
+                        error={errors.phone}
+                        ariaLabel={t("register.phone")}
+                        ariaDescribedBy={errors.phone ? "register-phone-error" : undefined}
                       />
                     </div>
                     <FloatingInput
                       label={t("register.address")}
                       required value={form.address} onChange={set("address")}
+                      ariaLabel={t("register.address")}
                     />
                     <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 16 }}
                          className="reg-three-col">
                       <FloatingInput
                         label={t("register.city")}
                         required value={form.city} onChange={set("city")}
+                        ariaLabel={t("register.city")}
                       />
                       <FloatingInput
                         label={t("register.state")}
                         required value={form.state} onChange={set("state")} maxLength={2}
+                        ariaLabel={t("register.state")}
                       />
                       <FloatingInput
                         label={t("register.zip")}
                         required value={form.zip} onChange={set("zip")} maxLength={10}
+                        ariaLabel={t("register.zip")}
                       />
                     </div>
                   </FormSection>
@@ -483,10 +561,12 @@ export default function Register() {
                     <FloatingInput
                       label={t("register.previousParish")}
                       value={form.previousParish} onChange={set("previousParish")}
+                      ariaLabel={t("register.previousParish")}
                     />
                     <FloatingInput
                       label={t("register.children")}
                       type="number" value={form.children} onChange={set("children")}
+                      ariaLabel={t("register.children")}
                     />
 
                     {/* Sacraments */}
@@ -513,6 +593,7 @@ export default function Register() {
                     <StyledSelect
                       label={t("register.heardAbout")}
                       value={form.heardAbout} onChange={set("heardAbout")}
+                      ariaLabel={t("register.heardAbout")}
                     >
                       <option value="">{t("register.selectOne")}</option>
                       <option value="word-of-mouth">{t("register.heard_word")}</option>
@@ -526,6 +607,7 @@ export default function Register() {
                       label={t("register.notes")}
                       value={form.notes} onChange={set("notes")}
                       placeholder={t("register.notesHint")}
+                      ariaLabel={t("register.notes")}
                     />
                   </FormSection>
 
@@ -562,14 +644,18 @@ export default function Register() {
                     )}
                   </button>
                   {status === "error" && (
-                    <div style={{
-                      display: "flex", alignItems: "center", gap: 10,
-                      background: "#fef2f2", border: "1px solid #fecaca",
-                      borderRadius: 8, padding: "12px 16px",
-                    }}>
+                    <div
+                      aria-live="polite"
+                      role="status"
+                      style={{
+                        display: "flex", alignItems: "center", gap: 10,
+                        background: "#fef2f2", border: "1px solid #fecaca",
+                        borderRadius: 8, padding: "12px 16px",
+                      }}
+                    >
                       <AlertCircle size={18} color="#dc2626" />
                       <p style={{ color: "#dc2626", fontSize: 14, fontWeight: 500, margin: 0 }}>
-                        {t("register.error")}
+                        {statusMessage || t("register.error")}
                       </p>
                     </div>
                   )}

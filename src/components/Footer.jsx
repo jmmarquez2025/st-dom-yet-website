@@ -146,6 +146,18 @@ export default function Footer() {
         }}
       >
         © {new Date().getFullYear()} St. Dominic Catholic Church · Youngstown, OH · {t("footer.rights")}
+        <span style={{ margin: "0 6px" }}>·</span>
+        <FooterLink
+          to="/writers-guide"
+          style={{
+            color: "rgba(255,255,255,0.35)",
+            textDecoration: "none",
+            fontSize: 12,
+            transition: "color 0.2s",
+          }}
+        >
+          Staff
+        </FooterLink>
       </div>
     </footer>
   );

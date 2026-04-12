@@ -17,4 +17,16 @@
   <url><loc>https://saintdominic.org/sacraments/marriage</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://saintdominic.org/sacraments/anointing</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://saintdominic.org/sacraments/funerals</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saintdominic.org/blog</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://saintdominic.org/faith-formation</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saintdominic.org/events</loc><priority>0.6</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://saintdominic.org/gallery</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://saintdominic.org/register</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://saintdominic.org/history</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://saintdominic.org/architecture</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://saintdominic.org/blog/easter-vigil-2026-new-catholics</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://saintdominic.org/blog/light-darkness-cannot-overcome</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://saintdominic.org/blog/contemplata-aliis-tradere</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://saintdominic.org/blog/veritas-seeking-truth</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://saintdominic.org/blog/food-pantry-turns-30</loc><priority>0.6</priority><changefreq>yearly</changefreq></url>
 </urlset>

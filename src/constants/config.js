@@ -37,20 +37,20 @@
 
 export const CONFIG = {
   // Google Apps Script web-app URL (leave empty to fall back to mailto)
-  contactFormUrl: "https://script.google.com/macros/s/AKfycbxShuvwO7GJ3HlRrPNaOIQNyciEZOgD0GitP7Rz2irNbwJ53eZIrSQyGAcLekba2vH3WQ/exec",
+  contactFormUrl: import.meta.env.VITE_CONTACT_FORM_URL || "https://script.google.com/macros/s/AKfycbxShuvwO7GJ3HlRrPNaOIQNyciEZOgD0GitP7Rz2irNbwJ53eZIrSQyGAcLekba2vH3WQ/exec",
 
   // Registration form URL (same setup as contact form; leave empty for mailto fallback)
-  registrationFormUrl: "https://script.google.com/macros/s/AKfycbxShuvwO7GJ3HlRrPNaOIQNyciEZOgD0GitP7Rz2irNbwJ53eZIrSQyGAcLekba2vH3WQ/exec",
+  registrationFormUrl: import.meta.env.VITE_REGISTRATION_FORM_URL || "https://script.google.com/macros/s/AKfycbxShuvwO7GJ3HlRrPNaOIQNyciEZOgD0GitP7Rz2irNbwJ53eZIrSQyGAcLekba2vH3WQ/exec",
 
   // WeShare online giving page
-  weShareUrl: "",
+  weShareUrl: import.meta.env.VITE_WESHARE_URL || "",
 
   // Google Sheets CMS — paste your published Sheet ID here
-  cmsSheetId: "",
+  cmsSheetId: import.meta.env.VITE_CMS_SHEET_ID || "",
 
   // YouTube channel embed (Fray Nelson)
-  youtubeChannelUrl: "https://www.youtube.com/fraynelson",
-  youtubeEmbedUrl: "https://www.youtube.com/embed?listType=user_uploads&list=fraynelson",
+  youtubeChannelUrl: import.meta.env.VITE_YOUTUBE_CHANNEL_ID || "https://www.youtube.com/fraynelson",
+  youtubeEmbedUrl: import.meta.env.VITE_YOUTUBE_EMBED_URL || "https://www.youtube.com/embed?listType=user_uploads&list=fraynelson",
 
   // Dominican Province of St. Joseph
   provinceUrl: "https://dominicanfriars.org/",
@@ -58,15 +58,19 @@ export const CONFIG = {
   // Flipbook bulletin embed URL
   // Paste the share/embed URL from your flipbook service (FlipHTML5, Heyzine, Issuu, etc.)
   // Example: "https://online.fliphtml5.com/abcde/fghij/"
-  bulletinUrl: "https://online.fliphtml5.com/stpatrickchurch/2026-04-05/",
+  bulletinUrl: import.meta.env.VITE_BULLETIN_URL || "https://online.fliphtml5.com/stpatrickchurch/2026-04-05/",
 
   // Site URL for SEO (canonical, OpenGraph, etc.)
   // Update this when deploying to the production domain
   siteUrl: "https://jmmarquez2025.github.io/st-dom-yet-website",
 
+  // Blog CMS — Google Apps Script URL serving blog posts from Google Docs
+  // See cms/blog-cms.gs for setup instructions
+  blogCmsUrl: import.meta.env.VITE_BLOG_CMS_URL || "",
+
   // Analytics — Plausible (privacy-friendly, no cookie banner needed)
   // Sign up at https://plausible.io and add your domain
-  plausibleDomain: "",
+  plausibleDomain: import.meta.env.VITE_PLAUSIBLE_DOMAIN || "",
 
   // Church info
   phone: "(330) 783-1900",

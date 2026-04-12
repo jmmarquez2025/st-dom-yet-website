@@ -7,9 +7,11 @@
  * Props:
  *   src      — the original JPG URL (e.g. "/photos/foo-opt.jpg")
  *   alt      — alt text (required for a11y)
+ *   width    — optional intrinsic width (helps prevent CLS)
+ *   height   — optional intrinsic height (helps prevent CLS)
  *   ...rest  — passed through to <img> (loading, style, className, etc.)
  */
-export default function OptimizedImg({ src, alt, ...rest }) {
+export default function OptimizedImg({ src, alt, width, height, ...rest }) {
   const webpSrc = src?.replace(/\.jpg$/i, ".webp");
 
   return (
@@ -17,7 +19,14 @@ export default function OptimizedImg({ src, alt, ...rest }) {
       {webpSrc && webpSrc !== src && (
         <source srcSet={webpSrc} type="image/webp" />
       )}
-      <img src={src} alt={alt} {...rest} />
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        width={width}
+        height={height}
+        {...rest}
+      />
     </picture>
   );
 }

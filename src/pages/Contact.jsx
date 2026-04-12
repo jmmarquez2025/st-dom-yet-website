@@ -9,8 +9,23 @@ import Seo from "../components/Seo";
 import { PHOTOS } from "../constants/photos";
 import { Send, CheckCircle, AlertCircle, Phone, Mail, MapPin, Clock, Loader2 } from "lucide-react";
 
+/* ── Validation helpers ── */
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_RE = /^[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*\d[\s().\-+]*(\d[\s().\-+]*)?(\d[\s().\-+]*)?(\d[\s().\-+]*)?$/;
+
+const errorStyle = { fontSize: 12, color: "#c0392b", marginTop: 4, fontFamily: "'Source Sans 3', sans-serif" };
+
+function validateEmail(v) {
+  if (v && !EMAIL_RE.test(v)) return "Please enter a valid email address.";
+  return "";
+}
+function validatePhone(v) {
+  if (v && !PHONE_RE.test(v)) return "Please enter a valid phone number.";
+  return "";
+}
+
 /* ── Animated floating-label input ── */
-function FloatingInput({ label, required, type = "text", value, onChange, ...rest }) {
+function FloatingInput({ label, required, type = "text", value, onChange, onBlurValidate, error, ariaLabel, ariaDescribedBy, ...rest }) {
   const [focused, setFocused] = useState(false);
   const active = focused || value;
   return (
@@ -20,11 +35,14 @@ function FloatingInput({ label, required, type = "text", value, onChange, ...res
         required={required}
         value={value}
         onChange={onChange}
+        aria-label={ariaLabel || label}
+        aria-describedby={ariaDescribedBy}
+        aria-invalid={!!error}
         onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
+        onBlur={() => { setFocused(false); if (onBlurValidate) onBlurValidate(); }}
         style={{
           width: "100%", padding: "22px 16px 8px", fontSize: 15,
-          border: `1.5px solid ${focused ? T.burgundy : T.stone}`,
+          border: `1.5px solid ${error ? "#c0392b" : focused ? T.burgundy : T.stone}`,
           borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif",
           background: "#fff", minHeight: 56, outline: "none",
           transition: "border-color 0.25s, box-shadow 0.25s",
@@ -47,12 +65,13 @@ function FloatingInput({ label, required, type = "text", value, onChange, ...res
       >
         {label}{required && " *"}
       </label>
+      {error && <div id={ariaDescribedBy} style={errorStyle}>{error}</div>}
     </div>
   );
 }
 
 /* ── Animated floating-label textarea ── */
-function FloatingTextarea({ label, required, value, onChange, rows = 5 }) {
+function FloatingTextarea({ label, required, value, onChange, rows = 5, ariaLabel }) {
   const [focused, setFocused] = useState(false);
   const active = focused || value;
   return (
@@ -61,6 +80,7 @@ function FloatingTextarea({ label, required, value, onChange, rows = 5 }) {
         required={required}
         value={value}
         onChange={onChange}
+        aria-label={ariaLabel || label}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         rows={rows}
@@ -93,13 +113,14 @@ function FloatingTextarea({ label, required, value, onChange, rows = 5 }) {
 }
 
 /* ── Styled select ── */
-function StyledSelect({ label, value, onChange, children }) {
+function StyledSelect({ label, value, onChange, children, ariaLabel }) {
   const [focused, setFocused] = useState(false);
   return (
     <div style={{ position: "relative" }}>
       <select
         value={value}
         onChange={onChange}
+        aria-label={ariaLabel || label}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         style={{
@@ -161,12 +182,38 @@ export default function Contact() {
   const { t } = useTranslation();
   const [form, setForm] = useState({ name: "", email: "", phone: "", category: "general", message: "" });
   const [status, setStatus] = useState("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+  const [errors, setErrors] = useState({});
   const formRef = useRef(null);
 
   const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
+  const validateField = (field) => {
+    let err = "";
+    if (field === "email") err = validateEmail(form.email);
+    if (field === "phone") err = validatePhone(form.phone);
+    setErrors((prev) => {
+      const next = { ...prev };
+      if (err) next[field] = err; else delete next[field];
+      return next;
+    });
+    return err;
+  };
+
+  const validateAll = () => {
+    const emailErr = validateEmail(form.email);
+    const phoneErr = validatePhone(form.phone);
+    const next = {};
+    if (emailErr) next.email = emailErr;
+    if (phoneErr) next.phone = phoneErr;
+    setErrors(next);
+    return Object.keys(next).length === 0;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validateAll()) return;
+
     if (!CONFIG.contactFormUrl) {
       window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(form.category)}&body=${encodeURIComponent(
         `Name: ${form.name}\nPhone: ${form.phone}\n\n${form.message}`
@@ -174,17 +221,29 @@ export default function Contact() {
       return;
     }
     setStatus("sending");
+    setStatusMessage("");
     try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 8000);
       await fetch(CONFIG.contactFormUrl, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, timestamp: new Date().toISOString() }),
+        signal: controller.signal,
       });
+      clearTimeout(timeoutId);
       setStatus("success");
+      setStatusMessage(t("contact.success"));
       setForm({ name: "", email: "", phone: "", category: "general", message: "" });
-    } catch {
+      setErrors({});
+    } catch (err) {
       setStatus("error");
+      if (err.name === "AbortError") {
+        setStatusMessage("Request timed out. Please try again or call the parish office.");
+      } else {
+        setStatusMessage(t("contact.error") || "Something went wrong. Please try again or call the parish office.");
+      }
     }
   };
 
@@ -221,6 +280,8 @@ export default function Contact() {
 
               {status === "success" ? (
                 <div
+                  aria-live="polite"
+                  role="status"
                   style={{
                     background: "linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%)",
                     border: "1px solid #c8e6c9",
@@ -237,10 +298,10 @@ export default function Contact() {
                     <CheckCircle size={32} color="#2e7d32" />
                   </div>
                   <h3 style={{ fontSize: 22, color: "#2e7d32", fontWeight: 600, fontFamily: "'Cormorant Garamond', serif" }}>
-                    {t("contact.success")}
+                    {statusMessage || t("contact.success")}
                   </h3>
                   <button
-                    onClick={() => setStatus("idle")}
+                    onClick={() => { setStatus("idle"); setStatusMessage(""); }}
                     style={{
                       marginTop: 20, background: "none", border: `1px solid #66bb6a`,
                       borderRadius: 8, padding: "10px 24px", fontSize: 14,
@@ -252,13 +313,14 @@ export default function Contact() {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} ref={formRef}>
+                <form onSubmit={handleSubmit} ref={formRef} noValidate>
                   <div style={{ display: "grid", gap: 20 }}>
                     <FloatingInput
                       label={t("contact.name")}
                       required
                       value={form.name}
                       onChange={set("name")}
+                      ariaLabel={t("contact.name")}
                     />
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}
                          className="form-two-col">
@@ -268,18 +330,27 @@ export default function Contact() {
                         type="email"
                         value={form.email}
                         onChange={set("email")}
+                        onBlurValidate={() => validateField("email")}
+                        error={errors.email}
+                        ariaLabel={t("contact.email")}
+                        ariaDescribedBy={errors.email ? "contact-email-error" : undefined}
                       />
                       <FloatingInput
                         label={t("contact.phone")}
                         type="tel"
                         value={form.phone}
                         onChange={set("phone")}
+                        onBlurValidate={() => validateField("phone")}
+                        error={errors.phone}
+                        ariaLabel={t("contact.phone")}
+                        ariaDescribedBy={errors.phone ? "contact-phone-error" : undefined}
                       />
                     </div>
                     <StyledSelect
                       label={t("contact.category")}
                       value={form.category}
                       onChange={set("category")}
+                      ariaLabel={t("contact.category")}
                     >
                       <option value="general">{t("contact.catGeneral")}</option>
                       <option value="sacraments">{t("contact.catSacraments")}</option>
@@ -292,6 +363,7 @@ export default function Contact() {
                       required
                       value={form.message}
                       onChange={set("message")}
+                      ariaLabel={t("contact.message")}
                     />
                     <button
                       type="submit"
@@ -325,14 +397,18 @@ export default function Contact() {
                       )}
                     </button>
                     {status === "error" && (
-                      <div style={{
-                        display: "flex", alignItems: "center", gap: 10,
-                        background: "#fef2f2", border: "1px solid #fecaca",
-                        borderRadius: 8, padding: "12px 16px",
-                      }}>
+                      <div
+                        aria-live="polite"
+                        role="status"
+                        style={{
+                          display: "flex", alignItems: "center", gap: 10,
+                          background: "#fef2f2", border: "1px solid #fecaca",
+                          borderRadius: 8, padding: "12px 16px",
+                        }}
+                      >
                         <AlertCircle size={18} color="#dc2626" />
                         <p style={{ color: "#dc2626", fontSize: 14, fontWeight: 500, margin: 0 }}>
-                          {t("contact.error")}
+                          {statusMessage || t("contact.error")}
                         </p>
                       </div>
                     )}

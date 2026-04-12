@@ -127,3 +127,95 @@ export async function fetchBulletins() {
     .filter((r) => r.date && r.label)
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 }
+
+/**
+ * Fetch blog posts from the Blog CMS (Google Docs + Sheets).
+ * Uses a separate Apps Script deployment (not the gviz API)
+ * because blog content comes from Google Docs, not sheet cells.
+ *
+ * See cms/blog-cms.gs for the server-side code.
+ */
+const BLOG_CACHE_KEY = "__blog_cms";
+
+/**
+ * Submit (create or update) a blog post via the Apps Script doPost endpoint.
+ * @param {Object} postData — post metadata + optional body blocks
+ * @returns {Promise<{success: boolean, error?: string}>}
+ */
+export async function submitBlogPost(postData) {
+  if (!CONFIG.blogCmsUrl) {
+    return { success: false, error: "Blog CMS URL not configured. Set VITE_BLOG_CMS_URL in your .env file." };
+  }
+
+  try {
+    const res = await fetch(CONFIG.blogCmsUrl, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify(postData),
+    });
+
+    // no-cors returns opaque response — we can't read it
+    // Invalidate the cache so the next fetch picks up the new post
+    try {
+      localStorage.removeItem(BLOG_CACHE_KEY);
+    } catch { /* ignore */ }
+
+    return { success: true };
+  } catch (err) {
+    return { success: false, error: err.message || "Failed to submit post" };
+  }
+}
+
+/**
+ * Delete a blog post by ID via the Apps Script doPost endpoint.
+ * @param {string} postId — the post slug/ID to delete
+ * @returns {Promise<{success: boolean, error?: string}>}
+ */
+export async function deleteBlogPost(postId) {
+  if (!CONFIG.blogCmsUrl) {
+    return { success: false, error: "Blog CMS URL not configured." };
+  }
+
+  try {
+    await fetch(CONFIG.blogCmsUrl, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain" },
+      body: JSON.stringify({ action: "delete", id: postId }),
+    });
+
+    // Invalidate cache
+    try { localStorage.removeItem(BLOG_CACHE_KEY); } catch { /* ignore */ }
+
+    return { success: true };
+  } catch (err) {
+    return { success: false, error: err.message || "Failed to delete post" };
+  }
+}
+
+export async function fetchBlogPosts() {
+  if (!CONFIG.blogCmsUrl) return null;
+
+  // Check localStorage cache (5 min TTL)
+  try {
+    const cached = JSON.parse(localStorage.getItem(BLOG_CACHE_KEY) || "null");
+    if (cached && Date.now() - cached.ts < CACHE_TTL) return cached.data;
+  } catch { /* ignore */ }
+
+  try {
+    const res = await fetch(CONFIG.blogCmsUrl);
+    if (!res.ok) return null;
+    const posts = await res.json();
+    if (!Array.isArray(posts)) return null;
+
+    // Cache in localStorage
+    try {
+      localStorage.setItem(BLOG_CACHE_KEY, JSON.stringify({ data: posts, ts: Date.now() }));
+    } catch { /* quota exceeded — ignore */ }
+
+    return posts;
+  } catch {
+    return null;
+  }
+}

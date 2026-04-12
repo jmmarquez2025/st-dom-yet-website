@@ -26,6 +26,8 @@ export default function HeroImage({ src, overlay = 0.55, tint, position = "cente
         src={src}
         alt=""
         aria-hidden="true"
+        loading="eager"
+        fetchpriority="high"
         onLoad={() => setLoaded(true)}
         style={{ position: "absolute", width: 0, height: 0, opacity: 0, pointerEvents: "none" }}
       />

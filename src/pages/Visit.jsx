@@ -260,7 +260,7 @@ export default function Visit() {
             {[
               { key: "dress", icon: "Users", accent: T.burgundy },
               { key: "children", icon: "Baby", accent: "#2E7D32" },
-              { key: "language", icon: "Languages", accent: "#C0392B" },
+              { key: "language", icon: "Globe", accent: "#C0392B" },
               { key: "parking", icon: "Car", accent: "#1565C0" },
             ].map((item) => (
               <div

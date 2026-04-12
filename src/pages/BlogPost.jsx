@@ -14,9 +14,11 @@ import BlogShare from "../components/blog/BlogShare";
 import BlogPrevNext from "../components/blog/BlogPrevNext";
 import BlogCard from "../components/blog/BlogCard";
 import BlogReadingProgress from "../components/blog/BlogReadingProgress";
-import { blogPosts, BLOG_CATEGORIES } from "../data/blog";
+import { BLOG_CATEGORIES } from "../data/blog";
 import { friars, staff } from "../data/staff";
 import { estimateReadingTime, formatBlogDate, getRelatedPosts } from "../utils/blogUtils";
+import { CONFIG } from "../constants/config";
+import { useBlogPosts } from "../cms/hooks";
 
 const allPeople = [...friars, ...staff];
 
@@ -26,6 +28,7 @@ export default function BlogPost() {
   const isEs = i18n.language === "es";
   const articleRef = useRef(null);
 
+  const { data: blogPosts } = useBlogPosts();
   const published = blogPosts.filter((p) => p.published);
   const postIndex = published.findIndex((p) => p.id === slug);
   const post = published[postIndex];
@@ -42,12 +45,31 @@ export default function BlogPost() {
   const prev = postIndex < published.length - 1 ? published[postIndex + 1] : null;
   const next = postIndex > 0 ? published[postIndex - 1] : null;
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    image: post.heroImage
+      ? `${CONFIG.siteUrl}${post.heroImage}`
+      : undefined,
+    author: author
+      ? { "@type": "Person", name: author.name }
+      : undefined,
+    publisher: {
+      "@type": "Organization",
+      name: "St. Dominic Catholic Church",
+    },
+  };
+
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo
         title={post.title}
         description={post.excerpt}
         image={post.heroImage}
+        schema={articleSchema}
       />
       <BlogReadingProgress containerRef={articleRef} />
 
@@ -128,7 +150,6 @@ export default function BlogPost() {
             gap: 48,
             maxWidth: 1060,
             margin: "0 auto",
-            alignItems: "flex-start",
             justifyContent: "center",
           }}
         >
@@ -141,10 +162,11 @@ export default function BlogPost() {
               minWidth: 0,
             }}
           >
-            {/* Mobile TOC */}
+            {/* Mobile TOC — hidden on desktop via CSS */}
             <BlogToc
               blocks={body}
               label={t("blog.toc")}
+              variant="mobile"
             />
 
             <BlogBody blocks={body} />
@@ -179,7 +201,7 @@ export default function BlogPost() {
 
           {/* Desktop TOC sidebar — hidden on mobile via CSS */}
           <div className="blog-toc-sidebar">
-            <BlogToc blocks={body} label={t("blog.toc")} />
+            <BlogToc blocks={body} label={t("blog.toc")} variant="desktop" />
           </div>
         </div>
       </Section>

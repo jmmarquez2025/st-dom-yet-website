@@ -15,7 +15,7 @@ const DEFAULT_IMAGE = `${SITE_URL}/photos/rose-window-opt.jpg`;
  * Usage:
  *   <Seo title="About" description="Learn about our church history." image="/photos/interior-nave-opt.jpg" />
  */
-export default function Seo({ title, description, image }) {
+export default function Seo({ title, description, image, schema }) {
   const { pathname } = useLocation();
   const fullTitle = title ? `${title} — ${SITE_NAME}` : SITE_NAME;
   const desc = description || DEFAULT_DESC;
@@ -57,7 +57,36 @@ export default function Seo({ title, description, image }) {
       document.head.appendChild(link);
     }
     link.setAttribute("href", url);
-  }, [fullTitle, desc, url, ogImage]);
+
+    // hreflang tags (en, es, x-default — all point to same URL since language is toggled client-side)
+    const hreflangValues = ["en", "es", "x-default"];
+    hreflangValues.forEach((lang) => {
+      const selector = `link[rel="alternate"][hreflang="${lang}"]`;
+      let hrefEl = document.querySelector(selector);
+      if (!hrefEl) {
+        hrefEl = document.createElement("link");
+        hrefEl.setAttribute("rel", "alternate");
+        hrefEl.setAttribute("hreflang", lang);
+        document.head.appendChild(hrefEl);
+      }
+      hrefEl.setAttribute("href", url);
+    });
+
+    // JSON-LD structured data (for Article schema, etc.)
+    const jsonLdId = "seo-json-ld";
+    let scriptEl = document.getElementById(jsonLdId);
+    if (schema) {
+      if (!scriptEl) {
+        scriptEl = document.createElement("script");
+        scriptEl.id = jsonLdId;
+        scriptEl.setAttribute("type", "application/ld+json");
+        document.head.appendChild(scriptEl);
+      }
+      scriptEl.textContent = JSON.stringify(schema);
+    } else if (scriptEl) {
+      scriptEl.remove();
+    }
+  }, [fullTitle, desc, url, ogImage, schema]);
 
   return null;
 }

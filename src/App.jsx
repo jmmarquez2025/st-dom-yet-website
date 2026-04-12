@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import ScrollProgress from "./components/ScrollProgress";
 import ErrorBoundary from "./components/ErrorBoundary";
 import PageSkeleton from "./components/PageSkeleton";
+import Analytics from "./components/Analytics";
 import useLenis from "./hooks/useLenis";
 
 /* ── Code-split every page (separate chunks) ── */
@@ -35,6 +36,7 @@ const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 const FaithFormation = lazy(() => import("./pages/FaithFormation"));
 const Gallery = lazy(() => import("./pages/Gallery"));
+const WritersGuide = lazy(() => import("./pages/WritersGuide"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function ScrollToTop() {
@@ -86,6 +88,7 @@ function AppRoutes() {
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/faith-formation" element={<FaithFormation />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/writers-guide" element={<WritersGuide />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
@@ -100,6 +103,7 @@ export default function App() {
   return (
     <ErrorBoundary>
       <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <Analytics />
         <div lang={i18n.language}>
           <AppRoutes />
         </div>

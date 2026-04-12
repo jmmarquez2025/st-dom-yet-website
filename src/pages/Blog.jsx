@@ -7,7 +7,8 @@ import FadeSection from "../components/FadeSection";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import BlogCard from "../components/blog/BlogCard";
-import { blogPosts, BLOG_CATEGORIES } from "../data/blog";
+import { BLOG_CATEGORIES } from "../data/blog";
+import { useBlogPosts } from "../cms/hooks";
 
 const POSTS_PER_PAGE = 9;
 const FILTERS = ["all", ...Object.keys(BLOG_CATEGORIES)];
@@ -19,6 +20,7 @@ export default function Blog() {
   const [search, setSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(POSTS_PER_PAGE);
 
+  const { data: blogPosts } = useBlogPosts();
   const published = blogPosts.filter((p) => p.published);
   const featured = published.find((p) => p.featured);
 

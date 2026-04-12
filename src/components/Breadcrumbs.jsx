@@ -32,6 +32,7 @@ const SEGMENT_I18N_KEY = {
   gallery: "nav.gallery",
   blog: "nav.blog",
   "faith-formation": "nav.faithFormation",
+  "writers-guide": "Writer's Guide",
 };
 
 /**

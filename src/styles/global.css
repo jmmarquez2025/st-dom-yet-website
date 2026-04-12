@@ -481,11 +481,9 @@ a.contact-link:hover {
 /* Desktop: show sidebar TOC, hide mobile TOC */
 .blog-toc-sidebar { display: block; }
 .blog-toc-mobile { display: none; }
-.blog-toc-desktop { display: block; }
 @media (max-width: 1100px) {
   .blog-toc-sidebar { display: none !important; }
   .blog-toc-mobile { display: block; }
-  .blog-toc-desktop { display: none; }
 }
 
 /* Blog print styles */
@@ -496,6 +494,85 @@ a.contact-link:hover {
   body { background: #fff !important; }
   article { max-width: 100% !important; }
   a[href]::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #666; }
+}
+
+/* ── Rich Editor (Blog Composer) ── */
+.rich-editor-content:empty::before {
+  content: attr(data-placeholder);
+  color: var(--color-warm-gray);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.rich-editor-content h2 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-soft-black);
+  margin: 28px 0 12px;
+  line-height: 1.3;
+}
+
+.rich-editor-content h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-soft-black);
+  margin: 24px 0 10px;
+  line-height: 1.3;
+}
+
+.rich-editor-content p {
+  margin-bottom: 16px;
+  line-height: 1.8;
+}
+
+.rich-editor-content blockquote {
+  border-left: 4px solid var(--color-gold);
+  padding-left: 20px;
+  margin: 20px 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--color-warm-gray);
+}
+
+.rich-editor-content .editor-callout {
+  background: var(--color-cream);
+  border-left: 4px solid var(--color-burgundy);
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px;
+  margin: 20px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-charcoal);
+}
+
+.rich-editor-content ul,
+.rich-editor-content ol {
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.rich-editor-content li {
+  margin-bottom: 4px;
+  line-height: 1.7;
+}
+
+.rich-editor-content figure.editor-image {
+  margin: 20px 0;
+}
+
+.rich-editor-content hr {
+  border: none;
+  border-top: 1px solid var(--color-stone);
+  margin: 24px 0;
+}
+
+/* Toast animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Featured card responsive */
