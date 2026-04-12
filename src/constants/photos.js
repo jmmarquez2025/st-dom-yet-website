@@ -20,6 +20,7 @@ export const PHOTOS = {
   // ── Section backgrounds ──
   aboutArchitecture: `${B}photos/exterior-facade-opt.jpg`,  // Church façade with rose window
   dominicanCharism: `${B}photos/IMG_4583-opt.jpg`,          // Friar preaching from ambo
+  faithFormationHero: `${B}photos/faith-formation-opt.jpg`, // Bible with rosary — faith formation (Unsplash)
   pageHeader: `${B}photos/arched-interior-opt.jpg`,         // Arched corridor interior
 
   // ── History page ──

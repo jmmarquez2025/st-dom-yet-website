@@ -66,11 +66,11 @@ export default function FaithFormation() {
       <Seo
         title="Faith Formation"
         description="Deepen your faith with Dominican resources — podcasts, theology, catechesis, and more at St. Dominic Catholic Church."
-        image={PHOTOS.dominicanCharism}
+        image={PHOTOS.faithFormationHero}
       />
       <PageHeader
         title={t("faithFormation.title")}
-        heroSrc={PHOTOS.dominicanCharism}
+        heroSrc={PHOTOS.faithFormationHero}
         tall
       />
 
