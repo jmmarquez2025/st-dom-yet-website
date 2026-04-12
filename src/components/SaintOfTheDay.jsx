@@ -124,13 +124,30 @@ export default function SaintOfTheDay() {
         margin: "0 auto",
       }}
     >
-      {/* Subtle cross watermark */}
+      {/* Ornamental Dominican Cross Flory watermark */}
       <svg
         aria-hidden="true"
-        style={{ position: "absolute", right: -20, top: -20, opacity: 0.05, width: 200, height: 200 }}
+        style={{ position: "absolute", right: -10, top: -10, opacity: 0.06, width: 220, height: 220 }}
         viewBox="0 0 100 100"
+        fill="#fff"
       >
-        <path d="M50 10 v80 M10 50 h80" stroke="#fff" strokeWidth="3" />
+        <g transform="translate(50,50)">
+          {/* Cross body */}
+          <path
+            d="M-5 -22 L5 -22 L5 -5 L22 -5 L22 5 L5 5 L5 22 L-5 22 L-5 5 L-22 5 L-22 -5 L-5 -5 Z"
+            opacity="0.9"
+          />
+          {/* Top fleur-de-lis */}
+          <path d="M0 -22 C-7 -29, -11 -33, -8 -37 C-5 -40, 0 -34, 0 -30 C0 -34, 5 -40, 8 -37 C11 -33, 7 -29, 0 -22Z" opacity="0.7" />
+          {/* Bottom fleur-de-lis */}
+          <path d="M0 22 C-7 29, -11 33, -8 37 C-5 40, 0 34, 0 30 C0 34, 5 40, 8 37 C11 33, 7 29, 0 22Z" opacity="0.7" />
+          {/* Left fleur-de-lis */}
+          <path d="M-22 0 C-29 -7, -33 -11, -37 -8 C-40 -5, -34 0, -30 0 C-34 0, -40 5, -37 8 C-33 11, -29 7, -22 0Z" opacity="0.7" />
+          {/* Right fleur-de-lis */}
+          <path d="M22 0 C29 -7, 33 -11, 37 -8 C40 -5, 34 0, 30 0 C34 0, 40 5, 37 8 C33 11, 29 7, 22 0Z" opacity="0.7" />
+          {/* Center circle */}
+          <circle cx="0" cy="0" r="3.5" opacity="0.4" />
+        </g>
       </svg>
 
       {/* Date pill */}

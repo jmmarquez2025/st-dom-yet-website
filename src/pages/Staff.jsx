@@ -329,7 +329,13 @@ export default function Staff() {
       <section style={{ position: "relative", overflow: "hidden", background: T.softBlack, padding: "clamp(48px,10vw,80px) 24px" }}>
         <svg aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", opacity: 0.03 }}>
           <defs><pattern id="staffCross" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M30 15 v30 M15 30 h30" stroke="#fff" strokeWidth="0.5" />
+            <g transform="translate(30,30)" fill="#fff">
+              <path d="M-2.5 -9 L2.5 -9 L2.5 -2.5 L9 -2.5 L9 2.5 L2.5 2.5 L2.5 9 L-2.5 9 L-2.5 2.5 L-9 2.5 L-9 -2.5 L-2.5 -2.5 Z" opacity="0.8" />
+              <path d="M0 -9 C-2.5 -12, -4 -13.5, -3 -15 C-2 -16.5, 0 -14, 0 -12.5 C0 -14, 2 -16.5, 3 -15 C4 -13.5, 2.5 -12, 0 -9Z" opacity="0.6" />
+              <path d="M0 9 C-2.5 12, -4 13.5, -3 15 C-2 16.5, 0 14, 0 12.5 C0 14, 2 16.5, 3 15 C4 13.5, 2.5 12, 0 9Z" opacity="0.6" />
+              <path d="M-9 0 C-12 -2.5, -13.5 -4, -15 -3 C-16.5 -2, -14 0, -12.5 0 C-14 0, -16.5 2, -15 3 C-13.5 4, -12 2.5, -9 0Z" opacity="0.6" />
+              <path d="M9 0 C12 -2.5, 13.5 -4, 15 -3 C16.5 -2, 14 0, 12.5 0 C14 0, 16.5 2, 15 3 C13.5 4, 12 2.5, 9 0Z" opacity="0.6" />
+            </g>
           </pattern></defs>
           <rect width="100%" height="100%" fill="url(#staffCross)" />
         </svg>
