@@ -57,6 +57,7 @@ const NAV_ITEMS = [
       { key: "funerals", to: "/sacraments/funerals" },
     ],
   },
+  { key: "blog", to: "/blog" },
   {
     key: "getInvolved",
     children: [

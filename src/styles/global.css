@@ -466,6 +466,45 @@ a.contact-link:hover {
   }
 }
 
+/* ── Blog ── */
+.blog-drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 3.8em;
+  line-height: 0.8;
+  font-weight: 700;
+  color: var(--color-burgundy);
+  margin-right: 8px;
+  margin-top: 6px;
+}
+
+/* Desktop: show sidebar TOC, hide mobile TOC */
+.blog-toc-sidebar { display: block; }
+.blog-toc-mobile { display: none; }
+.blog-toc-desktop { display: block; }
+@media (max-width: 1100px) {
+  .blog-toc-sidebar { display: none !important; }
+  .blog-toc-mobile { display: block; }
+  .blog-toc-desktop { display: none; }
+}
+
+/* Blog print styles */
+@media print {
+  nav, footer, .scroll-progress, .blog-share, .blog-prev-next,
+  .blog-toc-sidebar, .blog-toc-mobile, .filter-btn,
+  [aria-label="Breadcrumb"] { display: none !important; }
+  body { background: #fff !important; }
+  article { max-width: 100% !important; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #666; }
+}
+
+/* Featured card responsive */
+@media (max-width: 768px) {
+  .glass-card[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 /* ── Deprecated (kept as no-op for class references) ── */
 .tilt-card { /* intentionally empty */ }
 .pulse-glow { /* intentionally empty */ }

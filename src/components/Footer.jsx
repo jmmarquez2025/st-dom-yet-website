@@ -32,6 +32,7 @@ const FOOTER_LINKS = [
   { to: "/becoming-catholic", key: "becomingCatholic" },
   { to: "/get-involved", key: "getInvolved" },
   { to: "/register", key: "register" },
+  { to: "/blog", key: "blog" },
   { to: "/faith-formation", key: "faithFormation" },
   { to: "/events", key: "events" },
   { to: "/contact", key: "contact" },
