@@ -313,7 +313,7 @@ export default function FaithFormation() {
                   Godsplaining
                 </h4>
                 <iframe
-                  src="https://open.spotify.com/embed/show/0ticJOsnAkCHXoh9fIwQnj?utm_source=generator&theme=0"
+                  src="https://open.spotify.com/embed/show/0aIOz3chYeQZxsdjyJzlOb?utm_source=generator&theme=0"
                   width="100%"
                   height="152"
                   frameBorder="0"
@@ -339,7 +339,7 @@ export default function FaithFormation() {
                   Rosary in a Year
                 </h4>
                 <iframe
-                  src="https://open.spotify.com/embed/show/6HJJEP4p3MJxh3bHMJFj3k?utm_source=generator&theme=0"
+                  src="https://open.spotify.com/embed/show/3Rx1puBjE0xZBiuy4BT4i7?utm_source=generator&theme=0"
                   width="100%"
                   height="152"
                   frameBorder="0"
