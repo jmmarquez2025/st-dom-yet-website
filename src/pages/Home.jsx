@@ -23,7 +23,7 @@ import { AnimatedDivider } from "../components/TextReveal";
 import { PHOTOS } from "../constants/photos";
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { data: announcements } = useAnnouncements();
   const { data: events } = useEvents();
@@ -89,7 +89,32 @@ export default function Home() {
           </Btn>
         </div>
 
-        <div style={{ marginTop: 48 }}>
+        {/* ── Bilingual invite ── */}
+        {i18n.language !== "es" && (
+          <div style={{ marginTop: 20 }}>
+            <button
+              onClick={() => { i18n.changeLanguage("es"); localStorage.setItem("lang", "es"); }}
+              style={{
+                background: "rgba(197,165,90,0.12)",
+                border: "1px solid rgba(197,165,90,0.45)",
+                borderRadius: 3,
+                color: T.goldLight,
+                cursor: "pointer",
+                fontSize: 13,
+                fontFamily: "'Source Sans 3', sans-serif",
+                letterSpacing: 0.6,
+                padding: "7px 16px",
+                transition: "background 0.2s, border-color 0.2s",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = "rgba(197,165,90,0.22)"; e.currentTarget.style.borderColor = "rgba(197,165,90,0.75)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(197,165,90,0.12)"; e.currentTarget.style.borderColor = "rgba(197,165,90,0.45)"; }}
+            >
+              🌐 &nbsp;También disponible en Español
+            </button>
+          </div>
+        )}
+
+        <div style={{ marginTop: 32 }}>
           <NextMass />
         </div>
       </StickyHero>

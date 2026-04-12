@@ -5,31 +5,64 @@ export default function LanguageToggle() {
   const { i18n } = useTranslation();
   const isEs = i18n.language === "es";
 
-  const toggle = () => {
-    const next = isEs ? "en" : "es";
-    i18n.changeLanguage(next);
-    localStorage.setItem("lang", next);
+  const switchTo = (lang) => {
+    if (i18n.language === lang) return;
+    i18n.changeLanguage(lang);
+    localStorage.setItem("lang", lang);
+  };
+
+  const pillBase = {
+    border: "none",
+    cursor: "pointer",
+    fontSize: 12,
+    fontWeight: 700,
+    letterSpacing: 0.8,
+    fontFamily: "'Source Sans 3', sans-serif",
+    padding: "5px 10px",
+    lineHeight: 1,
+    transition: "background 0.2s, color 0.2s",
   };
 
   return (
-    <button
-      onClick={toggle}
-      aria-label={isEs ? "Switch to English" : "Cambiar a Español"}
+    <div
+      role="group"
+      aria-label="Language selector"
       style={{
-        background: "none",
+        display: "inline-flex",
         border: `1px solid ${T.stone}`,
-        borderRadius: 2,
-        padding: "6px 10px",
-        fontSize: 12,
-        fontWeight: 600,
-        letterSpacing: 0.5,
-        cursor: "pointer",
-        color: T.burgundy,
-        fontFamily: "'Source Sans 3', sans-serif",
-        minHeight: 32,
+        borderRadius: 3,
+        overflow: "hidden",
+        height: 32,
       }}
     >
-      {isEs ? "EN" : "ES"}
-    </button>
+      <button
+        onClick={() => switchTo("en")}
+        aria-label="Switch to English"
+        aria-pressed={!isEs}
+        style={{
+          ...pillBase,
+          background: !isEs ? T.burgundy : "transparent",
+          color: !isEs ? "#fff" : T.warmGray,
+        }}
+      >
+        EN
+      </button>
+      <div
+        aria-hidden="true"
+        style={{ width: 1, background: T.stone, flexShrink: 0 }}
+      />
+      <button
+        onClick={() => switchTo("es")}
+        aria-label="Cambiar a Español"
+        aria-pressed={isEs}
+        style={{
+          ...pillBase,
+          background: isEs ? T.burgundy : "transparent",
+          color: isEs ? "#fff" : T.warmGray,
+        }}
+      >
+        ES
+      </button>
+    </div>
   );
 }

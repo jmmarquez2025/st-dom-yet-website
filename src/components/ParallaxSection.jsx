@@ -18,6 +18,7 @@ export default function ParallaxSection({
   height = "50vh",
   speed = 0.35,
   overlay = 0.4,
+  position = "center",
   children,
 }) {
   const ref = useRef(null);
@@ -77,7 +78,7 @@ export default function ParallaxSection({
             bottom: -80,
             backgroundImage: `url(${image})`,
             backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundPosition: position,
             transform: `translateY(${offset}px)`,
             opacity: loaded ? 1 : 0,
             transition: loaded ? "none" : "opacity 0.8s ease",

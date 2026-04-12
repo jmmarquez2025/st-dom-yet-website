@@ -153,7 +153,8 @@ export default function FaithFormation() {
       <ParallaxSection
         image={PHOTOS.stockBibleGolden}
         height="30vh"
-        overlay={0.5}
+        overlay={0.45}
+        position="center 80%"
       >
         <DominicanDivider color="#fff" width={160} />
       </ParallaxSection>
