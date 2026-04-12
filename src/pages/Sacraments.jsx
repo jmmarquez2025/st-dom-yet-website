@@ -66,9 +66,9 @@ export default function Sacraments() {
 
       {/* Parallax visual break */}
       <ParallaxSection
-        image={PHOTOS.stockStainedGlass}
+        image={PHOTOS.stockChaliceCruets}
         height="35vh"
-        overlay={0.5}
+        overlay={0.45}
       >
         <DominicanDivider color="#fff" width={160} />
       </ParallaxSection>

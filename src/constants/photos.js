@@ -61,6 +61,7 @@ export const PHOTOS = {
   stockFunerals: `${B}photos/stock/funerals.jpg`,               // White lilies / memorial flowers (Unsplash)
   stockRcia: `${B}photos/stock/rcia.jpg`,                       // Open Bible / scripture study (Unsplash)
   stockStainedGlass: `${B}photos/stock/stained-glass.jpg`,      // Stained glass window (Unsplash)
+  stockChaliceCruets: `${B}photos/stock/chalice-cruets.jpg`,    // Chalice and cruets — sacramental vessels
   stockBibleGolden: `${B}photos/stock/bible-golden.jpg`,        // Open Bible at golden hour (Unsplash/Aaron Burden)
   stockSacraments: `${B}photos/stock/sacraments.jpg`,           // Church altar / sanctuary (Unsplash)
   stockCandles: `${B}photos/stock/candles.jpg`,                 // Votive candles (Unsplash)
