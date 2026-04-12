@@ -125,19 +125,19 @@ export default function BlogPost() {
         <div
           style={{
             display: "flex",
-            gap: 60,
-            maxWidth: 1100,
+            gap: 48,
+            maxWidth: 1060,
             margin: "0 auto",
             alignItems: "flex-start",
+            justifyContent: "center",
           }}
         >
           {/* Main article column */}
           <article
             ref={articleRef}
             style={{
-              flex: 1,
+              flex: "0 1 720px",
               maxWidth: 720,
-              margin: "0 auto",
               minWidth: 0,
             }}
           >

@@ -5,7 +5,7 @@ import { ChevronDown } from "lucide-react";
 
 /**
  * Table of Contents for blog posts.
- * Desktop: sticky sidebar. Mobile: collapsible toggle.
+ * Desktop: sticky sidebar (subtle, quiet). Mobile: collapsible toggle.
  */
 export default function BlogToc({ blocks, label = "Table of Contents" }) {
   const headings = (blocks || []).filter((b) => b.type === "heading");
@@ -49,25 +49,29 @@ export default function BlogToc({ blocks, label = "Table of Contents" }) {
 
   return (
     <>
-      {/* Desktop sidebar */}
+      {/* Desktop sidebar — intentionally quiet so it doesn't compete with article text */}
       <nav
         aria-label="Table of Contents"
         className="blog-toc-desktop"
         style={{
           position: "sticky",
           top: 140,
-          maxWidth: 220,
+          maxWidth: 200,
           alignSelf: "flex-start",
+          opacity: 0.55,
+          transition: "opacity 0.3s ease",
         }}
+        onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
+        onMouseLeave={(e) => (e.currentTarget.style.opacity = "0.55")}
       >
         <div
           style={{
-            fontSize: 11,
+            fontSize: 10,
             letterSpacing: 2.5,
             textTransform: "uppercase",
-            fontWeight: 700,
-            color: T.gold,
-            marginBottom: 14,
+            fontWeight: 600,
+            color: T.warmGray,
+            marginBottom: 12,
             fontFamily: "'Source Sans 3', sans-serif",
           }}
         >
@@ -82,18 +86,18 @@ export default function BlogToc({ blocks, label = "Table of Contents" }) {
                   display: "block",
                   width: "100%",
                   textAlign: "left",
-                  padding: "6px 0 6px 14px",
-                  fontSize: 13,
-                  lineHeight: 1.5,
+                  padding: "5px 0 5px 12px",
+                  fontSize: 11.5,
+                  lineHeight: 1.45,
                   color: activeId === item.id ? T.burgundy : T.warmGray,
-                  fontWeight: activeId === item.id ? 600 : 400,
+                  fontWeight: activeId === item.id ? 500 : 400,
                   fontFamily: "'Source Sans 3', sans-serif",
                   border: "none",
                   background: "none",
                   cursor: "pointer",
-                  borderLeft: `2px solid ${activeId === item.id ? T.burgundy : T.stone}`,
-                  transition: "all 0.2s ease",
-                  paddingLeft: item.level === 3 ? 26 : 14,
+                  borderLeft: `1.5px solid ${activeId === item.id ? T.gold : T.stoneLight}`,
+                  transition: "all 0.25s ease",
+                  paddingLeft: item.level === 3 ? 22 : 12,
                 }}
               >
                 {item.text}
