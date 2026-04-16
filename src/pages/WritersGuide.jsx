@@ -12,17 +12,19 @@ import BlogDashboard from "../components/blog/BlogDashboard";
 import BlogComposer from "../components/blog/BlogComposer";
 import { useBlogPosts } from "../cms/hooks";
 import { submitBlogPost, deleteBlogPost } from "../cms/client";
+import AnnouncementDashboard from "../announcements/AnnouncementDashboard";
+import AnnouncementComposer from "../announcements/AnnouncementComposer";
+import { save as saveAnnouncement, remove as removeAnnouncement } from "../announcements/store";
+import { useAllAnnouncements } from "../announcements/useAnnouncements";
+import { Megaphone, BookOpen as BlogIcon } from "lucide-react";
 
 /* ──────────────────────────────────────────────────────────
- *  WritersGuide — Staff-only blog management page.
+ *  WritersGuide — Staff-only management dashboard.
  *
- *  Passphrase gate → Blog Dashboard → New/Edit Post Composer
+ *  Passphrase gate → Section tabs (Blog | Announcements)
  *
- *  Two ways to provide content:
- *  1. Write directly in the built-in rich editor
- *  2. Link a Google Doc (parsed server-side by Apps Script)
- *
- *  Posts are saved to Google Sheets via the blog-cms.gs doPost handler.
+ *  Blog: create/edit posts via built-in editor or Google Doc link
+ *  Announcements: create/schedule header banners and popup cards
  * ────────────────────────────────────────────────────────── */
 
 const STORAGE_KEY = "stdom_staff_auth";
@@ -92,7 +94,7 @@ function PassphraseGate({ onUnlock }) {
               marginBottom: 8,
             }}
           >
-            Staff Area
+            Staff Dashboard
           </h1>
           <p
             style={{
@@ -204,6 +206,68 @@ function Toast({ message, type, onDismiss }) {
   );
 }
 
+// ── Section Tab Bar ──
+function SectionTabs({ active, onChange }) {
+  const tabs = [
+    { key: "blog", label: "Blog", Icon: BlogIcon },
+    { key: "announcements", label: "Announcements", Icon: Megaphone },
+  ];
+
+  return (
+    <div
+      style={{
+        background: "#fff",
+        borderBottom: `1px solid ${T.stone}`,
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1100,
+          margin: "0 auto",
+          padding: "0 32px",
+          display: "flex",
+          gap: 0,
+        }}
+      >
+        {tabs.map(({ key, label, Icon: TabIcon }) => {
+          const isActive = active === key;
+          return (
+            <button
+              key={key}
+              onClick={() => onChange(key)}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "14px 20px",
+                background: "none",
+                border: "none",
+                borderBottom: `2px solid ${isActive ? T.burgundy : "transparent"}`,
+                color: isActive ? T.burgundy : T.warmGray,
+                fontSize: 14,
+                fontWeight: isActive ? 600 : 400,
+                fontFamily: "'Source Sans 3', sans-serif",
+                cursor: "pointer",
+                transition: "all 0.15s",
+                marginBottom: -1, // overlap the border-bottom of the container
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive) e.currentTarget.style.color = T.charcoal;
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive) e.currentTarget.style.color = T.warmGray;
+              }}
+            >
+              <TabIcon size={15} />
+              {label}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 // ── Main Staff Dashboard ──
 export default function WritersGuide() {
   const [authed, setAuthed] = useState(() => {
@@ -231,38 +295,56 @@ export default function WritersGuide() {
 }
 
 function StaffDashboard() {
-  const { data: blogPosts, loading, refresh } = useBlogPosts();
+  // Top-level section: "blog" | "announcements"
+  const [section, setSection] = useState("blog");
 
-  // View state: "dashboard" | "compose"
-  const [view, setView] = useState("dashboard");
+  // Blog state
+  const { data: blogPosts, loading, refresh: refreshBlog } = useBlogPosts();
+  const [blogView, setBlogView] = useState("dashboard"); // "dashboard" | "compose"
   const [editingPost, setEditingPost] = useState(null);
   const [saving, setSaving] = useState(false);
+
+  // Announcements state
+  const { refresh: refreshAnnouncements } = useAllAnnouncements();
+  const [annView, setAnnView] = useState("dashboard"); // "dashboard" | "compose"
+  const [editingAnn, setEditingAnn] = useState(null);
+
   const [toast, setToast] = useState(null);
 
-  const handleNew = useCallback(() => {
+  // ── Section switch resets child views ──
+  const handleSectionChange = useCallback((s) => {
+    setSection(s);
+    setBlogView("dashboard");
     setEditingPost(null);
-    setView("compose");
+    setAnnView("dashboard");
+    setEditingAnn(null);
   }, []);
 
-  const handleEdit = useCallback((post) => {
+  // ── Blog handlers ──
+  const handleNewPost = useCallback(() => {
+    setEditingPost(null);
+    setBlogView("compose");
+  }, []);
+
+  const handleEditPost = useCallback((post) => {
     setEditingPost(post);
-    setView("compose");
+    setBlogView("compose");
   }, []);
 
-  const handleCancel = useCallback(() => {
+  const handleCancelPost = useCallback(() => {
     setEditingPost(null);
-    setView("dashboard");
+    setBlogView("dashboard");
   }, []);
 
-  const handleDelete = useCallback(async (postId) => {
+  const handleDeletePost = useCallback(async (postId) => {
     setSaving(true);
     try {
       const result = await deleteBlogPost(postId);
       if (result.success) {
         setToast({ message: "Post deleted successfully.", type: "success" });
-        setView("dashboard");
+        setBlogView("dashboard");
         setEditingPost(null);
-        refresh();
+        refreshBlog();
       } else {
         setToast({ message: result.error || "Failed to delete post.", type: "error" });
       }
@@ -271,79 +353,150 @@ function StaffDashboard() {
     } finally {
       setSaving(false);
     }
-  }, [refresh]);
+  }, [refreshBlog]);
 
-  const handleSave = useCallback(async (postData) => {
+  const handleSavePost = useCallback(async (postData) => {
     setSaving(true);
     try {
       const result = await submitBlogPost(postData);
       if (result.success) {
         setToast({
-          message: postData.published
-            ? "Post published successfully!"
-            : "Draft saved successfully!",
+          message: postData.published ? "Post published successfully!" : "Draft saved successfully!",
           type: "success",
         });
-        setView("dashboard");
+        setBlogView("dashboard");
         setEditingPost(null);
-        refresh();
+        refreshBlog();
       } else {
-        setToast({
-          message: result.error || "Something went wrong. Please try again.",
-          type: "error",
-        });
+        setToast({ message: result.error || "Something went wrong. Please try again.", type: "error" });
       }
     } catch {
-      setToast({
-        message: "Network error. Please check your connection.",
-        type: "error",
-      });
+      setToast({ message: "Network error. Please check your connection.", type: "error" });
     } finally {
       setSaving(false);
     }
-  }, [refresh]);
+  }, [refreshBlog]);
+
+  // ── Announcement handlers ──
+  const handleNewAnn = useCallback(() => {
+    setEditingAnn(null);
+    setAnnView("compose");
+  }, []);
+
+  const handleEditAnn = useCallback((ann) => {
+    setEditingAnn(ann);
+    setAnnView("compose");
+  }, []);
+
+  const handleCancelAnn = useCallback(() => {
+    setEditingAnn(null);
+    setAnnView("dashboard");
+  }, []);
+
+  const handleSaveAnn = useCallback((data) => {
+    try {
+      saveAnnouncement(data);
+      setToast({
+        message: data.id ? "Announcement updated!" : "Announcement created!",
+        type: "success",
+      });
+      setAnnView("dashboard");
+      setEditingAnn(null);
+      refreshAnnouncements();
+    } catch {
+      setToast({ message: "Failed to save. Please try again.", type: "error" });
+    }
+  }, [refreshAnnouncements]);
+
+  const handleDeleteAnn = useCallback((id) => {
+    try {
+      removeAnnouncement(id);
+      setToast({ message: "Announcement deleted.", type: "success" });
+      setAnnView("dashboard");
+      setEditingAnn(null);
+      refreshAnnouncements();
+    } catch {
+      setToast({ message: "Failed to delete.", type: "error" });
+    }
+  }, [refreshAnnouncements]);
+
+  // ── Dynamic page title ──
+  const pageTitle = (() => {
+    if (section === "blog") {
+      if (blogView === "compose") return editingPost ? "Edit Post" : "New Post";
+      return "Staff Dashboard";
+    }
+    if (section === "announcements") {
+      if (annView === "compose") return editingAnn ? "Edit Announcement" : "New Announcement";
+      return "Staff Dashboard";
+    }
+    return "Staff Dashboard";
+  })();
 
   return (
     <div style={{ paddingTop: 76 }}>
       <Seo
-        title="Blog Manager"
-        description="Staff blog management dashboard for St. Dominic Catholic Church."
+        title="Staff Dashboard"
+        description="Staff management dashboard for St. Dominic Catholic Church."
       />
       <PageHeader
-        title={view === "compose" ? (editingPost ? "Edit Post" : "New Post") : "Blog Manager"}
+        title={pageTitle}
         heroSrc={PHOTOS.dominicanCharism}
         tall
       />
 
-      {/* ── Tabs: Dashboard / Writing Tips ── */}
-      {view === "dashboard" && (
-        <>
-          <Section bg={T.warmWhite}>
-            <FadeSection>
-              <BlogDashboard
-                posts={blogPosts}
-                loading={loading}
-                onNew={handleNew}
-                onEdit={handleEdit}
-              />
-            </FadeSection>
-          </Section>
+      {/* ── Section tabs ── */}
+      <SectionTabs active={section} onChange={handleSectionChange} />
 
-          {/* ── Quick Reference (collapsed) ── */}
-          <WritingTips />
+      {/* ── Blog section ── */}
+      {section === "blog" && (
+        <>
+          {blogView === "dashboard" && (
+            <>
+              <Section bg={T.warmWhite}>
+                <FadeSection>
+                  <BlogDashboard
+                    posts={blogPosts}
+                    loading={loading}
+                    onNew={handleNewPost}
+                    onEdit={handleEditPost}
+                  />
+                </FadeSection>
+              </Section>
+              <WritingTips />
+            </>
+          )}
+          {blogView === "compose" && (
+            <Section bg={T.warmWhite}>
+              <BlogComposer
+                post={editingPost}
+                onSave={handleSavePost}
+                onDelete={handleDeletePost}
+                onCancel={handleCancelPost}
+                saving={saving}
+                onValidationError={(msg) => setToast({ message: msg, type: "error" })}
+              />
+            </Section>
+          )}
         </>
       )}
 
-      {view === "compose" && (
+      {/* ── Announcements section ── */}
+      {section === "announcements" && (
         <Section bg={T.warmWhite}>
-          <BlogComposer
-            post={editingPost}
-            onSave={handleSave}
-            onDelete={handleDelete}
-            onCancel={handleCancel}
-            saving={saving}
-            onValidationError={(msg) => setToast({ message: msg, type: "error" })}
-          />
+          <FadeSection>
+            {annView === "dashboard" && (
+              <AnnouncementDashboard onEdit={handleEditAnn} onNew={handleNewAnn} />
+            )}
+            {annView === "compose" && (
+              <AnnouncementComposer
+                announcement={editingAnn}
+                onSave={handleSaveAnn}
+                onDelete={handleDeleteAnn}
+                onCancel={handleCancelAnn}
+              />
+            )}
+          </FadeSection>
         </Section>
       )}
 
@@ -360,7 +513,7 @@ function StaffDashboard() {
   );
 }
 
-// ── Writing Tips Section (below dashboard) ──
+// ── Writing Tips Section (below blog dashboard) ──
 function WritingTips() {
   const [open, setOpen] = useState(false);
 
