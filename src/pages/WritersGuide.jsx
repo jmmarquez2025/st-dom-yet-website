@@ -16,7 +16,8 @@ import AnnouncementDashboard from "../announcements/AnnouncementDashboard";
 import AnnouncementComposer from "../announcements/AnnouncementComposer";
 import { save as saveAnnouncement, remove as removeAnnouncement } from "../announcements/store";
 import { useAllAnnouncements } from "../announcements/useAnnouncements";
-import { Megaphone, BookOpen as BlogIcon } from "lucide-react";
+import BulletinDashboard from "../bulletins/BulletinDashboard";
+import { Megaphone, BookOpen as BlogIcon, Newspaper } from "lucide-react";
 
 /* ──────────────────────────────────────────────────────────
  *  WritersGuide — Staff-only management dashboard.
@@ -211,6 +212,7 @@ function SectionTabs({ active, onChange }) {
   const tabs = [
     { key: "blog", label: "Blog", Icon: BlogIcon },
     { key: "announcements", label: "Announcements", Icon: Megaphone },
+    { key: "bulletins", label: "Bulletins", Icon: Newspaper },
   ];
 
   return (
@@ -319,6 +321,9 @@ function StaffDashboard() {
     setAnnView("dashboard");
     setEditingAnn(null);
   }, []);
+
+  // ── Bulletin toast passthrough ──
+  const handleBulletinToast = useCallback((t) => setToast(t), []);
 
   // ── Blog handlers ──
   const handleNewPost = useCallback(() => {
@@ -430,6 +435,7 @@ function StaffDashboard() {
       if (annView === "compose") return editingAnn ? "Edit Announcement" : "New Announcement";
       return "Staff Dashboard";
     }
+    if (section === "bulletins") return "Staff Dashboard";
     return "Staff Dashboard";
   })();
 
@@ -479,6 +485,15 @@ function StaffDashboard() {
             </Section>
           )}
         </>
+      )}
+
+      {/* ── Bulletins section ── */}
+      {section === "bulletins" && (
+        <Section bg={T.warmWhite}>
+          <FadeSection>
+            <BulletinDashboard onToast={handleBulletinToast} />
+          </FadeSection>
+        </Section>
       )}
 
       {/* ── Announcements section ── */}

@@ -11,12 +11,20 @@ import HeroImage from "../components/HeroImage";
 import { PHOTOS } from "../constants/photos";
 import { ExternalLink, FileText } from "lucide-react";
 import { useBulletins } from "../cms/hooks";
+import { getCurrentUrl, getArchive, hasArchive } from "../bulletins/store";
 
 export default function Bulletin() {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
-  const hasBulletin = Boolean(CONFIG.bulletinUrl);
-  const { data: bulletins } = useBulletins();
+
+  // Admin-set URL takes priority over the config value
+  const adminUrl = getCurrentUrl();
+  const bulletinUrl = adminUrl || CONFIG.bulletinUrl;
+  const hasBulletin = Boolean(bulletinUrl);
+
+  // Admin-managed archive takes priority over CMS/static data
+  const { data: cmsBulletins } = useBulletins();
+  const bulletins = hasArchive() ? getArchive() : cmsBulletins;
 
   return (
     <div style={{ paddingTop: 76 }}>
@@ -151,7 +159,7 @@ export default function Bulletin() {
                     )}
 
                     <iframe
-                      src={CONFIG.bulletinUrl}
+                      src={bulletinUrl}
                       onLoad={() => setLoading(false)}
                       seamless="seamless"
                       scrolling="no"
@@ -173,7 +181,7 @@ export default function Bulletin() {
                 {/* Fullscreen link */}
                 <div style={{ textAlign: "center", marginTop: 16 }}>
                   <a
-                    href={CONFIG.bulletinUrl}
+                    href={bulletinUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
