@@ -158,6 +158,18 @@ export default function Footer() {
         >
           Staff
         </FooterLink>
+        <span style={{ margin: "0 6px" }}>·</span>
+        <FooterLink
+          to="/announcement-manager"
+          style={{
+            color: "rgba(255,255,255,0.35)",
+            textDecoration: "none",
+            fontSize: 12,
+            transition: "color 0.2s",
+          }}
+        >
+          Announcements
+        </FooterLink>
       </div>
     </footer>
   );

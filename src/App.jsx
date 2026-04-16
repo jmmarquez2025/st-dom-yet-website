@@ -8,6 +8,8 @@ import ScrollProgress from "./components/ScrollProgress";
 import ErrorBoundary from "./components/ErrorBoundary";
 import PageSkeleton from "./components/PageSkeleton";
 import Analytics from "./components/Analytics";
+import AnnouncementBanner from "./announcements/AnnouncementBanner";
+import AnnouncementPopup from "./announcements/AnnouncementPopup";
 import useLenis from "./hooks/useLenis";
 
 /* ── Code-split every page (separate chunks) ── */
@@ -37,6 +39,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const FaithFormation = lazy(() => import("./pages/FaithFormation"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const WritersGuide = lazy(() => import("./pages/WritersGuide"));
+const AnnouncementManager = lazy(() => import("./pages/AnnouncementManager"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function ScrollToTop() {
@@ -59,7 +62,9 @@ function AppRoutes() {
       <ScrollProgress />
       <a href="#main-content" className="skip-link">Skip to main content</a>
       <Nav />
+      <AnnouncementBanner />
       <Breadcrumbs />
+      <AnnouncementPopup />
       <main id="main-content" key={location.pathname}>
         <Suspense fallback={<PageSkeleton />}>
           <Routes>
@@ -89,6 +94,7 @@ function AppRoutes() {
             <Route path="/faith-formation" element={<FaithFormation />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/writers-guide" element={<WritersGuide />} />
+            <Route path="/announcement-manager" element={<AnnouncementManager />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

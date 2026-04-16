@@ -33,6 +33,7 @@ const SEGMENT_I18N_KEY = {
   blog: "nav.blog",
   "faith-formation": "nav.faithFormation",
   "writers-guide": "Writer's Guide",
+  "announcement-manager": "Announcement Manager",
 };
 
 /**
