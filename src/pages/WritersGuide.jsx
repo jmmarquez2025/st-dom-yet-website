@@ -22,6 +22,7 @@ import ScheduleDashboard from "../schedule-admin/ScheduleDashboard";
 import StaffDirectoryDashboard from "../staff-admin/StaffDirectoryDashboard";
 import MinistriesDashboard from "../ministries-admin/MinistriesDashboard";
 import SettingsDashboard from "../settings/SettingsDashboard";
+import DataHelpDashboard from "../admin/DataHelpDashboard";
 import {
   Megaphone,
   BookOpen as BlogIcon,
@@ -31,6 +32,7 @@ import {
   Users,
   HandHeart,
   Settings,
+  LifeBuoy,
 } from "lucide-react";
 
 /* ──────────────────────────────────────────────────────────
@@ -232,6 +234,7 @@ function SectionTabs({ active, onChange }) {
     { key: "staff", label: "Staff", Icon: Users },
     { key: "ministries", label: "Ministries", Icon: HandHeart },
     { key: "settings", label: "Settings", Icon: Settings },
+    { key: "data", label: "Data & Help", Icon: LifeBuoy },
   ];
 
   return (
@@ -317,9 +320,85 @@ export default function WritersGuide() {
   return <StaffDashboard />;
 }
 
+const HINT_DISMISSED_KEY = "stdom_staff_welcome_hint_dismissed";
+
+function WelcomeHint({ onGoToData, onDismiss }) {
+  return (
+    <div
+      style={{
+        background: `${T.gold}18`,
+        borderBottom: `1px solid ${T.gold}55`,
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1100,
+          margin: "0 auto",
+          padding: "12px 32px",
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+          flexWrap: "wrap",
+          fontFamily: "'Source Sans 3', sans-serif",
+        }}
+      >
+        <span style={{ fontSize: 20 }}>👋</span>
+        <div style={{ flex: 1, minWidth: 240, fontSize: 13.5, color: T.charcoal, lineHeight: 1.5 }}>
+          <strong>New here?</strong> Changes save to this browser only.
+          Visit <strong>Data & Help</strong> to learn how to back up your work
+          or move it between computers.
+        </div>
+        <button
+          onClick={onGoToData}
+          style={{
+            padding: "7px 14px",
+            background: T.burgundy,
+            color: "#fff",
+            border: "none",
+            borderRadius: 6,
+            fontSize: 13,
+            fontWeight: 600,
+            cursor: "pointer",
+            fontFamily: "'Source Sans 3', sans-serif",
+          }}
+        >
+          Open Data & Help
+        </button>
+        <button
+          onClick={onDismiss}
+          aria-label="Dismiss"
+          style={{
+            background: "none",
+            border: "none",
+            color: T.warmGray,
+            fontSize: 18,
+            cursor: "pointer",
+            padding: "4px 8px",
+            lineHeight: 1,
+          }}
+        >
+          ×
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function StaffDashboard() {
   // Top-level section: "blog" | "announcements"
   const [section, setSection] = useState("blog");
+  const [hintDismissed, setHintDismissed] = useState(() => {
+    try {
+      return localStorage.getItem(HINT_DISMISSED_KEY) === "1";
+    } catch {
+      return false;
+    }
+  });
+
+  const dismissHint = useCallback(() => {
+    setHintDismissed(true);
+    try { localStorage.setItem(HINT_DISMISSED_KEY, "1"); } catch { /* ignore */ }
+  }, []);
 
   // Blog state
   const { data: blogPosts, loading, refresh: refreshBlog } = useBlogPosts();
@@ -472,6 +551,14 @@ function StaffDashboard() {
         tall
       />
 
+      {/* ── Welcome hint (dismissible, first visit only) ── */}
+      {!hintDismissed && (
+        <WelcomeHint
+          onGoToData={() => { dismissHint(); handleSectionChange("data"); }}
+          onDismiss={dismissHint}
+        />
+      )}
+
       {/* ── Section tabs ── */}
       <SectionTabs active={section} onChange={handleSectionChange} />
 
@@ -577,6 +664,15 @@ function StaffDashboard() {
         <Section bg={T.warmWhite}>
           <FadeSection>
             <SettingsDashboard onToast={handleBulletinToast} />
+          </FadeSection>
+        </Section>
+      )}
+
+      {/* ── Data & Help section ── */}
+      {section === "data" && (
+        <Section bg={T.warmWhite}>
+          <FadeSection>
+            <DataHelpDashboard onToast={handleBulletinToast} />
           </FadeSection>
         </Section>
       )}

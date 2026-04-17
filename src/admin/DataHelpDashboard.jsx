@@ -1,0 +1,329 @@
+import { useState, useRef } from "react";
+import { T } from "../constants/theme";
+import {
+  Download,
+  Upload,
+  AlertTriangle,
+  Info,
+  FileDown,
+  RefreshCcw,
+  HelpCircle,
+  Laptop,
+} from "lucide-react";
+import { exportAll, importFromFile, clearAll, countPopulated, MANAGED_KEYS } from "./dataManager";
+
+const SECTIONS = [
+  { title: "What am I editing?", icon: Info, body: (
+      <>
+        Every tab in this dashboard (Blog, Announcements, Bulletins, Events,
+        Mass Schedule, Staff, Ministries, Settings) saves your changes to
+        <strong> this browser on this computer</strong>. The public St. Dominic
+        website reads those changes and shows them to visitors.
+      </>
+    ),
+  },
+  { title: "The catch: one computer at a time", icon: Laptop, body: (
+      <>
+        Because everything is stored in your browser, edits you make here
+        don't automatically appear on other computers, phones, or browsers.
+        If you want your home laptop and the parish office to stay in sync,
+        use the <strong>Export</strong> and <strong>Import</strong> buttons
+        below to move a backup file between them.
+      </>
+    ),
+  },
+  { title: "Always back up before big changes", icon: AlertTriangle, body: (
+      <>
+        Clearing browser history or switching to a new computer wipes admin
+        data. Before any big edit — or at least once a week — click
+        <strong> Export Backup</strong> and save the file somewhere safe
+        (Google Drive, email to yourself, OneDrive, etc.).
+      </>
+    ),
+  },
+  { title: "Accidentally deleted something?", icon: HelpCircle, body: (
+      <>
+        Click <strong>Import Backup</strong> and choose your most recent
+        backup file. The dashboard will restore everything exactly as it
+        was when you exported it.
+      </>
+    ),
+  },
+];
+
+/* ── Helpers ────────────────────────────────────────────── */
+
+function formatDate(iso) {
+  if (!iso) return "unknown date";
+  try {
+    return new Date(iso).toLocaleString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    });
+  } catch {
+    return iso;
+  }
+}
+
+/* ── Component ──────────────────────────────────────────── */
+
+export default function DataHelpDashboard({ onToast }) {
+  const fileRef = useRef(null);
+  const [lastAction, setLastAction] = useState(null);
+  const [strategy, setStrategy] = useState("replace");
+
+  const populated = countPopulated();
+  const total = MANAGED_KEYS.length;
+
+  const handleExport = () => {
+    try {
+      const { count } = exportAll();
+      onToast?.({ message: `Backup saved (${count} section${count === 1 ? "" : "s"}).`, type: "success" });
+      setLastAction({ kind: "export", count, at: new Date().toISOString() });
+    } catch {
+      onToast?.({ message: "Could not create backup file.", type: "error" });
+    }
+  };
+
+  const handleImportClick = () => fileRef.current?.click();
+
+  const handleFileChosen = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    e.target.value = ""; // allow re-selecting the same file later
+
+    const confirmMsg = strategy === "replace"
+      ? "This will replace all current admin data with the contents of the backup file. Continue?"
+      : "This will add the backup's data on top of what's already here, overwriting anything with the same key. Continue?";
+    if (!window.confirm(confirmMsg)) return;
+
+    try {
+      const { count, exportedAt } = await importFromFile(file, strategy);
+      onToast?.({
+        message: `Restored ${count} section${count === 1 ? "" : "s"} from ${formatDate(exportedAt)}.`,
+        type: "success",
+      });
+      setLastAction({ kind: "import", count, at: new Date().toISOString(), fromDate: exportedAt });
+      // Force a reload so every section re-reads localStorage
+      setTimeout(() => window.location.reload(), 800);
+    } catch (err) {
+      onToast?.({ message: err.message || "Could not read backup file.", type: "error" });
+    }
+  };
+
+  const handleClearAll = () => {
+    const msg = "Wipe ALL admin data — blog posts are CMS-backed and safe, but every other tab will reset to defaults. This cannot be undone without a backup file. Continue?";
+    if (!window.confirm(msg)) return;
+    if (!window.confirm("Are you absolutely sure? Type 'reset' in your head as a final check.")) return;
+    clearAll();
+    onToast?.({ message: "All admin data cleared.", type: "success" });
+    setTimeout(() => window.location.reload(), 800);
+  };
+
+  return (
+    <div>
+      {/* Header */}
+      <div style={{ marginBottom: 32 }}>
+        <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 28, fontWeight: 600, color: T.softBlack, margin: 0 }}>
+          Data & Help
+        </h2>
+        <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, color: T.warmGray, margin: "4px 0 0" }}>
+          Back up your work, move data between computers, and learn how the dashboard works.
+        </p>
+      </div>
+
+      {/* Status card */}
+      <div
+        style={{
+          background: "linear-gradient(135deg, #fff 0%, " + T.cream + " 100%)",
+          border: `1px solid ${T.stone}`,
+          borderRadius: 12,
+          padding: "24px 28px",
+          marginBottom: 24,
+          display: "flex",
+          alignItems: "center",
+          gap: 20,
+          flexWrap: "wrap",
+        }}
+      >
+        <div
+          style={{
+            width: 56,
+            height: 56,
+            borderRadius: "50%",
+            background: `${T.burgundy}14`,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexShrink: 0,
+          }}
+        >
+          <FileDown size={26} color={T.burgundy} />
+        </div>
+        <div style={{ flex: 1, minWidth: 200 }}>
+          <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 600, color: T.softBlack }}>
+            {populated} of {total} sections have custom data
+          </div>
+          <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: T.warmGray, marginTop: 4 }}>
+            {populated === 0
+              ? "No custom changes saved yet — you're running on the built-in defaults."
+              : "Anything you've edited on this computer is saved locally. Export a backup to keep it safe."}
+          </div>
+        </div>
+      </div>
+
+      {/* Action buttons */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16, marginBottom: 32 }}>
+        {/* Export */}
+        <button
+          onClick={handleExport}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: 8,
+            padding: "20px 24px",
+            background: T.burgundy,
+            color: "#fff",
+            border: "none",
+            borderRadius: 10,
+            cursor: "pointer",
+            textAlign: "left",
+            fontFamily: "'Source Sans 3', sans-serif",
+            transition: "background 0.15s",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = T.burgundyDark)}
+          onMouseLeave={(e) => (e.currentTarget.style.background = T.burgundy)}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <Download size={20} />
+            <span style={{ fontSize: 16, fontWeight: 600 }}>Export Backup</span>
+          </div>
+          <div style={{ fontSize: 13, opacity: 0.85, lineHeight: 1.5 }}>
+            Download a single JSON file with everything you've edited.
+            Save it to Google Drive or email it to yourself.
+          </div>
+        </button>
+
+        {/* Import */}
+        <button
+          onClick={handleImportClick}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: 8,
+            padding: "20px 24px",
+            background: "#fff",
+            color: T.softBlack,
+            border: `2px solid ${T.burgundy}`,
+            borderRadius: 10,
+            cursor: "pointer",
+            textAlign: "left",
+            fontFamily: "'Source Sans 3', sans-serif",
+            transition: "background 0.15s",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = T.cream)}
+          onMouseLeave={(e) => (e.currentTarget.style.background = "#fff")}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <Upload size={20} color={T.burgundy} />
+            <span style={{ fontSize: 16, fontWeight: 600, color: T.burgundy }}>Import Backup</span>
+          </div>
+          <div style={{ fontSize: 13, color: T.warmGray, lineHeight: 1.5 }}>
+            Restore a backup file to bring this computer up to date, or
+            undo an accidental change.
+          </div>
+        </button>
+
+        <input ref={fileRef} type="file" accept="application/json,.json" onChange={handleFileChosen} style={{ display: "none" }} />
+      </div>
+
+      {/* Import strategy */}
+      <div
+        style={{
+          background: "#fff",
+          border: `1px solid ${T.stone}`,
+          borderRadius: 10,
+          padding: "16px 20px",
+          marginBottom: 32,
+          fontFamily: "'Source Sans 3', sans-serif",
+        }}
+      >
+        <div style={{ fontSize: 12, fontWeight: 600, letterSpacing: 1.5, textTransform: "uppercase", color: T.warmGray, marginBottom: 10 }}>
+          Import behavior
+        </div>
+        <label style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "8px 0", cursor: "pointer" }}>
+          <input type="radio" name="strategy" value="replace" checked={strategy === "replace"} onChange={() => setStrategy("replace")} style={{ marginTop: 3, accentColor: T.burgundy }} />
+          <div>
+            <div style={{ fontSize: 14, fontWeight: 600, color: T.charcoal }}>Replace everything (recommended)</div>
+            <div style={{ fontSize: 12, color: T.warmGray }}>Wipes current admin data, then restores from the backup. Safest if you're moving to a fresh computer.</div>
+          </div>
+        </label>
+        <label style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "8px 0", cursor: "pointer" }}>
+          <input type="radio" name="strategy" value="merge" checked={strategy === "merge"} onChange={() => setStrategy("merge")} style={{ marginTop: 3, accentColor: T.burgundy }} />
+          <div>
+            <div style={{ fontSize: 14, fontWeight: 600, color: T.charcoal }}>Merge with current data</div>
+            <div style={{ fontSize: 12, color: T.warmGray }}>Keeps whatever's already here, overwriting only the sections included in the backup file.</div>
+          </div>
+        </label>
+      </div>
+
+      {/* Last action */}
+      {lastAction && (
+        <div style={{ fontSize: 13, color: T.warmGray, fontFamily: "'Source Sans 3', sans-serif", marginBottom: 24 }}>
+          Last {lastAction.kind === "export" ? "exported" : "imported"}: {formatDate(lastAction.at)}
+          {lastAction.kind === "import" && lastAction.fromDate && ` (backup from ${formatDate(lastAction.fromDate)})`}
+          .
+        </div>
+      )}
+
+      {/* Help sections */}
+      <div style={{ marginBottom: 32 }}>
+        <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 22, fontWeight: 600, color: T.softBlack, margin: "0 0 16px" }}>
+          How it works
+        </h3>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 12 }}>
+          {SECTIONS.map((s, i) => (
+            <div key={i} style={{ background: "#fff", border: `1px solid ${T.stone}`, borderRadius: 10, padding: "18px 20px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                <div style={{ width: 32, height: 32, borderRadius: "50%", background: `${T.gold}22`, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <s.icon size={16} color={T.burgundy} />
+                </div>
+                <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 17, fontWeight: 600, color: T.softBlack }}>{s.title}</div>
+              </div>
+              <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, lineHeight: 1.7, color: T.charcoal, margin: 0 }}>{s.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Danger zone */}
+      <details style={{ background: "#fff", border: `1px solid ${T.stone}`, borderRadius: 10, padding: "14px 18px" }}>
+        <summary style={{ cursor: "pointer", fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, fontWeight: 600, color: T.warmGray, display: "flex", alignItems: "center", gap: 8 }}>
+          <RefreshCcw size={14} /> Danger zone — start fresh
+        </summary>
+        <div style={{ marginTop: 14, fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: T.warmGray, lineHeight: 1.6 }}>
+          <p style={{ margin: "0 0 12px" }}>
+            Clear every admin-managed section on this computer: announcements,
+            bulletins, events, schedule, staff, ministries, and site settings.
+            The public site will fall back to the built-in defaults until you
+            add new content.
+          </p>
+          <p style={{ margin: "0 0 14px", color: "#c0392b", fontWeight: 600 }}>
+            Export a backup first — this cannot be undone.
+          </p>
+          <button
+            onClick={handleClearAll}
+            style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 16px", background: "#c0392b", color: "#fff", border: "none", borderRadius: 6, fontSize: 13, fontWeight: 600, fontFamily: "'Source Sans 3', sans-serif", cursor: "pointer" }}
+          >
+            <AlertTriangle size={14} /> Clear all admin data
+          </button>
+        </div>
+      </details>
+    </div>
+  );
+}
