@@ -10,7 +10,12 @@ import PageSkeleton from "./components/PageSkeleton";
 import Analytics from "./components/Analytics";
 import AnnouncementBanner from "./announcements/AnnouncementBanner";
 import AnnouncementPopup from "./announcements/AnnouncementPopup";
+import { pullAll, installAutoSync, isConfigured as adminCmsConfigured } from "./cms/adminSync";
 import useLenis from "./hooks/useLenis";
+
+// Install the localStorage interceptor immediately (module-eval time) so
+// every admin write — even ones that happen before React mounts — is seen.
+if (adminCmsConfigured()) installAutoSync();
 
 /* ── Code-split every page (separate chunks) ── */
 const Home = lazy(() => import("./pages/Home"));
@@ -106,6 +111,13 @@ function AppRoutes() {
 
 export default function App() {
   const { i18n } = useTranslation();
+
+  // Hydrate localStorage from the shared Google Sheet on mount so visitors
+  // on any device see the latest admin edits. No-op if backend isn't set.
+  useEffect(() => {
+    if (adminCmsConfigured()) pullAll();
+  }, []);
+
   return (
     <ErrorBoundary>
       <BrowserRouter basename={import.meta.env.BASE_URL}>

@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { T } from "../constants/theme";
 import {
   Download,
@@ -9,8 +9,19 @@ import {
   RefreshCcw,
   HelpCircle,
   Laptop,
+  Cloud,
+  CloudOff,
+  CheckCircle2,
 } from "lucide-react";
 import { exportAll, importFromFile, clearAll, countPopulated, MANAGED_KEYS } from "./dataManager";
+import {
+  isConfigured as syncConfigured,
+  getStatus as getSyncStatus,
+  subscribe as subscribeSync,
+  pullAll as syncPull,
+  flush as syncFlush,
+  clearRemote as syncClearRemote,
+} from "../cms/adminSync";
 
 const SECTIONS = [
   { title: "What am I editing?", icon: Info, body: (
@@ -74,9 +85,30 @@ export default function DataHelpDashboard({ onToast }) {
   const fileRef = useRef(null);
   const [lastAction, setLastAction] = useState(null);
   const [strategy, setStrategy] = useState("replace");
+  const [syncStatus, setSyncStatus] = useState(getSyncStatus());
+  const [syncing, setSyncing] = useState(false);
 
   const populated = countPopulated();
   const total = MANAGED_KEYS.length;
+  const cloudOn = syncConfigured();
+
+  useEffect(() => subscribeSync(setSyncStatus), []);
+
+  const handlePullNow = async () => {
+    setSyncing(true);
+    const n = await syncPull();
+    setSyncing(false);
+    onToast?.({
+      message: n > 0 ? `Pulled ${n} section${n === 1 ? "" : "s"} from the cloud.` : "Cloud reached — nothing new to pull.",
+      type: "success",
+    });
+    if (n > 0) setTimeout(() => window.location.reload(), 800);
+  };
+
+  const handleFlushNow = () => {
+    syncFlush();
+    onToast?.({ message: "Pending changes pushed to the cloud.", type: "success" });
+  };
 
   const handleExport = () => {
     try {
@@ -173,6 +205,125 @@ export default function DataHelpDashboard({ onToast }) {
               : "Anything you've edited on this computer is saved locally. Export a backup to keep it safe."}
           </div>
         </div>
+      </div>
+
+      {/* Cloud sync card */}
+      <div
+        style={{
+          background: cloudOn ? `${T.gold}0F` : "#fff",
+          border: `1px solid ${cloudOn ? T.gold : T.stone}`,
+          borderRadius: 12,
+          padding: "20px 24px",
+          marginBottom: 24,
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 12, flexWrap: "wrap" }}>
+          <div
+            style={{
+              width: 44,
+              height: 44,
+              borderRadius: "50%",
+              background: cloudOn ? `${T.burgundy}14` : `${T.warmGray}22`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            {cloudOn ? <Cloud size={22} color={T.burgundy} /> : <CloudOff size={22} color={T.warmGray} />}
+          </div>
+          <div style={{ flex: 1, minWidth: 220 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 600, color: T.softBlack }}>
+              {cloudOn ? "Cloud sync is on" : "Cloud sync is off"}
+              {cloudOn && syncStatus.pending?.length === 0 && <CheckCircle2 size={16} color="#2f855a" />}
+            </div>
+            <div style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: T.warmGray, marginTop: 4, lineHeight: 1.5 }}>
+              {cloudOn ? (
+                <>
+                  Your edits automatically save to the shared Google Sheet so every
+                  device — office, laptop, phone — sees the same data.
+                  {syncStatus.lastPushedAt && <> Last saved {formatDate(syncStatus.lastPushedAt)}.</>}
+                  {syncStatus.lastPulledAt && <> Last refreshed {formatDate(syncStatus.lastPulledAt)}.</>}
+                </>
+              ) : (
+                <>
+                  Without cloud sync, your edits only live in this browser. Set up
+                  the Google Sheet backend (instructions below) so your changes
+                  reach the public site from any device.
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {cloudOn && (
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <button
+              onClick={handlePullNow}
+              disabled={syncing}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 6,
+                padding: "8px 14px",
+                background: "#fff",
+                color: T.burgundy,
+                border: `1px solid ${T.burgundy}`,
+                borderRadius: 6,
+                fontSize: 13,
+                fontWeight: 600,
+                fontFamily: "'Source Sans 3', sans-serif",
+                cursor: syncing ? "wait" : "pointer",
+                opacity: syncing ? 0.6 : 1,
+              }}
+            >
+              <RefreshCcw size={14} /> {syncing ? "Refreshing…" : "Refresh from cloud"}
+            </button>
+            {syncStatus.pending?.length > 0 && (
+              <button
+                onClick={handleFlushNow}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  padding: "8px 14px",
+                  background: T.burgundy,
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: 6,
+                  fontSize: 13,
+                  fontWeight: 600,
+                  fontFamily: "'Source Sans 3', sans-serif",
+                  cursor: "pointer",
+                }}
+              >
+                <Upload size={14} /> Save {syncStatus.pending.length} pending now
+              </button>
+            )}
+          </div>
+        )}
+
+        {syncStatus.error && (
+          <div style={{ marginTop: 10, fontSize: 12, color: "#c0392b", fontFamily: "'Source Sans 3', sans-serif" }}>
+            {syncStatus.error}
+          </div>
+        )}
+
+        {!cloudOn && (
+          <details style={{ marginTop: 8, fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: T.charcoal, lineHeight: 1.6 }}>
+            <summary style={{ cursor: "pointer", fontWeight: 600, color: T.burgundy }}>
+              How to turn on cloud sync (5 minutes)
+            </summary>
+            <ol style={{ margin: "10px 0 0 20px", paddingLeft: 0 }}>
+              <li>Open your St. Dominic Google Sheet → <strong>Extensions → Apps Script</strong>.</li>
+              <li>Create a new script file and paste the contents of <code>cms/admin-cms.gs</code> from the repo.</li>
+              <li>Run the <code>setupAdminSheet</code> function once and authorize it.</li>
+              <li>In <strong>Project Settings → Script Properties</strong>, add key <code>WRITE_TOKEN</code> with value <code>veritas</code> (or a passphrase of your choice — match it to the Staff Dashboard lock).</li>
+              <li>Click <strong>Deploy → New deployment → Web app</strong>. Execute as: Me. Who has access: Anyone. Copy the URL.</li>
+              <li>In the repo, paste the URL into <code>src/constants/config.js</code> as <code>adminCmsUrl</code>, then rebuild and deploy the site.</li>
+            </ol>
+          </details>
+        )}
       </div>
 
       {/* Action buttons */}
