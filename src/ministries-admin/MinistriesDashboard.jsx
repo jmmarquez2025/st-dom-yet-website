@@ -72,7 +72,7 @@ export default function MinistriesDashboard({ onToast }) {
         <div>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 28, fontWeight: 600, color: T.softBlack, margin: 0 }}>Ministries</h2>
           <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, color: T.warmGray, margin: "4px 0 0" }}>
-            Ministry cards displayed on the Get Involved page. Leave title/description empty to use built-in defaults.
+            Ministry cards displayed on the public Get Involved page.
           </p>
         </div>
         <div style={{ display: "flex", gap: 8 }}>
@@ -87,6 +87,10 @@ export default function MinistriesDashboard({ onToast }) {
             <Save size={16} /> Save Changes
           </button>
         </div>
+      </div>
+
+      <div style={{ background: "#F5F0E6", border: `1px solid ${T.stone}`, borderRadius: 10, padding: "12px 16px", marginBottom: 16, fontSize: 13.5, color: T.softBlack, lineHeight: 1.6 }}>
+        <strong>How this works:</strong> Each row is one ministry card. Reorder with the up/down arrows, pick an icon, set a title and short description. Leave <em>Title</em> or <em>Description</em> blank to use the bundled default for that ministry. Click <em>Add Ministry</em> to create a brand-new card.
       </div>
 
       <div style={{ background: "#fff", border: `1px solid ${T.stone}`, borderRadius: 10, padding: 20 }}>
@@ -108,7 +112,7 @@ export default function MinistriesDashboard({ onToast }) {
               <select value={m.icon} onChange={(e) => update(idx, "icon", e.target.value)} style={INPUT}>
                 {COMMON_ICONS.map((ic) => <option key={ic} value={ic}>{ic}</option>)}
               </select>
-              <input value={m.title || ""} onChange={(e) => update(idx, "title", e.target.value)} placeholder={`Title (or leave blank for "${m.key}")`} style={INPUT} />
+              <input value={m.title || ""} onChange={(e) => update(idx, "title", e.target.value)} placeholder="Title (blank uses default)" style={INPUT} />
               <input value={m.description || ""} onChange={(e) => update(idx, "description", e.target.value)} placeholder="Short description" style={INPUT} />
               <button onClick={() => removeRow(idx)} style={{ background: "none", border: "none", color: T.warmGray, cursor: "pointer", padding: 6 }} aria-label="Remove">
                 <Trash2 size={16} />

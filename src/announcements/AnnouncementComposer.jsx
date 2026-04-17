@@ -451,7 +451,7 @@ export default function AnnouncementComposer({ announcement, onSave, onDelete, o
         </Field>
 
         {/* Body */}
-        <Field label="Body" span={2} hint="Keep it short — 1-2 sentences work best.">
+        <Field label="Body" span={2} hint="Keep it short (1–2 sentences). Long text doesn't fit on mobile or in the popup card.">
           <textarea
             value={body}
             onChange={(e) => setBody(e.target.value)}
@@ -475,7 +475,7 @@ export default function AnnouncementComposer({ announcement, onSave, onDelete, o
         </Field>
 
         {/* Type */}
-        <Field label="Display Type">
+        <Field label="Display Type" hint="Banner: thin strip always visible at the top. Popup: modal card that grabs attention once per session.">
           <select
             value={type}
             onChange={(e) => setType(e.target.value)}
@@ -584,7 +584,7 @@ export default function AnnouncementComposer({ announcement, onSave, onDelete, o
         </Field>
 
         {/* Recurrence */}
-        <Field label="Recurrence" span={2}>
+        <Field label="Recurrence" span={2} hint="Controls which days inside the start/end range the announcement actually shows. “Every day” = visible the whole range; “Specific weekdays” = only on the days you pick; “First Friday/Saturday of month” = only the first occurrence each month.">
           <select
             value={recType}
             onChange={(e) => setRecType(e.target.value)}

@@ -130,7 +130,7 @@ export default function ScheduleDashboard({ onToast }) {
         <div>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 28, fontWeight: 600, color: T.softBlack, margin: 0 }}>Mass Schedule</h2>
           <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, color: T.warmGray, margin: "4px 0 0" }}>
-            Edit the weekly Mass, confession, and adoration times.
+            Weekly Mass, confession, and adoration times that appear on the public Mass Times page.
           </p>
         </div>
         <button
@@ -139,6 +139,10 @@ export default function ScheduleDashboard({ onToast }) {
         >
           <RotateCcw size={14} /> Reset to Defaults
         </button>
+      </div>
+
+      <div style={{ background: "#F5F0E6", border: `1px solid ${T.stone}`, borderRadius: 10, padding: "12px 16px", marginBottom: 20, fontSize: 13.5, color: T.softBlack, lineHeight: 1.6 }}>
+        <strong>Tip:</strong> Each section below (Sunday Mass, Daily Mass, Confession, Adoration) is saved independently when you click its <em>Save</em> button. <em>Reset to Defaults</em> wipes every section back to the bundled schedule — use sparingly.
       </div>
 
       {CATEGORIES.map((cat) => (

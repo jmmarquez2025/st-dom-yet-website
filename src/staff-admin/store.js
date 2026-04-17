@@ -1,9 +1,17 @@
 /**
  * Staff Directory Store
  *
- * Stores { friars: [...], staff: [...] } — each entry { id, name, role, photo }.
- * `role` is either an i18n key (matching defaults) or plain text.
- * If stored, overrides `src/data/staff.js` on the public Staff page.
+ * Stores { friars: [...], staff: [...] } — each entry { id, name, role, title, photo }.
+ *
+ *   role   — enum key that controls which section a person shows up in on the
+ *            public Staff page. Friars: "pastor" | "associate" | "inResidence".
+ *            Staff: "parishSecretary" | "musicDirector" | "religiousEdCoordinator"
+ *            | "parochialAssistant" | "other".
+ *   title  — optional free-text display override. When present, shown under the
+ *            person's name instead of the translated role label.
+ *   photo  — optional photo URL.
+ *
+ * If stored, this data overrides `src/data/staff.js` on the public Staff page.
  */
 
 const STORAGE_KEY = "stdom_staff_directory";

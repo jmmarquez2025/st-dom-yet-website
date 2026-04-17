@@ -127,7 +127,7 @@ export default function EventDashboard({ onToast }) {
         <div>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 28, fontWeight: 600, color: T.softBlack, margin: 0 }}>Events</h2>
           <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, color: T.warmGray, margin: "4px 0 0" }}>
-            {list.length} total · {list.filter((e) => e.date >= today()).length} upcoming
+            Events appear on the public Events page and — if upcoming — on the home page. {list.length} total · {list.filter((e) => e.date >= today()).length} upcoming.
           </p>
         </div>
         <button

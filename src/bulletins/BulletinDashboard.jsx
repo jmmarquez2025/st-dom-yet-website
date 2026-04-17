@@ -106,7 +106,7 @@ function EntryForm({ initial = {}, onSave, onCancel, isNew }) {
 
       {/* URL */}
       <div>
-        <label style={LABEL_STYLE}>PDF / Flipbook URL</label>
+        <label style={LABEL_STYLE}>Bulletin URL <span style={{ fontWeight: 400, textTransform: "none", letterSpacing: 0, color: T.warmGray }}>(PDF or flipbook embed)</span></label>
         <input
           type="url"
           value={url}
@@ -240,7 +240,7 @@ export default function BulletinDashboard({ onToast }) {
           </h3>
         </div>
         <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: T.warmGray, margin: "0 0 16px" }}>
-          Paste the FlipHTML5 embed URL for this week's bulletin. It will display in the iframe on the Bulletin page.
+          Paste the embed URL for this week's bulletin — usually from FlipHTML5, Issuu, or another flipbook/PDF host. It displays on the public Bulletin page.
         </p>
 
         <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>

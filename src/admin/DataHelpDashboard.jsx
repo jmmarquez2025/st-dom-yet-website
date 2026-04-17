@@ -147,7 +147,7 @@ export default function DataHelpDashboard({ onToast }) {
   };
 
   const handleClearAll = () => {
-    const msg = "Wipe ALL admin data — blog posts are CMS-backed and safe, but every other tab will reset to defaults. This cannot be undone without a backup file. Continue?";
+    const msg = "Wipe ALL admin data? This will reset Announcements, Bulletins, Events, Mass Schedule, Staff, Ministries, and Settings to the built-in defaults. Blog posts (stored in Google Docs) are unaffected. This cannot be undone without a backup file. Continue?";
     if (!window.confirm(msg)) return;
     if (!window.confirm("Are you absolutely sure? Type 'reset' in your head as a final check.")) return;
     clearAll();
@@ -312,8 +312,11 @@ export default function DataHelpDashboard({ onToast }) {
         {!cloudOn && (
           <details style={{ marginTop: 8, fontFamily: "'Source Sans 3', sans-serif", fontSize: 13, color: T.charcoal, lineHeight: 1.6 }}>
             <summary style={{ cursor: "pointer", fontWeight: 600, color: T.burgundy }}>
-              How to turn on cloud sync (5 minutes)
+              How to turn on cloud sync (5 minutes — technical setup)
             </summary>
+            <p style={{ margin: "10px 0 0", fontStyle: "italic", color: T.warmGray }}>
+              This is a one-time developer-side setup — typically handled by the pastor or whoever maintains the website. If you're not sure, reach out to the person who set up the site rather than following these steps yourself.
+            </p>
             <ol style={{ margin: "10px 0 0 20px", paddingLeft: 0 }}>
               <li>Open your St. Dominic Google Sheet → <strong>Extensions → Apps Script</strong>.</li>
               <li>Create a new script file and paste the contents of <code>cms/admin-cms.gs</code> from the repo.</li>

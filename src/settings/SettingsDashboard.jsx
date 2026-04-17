@@ -96,7 +96,7 @@ export default function SettingsDashboard({ onToast }) {
         <div>
           <h2 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 28, fontWeight: 600, color: T.softBlack, margin: 0 }}>Site Settings</h2>
           <p style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: 14, color: T.warmGray, margin: "4px 0 0" }}>
-            Contact info and social media accounts.
+            Parish contact info (shown in the footer and Contact page) and social media links.
           </p>
         </div>
         <button
@@ -134,7 +134,7 @@ export default function SettingsDashboard({ onToast }) {
           <Share2 size={18} color={T.burgundy} /> Social Media Accounts
         </h3>
         <p style={{ fontSize: 13, color: T.warmGray, marginTop: 0, marginBottom: 16, fontFamily: "'Source Sans 3', sans-serif" }}>
-          These appear on the public <strong>/connect</strong> page and footer.
+          These appear on the public <strong>Connect</strong> page (where visitors find ways to follow the parish online) and in the site footer. Toggle the switch to hide an account without deleting it.
         </p>
 
         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>

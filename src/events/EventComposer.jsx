@@ -98,7 +98,7 @@ export default function EventComposer({ event, onSave, onDelete, onCancel }) {
           {errors.date && <p style={{ color: "#c0392b", fontSize: 12, margin: "4px 0 0" }}>{errors.date}</p>}
         </Field>
         <Field label="Time">
-          <input value={time} onChange={(e) => setTime(e.target.value)} placeholder="e.g., 7:00 PM" style={INPUT} />
+          <input value={time} onChange={(e) => setTime(e.target.value)} placeholder="Optional — e.g., 7:00 PM" style={INPUT} />
         </Field>
         <Field label="Category">
           <select value={category} onChange={(e) => setCategory(e.target.value)} style={INPUT}>

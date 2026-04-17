@@ -174,6 +174,16 @@ export default function AnnouncementDashboard({ onEdit, onNew }) {
               margin: "4px 0 0",
             }}
           >
+            Site-wide notices. <strong>Banners</strong> are a thin strip at the top of every page; <strong>popups</strong> appear as a modal card when a visitor first lands. Both can be scheduled and restricted to specific days.
+          </p>
+          <p
+            style={{
+              fontFamily: "'Source Sans 3', sans-serif",
+              fontSize: 13,
+              color: T.warmGray,
+              margin: "6px 0 0",
+            }}
+          >
             {counts.total} total · {counts.live} live now
           </p>
         </div>
