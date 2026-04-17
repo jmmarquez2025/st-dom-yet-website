@@ -35,6 +35,7 @@ const FOOTER_LINKS = [
   { to: "/blog", key: "blog" },
   { to: "/faith-formation", key: "faithFormation" },
   { to: "/events", key: "events" },
+  { to: "/connect", key: "connect" },
   { to: "/contact", key: "contact" },
   { to: "/give", key: "give" },
 ];

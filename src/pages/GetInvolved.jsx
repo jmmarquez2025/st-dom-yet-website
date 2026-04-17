@@ -282,7 +282,7 @@ export default function GetInvolved() {
                   className="ministry-card"
                   role="button"
                   tabIndex={0}
-                  aria-label={t(`getInvolved.ministries.${m.key}.title`)}
+                  aria-label={m.title || t(`getInvolved.ministries.${m.key}.title`)}
                   onClick={() => setSelected({ ...m, accent })}
                   onKeyDown={(e) => e.key === "Enter" && setSelected({ ...m, accent })}
                 >
@@ -322,7 +322,7 @@ export default function GetInvolved() {
                           lineHeight: 1.3,
                         }}
                       >
-                        {t(`getInvolved.ministries.${m.key}.title`)}
+                        {m.title || t(`getInvolved.ministries.${m.key}.title`)}
                       </ScrollColorNum>
                       <p
                         style={{
@@ -331,7 +331,7 @@ export default function GetInvolved() {
                           lineHeight: 1.7,
                         }}
                       >
-                        {t(`getInvolved.ministries.${m.key}.desc`)}
+                        {m.description || t(`getInvolved.ministries.${m.key}.desc`)}
                       </p>
                       <div className="ministry-hint">
                         {t("getInvolved.clickHint")}
@@ -524,7 +524,7 @@ export default function GetInvolved() {
                   lineHeight: 1.2,
                 }}
               >
-                {t(`getInvolved.ministries.${selected.key}.title`)}
+                {selected.title || t(`getInvolved.ministries.${selected.key}.title`)}
               </h2>
             </div>
 
@@ -538,7 +538,7 @@ export default function GetInvolved() {
                   marginBottom: 24,
                 }}
               >
-                {t(`getInvolved.ministries.${selected.key}.detail`)}
+                {selected.description || t(`getInvolved.ministries.${selected.key}.detail`)}
               </p>
 
               <p

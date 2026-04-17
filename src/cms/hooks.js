@@ -7,6 +7,10 @@ import { announcements as staticAnnouncements } from "../data/announcements";
 import { events as staticEvents } from "../data/events";
 import { bulletins as staticBulletins } from "../data/bulletins";
 import { blogPosts as staticBlogPosts } from "../data/blog";
+import { getAll as getLocalEvents, hasAny as hasLocalEvents } from "../events/store";
+import { getAll as getLocalSchedule } from "../schedule-admin/store";
+import { getAll as getLocalStaff } from "../staff-admin/store";
+import { getAll as getLocalMinistries } from "../ministries-admin/store";
 
 /**
  * Generic CMS hook. Tries the CMS fetch first, falls back to static data.
@@ -35,19 +39,46 @@ function useCmsData(fetcher, fallback) {
   return { data, loading, isLive };
 }
 
-/** Staff data — returns { friars, staff } */
+/** Staff data — returns { friars, staff }. localStorage admin overrides CMS if present. */
 export function useStaff() {
-  return useCmsData(fetchStaff, { friars: staticFriars, staff: staticStaff });
+  const cms = useCmsData(fetchStaff, { friars: staticFriars, staff: staticStaff });
+  const local = getLocalStaff();
+  if (local) {
+    return {
+      ...cms,
+      data: {
+        friars: local.friars || cms.data.friars,
+        staff: local.staff || cms.data.staff,
+      },
+    };
+  }
+  return cms;
 }
 
-/** Schedule data — returns { sundayMass, dailyMass, confession, adoration } */
+/** Schedule data — localStorage admin overrides CMS if present. */
 export function useSchedule() {
-  return useCmsData(fetchSchedule, { sundayMass, dailyMass, confession, adoration });
+  const cms = useCmsData(fetchSchedule, { sundayMass, dailyMass, confession, adoration });
+  const local = getLocalSchedule();
+  if (local) {
+    return {
+      ...cms,
+      data: {
+        sundayMass: local.sundayMass || cms.data.sundayMass,
+        dailyMass: local.dailyMass || cms.data.dailyMass,
+        confession: local.confession || cms.data.confession,
+        adoration: local.adoration || cms.data.adoration,
+      },
+    };
+  }
+  return cms;
 }
 
-/** Ministries list */
+/** Ministries list — localStorage admin overrides CMS if present. */
 export function useMinistries() {
-  return useCmsData(fetchMinistries, staticMinistries);
+  const cms = useCmsData(fetchMinistries, staticMinistries);
+  const local = getLocalMinistries();
+  if (local) return { ...cms, data: local };
+  return cms;
 }
 
 /** Announcements — falls back to static sample data */
@@ -55,9 +86,11 @@ export function useAnnouncements() {
   return useCmsData(fetchAnnouncements, staticAnnouncements);
 }
 
-/** Events — falls back to static sample data */
+/** Events — localStorage admin overrides CMS if present. */
 export function useEvents() {
-  return useCmsData(fetchEvents, staticEvents);
+  const cms = useCmsData(fetchEvents, staticEvents);
+  if (hasLocalEvents()) return { ...cms, data: getLocalEvents() };
+  return cms;
 }
 
 /** Bulletin archive — falls back to static sample data */

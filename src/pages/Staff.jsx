@@ -135,7 +135,7 @@ export default function Staff() {
               {person.name}
             </h3>
             <div style={{ display: "inline-block", padding: "4px 14px", background: T.burgundy, color: "#fff", fontSize: 11, letterSpacing: 2, textTransform: "uppercase", borderRadius: 20, fontWeight: 600 }}>
-              {t(`staff.roles.${person.role}`)}
+              {t(`staff.roles.${person.role}`, { defaultValue: person.role })}
             </div>
             <div style={{ marginTop: 18, fontSize: 12, letterSpacing: 1, color: T.warmGray, display: "flex", alignItems: "center", gap: 5, opacity: 0.7 }}>
               <Icon name="RefreshCw" size={11} color={T.warmGray} />
@@ -162,7 +162,7 @@ export default function Staff() {
           >
             <div>
               <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: T.goldLight, fontWeight: 700, marginBottom: 10 }}>
-                {t(`staff.roles.${person.role}`)}
+                {t(`staff.roles.${person.role}`, { defaultValue: person.role })}
               </div>
               <h3 style={{ fontSize: 18, fontFamily: "'Cormorant Garamond', serif", fontWeight: 700, color: "#fff", marginBottom: 14, lineHeight: 1.2 }}>
                 {person.name}
@@ -227,7 +227,7 @@ export default function Staff() {
           {person.name}
         </h3>
         <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: "rgba(255,255,255,0.45)", fontWeight: 600 }}>
-          {t(`staff.roles.${person.role}`)}
+          {t(`staff.roles.${person.role}`, { defaultValue: person.role })}
         </div>
         <div style={{ marginTop: 12, fontSize: 11, letterSpacing: 1, color: "rgba(255,255,255,0.3)", display: "flex", alignItems: "center", gap: 4 }}>
           <Icon name="ChevronRight" size={11} color="rgba(255,255,255,0.3)" />
@@ -278,7 +278,7 @@ export default function Staff() {
           {person.name}
         </h3>
         <div style={{ fontSize: 11, letterSpacing: 2, textTransform: "uppercase", color: T.warmGray, fontWeight: 600 }}>
-          {t(`staff.roles.${person.role}`)}
+          {t(`staff.roles.${person.role}`, { defaultValue: person.role })}
         </div>
         <div style={{ marginTop: 12, fontSize: 11, letterSpacing: 1, color: T.warmGray, opacity: 0.6, display: "flex", alignItems: "center", gap: 4 }}>
           <Icon name="ChevronRight" size={11} color={T.warmGray} />
@@ -403,7 +403,7 @@ export default function Staff() {
                 {modal.name}
               </h2>
               <div style={{ display: "inline-block", padding: "4px 16px", background: "rgba(255,255,255,0.15)", color: modal.group === "staff" ? T.softBlack : T.goldLight, fontSize: 11, letterSpacing: 2, textTransform: "uppercase", borderRadius: 20, fontWeight: 600 }}>
-                {t(`staff.roles.${modal.role}`)}
+                {t(`staff.roles.${modal.role}`, { defaultValue: modal.role })}
               </div>
             </div>
 

@@ -17,7 +17,21 @@ import AnnouncementComposer from "../announcements/AnnouncementComposer";
 import { save as saveAnnouncement, remove as removeAnnouncement } from "../announcements/store";
 import { useAllAnnouncements } from "../announcements/useAnnouncements";
 import BulletinDashboard from "../bulletins/BulletinDashboard";
-import { Megaphone, BookOpen as BlogIcon, Newspaper } from "lucide-react";
+import EventDashboard from "../events/EventDashboard";
+import ScheduleDashboard from "../schedule-admin/ScheduleDashboard";
+import StaffDirectoryDashboard from "../staff-admin/StaffDirectoryDashboard";
+import MinistriesDashboard from "../ministries-admin/MinistriesDashboard";
+import SettingsDashboard from "../settings/SettingsDashboard";
+import {
+  Megaphone,
+  BookOpen as BlogIcon,
+  Newspaper,
+  Calendar,
+  Clock,
+  Users,
+  HandHeart,
+  Settings,
+} from "lucide-react";
 
 /* ──────────────────────────────────────────────────────────
  *  WritersGuide — Staff-only management dashboard.
@@ -213,6 +227,11 @@ function SectionTabs({ active, onChange }) {
     { key: "blog", label: "Blog", Icon: BlogIcon },
     { key: "announcements", label: "Announcements", Icon: Megaphone },
     { key: "bulletins", label: "Bulletins", Icon: Newspaper },
+    { key: "events", label: "Events", Icon: Calendar },
+    { key: "schedule", label: "Mass Schedule", Icon: Clock },
+    { key: "staff", label: "Staff", Icon: Users },
+    { key: "ministries", label: "Ministries", Icon: HandHeart },
+    { key: "settings", label: "Settings", Icon: Settings },
   ];
 
   return (
@@ -229,6 +248,8 @@ function SectionTabs({ active, onChange }) {
           padding: "0 32px",
           display: "flex",
           gap: 0,
+          flexWrap: "wrap",
+          overflowX: "auto",
         }}
       >
         {tabs.map(({ key, label, Icon: TabIcon }) => {
@@ -511,6 +532,51 @@ function StaffDashboard() {
                 onCancel={handleCancelAnn}
               />
             )}
+          </FadeSection>
+        </Section>
+      )}
+
+      {/* ── Events section ── */}
+      {section === "events" && (
+        <Section bg={T.warmWhite}>
+          <FadeSection>
+            <EventDashboard onToast={handleBulletinToast} />
+          </FadeSection>
+        </Section>
+      )}
+
+      {/* ── Mass Schedule section ── */}
+      {section === "schedule" && (
+        <Section bg={T.warmWhite}>
+          <FadeSection>
+            <ScheduleDashboard onToast={handleBulletinToast} />
+          </FadeSection>
+        </Section>
+      )}
+
+      {/* ── Staff Directory section ── */}
+      {section === "staff" && (
+        <Section bg={T.warmWhite}>
+          <FadeSection>
+            <StaffDirectoryDashboard onToast={handleBulletinToast} />
+          </FadeSection>
+        </Section>
+      )}
+
+      {/* ── Ministries section ── */}
+      {section === "ministries" && (
+        <Section bg={T.warmWhite}>
+          <FadeSection>
+            <MinistriesDashboard onToast={handleBulletinToast} />
+          </FadeSection>
+        </Section>
+      )}
+
+      {/* ── Site Settings section ── */}
+      {section === "settings" && (
+        <Section bg={T.warmWhite}>
+          <FadeSection>
+            <SettingsDashboard onToast={handleBulletinToast} />
           </FadeSection>
         </Section>
       )}

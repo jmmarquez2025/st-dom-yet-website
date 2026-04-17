@@ -39,6 +39,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 const FaithFormation = lazy(() => import("./pages/FaithFormation"));
 const Gallery = lazy(() => import("./pages/Gallery"));
 const WritersGuide = lazy(() => import("./pages/WritersGuide"));
+const Connect = lazy(() => import("./pages/Connect"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function ScrollToTop() {
@@ -93,6 +94,7 @@ function AppRoutes() {
             <Route path="/faith-formation" element={<FaithFormation />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/writers-guide" element={<WritersGuide />} />
+            <Route path="/connect" element={<Connect />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
