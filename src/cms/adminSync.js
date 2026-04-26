@@ -33,7 +33,7 @@ function loadStatus() {
   try {
     const raw = localStorage.getItem(STATUS_KEY);
     if (raw) return JSON.parse(raw);
-  } catch {}
+  } catch (_) { /* localStorage unavailable or corrupt — fall through to defaults */ }
   return { lastPulledAt: null, lastPushedAt: null, pending: [], error: null };
 }
 
@@ -41,9 +41,9 @@ function saveStatus(patch) {
   status = { ...status, ...patch };
   try {
     localStorage.setItem(STATUS_KEY, JSON.stringify(status));
-  } catch {}
+  } catch (_) { /* quota exceeded or storage disabled — keep in-memory copy */ }
   listeners.forEach((fn) => {
-    try { fn(status); } catch {}
+    try { fn(status); } catch (_) { /* one bad listener shouldn't break the others */ }
   });
 }
 
@@ -90,12 +90,12 @@ export async function pullAll() {
         try {
           localStorage.setItem(key, data);
           hydrated += 1;
-        } catch {}
+        } catch (_) { /* quota — skip this section, keep hydrating others */ }
       }
     });
     saveStatus({ lastPulledAt: new Date().toISOString(), error: null });
     // Let stores/hooks know fresh data arrived
-    try { window.dispatchEvent(new Event("stdom:admin-synced")); } catch {}
+    try { window.dispatchEvent(new Event("stdom:admin-synced")); } catch (_) { /* CustomEvent unsupported — listeners poll on their own */ }
     return hydrated;
   } catch (err) {
     saveStatus({ error: `Pull failed: ${err.message || err}` });
@@ -210,7 +210,7 @@ if (typeof window !== "undefined") {
       try {
         const payload = JSON.stringify({ token: getToken(), section, data });
         navigator.sendBeacon(CONFIG.adminCmsUrl, payload);
-      } catch {}
+      } catch (_) { /* sendBeacon unsupported — best-effort flush on unload */ }
     });
   });
 }

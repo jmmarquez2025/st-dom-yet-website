@@ -40,7 +40,7 @@ export const CONFIG = {
   contactFormUrl: import.meta.env.VITE_CONTACT_FORM_URL || "https://script.google.com/macros/s/AKfycbxShuvwO7GJ3HlRrPNaOIQNyciEZOgD0GitP7Rz2irNbwJ53eZIrSQyGAcLekba2vH3WQ/exec",
 
   // Registration form URL (same setup as contact form; leave empty for mailto fallback)
-  registrationFormUrl: import.meta.env.VITE_REGISTRATION_FORM_URL || "https://script.google.com/macros/s/AKfycbxShuvwO7GJ3HlRrPNaOIQNyciEZOgD0GitP7Rz2irNbwJ53eZIrSQyGAcLekba2vH3WQ/exec",
+  registrationFormUrl: import.meta.env.VITE_REGISTRATION_FORM_URL || "",
 
   // WeShare online giving page
   weShareUrl: import.meta.env.VITE_WESHARE_URL || "",
@@ -58,7 +58,7 @@ export const CONFIG = {
   // Flipbook bulletin embed URL
   // Paste the share/embed URL from your flipbook service (FlipHTML5, Heyzine, Issuu, etc.)
   // Example: "https://online.fliphtml5.com/abcde/fghij/"
-  bulletinUrl: import.meta.env.VITE_BULLETIN_URL || "https://online.fliphtml5.com/stpatrickchurch/2026-04-05/",
+  bulletinUrl: import.meta.env.VITE_BULLETIN_URL || "",
 
   // Site URL for SEO (canonical, OpenGraph, etc.)
   // Update this when deploying to the production domain
