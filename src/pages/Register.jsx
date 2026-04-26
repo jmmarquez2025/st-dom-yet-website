@@ -360,14 +360,19 @@ export default function Register() {
     try {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 8000);
+      // text/plain avoids the CORS preflight that Apps Script can't answer.
+      // The script reads e.postData.contents and JSON.parses it server-side.
       await fetch(CONFIG.registrationFormUrl, {
         method: "POST",
         mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload),
         signal: controller.signal,
       });
       clearTimeout(timeoutId);
+      // no-cors responses are opaque, so we can't read true success from the
+      // server. We treat "request left the browser" as success and show a
+      // phone fallback in case the server-side actually failed silently.
       setStatus("success");
       setStatusMessage(t("register.successTitle"));
       setForm(INITIAL);
@@ -434,6 +439,14 @@ export default function Register() {
                 </h3>
                 <p style={{ fontSize: 16, color: "#388e3c", lineHeight: 1.7, maxWidth: 400, margin: "0 auto" }}>
                   {t("register.successDesc")}
+                </p>
+                <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.6, maxWidth: 420, margin: "16px auto 0" }}>
+                  {t("register.successFallback") || (
+                    <>
+                      If you don't hear back within 2 business days,
+                      please call <a href={CONFIG.phoneLink} style={{ color: T.burgundy, fontWeight: 600 }}>{CONFIG.phone}</a>.
+                    </>
+                  )}
                 </p>
                 <button
                   onClick={() => { setStatus("idle"); setStatusMessage(""); }}

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, lazy, Suspense } from "react";
 import { createPortal } from "react-dom";
 import { T } from "../constants/theme";
 import { Section, SectionTitle } from "../components/Section";
@@ -8,21 +8,24 @@ import DominicanDivider from "../components/DominicanDivider";
 import Seo from "../components/Seo";
 import Icon from "../components/Icon";
 import { PHOTOS } from "../constants/photos";
-import BlogDashboard from "../components/blog/BlogDashboard";
-import BlogComposer from "../components/blog/BlogComposer";
 import { useBlogPosts } from "../cms/hooks";
 import { submitBlogPost, deleteBlogPost } from "../cms/client";
-import AnnouncementDashboard from "../announcements/AnnouncementDashboard";
-import AnnouncementComposer from "../announcements/AnnouncementComposer";
 import { save as saveAnnouncement, remove as removeAnnouncement } from "../announcements/store";
 import { useAllAnnouncements } from "../announcements/useAnnouncements";
-import BulletinDashboard from "../bulletins/BulletinDashboard";
-import EventDashboard from "../events/EventDashboard";
-import ScheduleDashboard from "../schedule-admin/ScheduleDashboard";
-import StaffDirectoryDashboard from "../staff-admin/StaffDirectoryDashboard";
-import MinistriesDashboard from "../ministries-admin/MinistriesDashboard";
-import SettingsDashboard from "../settings/SettingsDashboard";
-import DataHelpDashboard from "../admin/DataHelpDashboard";
+
+// Each dashboard is loaded the first time its tab is opened, so admins
+// who only edit one section don't pay for the other eight.
+const BlogDashboard = lazy(() => import("../components/blog/BlogDashboard"));
+const BlogComposer = lazy(() => import("../components/blog/BlogComposer"));
+const AnnouncementDashboard = lazy(() => import("../announcements/AnnouncementDashboard"));
+const AnnouncementComposer = lazy(() => import("../announcements/AnnouncementComposer"));
+const BulletinDashboard = lazy(() => import("../bulletins/BulletinDashboard"));
+const EventDashboard = lazy(() => import("../events/EventDashboard"));
+const ScheduleDashboard = lazy(() => import("../schedule-admin/ScheduleDashboard"));
+const StaffDirectoryDashboard = lazy(() => import("../staff-admin/StaffDirectoryDashboard"));
+const MinistriesDashboard = lazy(() => import("../ministries-admin/MinistriesDashboard"));
+const SettingsDashboard = lazy(() => import("../settings/SettingsDashboard"));
+const DataHelpDashboard = lazy(() => import("../admin/DataHelpDashboard"));
 import {
   Megaphone,
   BookOpen as BlogIcon,
@@ -179,6 +182,22 @@ function PassphraseGate({ onUnlock }) {
           </button>
         </form>
       </div>
+    </div>
+  );
+}
+
+// ── Dashboard tab loader (shown while a tab's chunk fetches) ──
+function DashboardLoader() {
+  return (
+    <div
+      aria-busy="true"
+      aria-label="Loading"
+      style={{ display: "flex", justifyContent: "center", padding: "80px 24px" }}
+    >
+      <div
+        className="skeleton-block"
+        style={{ width: "min(640px, 100%)", height: 220, borderRadius: 10 }}
+      />
     </div>
   );
 }
@@ -562,120 +581,124 @@ function StaffDashboard() {
       {/* ── Section tabs ── */}
       <SectionTabs active={section} onChange={handleSectionChange} />
 
-      {/* ── Blog section ── */}
-      {section === "blog" && (
-        <>
-          {blogView === "dashboard" && (
-            <>
+      {/* One Suspense boundary covers every tab — only the active tab's
+          chunk is fetched, and tab switches reuse already-loaded chunks. */}
+      <Suspense fallback={<DashboardLoader />}>
+        {/* ── Blog section ── */}
+        {section === "blog" && (
+          <>
+            {blogView === "dashboard" && (
+              <>
+                <Section bg={T.warmWhite}>
+                  <FadeSection>
+                    <BlogDashboard
+                      posts={blogPosts}
+                      loading={loading}
+                      onNew={handleNewPost}
+                      onEdit={handleEditPost}
+                    />
+                  </FadeSection>
+                </Section>
+                <WritingTips />
+              </>
+            )}
+            {blogView === "compose" && (
               <Section bg={T.warmWhite}>
-                <FadeSection>
-                  <BlogDashboard
-                    posts={blogPosts}
-                    loading={loading}
-                    onNew={handleNewPost}
-                    onEdit={handleEditPost}
-                  />
-                </FadeSection>
+                <BlogComposer
+                  post={editingPost}
+                  onSave={handleSavePost}
+                  onDelete={handleDeletePost}
+                  onCancel={handleCancelPost}
+                  saving={saving}
+                  onValidationError={(msg) => setToast({ message: msg, type: "error" })}
+                />
               </Section>
-              <WritingTips />
-            </>
-          )}
-          {blogView === "compose" && (
-            <Section bg={T.warmWhite}>
-              <BlogComposer
-                post={editingPost}
-                onSave={handleSavePost}
-                onDelete={handleDeletePost}
-                onCancel={handleCancelPost}
-                saving={saving}
-                onValidationError={(msg) => setToast({ message: msg, type: "error" })}
-              />
-            </Section>
-          )}
-        </>
-      )}
-
-      {/* ── Bulletins section ── */}
-      {section === "bulletins" && (
-        <Section bg={T.warmWhite}>
-          <FadeSection>
-            <BulletinDashboard onToast={handleBulletinToast} />
-          </FadeSection>
-        </Section>
-      )}
-
-      {/* ── Announcements section ── */}
-      {section === "announcements" && (
-        <Section bg={T.warmWhite}>
-          <FadeSection>
-            {annView === "dashboard" && (
-              <AnnouncementDashboard onEdit={handleEditAnn} onNew={handleNewAnn} />
             )}
-            {annView === "compose" && (
-              <AnnouncementComposer
-                announcement={editingAnn}
-                onSave={handleSaveAnn}
-                onDelete={handleDeleteAnn}
-                onCancel={handleCancelAnn}
-              />
-            )}
-          </FadeSection>
-        </Section>
-      )}
+          </>
+        )}
 
-      {/* ── Events section ── */}
-      {section === "events" && (
-        <Section bg={T.warmWhite}>
-          <FadeSection>
-            <EventDashboard onToast={handleBulletinToast} />
-          </FadeSection>
-        </Section>
-      )}
+        {/* ── Bulletins section ── */}
+        {section === "bulletins" && (
+          <Section bg={T.warmWhite}>
+            <FadeSection>
+              <BulletinDashboard onToast={handleBulletinToast} />
+            </FadeSection>
+          </Section>
+        )}
 
-      {/* ── Mass Schedule section ── */}
-      {section === "schedule" && (
-        <Section bg={T.warmWhite}>
-          <FadeSection>
-            <ScheduleDashboard onToast={handleBulletinToast} />
-          </FadeSection>
-        </Section>
-      )}
+        {/* ── Announcements section ── */}
+        {section === "announcements" && (
+          <Section bg={T.warmWhite}>
+            <FadeSection>
+              {annView === "dashboard" && (
+                <AnnouncementDashboard onEdit={handleEditAnn} onNew={handleNewAnn} />
+              )}
+              {annView === "compose" && (
+                <AnnouncementComposer
+                  announcement={editingAnn}
+                  onSave={handleSaveAnn}
+                  onDelete={handleDeleteAnn}
+                  onCancel={handleCancelAnn}
+                />
+              )}
+            </FadeSection>
+          </Section>
+        )}
 
-      {/* ── Staff Directory section ── */}
-      {section === "staff" && (
-        <Section bg={T.warmWhite}>
-          <FadeSection>
-            <StaffDirectoryDashboard onToast={handleBulletinToast} />
-          </FadeSection>
-        </Section>
-      )}
+        {/* ── Events section ── */}
+        {section === "events" && (
+          <Section bg={T.warmWhite}>
+            <FadeSection>
+              <EventDashboard onToast={handleBulletinToast} />
+            </FadeSection>
+          </Section>
+        )}
 
-      {/* ── Ministries section ── */}
-      {section === "ministries" && (
-        <Section bg={T.warmWhite}>
-          <FadeSection>
-            <MinistriesDashboard onToast={handleBulletinToast} />
-          </FadeSection>
-        </Section>
-      )}
+        {/* ── Mass Schedule section ── */}
+        {section === "schedule" && (
+          <Section bg={T.warmWhite}>
+            <FadeSection>
+              <ScheduleDashboard onToast={handleBulletinToast} />
+            </FadeSection>
+          </Section>
+        )}
 
-      {/* ── Site Settings section ── */}
-      {section === "settings" && (
-        <Section bg={T.warmWhite}>
-          <FadeSection>
-            <SettingsDashboard onToast={handleBulletinToast} />
-          </FadeSection>
-        </Section>
-      )}
+        {/* ── Staff Directory section ── */}
+        {section === "staff" && (
+          <Section bg={T.warmWhite}>
+            <FadeSection>
+              <StaffDirectoryDashboard onToast={handleBulletinToast} />
+            </FadeSection>
+          </Section>
+        )}
 
-      {/* ── Data & Help section ── */}
-      {section === "data" && (
-        <Section bg={T.warmWhite}>
-          <FadeSection>
-            <DataHelpDashboard onToast={handleBulletinToast} />
-          </FadeSection>
-        </Section>
-      )}
+        {/* ── Ministries section ── */}
+        {section === "ministries" && (
+          <Section bg={T.warmWhite}>
+            <FadeSection>
+              <MinistriesDashboard onToast={handleBulletinToast} />
+            </FadeSection>
+          </Section>
+        )}
+
+        {/* ── Site Settings section ── */}
+        {section === "settings" && (
+          <Section bg={T.warmWhite}>
+            <FadeSection>
+              <SettingsDashboard onToast={handleBulletinToast} />
+            </FadeSection>
+          </Section>
+        )}
+
+        {/* ── Data & Help section ── */}
+        {section === "data" && (
+          <Section bg={T.warmWhite}>
+            <FadeSection>
+              <DataHelpDashboard onToast={handleBulletinToast} />
+            </FadeSection>
+          </Section>
+        )}
+      </Suspense>
 
       {/* Toast notifications (portal to body to escape transform stacking) */}
       {toast && createPortal(
