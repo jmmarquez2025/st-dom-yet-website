@@ -34,6 +34,9 @@ function useCmsData(fetcher, fallback) {
       if (!cancelled) setLoading(false);
     });
     return () => { cancelled = true; };
+    // Fetch once on mount. Callers pass module-level fetchers and inline
+    // fallback objects, so deps would re-fire every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { data, loading, isLive };
