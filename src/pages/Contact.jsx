@@ -225,14 +225,19 @@ export default function Contact() {
     try {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 8000);
+      // text/plain avoids the CORS preflight that Apps Script can't answer.
+      // The script reads e.postData.contents and JSON.parses it server-side.
       await fetch(CONFIG.contactFormUrl, {
         method: "POST",
         mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({ ...form, timestamp: new Date().toISOString() }),
         signal: controller.signal,
       });
       clearTimeout(timeoutId);
+      // no-cors responses are opaque, so we can't read true success from the
+      // server. We treat "request left the browser" as success and show a
+      // phone fallback in case the server-side actually failed silently.
       setStatus("success");
       setStatusMessage(t("contact.success"));
       setForm({ name: "", email: "", phone: "", category: "general", message: "" });
@@ -300,6 +305,14 @@ export default function Contact() {
                   <h3 style={{ fontSize: 22, color: "#2e7d32", fontWeight: 600, fontFamily: "'Cormorant Garamond', serif" }}>
                     {statusMessage || t("contact.success")}
                   </h3>
+                  <p style={{ fontSize: 14, color: T.warmGray, marginTop: 12, lineHeight: 1.6 }}>
+                    {t("contact.successFallback") || (
+                      <>
+                        If you don't hear back within 2 business days,
+                        please call <a href={CONFIG.phoneLink} style={{ color: T.burgundy, fontWeight: 600 }}>{CONFIG.phone}</a>.
+                      </>
+                    )}
+                  </p>
                   <button
                     onClick={() => { setStatus("idle"); setStatusMessage(""); }}
                     style={{
