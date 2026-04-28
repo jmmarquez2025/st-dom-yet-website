@@ -1,11 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
   <!-- Burgundy circle background -->
   <circle cx="96" cy="96" r="96" fill="#6B1D2A"/>
-  <!-- Subtle inner ring for depth -->
-  <circle cx="96" cy="96" r="84" fill="none" stroke="#C5A55A" stroke-width="1.5" opacity="0.35"/>
-  <!-- Gold stylized cross -->
-  <rect x="88" y="36" width="16" height="120" rx="4" fill="#C5A55A"/>
-  <rect x="56" y="68" width="80" height="16" rx="4" fill="#C5A55A"/>
+  <!-- Decorative inner ring -->
+  <circle cx="96" cy="96" r="84" fill="none" stroke="#C5A55A" stroke-width="1" opacity="0.3"/>
+  <!-- Dominican Cross Pattée (public domain, Wikimedia Commons) -->
+  <g transform="translate(48,32) scale(0.16)">
+    <path fill="#C5A55A" d="M30,144.097 C96.9686,223.907,195.815,270,300,270 C404.185,270,503.031,223.907,570,144.097 V455.903 C503.031,376.093,404.185,330,300,330 C195.815,330,96.9686,376.093,30,455.903Z M455.903,30 C376.093,96.9686,330,195.815,330,300 C330,404.185,376.093,503.031,455.903,570 H144.097 C223.907,503.031,270,404.185,270,300 C270,195.815,223.907,96.9686,144.097,30Z"/>
+  </g>
   <!-- SD monogram below cross -->
-  <text x="96" y="174" text-anchor="middle" fill="#C5A55A" font-family="Georgia,serif" font-weight="700" font-size="24" letter-spacing="3">SD</text>
+  <text x="96" y="170" text-anchor="middle" fill="#C5A55A" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="21" letter-spacing="2">SD</text>
 </svg>

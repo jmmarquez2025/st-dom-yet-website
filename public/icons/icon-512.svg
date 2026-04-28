@@ -3,14 +3,10 @@
   <circle cx="256" cy="256" r="256" fill="#6B1D2A"/>
   <!-- Decorative inner ring -->
   <circle cx="256" cy="256" r="224" fill="none" stroke="#C5A55A" stroke-width="2" opacity="0.3"/>
-  <!-- Gold stylized cross - vertical beam -->
-  <rect x="232" y="80" width="48" height="300" rx="8" fill="#C5A55A"/>
-  <!-- Gold stylized cross - horizontal beam -->
-  <rect x="140" y="164" width="232" height="48" rx="8" fill="#C5A55A"/>
-  <!-- Subtle cross inner detail - vertical -->
-  <rect x="244" y="92" width="24" height="276" rx="4" fill="#6B1D2A" opacity="0.12"/>
-  <!-- Subtle cross inner detail - horizontal -->
-  <rect x="152" y="176" width="208" height="24" rx="4" fill="#6B1D2A" opacity="0.12"/>
+  <!-- Dominican Cross Pattée (public domain, Wikimedia Commons) -->
+  <g transform="translate(136,100) scale(0.4)">
+    <path fill="#C5A55A" d="M30,144.097 C96.9686,223.907,195.815,270,300,270 C404.185,270,503.031,223.907,570,144.097 V455.903 C503.031,376.093,404.185,330,300,330 C195.815,330,96.9686,376.093,30,455.903Z M455.903,30 C376.093,96.9686,330,195.815,330,300 C330,404.185,376.093,503.031,455.903,570 H144.097 C223.907,503.031,270,404.185,270,300 C270,195.815,223.907,96.9686,144.097,30Z"/>
+  </g>
   <!-- SD monogram below cross -->
   <text x="256" y="456" text-anchor="middle" fill="#C5A55A" font-family="Georgia,'Times New Roman',serif" font-weight="700" font-size="56" letter-spacing="6">SD</text>
   <!-- Small decorative dots flanking monogram -->
