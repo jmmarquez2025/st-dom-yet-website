@@ -48,7 +48,10 @@ import {
  * ────────────────────────────────────────────────────────── */
 
 const STORAGE_KEY = "stdom_staff_auth";
-const PASSPHRASE = "veritas"; // The Dominican motto — easy for friars to remember
+// Soft gate, not auth — the value lives in the client bundle either way.
+// Override per-deployment via VITE_STAFF_PASSPHRASE; the default is "veritas"
+// (the Dominican motto) to match what's documented in docs/admin-guide.md.
+const PASSPHRASE = (import.meta.env.VITE_STAFF_PASSPHRASE || "veritas").toLowerCase();
 
 // ── Passphrase Gate ──
 function PassphraseGate({ onUnlock }) {
