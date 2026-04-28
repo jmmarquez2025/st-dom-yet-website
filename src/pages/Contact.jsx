@@ -222,22 +222,35 @@ export default function Contact() {
     }
     setStatus("sending");
     setStatusMessage("");
+    const useProxy = Boolean(CONFIG.formProxyUrl);
+    const url = useProxy ? CONFIG.formProxyUrl : CONFIG.contactFormUrl;
     try {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 8000);
-      // text/plain avoids the CORS preflight that Apps Script can't answer.
-      // The script reads e.postData.contents and JSON.parses it server-side.
-      await fetch(CONFIG.contactFormUrl, {
+      const res = await fetch(url, {
         method: "POST",
-        mode: "no-cors",
+        // CORS mode when a proxy is configured — lets us read the real
+        // server response. Otherwise no-cors fire-and-forget against the
+        // raw Apps Script (which can't return CORS headers).
+        ...(useProxy ? {} : { mode: "no-cors" }),
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify({ ...form, timestamp: new Date().toISOString() }),
         signal: controller.signal,
       });
       clearTimeout(timeoutId);
-      // no-cors responses are opaque, so we can't read true success from the
-      // server. We treat "request left the browser" as success and show a
-      // phone fallback in case the server-side actually failed silently.
+
+      if (useProxy) {
+        // Proxy returns a readable JSON response. Treat any explicit error
+        // field as failure; otherwise the request was processed.
+        let payload = {};
+        try { payload = await res.json(); } catch { /* non-JSON body */ }
+        if (!res.ok || payload.error) {
+          throw new Error(payload.error || `HTTP ${res.status}`);
+        }
+      }
+      // no-cors path: the response is opaque, so reaching this line means
+      // the request left the browser. The success card surfaces the phone
+      // number as a fallback in case the server failed silently.
       setStatus("success");
       setStatusMessage(t("contact.success"));
       setForm({ name: "", email: "", phone: "", category: "general", message: "" });
@@ -246,6 +259,8 @@ export default function Contact() {
       setStatus("error");
       if (err.name === "AbortError") {
         setStatusMessage("Request timed out. Please try again or call the parish office.");
+      } else if (useProxy && err.message) {
+        setStatusMessage(`Couldn't send: ${err.message}. Please try again or call the parish office.`);
       } else {
         setStatusMessage(t("contact.error") || "Something went wrong. Please try again or call the parish office.");
       }

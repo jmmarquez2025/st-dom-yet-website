@@ -357,22 +357,33 @@ export default function Register() {
 
     setStatus("sending");
     setStatusMessage("");
+    const useProxy = Boolean(CONFIG.formProxyUrl);
+    const url = useProxy ? CONFIG.formProxyUrl : CONFIG.registrationFormUrl;
     try {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 8000);
-      // text/plain avoids the CORS preflight that Apps Script can't answer.
-      // The script reads e.postData.contents and JSON.parses it server-side.
-      await fetch(CONFIG.registrationFormUrl, {
+      const res = await fetch(url, {
         method: "POST",
-        mode: "no-cors",
+        // CORS mode when a proxy is configured — lets us read the real
+        // server response. Otherwise no-cors fire-and-forget against the
+        // raw Apps Script (which can't return CORS headers).
+        ...(useProxy ? {} : { mode: "no-cors" }),
         headers: { "Content-Type": "text/plain;charset=utf-8" },
         body: JSON.stringify(payload),
         signal: controller.signal,
       });
       clearTimeout(timeoutId);
-      // no-cors responses are opaque, so we can't read true success from the
-      // server. We treat "request left the browser" as success and show a
-      // phone fallback in case the server-side actually failed silently.
+
+      if (useProxy) {
+        let result = {};
+        try { result = await res.json(); } catch { /* non-JSON body */ }
+        if (!res.ok || result.error) {
+          throw new Error(result.error || `HTTP ${res.status}`);
+        }
+      }
+      // no-cors path: the response is opaque; reaching this line means the
+      // request left the browser. Phone fallback on the success card
+      // covers silent server failures.
       setStatus("success");
       setStatusMessage(t("register.successTitle"));
       setForm(INITIAL);
@@ -382,6 +393,8 @@ export default function Register() {
       setStatus("error");
       if (err.name === "AbortError") {
         setStatusMessage("Request timed out. Please try again or call the parish office.");
+      } else if (useProxy && err.message) {
+        setStatusMessage(`Couldn't send: ${err.message}. Please try again or call the parish office.`);
       } else {
         setStatusMessage(t("register.error") || "Something went wrong. Please try again or call the parish office.");
       }
