@@ -3,3 +3,9 @@ dist
 .vite
 *.local
 .env
+
+# macOS Finder metadata
+.DS_Store
+
+# Claude Code worktree state — local-only scratch space
+.claude/worktrees/

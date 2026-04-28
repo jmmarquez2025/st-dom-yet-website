@@ -198,7 +198,7 @@ function doPost(e) {
             qp.setIndentStart(36);
             qp.setIndentFirstLine(36);
             if (block.attribution) {
-              var ap = body.appendParagraph("— " + block.attribution);
+              var ap = body.appendParagraph("\u2014 " + block.attribution);
               ap.setIndentStart(36);
               ap.setIndentFirstLine(36);
             }
@@ -352,15 +352,15 @@ function parseGoogleDoc(docId) {
     var indent = para.getIndentStart();
     if (indent && indent > 0) {
       var quoteBlock = { type: "quote", text: text };
-      // Check if next indented line is an attribution (starts with — or -)
+      // Check if next indented line is an attribution (starts with em-dash, en-dash, or hyphen)
       if (i + 1 < numChildren) {
         var nextChild = body.getChild(i + 1);
         if (nextChild.getType() === DocumentApp.ElementType.PARAGRAPH) {
           var nextPara = nextChild.asParagraph();
           var nextText2 = nextPara.getText().trim();
           var nextIndent = nextPara.getIndentStart();
-          if (nextIndent > 0 && /^[—–-]/.test(nextText2)) {
-            quoteBlock.attribution = nextText2.replace(/^[—–-]\s*/, "");
+          if (nextIndent > 0 && /^[\u2014\u2013-]/.test(nextText2)) {
+            quoteBlock.attribution = nextText2.replace(/^[\u2014\u2013-]\s*/, "");
             i++; // Skip the attribution line
           }
         }
@@ -537,13 +537,13 @@ function setupSheet() {
   }
 
   var instructions = [
-    ["ST. DOMINIC BLOG — HOW TO WRITE A POST"],
+    ["ST. DOMINIC BLOG \u2014 HOW TO WRITE A POST"],
     [""],
     ["STEP 1: Write your article in Google Docs"],
     ["  - Use Heading 1 or Heading 2 for section headings"],
     ["  - Just write normally for paragraphs"],
     ["  - Indent a paragraph (Tab or Increase Indent) to make it a blockquote"],
-    ["  - After a blockquote, add the source with a dash: — John 3:16"],
+    ["  - After a blockquote, add the source with a dash: \u2014 John 3:16"],
     ["  - Use bullet points for lists"],
     ["  - Bold an entire paragraph to make it a highlighted callout box"],
     ["  - Paste an image URL on its own line, then 'Caption: your text' on the next line"],
@@ -567,7 +567,7 @@ function setupSheet() {
     ["TIPS:"],
     ["  - The first paragraph automatically gets a drop cap (large first letter)"],
     ["  - Share your Google Docs with 'Anyone with the link can view'"],
-    ["  - You can edit a published Doc anytime — changes appear within 5 minutes"],
+    ["  - You can edit a published Doc anytime \u2014 changes appear within 5 minutes"],
     ["  - For Spanish posts: write a separate Doc and paste its link in 'Doc Link (Spanish)'"],
   ];
 
