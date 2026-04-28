@@ -42,6 +42,12 @@ export const CONFIG = {
   // Registration form URL (same setup as contact form; leave empty for mailto fallback)
   registrationFormUrl: import.meta.env.VITE_REGISTRATION_FORM_URL || "",
 
+  // Optional CORS proxy in front of the form endpoints (e.g. a Cloudflare
+  // Worker — see cms/contact-proxy.js). When set, the contact + registration
+  // forms switch to CORS mode and surface real success/error responses from
+  // the Apps Script. Leave empty to keep the no-cors fire-and-forget path.
+  formProxyUrl: import.meta.env.VITE_FORM_PROXY_URL || "",
+
   // WeShare online giving page
   weShareUrl: import.meta.env.VITE_WESHARE_URL || "",
 
