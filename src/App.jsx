@@ -118,6 +118,13 @@ export default function App() {
     if (adminCmsConfigured()) pullAll();
   }, []);
 
+  // Keep <html lang> in sync with the active locale so screen readers and
+  // search engines see the right language. The wrapper <div lang> below
+  // covers the React tree, but the <html> element lives outside it.
+  useEffect(() => {
+    document.documentElement.lang = i18n.language;
+  }, [i18n.language]);
+
   return (
     <ErrorBoundary>
       <BrowserRouter basename={import.meta.env.BASE_URL}>
