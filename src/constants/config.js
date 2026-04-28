@@ -37,10 +37,10 @@
 
 export const CONFIG = {
   // Google Apps Script web-app URL (leave empty to fall back to mailto)
-  contactFormUrl: import.meta.env.VITE_CONTACT_FORM_URL || "https://script.google.com/macros/s/AKfycbxShuvwO7GJ3HlRrPNaOIQNyciEZOgD0GitP7Rz2irNbwJ53eZIrSQyGAcLekba2vH3WQ/exec",
+  contactFormUrl: import.meta.env.VITE_CONTACT_FORM_URL || "https://script.google.com/macros/s/AKfycbzGenukix91YFrtrVy5BCkuEB-3NuMWoTaBQp4FWHjZjXMPLrOUxKl6kmURrZEEcpT8gA/exec",
 
-  // Registration form URL (same setup as contact form; leave empty for mailto fallback)
-  registrationFormUrl: import.meta.env.VITE_REGISTRATION_FORM_URL || "",
+  // Registration form URL — same Apps Script as contact form, routes by formType.
+  registrationFormUrl: import.meta.env.VITE_REGISTRATION_FORM_URL || "https://script.google.com/macros/s/AKfycbzGenukix91YFrtrVy5BCkuEB-3NuMWoTaBQp4FWHjZjXMPLrOUxKl6kmURrZEEcpT8gA/exec",
 
   // Optional CORS proxy in front of the form endpoints (e.g. a Cloudflare
   // Worker — see cms/contact-proxy.js). When set, the contact + registration
@@ -72,17 +72,17 @@ export const CONFIG = {
 
   // Blog CMS — Google Apps Script URL serving blog posts from Google Docs
   // See cms/blog-cms.gs for setup instructions
-  blogCmsUrl: import.meta.env.VITE_BLOG_CMS_URL || "https://script.google.com/macros/s/AKfycbwSrThu4sS4V_A3SQ7K5EgGF8xex43SavLpBCHFdBktNSQeLqALzin6Jy4JIFC9e0OO/exec",
+  blogCmsUrl: import.meta.env.VITE_BLOG_CMS_URL || "https://script.google.com/macros/s/AKfycbzs0UeRXi5CHwxeIUvoTgb15-ywFMnOSiu2lxk6iuvSSkwzMFjIGusnKWHtpl0A9eCQ/exec",
 
   // Admin CMS — Google Apps Script URL backing the Staff Dashboard.
   // Lets admin edits sync across browsers/devices instead of living only
   // in one machine's localStorage. See cms/admin-cms.gs for setup.
   // Leave empty to fall back to localStorage-only mode.
-  adminCmsUrl: import.meta.env.VITE_ADMIN_CMS_URL || "https://script.google.com/macros/s/AKfycbzEHg-km8cENjTQNhFsVVUZEkKIdQSg2FKGfRJS-tuCUaDOzaRDZ6ysRHrA1bPrKMFF/exec",
+  adminCmsUrl: import.meta.env.VITE_ADMIN_CMS_URL || "https://script.google.com/macros/s/AKfycbyOln4jFjth4-OwXhM64x8D7fmqNDtX5O-i-kzyyfJGDOTiqDnKIQyuqPEAjuuaLhJI/exec",
 
   // Analytics — Plausible (privacy-friendly, no cookie banner needed)
   // Sign up at https://plausible.io and add your domain
-  plausibleDomain: import.meta.env.VITE_PLAUSIBLE_DOMAIN || "jmmarquez2025.github.io",
+  plausibleDomain: import.meta.env.VITE_PLAUSIBLE_DOMAIN || "jmmarquez2025.github.io/st-dom-yet-website",
 
   // Church info
   phone: "(330) 783-1900",
