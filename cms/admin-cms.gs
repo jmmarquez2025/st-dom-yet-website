@@ -29,8 +29,8 @@
  *        Execute as: Me
  *        Who has access: Anyone
  *     Copy the web-app URL.
- *  6. Paste the URL into src/constants/config.js as `adminCmsUrl`
- *     (or set VITE_ADMIN_CMS_URL in your .env).
+ *  6. Set VITE_ADMIN_CMS_URL to the web-app URL in your local/deploy
+ *     environment, then rebuild and deploy the site.
  *
  *  DATA MODEL:
  *     Each row = one logical "section" of the site.
@@ -118,7 +118,10 @@ function doPost(e) {
     var body = JSON.parse(e.postData.contents || "{}");
 
     // ── Auth ──
-    var expectedToken = PropertiesService.getScriptProperties().getProperty("WRITE_TOKEN") || "veritas";
+    var expectedToken = PropertiesService.getScriptProperties().getProperty("WRITE_TOKEN");
+    if (!expectedToken) {
+      return jsonResponse({ error: "WRITE_TOKEN script property is not configured" });
+    }
     if (!body.token || body.token !== expectedToken) {
       return jsonResponse({ error: "Unauthorized" });
     }
@@ -185,14 +188,8 @@ function setupAdminSheet() {
 
   seedSections_(sheet);
 
-  // Seed the write token if not already present
-  var props = PropertiesService.getScriptProperties();
-  if (!props.getProperty("WRITE_TOKEN")) {
-    props.setProperty("WRITE_TOKEN", "veritas");
-  }
-
   SpreadsheetApp.flush();
-  Logger.log("AdminData tab ready. Deploy as web app to activate.");
+  Logger.log("AdminData tab ready. Add WRITE_TOKEN in Script Properties, then deploy as web app to activate.");
 }
 
 

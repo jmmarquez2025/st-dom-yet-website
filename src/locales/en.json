@@ -620,6 +620,7 @@
     "submit": "Send Message",
     "sending": "Sending…",
     "success": "Thank you! Your message has been sent. We'll be in touch soon.",
+    "successFallback": "If you don't hear back within 2 business days, please call the parish office.",
     "error": "Something went wrong. Please try calling us or sending an email directly.",
     "infoTitle": "Church Information",
     "addressLabel": "Address",
@@ -627,7 +628,8 @@
     "fax": "Fax",
     "officeHours": "Office Hours",
     "sendAnother": "Send Another Message",
-    "mapTitle": "Map to St. Dominic Catholic Church"
+    "mapTitle": "Map to St. Dominic Catholic Church",
+    "contactOffice": "Call us to arrange your donation today."
   },
   "give": {
     "title": "Online Giving",
@@ -1026,6 +1028,7 @@
     "error": "Something went wrong. Please try again or call the church office.",
     "successTitle": "Registration Received!",
     "successDesc": "Thank you for registering at St. Dominic Church. We will be in touch soon to welcome you personally.",
+    "successFallback": "If you don't hear back within 2 business days, please call the parish office.",
     "registerAnother": "Register Another Family"
   },
   "events": {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
@@ -10,21 +10,26 @@ import Icon from "../components/Icon";
 import HeroImage from "../components/HeroImage";
 import { PHOTOS } from "../constants/photos";
 import { ExternalLink, FileText } from "lucide-react";
-import { useBulletins } from "../cms/hooks";
+import { useAdminSyncSignal, useBulletins } from "../cms/hooks";
 import { getCurrentUrl, getArchive, hasArchive } from "../bulletins/store";
 
 export default function Bulletin() {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
+  const syncVersion = useAdminSyncSignal();
 
   // Admin-set URL takes priority over the config value
-  const adminUrl = getCurrentUrl();
+  const adminUrl = useMemo(() => getCurrentUrl(), [syncVersion]);
   const bulletinUrl = adminUrl || CONFIG.bulletinUrl;
   const hasBulletin = Boolean(bulletinUrl);
 
   // Admin-managed archive takes priority over CMS/static data
   const { data: cmsBulletins } = useBulletins();
-  const bulletins = hasArchive() ? getArchive() : cmsBulletins;
+  const adminArchive = useMemo(
+    () => (hasArchive() ? getArchive() : null),
+    [syncVersion]
+  );
+  const bulletins = adminArchive || cmsBulletins;
 
   return (
     <div style={{ paddingTop: 76 }}>

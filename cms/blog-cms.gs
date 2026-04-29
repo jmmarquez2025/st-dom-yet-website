@@ -22,6 +22,8 @@
  *     - Execute as: Me
  *     - Who has access: Anyone
  *  6. Copy the web app URL into your site's .env file as VITE_BLOG_CMS_URL
+ *  7. Project Settings → Script Properties → add key WRITE_TOKEN with the
+ *     same passphrase used for the Staff Dashboard.
  *
  *  WRITING A POST:
  *  1. Create a new Google Doc — write normally using:
@@ -144,6 +146,14 @@ function doGet(e) {
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
+
+    var expectedToken = PropertiesService.getScriptProperties().getProperty("WRITE_TOKEN");
+    if (!expectedToken) {
+      return jsonResponse({ error: "WRITE_TOKEN script property is not configured" });
+    }
+    if (!data.token || data.token !== expectedToken) {
+      return jsonResponse({ error: "Unauthorized" });
+    }
 
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Posts");
     if (!sheet) {

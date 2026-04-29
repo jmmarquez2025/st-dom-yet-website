@@ -9,63 +9,63 @@ const B = import.meta.env.BASE_URL;
 
 export const PHOTOS = {
   // ── Hero backgrounds (1920px optimized) ──
-  homeHero: `${B}photos/aerial-interior-opt.jpg`,       // Dramatic drone interior — nave from above
-  aboutHero: `${B}photos/interior-nave-opt.jpg`,         // Professional interior — nave & altar
-  visitHero: `${B}photos/rose-window-opt.jpg`,           // Church exterior with sign & rose window
-  bulletinHero: `${B}photos/vigil-candles-opt.jpg`,      // Moody nave interior — Easter Vigil
-  getInvolvedHero: `${B}photos/vigil-servers-opt.jpg`,   // Congregation with candles — community
-  baptismHero: `${B}photos/baptism-opt.jpg`,              // Easter Vigil baptism — water pouring
-  marriageHero: `${B}photos/marriage-opt.jpg`,            // Order of Celebrating Matrimony ritual book
+  homeHero: `${B}photos/aerial-interior-opt.webp`,       // Dramatic drone interior — nave from above
+  aboutHero: `${B}photos/interior-nave-opt.webp`,         // Professional interior — nave & altar
+  visitHero: `${B}photos/rose-window-opt.webp`,           // Church exterior with sign & rose window
+  bulletinHero: `${B}photos/vigil-candles-opt.webp`,      // Moody nave interior — Easter Vigil
+  getInvolvedHero: `${B}photos/vigil-servers-opt.webp`,   // Congregation with candles — community
+  baptismHero: `${B}photos/baptism-opt.webp`,              // Easter Vigil baptism — water pouring
+  marriageHero: `${B}photos/marriage-opt.webp`,            // Order of Celebrating Matrimony ritual book
 
   // ── Section backgrounds ──
-  aboutArchitecture: `${B}photos/exterior-facade-opt.jpg`,  // Church façade with rose window
-  dominicanCharism: `${B}photos/IMG_4583-opt.jpg`,          // Friar preaching from ambo
+  aboutArchitecture: `${B}photos/exterior-facade-opt.webp`,  // Church façade with rose window
+  dominicanCharism: `${B}photos/IMG_4583-opt.webp`,          // Friar preaching from ambo
   faithFormationHero: `${B}photos/faith-formation-opt.jpg`, // Bible with rosary — faith formation (Unsplash)
-  pageHeader: `${B}photos/arched-interior-opt.jpg`,         // Arched corridor interior
+  pageHeader: `${B}photos/arched-interior-opt.webp`,         // Arched corridor interior
 
   // ── History page ──
-  historyHero: `${B}photos/aerial-overview-opt.jpg`,                   // Aerial campus overview
-  historyStorefront: `${B}photos/history/storefront.jpg`,              // 1923 storefront — first Mass
-  historyConstruction: `${B}photos/history/inscription.jpg`,           // Church arches under construction 1950s
-  historyConstructionExt: `${B}photos/history/construction-exterior.jpg`, // Exterior with steel frame
-  historyFoundation: `${B}photos/history/construction-foundation.jpg`, // Foundation work with workers
-  historyExteriorOld: `${B}photos/history/exterior-old.jpg`,           // Old entrance B&W
-  historyExteriorBw: `${B}photos/history/exterior-bw.jpg`,             // Church front vintage color
-  historyAltarboys: `${B}photos/history/altarboys.jpg`,                // 1963 altar boys with mural
-  historyMass1979: `${B}photos/history/mass-1979.jpg`,                 // 1979 concelebrated Mass
-  historyInteriorVintage: `${B}photos/history/interior-vintage.jpg`,   // Interior showing Loreto symbols
-  historyCommunity: `${B}photos/history/community.jpg`,                // Old parish community gathering
+  historyHero: `${B}photos/aerial-overview-opt.webp`,                   // Aerial campus overview
+  historyStorefront: `${B}photos/history/storefront.webp`,              // 1923 storefront — first Mass
+  historyConstruction: `${B}photos/history/inscription.webp`,           // Church arches under construction 1950s
+  historyConstructionExt: `${B}photos/history/construction-exterior.webp`, // Exterior with steel frame
+  historyFoundation: `${B}photos/history/construction-foundation.webp`, // Foundation work with workers
+  historyExteriorOld: `${B}photos/history/exterior-old.webp`,           // Old entrance B&W
+  historyExteriorBw: `${B}photos/history/exterior-bw.webp`,             // Church front vintage color
+  historyAltarboys: `${B}photos/history/altarboys.webp`,                // 1963 altar boys with mural
+  historyMass1979: `${B}photos/history/mass-1979.webp`,                 // 1979 concelebrated Mass
+  historyInteriorVintage: `${B}photos/history/interior-vintage.webp`,   // Interior showing Loreto symbols
+  historyCommunity: `${B}photos/history/community.webp`,                // Old parish community gathering
 
   // ── Architecture walking tour ──
-  archHero: `${B}photos/architecture/DJI_0666-opt.jpg`,         // Aerial campus overview
-  archFacade: `${B}photos/architecture/DSC_0399-opt.jpg`,       // Full exterior facade with sign
-  archEntrance: `${B}photos/architecture/DSC_0401-opt.jpg`,     // Close-up entrance: rose window, statue, coats of arms
-  archDoors: `${B}photos/architecture/DSC_0410-opt.jpg`,        // Main entrance doors with coats of arms
-  archRoseExt: `${B}photos/architecture/DSC_0407-opt.jpg`,      // Rose window exterior close-up
-  archCornerstone: `${B}photos/architecture/DSC_0414-opt.jpg`,  // Cornerstone "St. Dominic's Church 1954"
-  archSign: `${B}photos/architecture/DSC_0418-opt.jpg`,         // Front sign with relief sculpture
-  archSanctuary: `${B}photos/architecture/DSC_0397-opt.jpg`,    // Sanctuary from choir loft — mural, altar
-  archSideAisle: `${B}photos/architecture/DSC_0422-opt.jpg`,    // Side aisle arches with shrines & votive candles
-  archChoirLoft: `${B}photos/architecture/DSC_0426-opt.jpg`,    // Choir loft, rose window interior, ceiling
-  archRoseInt: `${B}photos/architecture/DSC_0429-opt.jpg`,      // Rose window interior — Evangelists stained glass
-  archDrone: `${B}photos/architecture/DJI_0672-opt.jpg`,        // Drone close-up of main entrance
-  archSide: `${B}photos/architecture/DSC_0420-opt.jpg`,         // Side entrance angle
-  archFullExterior: `${B}photos/architecture/DSC_0404-opt.jpg`, // Full exterior portrait
+  archHero: `${B}photos/architecture/DJI_0666-opt.webp`,         // Aerial campus overview
+  archFacade: `${B}photos/architecture/DSC_0399-opt.webp`,       // Full exterior facade with sign
+  archEntrance: `${B}photos/architecture/DSC_0401-opt.webp`,     // Close-up entrance: rose window, statue, coats of arms
+  archDoors: `${B}photos/architecture/DSC_0410-opt.webp`,        // Main entrance doors with coats of arms
+  archRoseExt: `${B}photos/architecture/DSC_0407-opt.webp`,      // Rose window exterior close-up
+  archCornerstone: `${B}photos/architecture/DSC_0414-opt.webp`,  // Cornerstone "St. Dominic's Church 1954"
+  archSign: `${B}photos/architecture/DSC_0418-opt.webp`,         // Front sign with relief sculpture
+  archSanctuary: `${B}photos/architecture/DSC_0397-opt.webp`,    // Sanctuary from choir loft — mural, altar
+  archSideAisle: `${B}photos/architecture/DSC_0422-opt.webp`,    // Side aisle arches with shrines & votive candles
+  archChoirLoft: `${B}photos/architecture/DSC_0426-opt.webp`,    // Choir loft, rose window interior, ceiling
+  archRoseInt: `${B}photos/architecture/DSC_0429-opt.webp`,      // Rose window interior — Evangelists stained glass
+  archDrone: `${B}photos/architecture/DJI_0672-opt.webp`,        // Drone close-up of main entrance
+  archSide: `${B}photos/architecture/DSC_0420-opt.webp`,         // Side entrance angle
+  archFullExterior: `${B}photos/architecture/DSC_0404-opt.webp`, // Full exterior portrait
 
   // ── Stock imagery (Unsplash, free to use) ──
-  stockBaptism: `${B}photos/vigil-fire-opt.jpg`,                // Easter Vigil fire — baptismal symbolism
-  stockEucharist: `${B}photos/gallery/F69A5507.jpg`,            // Monstrance — Eucharist
-  stockConfirmation: `${B}photos/vigil-candles-opt.jpg`,        // Vigil candles — Holy Spirit / flames
-  stockMarriage: `${B}photos/stock/marriage.jpg`,               // Wedding bouquet (Unsplash)
-  stockAnointing: `${B}photos/stock/anointing.jpg`,             // Praying hands (Unsplash)
-  stockFunerals: `${B}photos/stock/funerals.jpg`,               // White lilies / memorial flowers (Unsplash)
-  stockRcia: `${B}photos/stock/rcia.jpg`,                       // Open Bible / scripture study (Unsplash)
-  stockStainedGlass: `${B}photos/stock/stained-glass.jpg`,      // Stained glass window (Unsplash)
+  stockBaptism: `${B}photos/vigil-fire-opt.webp`,                // Easter Vigil fire — baptismal symbolism
+  stockEucharist: `${B}photos/gallery/F69A5507.webp`,            // Monstrance — Eucharist
+  stockConfirmation: `${B}photos/vigil-candles-opt.webp`,        // Vigil candles — Holy Spirit / flames
+  stockMarriage: `${B}photos/stock/marriage.webp`,               // Wedding bouquet (Unsplash)
+  stockAnointing: `${B}photos/stock/anointing.webp`,             // Praying hands (Unsplash)
+  stockFunerals: `${B}photos/stock/funerals.webp`,               // White lilies / memorial flowers (Unsplash)
+  stockRcia: `${B}photos/stock/rcia.webp`,                       // Open Bible / scripture study (Unsplash)
+  stockStainedGlass: `${B}photos/stock/stained-glass.webp`,      // Stained glass window (Unsplash)
   stockChaliceCruets: `${B}photos/stock/chalice-cruets.jpg`,    // Chalice and cruets — sacramental vessels
   stockBibleGolden: `${B}photos/stock/bible-golden.jpg`,        // Open Bible at golden hour (Unsplash/Aaron Burden)
-  stockSacraments: `${B}photos/stock/sacraments.jpg`,           // Church altar / sanctuary (Unsplash)
-  stockCandles: `${B}photos/stock/candles.jpg`,                 // Votive candles (Unsplash)
-  stockGiving: `${B}photos/stock/giving.jpg`,                   // Charity / generosity (Unsplash)
+  stockSacraments: `${B}photos/stock/sacraments.webp`,           // Church altar / sanctuary (Unsplash)
+  stockCandles: `${B}photos/stock/candles.webp`,                 // Votive candles (Unsplash)
+  stockGiving: `${B}photos/stock/giving.webp`,                   // Charity / generosity (Unsplash)
 
   // ── Provincial branding (Dominican Province of St. Joseph) ──
   psjShield: `${B}photos/branding/psj-shield.png`,             // Official PSJ shield with VERITAS
@@ -74,25 +74,25 @@ export const PHOTOS = {
   psjWordmarkWhite: `${B}photos/branding/psj-wordmark-white.png`, // White wordmark for dark backgrounds
 
   // ── Mass Times page ──
-  monstrance: `${B}photos/gallery/F69A5507.jpg`,               // Monstrance with Blessed Sacrament exposed
+  monstrance: `${B}photos/gallery/F69A5507.webp`,               // Monstrance with Blessed Sacrament exposed
 
   // ── Gallery (About page) ──
   gallery: [
-    { src: `${B}photos/gallery/aerial-overview.jpg`, alt: "gallery.aerial" },
-    { src: `${B}photos/gallery/aerial-campus.jpg`, alt: "gallery.campus" },
-    { src: `${B}photos/gallery/IMG_4588.jpg`, alt: "gallery.nave" },
-    { src: `${B}photos/gallery/F69A5771.jpg`, alt: "gallery.stRose" },
-    { src: `${B}photos/gallery/F69A5788.jpg`, alt: "gallery.friarStatue" },
-    { src: `${B}photos/gallery/exterior-statue.jpg`, alt: "gallery.exterior" },
-    { src: `${B}photos/gallery/aerial-rooftop.jpg`, alt: "gallery.rooftop" },
-    { src: `${B}photos/gallery/vigil-fire.jpg`, alt: "gallery.easterFire" },
-    { src: `${B}photos/gallery/exterior-entrance.jpg`, alt: "gallery.entrance" },
-    { src: `${B}photos/gallery/exterior-signage.jpg`, alt: "gallery.signage" },
-    { src: `${B}photos/gallery/F69A5475.jpg`, alt: "gallery.mural" },
-    { src: `${B}photos/gallery/F69A5507.jpg`, alt: "gallery.monstrance" },
-    { src: `${B}photos/gallery/IMG_4583.jpg`, alt: "gallery.preaching" },
-    { src: `${B}photos/gallery/F69A5752.jpg`, alt: "gallery.madonna" },
-    { src: `${B}photos/gallery/F69A5784.jpg`, alt: "gallery.alcove" },
-    { src: `${B}photos/gallery/crucifix.jpg`, alt: "gallery.crucifix" },
+    { src: `${B}photos/gallery/aerial-overview.webp`, alt: "gallery.aerial" },
+    { src: `${B}photos/gallery/aerial-campus.webp`, alt: "gallery.campus" },
+    { src: `${B}photos/gallery/IMG_4588.webp`, alt: "gallery.nave" },
+    { src: `${B}photos/gallery/F69A5771.webp`, alt: "gallery.stRose" },
+    { src: `${B}photos/gallery/F69A5788.webp`, alt: "gallery.friarStatue" },
+    { src: `${B}photos/gallery/exterior-statue.webp`, alt: "gallery.exterior" },
+    { src: `${B}photos/gallery/aerial-rooftop.webp`, alt: "gallery.rooftop" },
+    { src: `${B}photos/gallery/vigil-fire.webp`, alt: "gallery.easterFire" },
+    { src: `${B}photos/gallery/exterior-entrance.webp`, alt: "gallery.entrance" },
+    { src: `${B}photos/gallery/exterior-signage.webp`, alt: "gallery.signage" },
+    { src: `${B}photos/gallery/F69A5475.webp`, alt: "gallery.mural" },
+    { src: `${B}photos/gallery/F69A5507.webp`, alt: "gallery.monstrance" },
+    { src: `${B}photos/gallery/IMG_4583.webp`, alt: "gallery.preaching" },
+    { src: `${B}photos/gallery/F69A5752.webp`, alt: "gallery.madonna" },
+    { src: `${B}photos/gallery/F69A5784.webp`, alt: "gallery.alcove" },
+    { src: `${B}photos/gallery/crucifix.webp`, alt: "gallery.crucifix" },
   ],
 };

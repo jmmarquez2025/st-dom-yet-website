@@ -137,6 +137,7 @@ export async function fetchBulletins() {
  */
 const BLOG_CACHE_KEY = "__blog_cms";
 const BLOG_LOCAL_KEY = "__blog_local"; // local-only posts when CMS not configured
+const STAFF_TOKEN_KEY = "stdom_staff_token";
 
 /* ── Local-storage helpers (offline / no-CMS mode) ── */
 
@@ -152,6 +153,14 @@ function saveLocalPosts(posts) {
   } catch { /* quota exceeded */ }
 }
 
+function getStaffToken() {
+  try {
+    return sessionStorage.getItem(STAFF_TOKEN_KEY) || "";
+  } catch {
+    return "";
+  }
+}
+
 /**
  * Submit (create or update) a blog post.
  *
@@ -165,12 +174,15 @@ function saveLocalPosts(posts) {
 export async function submitBlogPost(postData) {
   // ── Remote CMS mode ──
   if (CONFIG.blogCmsUrl) {
+    const token = getStaffToken();
+    if (!token) return { success: false, error: "Staff session expired. Please unlock the dashboard again." };
+
     try {
       await fetch(CONFIG.blogCmsUrl, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify(postData),
+        body: JSON.stringify({ ...postData, token }),
       });
       // Invalidate cache so next fetch picks up the change
       try { localStorage.removeItem(BLOG_CACHE_KEY); } catch { /* ignore */ }
@@ -202,12 +214,15 @@ export async function submitBlogPost(postData) {
  */
 export async function deleteBlogPost(postId) {
   if (CONFIG.blogCmsUrl) {
+    const token = getStaffToken();
+    if (!token) return { success: false, error: "Staff session expired. Please unlock the dashboard again." };
+
     try {
       await fetch(CONFIG.blogCmsUrl, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "text/plain" },
-        body: JSON.stringify({ action: "delete", id: postId }),
+        body: JSON.stringify({ action: "delete", id: postId, token }),
       });
       try { localStorage.removeItem(BLOG_CACHE_KEY); } catch { /* ignore */ }
       return { success: true };

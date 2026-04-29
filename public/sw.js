@@ -1,4 +1,4 @@
-const CACHE_NAME = "st-dominic-v1";
+const CACHE_NAME = "st-dominic-v2";
 const BASE = "/st-dom-yet-website/";
 
 // App shell files to precache on install
@@ -45,6 +45,8 @@ self.addEventListener("fetch", (event) => {
   // Skip chrome-extension and non-http(s) requests
   if (!request.url.startsWith("http")) return;
 
+  const url = new URL(request.url);
+
   // Google Sheets API calls — network only, never cache
   if (request.url.includes("docs.google.com/spreadsheets")) {
     event.respondWith(
@@ -52,6 +54,8 @@ self.addEventListener("fetch", (event) => {
     );
     return;
   }
+
+  if (url.origin !== self.location.origin) return;
 
   // ── Navigation requests: network-first ──
   if (request.mode === "navigate") {
@@ -74,7 +78,6 @@ self.addEventListener("fetch", (event) => {
   }
 
   // ── Static assets (images, fonts, CSS, JS): cache-first ──
-  const url = new URL(request.url);
   if (CACHE_FIRST_EXT.test(url.pathname)) {
     event.respondWith(
       caches.match(request).then((cached) => {

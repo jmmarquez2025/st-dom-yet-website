@@ -8,6 +8,19 @@ const DEFAULT_DESC =
 const SITE_URL = CONFIG.siteUrl;
 const DEFAULT_IMAGE = `${SITE_URL}/photos/rose-window-opt.jpg`;
 
+function toAbsoluteSiteUrl(path) {
+  if (!path) return "";
+  if (/^https?:\/\//i.test(path)) return path;
+
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  let cleanPath = path.startsWith("/") ? path : `/${path}`;
+  if (base && base !== "/" && cleanPath.startsWith(`${base}/`)) {
+    cleanPath = cleanPath.slice(base.length);
+  }
+
+  return `${SITE_URL}${cleanPath}`;
+}
+
 /**
  * Lightweight SEO head manager. Sets document title, meta description,
  * Open Graph, Twitter Card, and per-page image tags.
@@ -20,7 +33,7 @@ export default function Seo({ title, description, image, schema }) {
   const fullTitle = title ? `${title} — ${SITE_NAME}` : SITE_NAME;
   const desc = description || DEFAULT_DESC;
   const url = `${SITE_URL}${pathname}`;
-  const ogImage = image ? `${SITE_URL}${image}` : DEFAULT_IMAGE;
+  const ogImage = image ? toAbsoluteSiteUrl(image) : DEFAULT_IMAGE;
 
   useEffect(() => {
     document.title = fullTitle;

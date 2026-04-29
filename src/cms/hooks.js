@@ -11,6 +11,24 @@ import { getAll as getLocalEvents, hasAny as hasLocalEvents } from "../events/st
 import { getAll as getLocalSchedule } from "../schedule-admin/store";
 import { getAll as getLocalStaff } from "../staff-admin/store";
 import { getAll as getLocalMinistries } from "../ministries-admin/store";
+import { getVisible as getLocalVisibleAnnouncements } from "../announcements/store";
+
+export function useAdminSyncSignal() {
+  const [version, setVersion] = useState(0);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return undefined;
+    const bump = () => setVersion((v) => v + 1);
+    window.addEventListener("stdom:admin-synced", bump);
+    window.addEventListener("storage", bump);
+    return () => {
+      window.removeEventListener("stdom:admin-synced", bump);
+      window.removeEventListener("storage", bump);
+    };
+  }, []);
+
+  return version;
+}
 
 /**
  * Generic CMS hook. Tries the CMS fetch first, falls back to static data.
@@ -45,6 +63,7 @@ function useCmsData(fetcher, fallback) {
 /** Staff data — returns { friars, staff }. localStorage admin overrides CMS if present. */
 export function useStaff() {
   const cms = useCmsData(fetchStaff, { friars: staticFriars, staff: staticStaff });
+  useAdminSyncSignal();
   const local = getLocalStaff();
   if (local) {
     return {
@@ -61,6 +80,7 @@ export function useStaff() {
 /** Schedule data — localStorage admin overrides CMS if present. */
 export function useSchedule() {
   const cms = useCmsData(fetchSchedule, { sundayMass, dailyMass, confession, adoration });
+  useAdminSyncSignal();
   const local = getLocalSchedule();
   if (local) {
     return {
@@ -79,6 +99,7 @@ export function useSchedule() {
 /** Ministries list — localStorage admin overrides CMS if present. */
 export function useMinistries() {
   const cms = useCmsData(fetchMinistries, staticMinistries);
+  useAdminSyncSignal();
   const local = getLocalMinistries();
   if (local) return { ...cms, data: local };
   return cms;
@@ -86,13 +107,22 @@ export function useMinistries() {
 
 /** Announcements — falls back to static sample data */
 export function useAnnouncements() {
-  return useCmsData(fetchAnnouncements, staticAnnouncements);
+  const cms = useCmsData(fetchAnnouncements, staticAnnouncements);
+  useAdminSyncSignal();
+  const local = getLocalVisibleAnnouncements().map((ann) => ({
+    ...ann,
+    date: ann.date || ann.startDate || ann.createdAt?.slice(0, 10) || "",
+  }));
+  if (local.length > 0) return { ...cms, data: local };
+  return cms;
 }
 
 /** Events — localStorage admin overrides CMS if present. */
 export function useEvents() {
   const cms = useCmsData(fetchEvents, staticEvents);
-  if (hasLocalEvents()) return { ...cms, data: getLocalEvents() };
+  useAdminSyncSignal();
+  const local = hasLocalEvents() ? getLocalEvents() : null;
+  if (local) return { ...cms, data: local };
   return cms;
 }
 

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useHref, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { CONFIG } from "../constants/config";
@@ -6,7 +6,18 @@ import { PHOTOS } from "../constants/photos";
 
 function FooterLink({ to, children, style }) {
   const navigate = useNavigate();
+  const href = useHref(to);
   const handleClick = (e) => {
+    if (
+      e.defaultPrevented ||
+      e.button !== 0 ||
+      e.metaKey ||
+      e.altKey ||
+      e.ctrlKey ||
+      e.shiftKey
+    ) {
+      return;
+    }
     e.preventDefault();
     if (document.startViewTransition) {
       document.startViewTransition(() => navigate(to));
@@ -15,7 +26,7 @@ function FooterLink({ to, children, style }) {
     }
   };
   return (
-    <a href={to} onClick={handleClick} style={style}>
+    <a href={href} onClick={handleClick} style={style}>
       {children}
     </a>
   );

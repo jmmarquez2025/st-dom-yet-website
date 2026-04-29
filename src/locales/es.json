@@ -620,6 +620,7 @@
     "submit": "Enviar Mensaje",
     "sending": "Enviando…",
     "success": "¡Gracias! Su mensaje ha sido enviado. Nos pondremos en contacto pronto.",
+    "successFallback": "Si no recibe respuesta dentro de 2 días hábiles, llame a la oficina parroquial.",
     "error": "Algo salió mal. Por favor intente llamarnos o enviar un correo electrónico directamente.",
     "infoTitle": "Información de la Iglesia",
     "addressLabel": "Dirección",
@@ -1027,6 +1028,7 @@
     "error": "Algo salió mal. Por favor intente de nuevo o llame a la oficina parroquial.",
     "successTitle": "¡Registro Recibido!",
     "successDesc": "Gracias por registrarse en la iglesia de Santo Domingo. Nos comunicaremos pronto para darle la bienvenida personalmente.",
+    "successFallback": "Si no recibe respuesta dentro de 2 días hábiles, llame a la oficina parroquial.",
     "registerAnother": "Registrar Otra Familia"
   },
   "events": {

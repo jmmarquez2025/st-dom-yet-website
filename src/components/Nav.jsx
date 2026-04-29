@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useHref, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { T } from "../constants/theme";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -9,7 +9,19 @@ import SiteSearch from "./SiteSearch";
 /** Navigate with View Transition when supported */
 function NavLink({ to, children, style, ...props }) {
   const navigate = useNavigate();
+  const href = useHref(to);
   const handleClick = (e) => {
+    if (
+      e.defaultPrevented ||
+      e.button !== 0 ||
+      e.metaKey ||
+      e.altKey ||
+      e.ctrlKey ||
+      e.shiftKey ||
+      props.target
+    ) {
+      return;
+    }
     e.preventDefault();
     if (document.startViewTransition) {
       document.startViewTransition(() => navigate(to));
@@ -18,7 +30,7 @@ function NavLink({ to, children, style, ...props }) {
     }
   };
   return (
-    <a href={to} onClick={handleClick} style={style} {...props}>
+    <a href={href} onClick={handleClick} style={style} {...props}>
       {children}
     </a>
   );

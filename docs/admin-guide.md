@@ -661,6 +661,9 @@ Contact the developer. Provide:
 | `VITE_REGISTRATION_FORM_URL` | Google Apps Script URL for registration | Recommended |
 | `VITE_CMS_SHEET_ID` | Published Google Sheet ID for CMS data | Recommended |
 | `VITE_BLOG_CMS_URL` | Apps Script URL for blog post CRUD | Optional (uses localStorage fallback) |
+| `VITE_ADMIN_CMS_URL` | Apps Script URL for staff dashboard cloud sync | Recommended |
+| `VITE_STAFF_PASSPHRASE` | Staff dashboard write passphrase | Recommended |
+| `VITE_SITE_URL` | Canonical URL used for SEO, sitemap, and robots.txt | Recommended |
 | `VITE_WESHARE_URL` | WeShare giving page URL | Optional |
 | `VITE_PLAUSIBLE_DOMAIN` | Domain for Plausible analytics | Optional |
 | `VITE_BULLETIN_URL` | Current week's flipbook embed URL | Optional |
@@ -694,8 +697,9 @@ The blog system can use a Google Apps Script backend for persistent storage. The
 1. Create a Google Sheet for blog data.
 2. Open Extensions > Apps Script.
 3. Paste the contents of `cms/blog-cms.gs`.
-4. Deploy as a Web App (Execute as: You, Access: Anyone).
-5. Copy the deployment URL and set `VITE_BLOG_CMS_URL` in `.env`.
+4. In Project Settings > Script Properties, add `WRITE_TOKEN` with the same value as `VITE_STAFF_PASSPHRASE`.
+5. Deploy as a Web App (Execute as: You, Access: Anyone).
+6. Copy the deployment URL and set `VITE_BLOG_CMS_URL` in `.env` or in the GitHub Pages build environment.
 
 Without the Apps Script deployed, the blog manager saves posts to browser localStorage, which works for testing but is not persistent across devices.
 

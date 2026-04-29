@@ -48,6 +48,7 @@ import {
  * ────────────────────────────────────────────────────────── */
 
 const STORAGE_KEY = "stdom_staff_auth";
+const TOKEN_KEY = "stdom_staff_token";
 // Soft gate, not auth — the value lives in the client bundle either way.
 // Override per-deployment via VITE_STAFF_PASSPHRASE; the default is "veritas"
 // (the Dominican motto) to match what's documented in docs/admin-guide.md.
@@ -330,10 +331,22 @@ export default function WritersGuide() {
     setAuthed(true);
     try {
       sessionStorage.setItem(STORAGE_KEY, "1");
+      sessionStorage.setItem(TOKEN_KEY, PASSPHRASE);
     } catch {
       /* ignore */
     }
   }, []);
+
+  useEffect(() => {
+    if (!authed) return;
+    try {
+      if (!sessionStorage.getItem(TOKEN_KEY)) {
+        sessionStorage.setItem(TOKEN_KEY, PASSPHRASE);
+      }
+    } catch {
+      /* ignore */
+    }
+  }, [authed]);
 
   if (!authed) {
     return <PassphraseGate onUnlock={handleUnlock} />;

@@ -1,20 +1,31 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useEffect } from "react";
 import * as store from "./store";
+
+function useAdminSyncRefresh() {
+  const [tick, setTick] = useState(0);
+
+  useEffect(() => {
+    const refresh = () => setTick((n) => n + 1);
+    window.addEventListener("stdom:admin-synced", refresh);
+    window.addEventListener("storage", refresh);
+    return () => {
+      window.removeEventListener("stdom:admin-synced", refresh);
+      window.removeEventListener("storage", refresh);
+    };
+  }, []);
+
+  return tick;
+}
 
 /**
  * Hook for visitor-facing components.
  * Returns the single announcement (banner or popup) that should display right now.
  */
 export function useVisibleAnnouncement(type) {
-  // Read synchronously on mount — localStorage is instant.
-  // No effect/polling needed; page navigations re-mount components.
-  const announcement = useMemo(() => {
-    if (type === "popup") return store.getActivePopup();
-    if (type === "banner") return store.getActiveBanner();
-    return null;
-  }, [type]);
-
-  return announcement;
+  useAdminSyncRefresh();
+  if (type === "popup") return store.getActivePopup();
+  if (type === "banner") return store.getActiveBanner();
+  return null;
 }
 
 /**
@@ -22,11 +33,11 @@ export function useVisibleAnnouncement(type) {
  * Returns all announcements + a refresh callback for after mutations.
  */
 export function useAllAnnouncements() {
-  const [tick, setTick] = useState(0);
+  const [, setTick] = useState(0);
+  useAdminSyncRefresh();
   const refresh = useCallback(() => setTick((n) => n + 1), []);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const announcements = useMemo(() => store.getAll(), [tick]);
+  const announcements = store.getAll();
 
   return { announcements, refresh };
 }

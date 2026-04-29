@@ -2,6 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Home, ChevronRight } from "lucide-react";
 import { T } from "../constants/theme";
+import { CONFIG } from "../constants/config";
 
 /**
  * Segment-to-i18n-key mapping.
@@ -73,7 +74,7 @@ export default function Breadcrumbs() {
   });
 
   // Schema.org BreadcrumbList JSON-LD
-  const origin = typeof window !== "undefined" ? window.location.origin : "";
+  const siteUrl = CONFIG.siteUrl.replace(/\/$/, "");
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -82,13 +83,13 @@ export default function Breadcrumbs() {
         "@type": "ListItem",
         position: 1,
         name: t("nav.home"),
-        item: origin + "/",
+        item: siteUrl + "/",
       },
       ...crumbs.map((c, i) => ({
         "@type": "ListItem",
         position: i + 2,
         name: c.label,
-        item: origin + c.path,
+        item: siteUrl + c.path,
       })),
     ],
   };

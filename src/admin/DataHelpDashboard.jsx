@@ -321,9 +321,9 @@ export default function DataHelpDashboard({ onToast }) {
               <li>Open your St. Dominic Google Sheet → <strong>Extensions → Apps Script</strong>.</li>
               <li>Create a new script file and paste the contents of <code>cms/admin-cms.gs</code> from the repo.</li>
               <li>Run the <code>setupAdminSheet</code> function once and authorize it.</li>
-              <li>In <strong>Project Settings → Script Properties</strong>, add key <code>WRITE_TOKEN</code> with value <code>veritas</code> (or a passphrase of your choice — match it to the Staff Dashboard lock).</li>
+              <li>In <strong>Project Settings → Script Properties</strong>, add key <code>WRITE_TOKEN</code> with the same value as <code>VITE_STAFF_PASSPHRASE</code>.</li>
               <li>Click <strong>Deploy → New deployment → Web app</strong>. Execute as: Me. Who has access: Anyone. Copy the URL.</li>
-              <li>In the repo, paste the URL into <code>src/constants/config.js</code> as <code>adminCmsUrl</code>, then rebuild and deploy the site.</li>
+              <li>Set the deployment environment variable <code>VITE_ADMIN_CMS_URL</code> to that URL, then rebuild and deploy the site.</li>
             </ol>
           </details>
         )}

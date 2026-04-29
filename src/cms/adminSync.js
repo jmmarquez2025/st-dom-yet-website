@@ -22,12 +22,14 @@ import { CONFIG } from "../constants/config";
 import { MANAGED_KEYS } from "../admin/dataManager";
 
 const STATUS_KEY = "stdom_admin_sync_status";
-const TOKEN_KEY = "stdom_staff_auth";
+const TOKEN_KEY = "stdom_staff_token";
+const LEGACY_TOKEN_KEY = "stdom_staff_auth";
 const DEBOUNCE_MS = 1500;
 
 const listeners = new Set();
 const pushTimers = new Map();
 let status = loadStatus();
+let suppressAutoSync = false;
 
 function loadStatus() {
   try {
@@ -63,7 +65,14 @@ export function isConfigured() {
 function getToken(explicit) {
   if (explicit) return explicit;
   try {
-    return sessionStorage.getItem(TOKEN_KEY) || "";
+    const token = sessionStorage.getItem(TOKEN_KEY);
+    if (token) return token;
+
+    // Older sessions stored the auth flag in stdom_staff_auth. Treat "1" as
+    // an auth marker, not as a write token, while still accepting a real token
+    // if a previous build stored it there.
+    const legacy = sessionStorage.getItem(LEGACY_TOKEN_KEY) || "";
+    return legacy && legacy !== "1" ? legacy : "";
   } catch {
     return "";
   }
@@ -83,16 +92,22 @@ export async function pullAll() {
     if (body.error) throw new Error(body.error);
     const sections = body.sections || {};
     let hydrated = 0;
-    Object.entries(sections).forEach(([key, record]) => {
-      if (!MANAGED_KEYS.includes(key)) return;
-      const data = record && record.data;
-      if (typeof data === "string" && data.length > 0) {
-        try {
-          localStorage.setItem(key, data);
-          hydrated += 1;
-        } catch (_) { /* quota — skip this section, keep hydrating others */ }
-      }
-    });
+    suppressAutoSync = true;
+    try {
+      Object.entries(sections).forEach(([key, record]) => {
+        if (!MANAGED_KEYS.includes(key)) return;
+        const data = record && record.data;
+        if (typeof data === "string") {
+          try {
+            if (data.length > 0) localStorage.setItem(key, data);
+            else localStorage.removeItem(key);
+            hydrated += 1;
+          } catch (_) { /* quota — skip this section, keep hydrating others */ }
+        }
+      });
+    } finally {
+      suppressAutoSync = false;
+    }
     saveStatus({ lastPulledAt: new Date().toISOString(), error: null });
     // Let stores/hooks know fresh data arrived
     try { window.dispatchEvent(new Event("stdom:admin-synced")); } catch (_) { /* CustomEvent unsupported — listeners poll on their own */ }
@@ -135,6 +150,15 @@ export function flush(token) {
 }
 
 async function doPush(section, token) {
+  if (!token) {
+    const remaining = (status.pending || []).filter((s) => s !== section);
+    saveStatus({
+      pending: remaining,
+      error: "Push skipped: unlock the Staff Dashboard before saving cloud changes.",
+    });
+    return;
+  }
+
   // null means "deleted locally" — upload empty string so remote matches
   const data = localStorage.getItem(section) ?? "";
   try {
@@ -185,14 +209,14 @@ export function installAutoSync() {
 
   Storage.prototype.setItem = function (key, value) {
     origSet.call(this, key, value);
-    if (this === window.localStorage && MANAGED_KEYS.includes(key)) {
+    if (!suppressAutoSync && this === window.localStorage && MANAGED_KEYS.includes(key)) {
       push(key);
     }
   };
 
   Storage.prototype.removeItem = function (key) {
     origRemove.call(this, key);
-    if (this === window.localStorage && MANAGED_KEYS.includes(key)) {
+    if (!suppressAutoSync && this === window.localStorage && MANAGED_KEYS.includes(key)) {
       // Signal a deletion — doPush will send an empty string upstream
       push(key);
     }
@@ -208,7 +232,9 @@ if (typeof window !== "undefined") {
       // Use sendBeacon for reliability during unload
       const data = localStorage.getItem(section) ?? "";
       try {
-        const payload = JSON.stringify({ token: getToken(), section, data });
+        const token = getToken();
+        if (!token) return;
+        const payload = JSON.stringify({ token, section, data });
         navigator.sendBeacon(CONFIG.adminCmsUrl, payload);
       } catch (_) { /* sendBeacon unsupported — best-effort flush on unload */ }
     });
