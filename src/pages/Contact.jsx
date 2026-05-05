@@ -71,7 +71,17 @@ function FloatingInput({ label, required, type = "text", value, onChange, onBlur
 }
 
 /* ── Animated floating-label textarea ── */
-function FloatingTextarea({ label, required, value, onChange, rows = 5, ariaLabel }) {
+function FloatingTextarea({
+  label,
+  required,
+  value,
+  onChange,
+  rows = 5,
+  ariaLabel,
+  onBlurValidate,
+  error,
+  ariaDescribedBy,
+}) {
   const [focused, setFocused] = useState(false);
   const active = focused || value;
   return (
@@ -81,12 +91,14 @@ function FloatingTextarea({ label, required, value, onChange, rows = 5, ariaLabe
         value={value}
         onChange={onChange}
         aria-label={ariaLabel || label}
+        aria-describedby={ariaDescribedBy}
+        aria-invalid={!!error}
         onFocus={() => setFocused(true)}
-        onBlur={() => setFocused(false)}
+        onBlur={() => { setFocused(false); if (onBlurValidate) onBlurValidate(); }}
         rows={rows}
         style={{
           width: "100%", padding: "22px 16px 8px", fontSize: 15,
-          border: `1.5px solid ${focused ? T.burgundy : T.stone}`,
+          border: `1.5px solid ${error ? "#c0392b" : focused ? T.burgundy : T.stone}`,
           borderRadius: 8, fontFamily: "'Source Sans 3', sans-serif",
           background: "#fff", resize: "vertical", outline: "none",
           transition: "border-color 0.25s, box-shadow 0.25s",
@@ -108,6 +120,7 @@ function FloatingTextarea({ label, required, value, onChange, rows = 5, ariaLabe
       >
         {label}{required && " *"}
       </label>
+      {error && <div id={ariaDescribedBy} style={errorStyle}>{error}</div>}
     </div>
   );
 }
@@ -184,14 +197,21 @@ export default function Contact() {
   const [status, setStatus] = useState("idle");
   const [statusMessage, setStatusMessage] = useState("");
   const [errors, setErrors] = useState({});
+  const [mapLoaded, setMapLoaded] = useState(false);
   const formRef = useRef(null);
 
   const set = (key) => (e) => setForm((f) => ({ ...f, [key]: e.target.value }));
 
   const validateField = (field) => {
     let err = "";
-    if (field === "email") err = validateEmail(form.email);
+    const requiredError = t("contact.requiredError");
+    if (field === "name" && !form.name.trim()) err = requiredError;
+    if (field === "email") {
+      if (!form.email.trim()) err = requiredError;
+      else err = validateEmail(form.email);
+    }
     if (field === "phone") err = validatePhone(form.phone);
+    if (field === "message" && !form.message.trim()) err = requiredError;
     setErrors((prev) => {
       const next = { ...prev };
       if (err) next[field] = err; else delete next[field];
@@ -201,11 +221,16 @@ export default function Contact() {
   };
 
   const validateAll = () => {
-    const emailErr = validateEmail(form.email);
+    const requiredError = t("contact.requiredError");
+    const nameErr = form.name.trim() ? "" : requiredError;
+    const emailErr = form.email.trim() ? validateEmail(form.email) : requiredError;
     const phoneErr = validatePhone(form.phone);
+    const messageErr = form.message.trim() ? "" : requiredError;
     const next = {};
+    if (nameErr) next.name = nameErr;
     if (emailErr) next.email = emailErr;
     if (phoneErr) next.phone = phoneErr;
+    if (messageErr) next.message = messageErr;
     setErrors(next);
     return Object.keys(next).length === 0;
   };
@@ -280,7 +305,7 @@ export default function Contact() {
             <div
               style={{
                 background: "#fff",
-                borderRadius: 16,
+                borderRadius: 8,
                 padding: "40px 36px",
                 boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06)",
                 border: `1px solid rgba(232,226,216,0.6)`,
@@ -348,7 +373,10 @@ export default function Contact() {
                       required
                       value={form.name}
                       onChange={set("name")}
+                      onBlurValidate={() => validateField("name")}
+                      error={errors.name}
                       ariaLabel={t("contact.name")}
+                      ariaDescribedBy={errors.name ? "contact-name-error" : undefined}
                     />
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}
                          className="form-two-col">
@@ -391,8 +419,14 @@ export default function Contact() {
                       required
                       value={form.message}
                       onChange={set("message")}
+                      onBlurValidate={() => validateField("message")}
+                      error={errors.message}
                       ariaLabel={t("contact.message")}
+                      ariaDescribedBy={errors.message ? "contact-message-error" : undefined}
                     />
+                    <p style={{ fontSize: 12.5, color: T.warmGray, lineHeight: 1.6, marginTop: -4 }}>
+                      {t("contact.privacy")}
+                    </p>
                     <button
                       type="submit"
                       disabled={status === "sending"}
@@ -450,7 +484,7 @@ export default function Contact() {
               <div
                 style={{
                   background: "#fff",
-                  borderRadius: 16,
+                  borderRadius: 8,
                   padding: "32px 28px",
                   boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06)",
                   border: `1px solid rgba(232,226,216,0.6)`,
@@ -486,16 +520,57 @@ export default function Contact() {
               </div>
 
               {/* Google Maps */}
-              <div style={{ borderRadius: 16, overflow: "hidden", boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06)", border: `1px solid rgba(232,226,216,0.6)` }}>
-                <iframe
-                  title={t("contact.mapTitle")}
-                  src={`https://maps.google.com/maps?q=${CONFIG.mapsQuery}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
-                  width="100%"
-                  height="220"
-                  style={{ border: 0, display: "block" }}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
+              <div style={{ borderRadius: 8, overflow: "hidden", boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06)", border: `1px solid rgba(232,226,216,0.6)` }}>
+                {mapLoaded ? (
+                  <iframe
+                    title={t("contact.mapTitle")}
+                    src={`https://maps.google.com/maps?q=${CONFIG.mapsQuery}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                    width="100%"
+                    height="220"
+                    style={{ border: 0, display: "block" }}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                ) : (
+                  <div
+                    style={{
+                      minHeight: 220,
+                      padding: 28,
+                      background: T.cream,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: 12,
+                      textAlign: "center",
+                    }}
+                  >
+                    <MapPin size={28} color={T.burgundy} />
+                    <p style={{ fontSize: 14, color: T.warmGray, lineHeight: 1.6, maxWidth: 260 }}>
+                      {t("contact.mapPrivacy")}
+                    </p>
+                    <button
+                      type="button"
+                      onClick={() => setMapLoaded(true)}
+                      className="btn-hover"
+                      style={{
+                        background: T.burgundy,
+                        color: T.cream,
+                        border: "none",
+                        borderRadius: 4,
+                        padding: "11px 18px",
+                        fontSize: 13,
+                        fontWeight: 700,
+                        letterSpacing: 1,
+                        textTransform: "uppercase",
+                        fontFamily: "'Source Sans 3', sans-serif",
+                        cursor: "pointer",
+                      }}
+                    >
+                      {t("contact.loadMap")}
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>

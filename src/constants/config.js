@@ -68,7 +68,7 @@ export const CONFIG = {
 
   // Site URL for SEO (canonical, OpenGraph, etc.)
   // Update this when deploying to the production domain
-  siteUrl: (import.meta.env.VITE_SITE_URL || "https://jmmarquez2025.github.io/st-dom-yet-website").replace(/\/$/, ""),
+  siteUrl: (import.meta.env.VITE_SITE_URL || "https://saintdominic.org").replace(/\/$/, ""),
 
   // Blog CMS — Google Apps Script URL serving blog posts from Google Docs
   // See cms/blog-cms.gs for setup instructions

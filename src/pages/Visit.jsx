@@ -97,7 +97,7 @@ export default function Visit() {
           }}
         >
           {[
-            { end: 5, suffix: "", labelKey: "visit.glance.masses" },
+            { end: 4, suffix: "", labelKey: "visit.glance.masses" },
             { end: 2, suffix: "", labelKey: "visit.glance.languages" },
             { end: 5, suffix: "", labelKey: "visit.glance.priests" },
           ].map((stat, i) => (
@@ -265,7 +265,7 @@ export default function Visit() {
             ].map((item) => (
               <div
                 key={item.key}
-                className="glass-card tilt-card"
+                className="glass-card"
                 style={{
                   padding: 32,
                   position: "relative",
@@ -344,7 +344,7 @@ export default function Visit() {
             </div>
 
             <div
-              className="glass-card--dark pulse-glow"
+              className="glass-card--dark"
               style={{
                 color: "#fff",
                 padding: 32,

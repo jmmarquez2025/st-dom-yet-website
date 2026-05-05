@@ -1,5 +1,4 @@
 import { T } from "../constants/theme";
-import useMagnetic from "../hooks/useMagnetic";
 
 const base = {
   display: "inline-block",
@@ -33,14 +32,9 @@ const variants = {
   },
 };
 
-export default function Btn({ children, onClick, variant = "primary", style: s = {}, magnetic = true }) {
-  const mag = useMagnetic(0.25);
-
+export default function Btn({ children, onClick, variant = "primary", style: s = {} }) {
   return (
-    <div
-      {...(magnetic ? mag : {})}
-      style={{ display: "inline-block" }}
-    >
+    <div style={{ display: "inline-block" }}>
       <button onClick={onClick} className="btn-hover" style={{ ...variants[variant], ...s }}>
         {children}
       </button>

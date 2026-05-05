@@ -57,8 +57,7 @@ The site uses a two-tier content system:
 
 ### Website Address
 
-- **Live site:** https://jmmarquez2025.github.io/st-dom-yet-website/
-- When the parish has its own domain (e.g., saintdominic.org), the developer will configure it to point here.
+- **Live site:** https://saintdominic.org/
 
 ---
 

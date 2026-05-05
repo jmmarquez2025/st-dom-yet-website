@@ -44,6 +44,20 @@
       "ctaMass": "Mass & Confession Times",
       "ctaBecoming": "Interested in Becoming Catholic?"
     },
+    "essentials": {
+      "sub": "Parish Essentials",
+      "title": "What Most Visitors Need First",
+      "today": "Today's Masses",
+      "noMassToday": "No Mass listed for today",
+      "confession": "Confession Today",
+      "noConfessionToday": "See the weekly schedule",
+      "directions": "Directions",
+      "directionsDesc": "77 East Lucius Avenue",
+      "bulletin": "Bulletin",
+      "bulletinDesc": "Announcements and parish notices",
+      "contact": "Call the Office",
+      "reviewed": "Schedule reviewed May 4, 2026"
+    },
     "welcome": {
       "sub": "Welcome",
       "title": "Encounter Jesus Christ with Us",
@@ -56,7 +70,7 @@
       "title": "Come Worship with Us",
       "desc": "Join us! We'd love to welcome you to our beautiful Romanesque church. Whether you're visiting Youngstown or looking for a new church home, find our Mass and Confession times below.",
       "cta": "See Mass & Confession Times",
-      "sundayMass": "Sunday Mass",
+      "sundayMass": "Weekend Mass",
       "satVigil": "Saturday Vigil:",
       "sun": "Sunday:",
       "sunEspanol": "Sunday (Español):"
@@ -92,7 +106,7 @@
     },
     "stats": {
       "years": "Years of Faith",
-      "masses": "Masses Every Sunday",
+      "masses": "Weekend Masses",
       "ministries": "Active Ministries",
       "languages": "Languages"
     },
@@ -139,7 +153,10 @@
     },
     "vatican": {
       "sub": "The Universal Church",
-      "title": "News from the Vatican"
+      "title": "News from the Vatican",
+      "load": "Load Vatican News",
+      "loading": "Loading Vatican News...",
+      "privacy": "This loads a Vatican News widget from vaticannews.va."
     },
     "cards": {
       "visitTitle": "Visit Us",
@@ -177,9 +194,10 @@
       "quote": "\"The Eucharist is the source and summit of the Christian life.\"",
       "quoteSrc": "— Catechism of the Catholic Church, 1324",
       "desc": "The Holy Mass is celebrated daily at St. Dominic Church. All are welcome to join us in the most sacred act of Catholic worship.",
-      "sundayTitle": "Sunday & Vigil Masses",
+      "sundayTitle": "Weekend Masses",
       "dailyTitle": "Daily Masses"
     },
+    "reviewed": "Schedule reviewed May 4, 2026. Holy Day schedules may vary; check the bulletin or call the parish office.",
     "parallax1": {
       "quote": "\"The Eucharist is the consummation of the whole spiritual life.\"",
       "src": "— St. Thomas Aquinas, O.P."
@@ -363,6 +381,7 @@
     },
     "heading": "This Week's Bulletin",
     "loading": "Loading bulletin...",
+    "reviewed": "Bulletin archive reviewed May 4, 2026. Current bulletins are posted when the parish feed is connected.",
     "fallback": {
       "title": "Bulletin Coming Soon",
       "desc": "Our weekly bulletin will be embedded here for easy reading. In the meantime, visit our church website for the latest bulletin.",
@@ -619,6 +638,8 @@
     "message": "Message",
     "submit": "Send Message",
     "sending": "Sending…",
+    "requiredError": "This field is required.",
+    "privacy": "Your message is sent to the parish office only. Please do not include passwords, payment information, or urgent medical details.",
     "success": "Thank you! Your message has been sent. We'll be in touch soon.",
     "successFallback": "If you don't hear back within 2 business days, please call the parish office.",
     "error": "Something went wrong. Please try calling us or sending an email directly.",
@@ -629,6 +650,8 @@
     "officeHours": "Office Hours",
     "sendAnother": "Send Another Message",
     "mapTitle": "Map to St. Dominic Catholic Church",
+    "loadMap": "Load Map",
+    "mapPrivacy": "This loads an embedded Google Map.",
     "contactOffice": "Call us to arrange your donation today."
   },
   "give": {
@@ -876,7 +899,7 @@
     "schedule": {
       "sub": "Mass Times",
       "title": "Join Us This Weekend",
-      "desc": "We celebrate Mass every day and multiple times on Sundays. Our Dominican friars are known for their preaching — come hear the Word proclaimed.",
+      "desc": "We celebrate Mass every day and four times across the weekend. Our Dominican friars are known for their preaching — come hear the Word proclaimed.",
       "cta": "Full Mass & Confession Schedule",
       "sundayTitle": "Weekend Mass Schedule",
       "satVigil": "Saturday Vigil:",
@@ -885,7 +908,7 @@
       "confessionNote": "Confessions: Wed & Fri 11:15 AM–12:00 PM · Sat 11:15 AM–12:00 PM & 4:00–5:00 PM"
     },
     "glance": {
-      "masses": "Sunday Masses",
+      "masses": "Weekend Masses",
       "languages": "Languages",
       "priests": "Dominican Friars"
     },
@@ -931,6 +954,8 @@
     "sub": "Fray Nelson Medina, O.P.",
     "desc": "Explore the teachings and reflections of Fray Nelson Medina, O.P. — a Dominican friar whose video ministry reaches hundreds of thousands of faithful across the Spanish-speaking world.",
     "loading": "Loading video…",
+    "loadVideo": "Load YouTube Videos",
+    "privacy": "This loads an embedded YouTube player.",
     "visitChannel": "Visit Full Channel on YouTube"
   },
   "history": {
@@ -1025,6 +1050,7 @@
     "notesHint": "Any additional information you'd like to share...",
     "submit": "Submit Registration",
     "sending": "Submitting...",
+    "privacy": "Registration details are sent to the parish office only. Please do not include passwords, payment information, or urgent medical details.",
     "error": "Something went wrong. Please try again or call the church office.",
     "successTitle": "Registration Received!",
     "successDesc": "Thank you for registering at St. Dominic Church. We will be in touch soon to welcome you personally.",
@@ -1038,7 +1064,7 @@
     "pastTitle": "Past Events",
     "pastSub": "Recent Church Life",
     "filterAll": "All Events",
-    "noneFound": "No events found for this category."
+    "noneFound": "No upcoming events are posted here yet. Please check the weekly bulletin or call the parish office for current parish events."
   },
   "saintOfDay": {
     "label": "Saint of the Day"

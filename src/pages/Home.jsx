@@ -6,7 +6,7 @@ import { Section, SectionTitle } from "../components/Section";
 import FadeSection from "../components/FadeSection";
 import Btn from "../components/Btn";
 
-import { useAnnouncements, useEvents } from "../cms/hooks";
+import { useAnnouncements, useEvents, useSchedule } from "../cms/hooks";
 import Seo from "../components/Seo";
 import NextMass from "../components/NextMass";
 import CountUp from "../components/CountUp";
@@ -22,11 +22,42 @@ import TextReveal from "../components/TextReveal";
 import { AnimatedDivider } from "../components/TextReveal";
 import { PHOTOS } from "../constants/photos";
 
+const WEEKDAY_KEYS = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+];
+
+function rowsForToday(rows = [], todayKey) {
+  return rows.filter(([key]) => {
+    if (key === todayKey) return true;
+    if (todayKey === "sunday" && key === "sundayEspanol") return true;
+    if (todayKey === "saturday" && key === "saturdayVigil") return true;
+    return false;
+  });
+}
+
+function joinTimes(rows) {
+  return rows.map(([, time]) => time).filter(Boolean).join(" · ");
+}
+
 export default function Home() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { data: announcements } = useAnnouncements();
   const { data: events } = useEvents();
+  const { data: schedule } = useSchedule();
+  const todayKey = WEEKDAY_KEYS[new Date().getDay()];
+  const todayMasses = joinTimes([
+    ...rowsForToday(schedule?.dailyMass, todayKey),
+    ...rowsForToday(schedule?.sundayMass, todayKey),
+  ]);
+  const todayConfessions = joinTimes(rowsForToday(schedule?.confession, todayKey));
+  const mapsHref = `https://www.google.com/maps/search/?api=1&query=${CONFIG.mapsQuery}`;
 
   return (
     <div>
@@ -40,9 +71,11 @@ export default function Home() {
         image={PHOTOS.homeHero}
         overlay={0.5}
         tint="rgba(107,29,42,0.6)"
-        height="130vh"
+        height="calc(100vh - 120px)"
+        viewportHeight="calc(100vh - 120px)"
       >
         <div
+          className="home-hero-subtitle"
           style={{
             fontSize: 12,
             letterSpacing: 4,
@@ -56,6 +89,7 @@ export default function Home() {
         </div>
 
         <h1
+          className="home-hero-title"
           style={{
             fontSize: "clamp(40px, 7vw, 72px)",
             fontFamily: "'Cormorant Garamond', serif",
@@ -69,6 +103,7 @@ export default function Home() {
         </h1>
 
         <div
+          className="home-hero-location"
           style={{
             fontSize: 16,
             letterSpacing: 3,
@@ -114,10 +149,173 @@ export default function Home() {
           </div>
         )}
 
-        <div style={{ marginTop: 32 }}>
+        <div className="home-hero-next-mass" style={{ marginTop: 32 }}>
           <NextMass />
         </div>
       </StickyHero>
+
+      {/* ════ Parish Essentials ════ */}
+      <section
+        style={{
+          background: T.warmWhite,
+          borderBottom: `1px solid ${T.stone}`,
+          padding: "clamp(28px, 5vw, 48px) 24px",
+        }}
+      >
+        <div style={{ maxWidth: 1160, margin: "0 auto" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "space-between",
+              gap: 20,
+              marginBottom: 22,
+              flexWrap: "wrap",
+            }}
+          >
+            <div>
+              <div
+                style={{
+                  fontSize: 12,
+                  letterSpacing: 3,
+                  textTransform: "uppercase",
+                  color: T.gold,
+                  fontWeight: 700,
+                  marginBottom: 6,
+                }}
+              >
+                {t("home.essentials.sub")}
+              </div>
+              <h2
+                style={{
+                  fontSize: "clamp(24px, 4vw, 34px)",
+                  fontFamily: "'Cormorant Garamond', serif",
+                  color: T.softBlack,
+                  fontWeight: 600,
+                }}
+              >
+                {t("home.essentials.title")}
+              </h2>
+            </div>
+            <div style={{ fontSize: 13, color: T.warmGray }}>
+              {t("home.essentials.reviewed")}
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(190px, 1fr))",
+              gap: 12,
+            }}
+          >
+            {[
+              {
+                icon: "Church",
+                label: t("home.essentials.today"),
+                value: todayMasses || t("home.essentials.noMassToday"),
+                onClick: () => navigate("/mass-times"),
+              },
+              {
+                icon: "Cross",
+                label: t("home.essentials.confession"),
+                value: todayConfessions || t("home.essentials.noConfessionToday"),
+                onClick: () => navigate("/mass-times"),
+              },
+              {
+                icon: "MapPin",
+                label: t("home.essentials.directions"),
+                value: t("home.essentials.directionsDesc"),
+                href: mapsHref,
+              },
+              {
+                icon: "Newspaper",
+                label: t("home.essentials.bulletin"),
+                value: t("home.essentials.bulletinDesc"),
+                onClick: () => navigate("/bulletin"),
+              },
+              {
+                icon: "Phone",
+                label: t("home.essentials.contact"),
+                value: CONFIG.phone,
+                href: CONFIG.phoneLink,
+              },
+            ].map((item) => {
+              const content = (
+                <>
+                  <Icon name={item.icon} size={22} color={T.burgundy} />
+                  <span>
+                    <span
+                      style={{
+                        display: "block",
+                        fontSize: 11,
+                        letterSpacing: 1.7,
+                        textTransform: "uppercase",
+                        color: T.gold,
+                        fontWeight: 700,
+                        marginBottom: 4,
+                      }}
+                    >
+                      {item.label}
+                    </span>
+                    <span
+                      style={{
+                        display: "block",
+                        fontSize: 15,
+                        lineHeight: 1.45,
+                        color: T.softBlack,
+                        fontWeight: 600,
+                      }}
+                    >
+                      {item.value}
+                    </span>
+                  </span>
+                </>
+              );
+              const sharedStyle = {
+                minHeight: 108,
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 14,
+                padding: "18px 18px",
+                background: "#fff",
+                border: `1px solid ${T.stone}`,
+                borderRadius: 8,
+                textDecoration: "none",
+                textAlign: "left",
+                boxShadow: "0 2px 10px rgba(0,0,0,0.035)",
+                cursor: "pointer",
+                fontFamily: "'Source Sans 3', sans-serif",
+              };
+              if (item.href) {
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="hover-lift-sm"
+                    style={sharedStyle}
+                  >
+                    {content}
+                  </a>
+                );
+              }
+              return (
+                <button
+                  key={item.label}
+                  type="button"
+                  onClick={item.onClick}
+                  className="hover-lift-sm"
+                  style={sharedStyle}
+                >
+                  {content}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       {/* ════ Church Stats Band ════ */}
       <section
@@ -137,7 +335,7 @@ export default function Home() {
         >
           {[
             { end: 100, suffix: "+", labelKey: "home.stats.years" },
-            { end: 5, suffix: "", labelKey: "home.stats.masses" },
+            { end: 4, suffix: "", labelKey: "home.stats.masses" },
             { end: 12, suffix: "", labelKey: "home.stats.ministries" },
             { end: 2, suffix: "", labelKey: "home.stats.languages" },
           ].map((stat, i) => (
@@ -220,7 +418,7 @@ export default function Home() {
 
             {/* right card — glassmorphic dark */}
             <div
-              className="glass-card--dark pulse-glow"
+              className="glass-card--dark"
               style={{
                 color: "#fff",
                 padding: 36,
@@ -408,7 +606,7 @@ export default function Home() {
             ].map((pillar, i) => (
               <div
                 key={i}
-                className="glass-card tilt-card"
+                className="glass-card"
                 style={{
                   padding: 36,
                   textAlign: "center",
@@ -497,7 +695,7 @@ export default function Home() {
               {announcements.slice(0, 3).map((a, i) => (
                 <div
                   key={a.title || i}
-                  className="glass-card tilt-card"
+                  className="glass-card"
                   style={{ padding: 28 }}
                 >
                   {a.date && (
@@ -683,7 +881,7 @@ export default function Home() {
             ].map((card) => (
               <div
                 key={card.key}
-                className="glass-card tilt-card"
+                className="glass-card"
                 style={{ padding: 32, textAlign: "center" }}
               >
                 <div style={{ marginBottom: 12 }}>

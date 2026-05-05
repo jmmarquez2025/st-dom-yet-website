@@ -11,9 +11,59 @@ import Icon from "./Icon";
  */
 export default function YouTubeChannel() {
   const { t } = useTranslation();
+  const [enabled, setEnabled] = useState(false);
   const [loading, setLoading] = useState(true);
 
   if (!CONFIG.youtubeEmbedUrl) return null;
+
+  if (!enabled) {
+    return (
+      <div style={{ maxWidth: 960, margin: "0 auto" }}>
+        <div
+          style={{
+            minHeight: 280,
+            borderRadius: 12,
+            border: `1px solid ${T.stone}`,
+            background: T.softBlack,
+            color: "#fff",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 14,
+            padding: 32,
+            textAlign: "center",
+          }}
+        >
+          <Icon name="BookOpenText" size={38} color={T.goldLight} />
+          <div style={{ fontSize: 15, color: "rgba(255,255,255,0.75)", maxWidth: 420, lineHeight: 1.7 }}>
+            {t("youtube.privacy")}
+          </div>
+          <button
+            type="button"
+            onClick={() => setEnabled(true)}
+            className="btn-hover"
+            style={{
+              marginTop: 4,
+              background: T.gold,
+              color: T.softBlack,
+              border: "none",
+              borderRadius: 4,
+              padding: "12px 22px",
+              fontSize: 13,
+              fontWeight: 700,
+              letterSpacing: 1,
+              textTransform: "uppercase",
+              fontFamily: "'Source Sans 3', sans-serif",
+              cursor: "pointer",
+            }}
+          >
+            {t("youtube.loadVideo")}
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div style={{ maxWidth: 960, margin: "0 auto" }}>

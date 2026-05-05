@@ -330,6 +330,18 @@ export default function MassTimes() {
           >
             {t("massTimes.mass.desc")}
           </p>
+          <p
+            style={{
+              fontSize: 13,
+              color: T.warmGray,
+              textAlign: "center",
+              maxWidth: 680,
+              margin: "-24px auto 36px",
+              fontFamily: "'Source Sans 3', sans-serif",
+            }}
+          >
+            {t("massTimes.reviewed")}
+          </p>
           <div
             style={{
               display: "grid",

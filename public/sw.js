@@ -1,5 +1,5 @@
-const CACHE_NAME = "st-dominic-v2";
-const BASE = "/st-dom-yet-website/";
+const CACHE_NAME = "st-dominic-v3";
+const BASE = "/";
 
 // App shell files to precache on install
 const PRECACHE_URLS = [

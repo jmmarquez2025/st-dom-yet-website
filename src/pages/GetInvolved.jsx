@@ -365,7 +365,7 @@ export default function GetInvolved() {
             ].map((step) => (
               <div
                 key={step.key}
-                className="glass-card tilt-card"
+                className="glass-card"
                 style={{ padding: 28, textAlign: "center" }}
               >
                 <ScrollColorNum

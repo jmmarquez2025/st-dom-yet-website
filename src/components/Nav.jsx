@@ -246,11 +246,26 @@ export default function Nav() {
                 style={{ position: "relative" }}
                 onMouseEnter={() => handleMouseEnter(item.key)}
                 onMouseLeave={handleMouseLeave}
+                onFocus={() => {
+                  clearTimeout(hoverTimeout.current);
+                  setOpenDropdown(item.key);
+                }}
+                onBlur={(e) => {
+                  if (!e.currentTarget.contains(e.relatedTarget)) {
+                    setOpenDropdown(null);
+                  }
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") {
+                    setOpenDropdown(null);
+                    e.currentTarget.querySelector("a")?.focus();
+                  }
+                }}
               >
                 <NavLink
                   to={item.children[0].to}
                   style={linkStyle(isGroupActive(item))}
-                  aria-haspopup="true"
+                  aria-haspopup="menu"
                   aria-expanded={openDropdown === item.key}
                 >
                   {t(`nav.${item.key}`)}

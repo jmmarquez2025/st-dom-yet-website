@@ -106,6 +106,17 @@ export default function Bulletin() {
             >
               {t("bulletin.heading")}
             </h2>
+            <p
+              style={{
+                fontSize: 13,
+                color: T.warmGray,
+                textAlign: "center",
+                maxWidth: 620,
+                margin: "-20px auto 28px",
+              }}
+            >
+              {t("bulletin.reviewed")}
+            </p>
 
             {hasBulletin ? (
               <>

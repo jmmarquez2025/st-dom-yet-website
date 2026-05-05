@@ -1,5 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { T } from "../constants/theme";
+import Icon from "./Icon";
 
 const SCRIPT_SRC = "https://www.vaticannews.va/widget.js";
 
@@ -9,10 +11,12 @@ const SCRIPT_SRC = "https://www.vaticannews.va/widget.js";
  */
 export default function VaticanNews() {
   const containerRef = useRef(null);
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
+  const [enabled, setEnabled] = useState(false);
   const lang = i18n.language?.startsWith("es") ? "es" : "en";
 
   useEffect(() => {
+    if (!enabled) return;
     const container = containerRef.current;
     if (!container) return;
 
@@ -31,7 +35,60 @@ export default function VaticanNews() {
       script.async = true;
       document.body.appendChild(script);
     }
-  }, [lang]);
+  }, [enabled, lang]);
 
-  return <div ref={containerRef} />;
+  if (!enabled) {
+    return (
+      <div
+        style={{
+          maxWidth: 860,
+          minHeight: 210,
+          margin: "0 auto",
+          padding: 32,
+          border: `1px solid ${T.stone}`,
+          borderRadius: 8,
+          background: "#fff",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 12,
+          textAlign: "center",
+        }}
+      >
+        <Icon name="Globe" size={34} color={T.burgundy} />
+        <p style={{ fontSize: 15, color: T.warmGray, lineHeight: 1.7, maxWidth: 440 }}>
+          {t("home.vatican.privacy")}
+        </p>
+        <button
+          type="button"
+          onClick={() => setEnabled(true)}
+          className="btn-hover"
+          style={{
+            background: T.burgundy,
+            color: T.cream,
+            border: "none",
+            borderRadius: 4,
+            padding: "12px 22px",
+            fontSize: 13,
+            fontWeight: 700,
+            letterSpacing: 1,
+            textTransform: "uppercase",
+            fontFamily: "'Source Sans 3', sans-serif",
+            cursor: "pointer",
+          }}
+        >
+          {t("home.vatican.load")}
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      ref={containerRef}
+      aria-live="polite"
+      aria-label={t("home.vatican.loading")}
+    />
+  );
 }

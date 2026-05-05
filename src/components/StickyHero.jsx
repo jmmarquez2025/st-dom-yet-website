@@ -19,6 +19,7 @@ export default function StickyHero({
   overlay = 0.5,
   tint,
   height = "130vh",
+  viewportHeight = "100vh",
   children,
 }) {
   const wrapperRef = useRef(null);
@@ -40,7 +41,12 @@ export default function StickyHero({
     if (!el) return;
     const rect = el.getBoundingClientRect();
     const h = el.offsetHeight;
-    const p = Math.min(1, Math.max(0, -rect.top / (h - window.innerHeight)));
+    const scrollRange = h - window.innerHeight;
+    if (scrollRange <= 0) {
+      setProgress(0);
+      return;
+    }
+    const p = Math.min(1, Math.max(0, -rect.top / scrollRange));
     setProgress(p);
   }, [reducedMotion]);
 
@@ -61,7 +67,7 @@ export default function StickyHero({
         style={{
           position: "sticky",
           top: 0,
-          height: "100vh",
+          height: viewportHeight,
           overflow: "hidden",
           display: "flex",
           alignItems: "center",

@@ -6,22 +6,22 @@
 export const bulletins = [
   {
     date: "2026-04-05",
-    label: "Palm Sunday",
-    url: "https://online.fliphtml5.com/stpatrickchurch/2026-04-05/",
+    label: "Easter Sunday",
+    url: "",
   },
   {
     date: "2026-03-29",
-    label: "5th Sunday of Lent",
+    label: "Palm Sunday",
     url: "",
   },
   {
     date: "2026-03-22",
-    label: "4th Sunday of Lent",
+    label: "5th Sunday of Lent",
     url: "",
   },
   {
     date: "2026-03-15",
-    label: "3rd Sunday of Lent",
+    label: "4th Sunday of Lent",
     url: "",
   },
 ];

@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const outDir = process.argv[2] || "dist";
-const siteUrl = (process.env.VITE_SITE_URL || "https://jmmarquez2025.github.io/st-dom-yet-website").replace(/\/$/, "");
+const siteUrl = (process.env.VITE_SITE_URL || "https://saintdominic.org").replace(/\/$/, "");
 
 const pages = [
   ["/", "1.0", "weekly"],

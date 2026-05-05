@@ -5,21 +5,21 @@
  */
 export const announcements = [
   {
-    title: "Summer Church Picnic",
-    body: "Join us for our annual church picnic on the church grounds. Food, games, and fellowship for the whole family!",
-    date: "2026-06-14",
+    title: "Welcome to St. Dominic",
+    body: "Join us for daily Mass, Confession, Eucharistic Adoration, and parish life on Youngstown's south side.",
+    date: "",
     active: true,
   },
   {
-    title: "Vacation Bible School Registration",
-    body: "Registration is now open for Vacation Bible School, July 7–11. Children ages 5–12 are welcome. Sign up at the church office.",
-    date: "2026-07-07",
+    title: "Bulletin Announcements",
+    body: "Please send bulletin notices to the parish office by Monday at noon for the following weekend's bulletin.",
+    date: "",
     active: true,
   },
   {
-    title: "Rosary & Adoration — First Fridays",
-    body: "Join us every First Friday for Eucharistic Adoration at 12:30 PM followed by the Rosary. All are welcome.",
-    date: "2026-05-01",
+    title: "Need Help Finding Something?",
+    body: "Call the parish office and we will help you with Mass times, sacramental preparation, registration, or parish records.",
+    date: "",
     active: true,
   },
 ];

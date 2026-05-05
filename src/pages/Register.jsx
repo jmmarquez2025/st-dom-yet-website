@@ -141,7 +141,7 @@ function FormSection({ icon: IconComp, title, children, defaultOpen = true }) {
   return (
     <div
       style={{
-        background: "#fff", borderRadius: 14,
+        background: "#fff", borderRadius: 8,
         border: `1px solid ${open ? "rgba(107,29,42,0.12)" : T.stone}`,
         overflow: "hidden",
         transition: "border-color 0.3s, box-shadow 0.3s",
@@ -159,7 +159,7 @@ function FormSection({ icon: IconComp, title, children, defaultOpen = true }) {
         }}
       >
         <div style={{
-          width: 36, height: 36, borderRadius: 10,
+          width: 36, height: 36, borderRadius: 8,
           background: open
             ? `linear-gradient(135deg, ${T.burgundy}, ${T.burgundyDark})`
             : `linear-gradient(135deg, rgba(107,29,42,0.08), rgba(197,165,90,0.12))`,
@@ -285,6 +285,8 @@ const INITIAL = {
   notes: "",
 };
 
+const REQUIRED_FIELDS = ["firstName", "lastName", "email", "phone", "address", "city", "state", "zip"];
+
 export default function Register() {
   const { t } = useTranslation();
   const [form, setForm] = useState(INITIAL);
@@ -297,8 +299,14 @@ export default function Register() {
 
   const validateField = (field) => {
     let err = "";
-    if (field === "email") err = validateEmail(form.email);
-    if (field === "phone") err = validatePhone(form.phone);
+    const requiredError = t("contact.requiredError");
+    if (REQUIRED_FIELDS.includes(field) && !String(form[field] || "").trim()) {
+      err = requiredError;
+    } else if (field === "email") {
+      err = validateEmail(form.email);
+    } else if (field === "phone") {
+      err = validatePhone(form.phone);
+    }
     setErrors((prev) => {
       const next = { ...prev };
       if (err) next[field] = err; else delete next[field];
@@ -308,9 +316,13 @@ export default function Register() {
   };
 
   const validateAll = () => {
-    const emailErr = validateEmail(form.email);
-    const phoneErr = validatePhone(form.phone);
+    const requiredError = t("contact.requiredError");
     const next = {};
+    REQUIRED_FIELDS.forEach((field) => {
+      if (!String(form[field] || "").trim()) next[field] = requiredError;
+    });
+    const emailErr = next.email ? "" : validateEmail(form.email);
+    const phoneErr = next.phone ? "" : validatePhone(form.phone);
     if (emailErr) next.email = emailErr;
     if (phoneErr) next.phone = phoneErr;
     setErrors(next);
@@ -432,7 +444,7 @@ export default function Register() {
                 style={{
                   background: "linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%)",
                   border: "1px solid #c8e6c9",
-                  borderRadius: 16, padding: "56px 40px", textAlign: "center",
+                  borderRadius: 8, padding: "56px 40px", textAlign: "center",
                   animation: "fadeInScale 0.4s ease",
                 }}
               >
@@ -485,12 +497,18 @@ export default function Register() {
                       <FloatingInput
                         label={t("register.firstName")}
                         required value={form.firstName} onChange={set("firstName")}
+                        onBlurValidate={() => validateField("firstName")}
+                        error={errors.firstName}
                         ariaLabel={t("register.firstName")}
+                        ariaDescribedBy={errors.firstName ? "register-first-name-error" : undefined}
                       />
                       <FloatingInput
                         label={t("register.lastName")}
                         required value={form.lastName} onChange={set("lastName")}
+                        onBlurValidate={() => validateField("lastName")}
+                        error={errors.lastName}
                         ariaLabel={t("register.lastName")}
+                        ariaDescribedBy={errors.lastName ? "register-last-name-error" : undefined}
                       />
                     </div>
 
@@ -502,7 +520,7 @@ export default function Register() {
                         display: "inline-flex", alignItems: "center", gap: 8,
                         background: showSpouse ? "rgba(107,29,42,0.04)" : "transparent",
                         border: `1.5px dashed ${showSpouse ? T.burgundy : T.stone}`,
-                        borderRadius: 10, padding: "12px 20px", fontSize: 14,
+                        borderRadius: 8, padding: "12px 20px", fontSize: 14,
                         color: T.burgundy, cursor: "pointer",
                         fontFamily: "'Source Sans 3', sans-serif", fontWeight: 600,
                         transition: "all 0.25s",
@@ -517,7 +535,7 @@ export default function Register() {
                         style={{
                           display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16,
                           padding: "16px 20px", background: "rgba(197,165,90,0.04)",
-                          borderRadius: 10, border: `1px solid rgba(197,165,90,0.15)`,
+                          borderRadius: 8, border: `1px solid rgba(197,165,90,0.15)`,
                           animation: "fadeInScale 0.3s ease",
                         }}
                         className="reg-two-col"
@@ -560,24 +578,36 @@ export default function Register() {
                     <FloatingInput
                       label={t("register.address")}
                       required value={form.address} onChange={set("address")}
+                      onBlurValidate={() => validateField("address")}
+                      error={errors.address}
                       ariaLabel={t("register.address")}
+                      ariaDescribedBy={errors.address ? "register-address-error" : undefined}
                     />
                     <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 16 }}
                          className="reg-three-col">
                       <FloatingInput
                         label={t("register.city")}
                         required value={form.city} onChange={set("city")}
+                        onBlurValidate={() => validateField("city")}
+                        error={errors.city}
                         ariaLabel={t("register.city")}
+                        ariaDescribedBy={errors.city ? "register-city-error" : undefined}
                       />
                       <FloatingInput
                         label={t("register.state")}
                         required value={form.state} onChange={set("state")} maxLength={2}
+                        onBlurValidate={() => validateField("state")}
+                        error={errors.state}
                         ariaLabel={t("register.state")}
+                        ariaDescribedBy={errors.state ? "register-state-error" : undefined}
                       />
                       <FloatingInput
                         label={t("register.zip")}
                         required value={form.zip} onChange={set("zip")} maxLength={10}
+                        onBlurValidate={() => validateField("zip")}
+                        error={errors.zip}
                         ariaLabel={t("register.zip")}
+                        ariaDescribedBy={errors.zip ? "register-zip-error" : undefined}
                       />
                     </div>
                   </FormSection>
@@ -638,6 +668,9 @@ export default function Register() {
                   </FormSection>
 
                   {/* ── Submit ── */}
+                  <p style={{ fontSize: 12.5, color: T.warmGray, lineHeight: 1.6 }}>
+                    {t("register.privacy")}
+                  </p>
                   <button
                     type="submit"
                     disabled={status === "sending"}
@@ -649,7 +682,7 @@ export default function Register() {
                       color: T.cream, border: "none",
                       padding: "18px 40px", fontSize: 15, fontWeight: 600,
                       letterSpacing: 1.2, textTransform: "uppercase",
-                      borderRadius: 12, cursor: status === "sending" ? "wait" : "pointer",
+                      borderRadius: 8, cursor: status === "sending" ? "wait" : "pointer",
                       fontFamily: "'Source Sans 3', sans-serif",
                       minHeight: 56, width: "100%",
                       display: "flex", alignItems: "center", justifyContent: "center", gap: 10,

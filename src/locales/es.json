@@ -44,6 +44,20 @@
       "ctaMass": "Horarios de Misa y Confesión",
       "ctaBecoming": "¿Interesado en Hacerse Católico?"
     },
+    "essentials": {
+      "sub": "Lo Esencial",
+      "title": "Lo Que Muchos Visitantes Buscan Primero",
+      "today": "Misas de Hoy",
+      "noMassToday": "No hay Misa listada para hoy",
+      "confession": "Confesión Hoy",
+      "noConfessionToday": "Vea el horario semanal",
+      "directions": "Direcciones",
+      "directionsDesc": "77 East Lucius Avenue",
+      "bulletin": "Boletín",
+      "bulletinDesc": "Anuncios y noticias parroquiales",
+      "contact": "Llame a la Oficina",
+      "reviewed": "Horario revisado el 4 de mayo de 2026"
+    },
     "welcome": {
       "sub": "Bienvenidos",
       "title": "Encuentre a Jesucristo con Nosotros",
@@ -56,7 +70,7 @@
       "title": "Venga a Adorar con Nosotros",
       "desc": "¡Acompáñenos! Nos encantaría darle la bienvenida a nuestra hermosa iglesia románica. Ya sea que esté visitando Youngstown o buscando un nuevo hogar parroquial, encuentre nuestros horarios de Misa y Confesión a continuación.",
       "cta": "Ver Horarios de Misa y Confesión",
-      "sundayMass": "Misa Dominical",
+      "sundayMass": "Misa de Fin de Semana",
       "satVigil": "Vigilia del Sábado:",
       "sun": "Domingo:",
       "sunEspanol": "Domingo (Español):"
@@ -92,7 +106,7 @@
     },
     "stats": {
       "years": "Años de Fe",
-      "masses": "Misas Cada Domingo",
+      "masses": "Misas de Fin de Semana",
       "ministries": "Ministerios Activos",
       "languages": "Idiomas"
     },
@@ -139,7 +153,10 @@
     },
     "vatican": {
       "sub": "La Iglesia Universal",
-      "title": "Noticias del Vaticano"
+      "title": "Noticias del Vaticano",
+      "load": "Cargar Noticias del Vaticano",
+      "loading": "Cargando Noticias del Vaticano...",
+      "privacy": "Esto carga un widget de Vatican News desde vaticannews.va."
     },
     "cards": {
       "visitTitle": "Visítenos",
@@ -177,9 +194,10 @@
       "quote": "\"La Eucaristía es fuente y culmen de toda la vida cristiana.\"",
       "quoteSrc": "— Catecismo de la Iglesia Católica, 1324",
       "desc": "La Santa Misa se celebra diariamente en la Iglesia Santo Domingo. Todos son bienvenidos a unirse a nosotros en el acto más sagrado del culto católico.",
-      "sundayTitle": "Misas Dominicales y Vigilia",
+      "sundayTitle": "Misas de Fin de Semana",
       "dailyTitle": "Misas Diarias"
     },
+    "reviewed": "Horario revisado el 4 de mayo de 2026. Los horarios de días de precepto pueden variar; revise el boletín o llame a la oficina parroquial.",
     "parallax1": {
       "quote": "\"La Eucaristía es la consumación de toda la vida espiritual.\"",
       "src": "— Santo Tomás de Aquino, O.P."
@@ -363,6 +381,7 @@
     },
     "heading": "Boletín de Esta Semana",
     "loading": "Cargando boletín...",
+    "reviewed": "Archivo de boletines revisado el 4 de mayo de 2026. Los boletines actuales se publican cuando la fuente parroquial está conectada.",
     "fallback": {
       "title": "Boletín Próximamente",
       "desc": "Nuestro boletín semanal será integrado aquí para fácil lectura. Mientras tanto, visite nuestro sitio web parroquial para el boletín más reciente.",
@@ -619,6 +638,8 @@
     "message": "Mensaje",
     "submit": "Enviar Mensaje",
     "sending": "Enviando…",
+    "requiredError": "Este campo es obligatorio.",
+    "privacy": "Su mensaje se envía solamente a la oficina parroquial. Por favor no incluya contraseñas, información de pago o detalles médicos urgentes.",
     "success": "¡Gracias! Su mensaje ha sido enviado. Nos pondremos en contacto pronto.",
     "successFallback": "Si no recibe respuesta dentro de 2 días hábiles, llame a la oficina parroquial.",
     "error": "Algo salió mal. Por favor intente llamarnos o enviar un correo electrónico directamente.",
@@ -629,6 +650,8 @@
     "officeHours": "Horario de Oficina",
     "sendAnother": "Enviar Otro Mensaje",
     "mapTitle": "Mapa de la Iglesia Católica Santo Domingo",
+    "loadMap": "Cargar Mapa",
+    "mapPrivacy": "Esto carga un mapa integrado de Google.",
     "contactOffice": "Llámenos para organizar su donación hoy."
   },
   "give": {
@@ -876,7 +899,7 @@
     "schedule": {
       "sub": "Horario de Misas",
       "title": "Acompáñenos Este Fin de Semana",
-      "desc": "Celebramos Misa todos los días y varias veces los domingos. Nuestros frailes dominicos son conocidos por su predicación — venga a escuchar la Palabra proclamada.",
+      "desc": "Celebramos Misa todos los días y cuatro veces durante el fin de semana. Nuestros frailes dominicos son conocidos por su predicación — venga a escuchar la Palabra proclamada.",
       "cta": "Horario Completo de Misas y Confesiones",
       "sundayTitle": "Horario de Misas del Fin de Semana",
       "satVigil": "Vigilia del Sábado:",
@@ -885,7 +908,7 @@
       "confessionNote": "Confesiones: Mié y Vie 11:15 AM–12:00 PM · Sáb 11:15 AM–12:00 PM y 4:00–5:00 PM"
     },
     "glance": {
-      "masses": "Misas Dominicales",
+      "masses": "Misas de Fin de Semana",
       "languages": "Idiomas",
       "priests": "Frailes Dominicos"
     },
@@ -931,6 +954,8 @@
     "sub": "Fray Nelson Medina, O.P.",
     "desc": "Explore las enseñanzas y reflexiones de Fray Nelson Medina, O.P. — un fraile dominico cuyo ministerio en video llega a cientos de miles de fieles en todo el mundo hispanohablante.",
     "loading": "Cargando video…",
+    "loadVideo": "Cargar Videos de YouTube",
+    "privacy": "Esto carga un reproductor integrado de YouTube.",
     "visitChannel": "Visitar Canal Completo en YouTube"
   },
   "history": {
@@ -1025,6 +1050,7 @@
     "notesHint": "Cualquier información adicional que desee compartir...",
     "submit": "Enviar Registro",
     "sending": "Enviando...",
+    "privacy": "Los datos de registro se envían solamente a la oficina parroquial. Por favor no incluya contraseñas, información de pago o detalles médicos urgentes.",
     "error": "Algo salió mal. Por favor intente de nuevo o llame a la oficina parroquial.",
     "successTitle": "¡Registro Recibido!",
     "successDesc": "Gracias por registrarse en la iglesia de Santo Domingo. Nos comunicaremos pronto para darle la bienvenida personalmente.",
@@ -1038,7 +1064,7 @@
     "pastTitle": "Eventos Pasados",
     "pastSub": "Vida Reciente de la Iglesia",
     "filterAll": "Todos los Eventos",
-    "noneFound": "No se encontraron eventos para esta categoría."
+    "noneFound": "Todavía no hay próximos eventos publicados aquí. Revise el boletín semanal o llame a la oficina parroquial para eventos actuales."
   },
   "saintOfDay": {
     "label": "Santo del Día"
